@@ -22,7 +22,7 @@ code: |
   elif user_need == 'change foreign order':
     step_list.append((foreign_step, "foreign_idx"))
   elif user_need == 'enforce foreign order':
-    step_list.append((cssd_to_enforce, "cssd_to_enforce_idx"))
+    step_list.append((cssd_to_enforce_step, "cssd_to_enforce_idx"))
     step_list.append((register_step, "register_idx"))    
     step_list.append((court_to_enforce_step, "court_to_enforce_idx"))
   else:
