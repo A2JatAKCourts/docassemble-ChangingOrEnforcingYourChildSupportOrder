@@ -1,0 +1,509 @@
+---
+include:
+  - docassemble.AssemblyLine:assembly_line.yml
+  - docassemble.AKA2JBranding:custom_organization.yml
+  - accordion_steps.yml
+  # - bundling_forms_for_downloading.yml
+---
+features:
+  css: collapse.css
+---
+metadata:
+  title: |
+    Changing Child Support in Alaska
+  short title: |
+   Changing Child Support
+  authors:
+    - Caroline Robinson
+    - Jeannie Sato
+---
+mandatory: True
+comment: |
+  Global interview metadata
+variable name: interview_metadata["changing_child_support"]
+data:
+  al_weaver_version: "1.7.0"
+  generated on: "2022-11-10"
+  title: >-
+    Changing Child Support in Alaska
+  short title: >-
+    Changing Child Support
+  description: |-
+    Learn how to ask for a change to your child support order in Alaska
+  original_form: >-
+    None
+  allowed courts: []
+  categories: []
+  typical role: "na"
+  generate download screen: True
+---
+code: |
+  interview_metadata['main_interview_key'] =  'changing_child_support'
+---
+code: |
+  # This controls the default country and list of states in address field questions
+  AL_DEFAULT_COUNTRY = "US"
+---
+code: |
+  # This controls the default state in address field questions
+  AL_DEFAULT_STATE = "AK"
+---
+code: |
+  github_repo_name =  'docassemble-ChangingChildSupport'
+---
+code: |
+  interview_short_title = "Changing Child Support in Alaska"
+---
+code: |
+  al_form_type = "other" 
+---
+comment: |
+  For Guided Assistants avoid asking for personal information - like user name and role
+objects:
+  #  - users: ALPeopleList.using(ask_number=True,target_number=1)
+  - users: ALPeopleList.using(there_are_any=False)
+---
+sections:
+  - review_changing_child_support: Review your answers
+---
+#################### Interview order #####################
+comment: |
+  Controls order and branching logic for questions specific to this form
+id: interview_order_changing_child_support
+code: |
+  # Set the allowed courts for this interview
+  # allowed_courts = interview_metadata["changing_child_support"]["allowed courts"]
+  nav.set_section("review_changing_child_support")
+  user_role = "na"
+  if user_need in ('change foreign order', 'enforce foreign order', 'not wanted'):
+    confirmation_and_download
+  else:
+    if who_ordered == 'court':
+        if user_need == 'change AK order':
+            if why_change == schedule:
+                confirmation_and_download
+            elif why_change == 'income':
+                if parents_agree:
+                    confirmation_and_download
+                else:
+                    if middle_of_case:
+                        if defined(interim_order_date):
+                            confirmation_and_download
+                        elif defined(interim_order_date_period): 
+                            if guess_interim_order_date == 'unknown':
+                                unknown_interim_date
+                                confirmation_and_download
+                            else:
+                                confirmation_and_download
+                    else:
+                        if defined(final_order_date):
+                            confirmation_and_download
+                        elif defined(final_order_date_period):
+                            if guess_final_order_date == 'unknown':
+                                unknown_final_date
+                                confirmation_and_download
+                            else:
+                                confirmation_and_download     
+            else: # why_change == 'problem'
+                if middle_of_case:
+                    if defined(interim_order_date):
+                        confirmation_and_download
+                    elif defined(interim_order_date_period): 
+                        if guess_interim_order_date == 'unknown':
+                            unknown_interim_date
+                            confirmation_and_download
+                        else:
+                            confirmation_and_download
+                else:
+                    if defined(final_order_date):
+                        confirmation_and_download
+                    elif defined(final_order_date_period):
+                        if guess_final_order_date == 'unknown':
+                            unknown_final_date
+                            confirmation_and_download
+                        else:
+                            confirmation_and_download
+        else: # if user_need == 'enforce AK order'
+          cssd_collect
+          confirmation_and_download
+    elif who_ordered == 'cssd': #for both changing and enforcing AK orders
+      confirmation_and_download
+    else: # if who_ordered == 'unknown'
+        if find_who_ordered == 'court':   
+          if user_need == 'change AK order':
+              if why_change == schedule:
+                  confirmation_and_download
+              elif why_change == 'income':
+                  if parents_agree:
+                      confirmation_and_download
+                  else:
+                      if middle_of_case:
+                          if defined(interim_order_date):
+                              confirmation_and_download
+                          elif defined(interim_order_date_period): 
+                              if guess_interim_order_date == 'unknown':
+                                  unknown_interim_date
+                                  confirmation_and_download
+                              else:
+                                  confirmation_and_download
+                      else:
+                          if defined(final_order_date):
+                              confirmation_and_download
+                          elif defined(final_order_date_period):
+                              if guess_final_order_date == 'unknown':
+                                  unknown_final_date
+                                  confirmation_and_download
+                              else:
+                                  confirmation_and_download     
+              else: # why_change == 'problem'
+                  if middle_of_case:
+                      if defined(interim_order_date):
+                          confirmation_and_download
+                      elif defined(interim_order_date_period): 
+                          if guess_interim_order_date == 'unknown':
+                              unknown_interim_date
+                              confirmation_and_download
+                          else:
+                              confirmation_and_download
+                  else:
+                      if defined(final_order_date):
+                          confirmation_and_download
+                      elif defined(final_order_date_period):
+                          if guess_final_order_date == 'unknown':
+                              unknown_final_date
+                              confirmation_and_download
+                          else:
+                              confirmation_and_download
+          else: # if user_need == 'enforce AK order'
+            cssd_collect
+            confirmation_and_download
+        else: # find_who_ordered in('cssd', 'unknown') 
+          confirmation_and_download
+
+  interview_order_changing_child_support = True
+---
+###################### Main order ######################
+comment: |
+  This block includes the logic for standalone interviews.
+  Delete mandatory: True to include in another interview
+mandatory: True
+code: |
+  #  al_intro_screen
+  user_need
+  interview_order_changing_child_support
+  #  signature_date
+  # Store anonymous data for analytics / statistics
+  store_variables_snapshot(
+      persistent=True,
+      data={
+          "zip": showifdef("users[0].address.zip"),
+          "reached_interview_end": True,
+      },
+  )
+  confirmation_and_download
+---
+comment: |
+  This question is used to introduce your interview. Please customize
+id: changing child support guided assistant
+question: |
+  Changing Child Support Orders
+subquestion: |
+  This Guided Assistant asks you questions and uses your answers to build a Personal Action Plan - a list of steps to help you with changing or enforcing child support in Alaska. 
+fields:  
+  - "What do you want to do?": user_need
+    label above field: True
+    input type: radio
+    choices:
+      - "Change an Alaska child support order.": change AK order
+      - "Change a child support order from another state.": change foreign order
+      - "Enforce an Alaska child support order.": enforce AK order
+      - "Enforce a child support order from another state.": enforce foreign order
+      - "This is not what I was looking for.": unwanted
+  - note: |     
+     #### <i class="fa-regular fa-lightbulb"></i> Learn more ####
+     To get a copy of your child support order, contact the court or child support agency that issued your order.  Ask them how to get a copy.
+     
+     In Alaska, find your [local court contact information](https://courts.alaska.gov/courtdir/index.htm) or [contact Child Support Services Division](https://childsupport.alaska.gov/child-support-services/contact-us).
+---
+id: who ordered
+question: |
+  Who ordered your child support?
+fields:
+  - no label: who_ordered
+    input type: radio
+    choices:
+      - The court: court
+      - Child Support Services Division (CSSD): cssd
+      - I do not know who ordered it: unknown
+---
+id: find out who ordered it
+question: |
+  Find out who issued your child support order
+subquestion: |
+  
+  *	Look at the top of your child support order to see if it was ordered by the Alaska Court System or Child Support Services Division.
+  * Look for your name in [CourtView](https://records.courts.alaska.gov/eaccess/home.page.2), the Alaska Court System’s list of public court cases. Open up your divorce or custody case.  See if there is an entry for a “child support order
+  * Contact [Child Support Services Division](https://childsupport.alaska.gov/child-support-services/contact-us) and ask them.
+fields:
+  - Who issued your child support order?: find_who_ordered
+    label above field: True    
+    input type: radio
+    choices:
+      - The court: court
+      - Child Support Services Division (CSSD): cssd
+      - I still do not know who ordered it: unknown
+---
+id: Does CSSD collect?
+question: |
+  Does CSSD collect the child support ordered by the court?
+fields:
+  - no label: cssd_collect
+    input type: radio
+    choices:
+      - Yes: yes
+      - No: no
+      - "I do not know": unknown
+  - note: |     
+     #### <i class="fa-regular fa-lightbulb"></i> Learn more ####
+     If CSSD is collecting child support, the child support would be deducted from one parent's paycheck.  CSSD would pay the child support to the other parent.
+     
+     If CSSD is not collecting child support, the parents would have to exchange the child support between themselves.
+---
+id: Why do you want to change the order
+question: |
+  Why do you want to change child support?
+fields:
+  - no label: why_change
+    input type: radio
+    choices:
+      - "My income or the other parent's income changed.": income
+      - "We changed our schedule": schedule
+        help: |
+          The children spend more overnights with me or the other parent than they used to
+      - note: |
+          When your parenting schedule changes and you want to change child support to match the new schedule, you need to change *both* your parenting plan order and your child support order.
+          Use a different Guided Assistant Interview - [Changing a Custody Order](https://www.legalnav.org/guided_assistant/changing-a-custody-order/?location=alaska) - for a personalized action plan about changing child support and your parenting plan order.
+      - "There is a problem with the order.": problem
+      - note: |
+          Some examples:  
+
+            *	The judge made a mistake.
+            *	The judge’s decision was based on a fact you just found out is not true.
+            *	You found new evidence you could *not* have found before the judge decided.
+
+---
+id: Do parents agree?
+question: |
+  Do you and the other parent agree about changing child support?
+fields:
+  - no label: parents_agree
+    datatype: yesnoradio
+---
+id: Interim order?
+question: |
+  Are you in the middle of your case now? 
+fields:
+  - no label: middle_of_case
+    datatype: yesnoradio
+---
+id: interim order date question
+question: |
+  What is the date the court sent your interim child support order?
+subquestion: |
+  You can find the date the court sent you your child support order at the bottom of your child support order.  The Certificate of Distribution lists the day court staff sent the order to you.
+fields:
+  - "The date your order was distributed": interim_order_date
+    datatype: date
+    disable if: interim_order_period
+  - I do not have the exact date: interim_order_period
+    datatype: yesno
+    enable if: 
+      variable: interim_order_date
+      is: null
+  - no label: guess_interim_order_date
+    enable if: interim_order_period 
+    datatype: radio
+    choices:
+      - It was in the last 10 days: within 10 days
+      - It was more than 10 days ago: more than 10 days
+      - I do not know: unknown
+#    - note: |
+#      #### <i class="fa-regular fa-lightbulb"></i> Learn more ####
+#        You have different ways to ask the court to change your child support order when your situation changes.  It can depend on when the court sent you the order.
+#  
+#        For the first 10 days after {the court sent your child support order}, you can file a “Motion to Reconsider."  It asks the trial judge to fix something they overlooked or misunderstood.
+#       
+#        After 10 days, you can file a “Motion to Modify.”
+#       
+#        Your Action Plan will not include information about options that do not apply in your case.
+#  terms:
+#    the court sent your child support order: |
+#      You can find the date the court sent you your child support order at the bottom of your child support order.  The Certificate of Distribution lists the day court staff sent the order to you.
+#  continue button field: interim_order_date_question
+---
+id: get information about choices user does not know interim order date
+question: |
+  What do you want to get information about?
+subquestion: |
+  For the first 10 days {after you get a child support order}, you can file a “Motion to Reconsider" if you think the judge made a mistake.
+
+  After 10 days, you can file a “Motion to Modify” if the situation has changed.
+
+  I want to get information about:
+fields:
+  - no label: unknown_interim_date
+    datatype: radio
+    choices:
+      - "Motions to Reconsider.": reconsider
+      - "Motions to Modify.": modify
+      - Both: both
+terms:
+  you get a child support order: |
+    You can find the date the court sent you your child support order at the bottom of your child support order.  The Certificate of Distribution lists the day court staff sent the order to you.
+---
+id: final order date question
+question: |
+  What is the date the court sent your final child support order?
+subquestion: |
+  You can find the date the court sent you your child support order at the bottom of your child support order.  The Certificate of Distribution lists the day court staff sent the order to you.
+fields:
+  - "The date your order was distributed": final_order_date
+    datatype: date    
+    required: False
+    disable if: final_order_period
+  - I do not have the exact date: final_order_period
+    datatype: yesno
+    enable if: 
+      variable: final_order_date
+      is: null
+  - no label: guess_final_order_date
+    enable if: final_order_period 
+    datatype: radio
+    choices:
+      - It was in the last 10 days: within 10 days
+      - It was more than 10 days ago but within the last 30 days: between 11 and 30
+      - It was more than 30 days ago: more than 30
+
+#    - note: |     
+#      #### <i class="fa-regular fa-lightbulb"></i> Learn more ####
+#     You have different ways to ask the court to change your child support order when you think there is a mistake.  It can depend on how old your order is.
+#     
+#     For the first 10 days after {the court sent you your child support order}, you can file a “Motion to Reconsider.”  It asks the trial judge to fix something they overlooked or misunderstood.
+#     
+#     For the first 30 days after you get a child support order, you can file an appeal.  An appeal asks the Alaska Supreme Court to change a mistake made by the trial judge.
+#     
+#     You can always file a “Motion to Set Aside.”  A  “Motion to Set Aside” asks the judge to change the order because of certain kinds of mistakes.  For some mistakes, you must file the motion in the first year.
+#     
+#     Your Action Plan will not include information about options that do not apply in your case.  
+#  terms:
+#    the court sent you your child support order: |
+#      You can find the date the court sent you your child support order at the bottom of your child support order.  The Certificate of Distribution lists the day court staff sent the order to you. 
+#  continue button field: final_order_date_question
+---
+id: get information about choices if user does not know final order date
+question: |
+  What do you want to get information about?
+subquestion: |
+  For the first 10 days after {the court sent you your child support order}, you can file a “Motion to Reconsider.”  It asks the trial judge to fix something they overlooked or misunderstood.
+
+  For the first 30 days {after the court sent you your child support order}, you can file an appeal.  An appeal asks the Alaska Supreme Court to change a mistake made by the trial judge.
+
+  You can always file a “Motion to Set Aside.”  A  “Motion to Set Aside” asks the judge to change the order because of certain kinds of mistakes.  For some mistakes, you must file the motion in the first year.
+
+  I want to get information about? Check all that apply.
+
+fields:
+  - no label: unknown_final_date
+    datatype: checkboxes
+    choices:
+      - "Motions to Reconsider.": reconsider
+      - "Mmotions to Modify.": modify
+      - "Motions to Set Aside.": set aside
+---
+---
+id: child support draft template review screen
+event: review_changing_child_support
+question: |
+  Review your answers
+review:
+  - Edit: interim_motion
+    button: |
+      **Interim motion**:
+      ${ word(yesno(interim_motion)) }
+  - Edit: interview_title
+    button: |
+      **Interview title**:
+      ${ interview_title }
+  - Edit: wrong_path_tf
+    button: |
+      **Wrong path tf**:
+      ${ word(yesno(wrong_path_tf)) }
+  - Edit: modify
+    button: |
+      **Modify**:
+      ${ word(yesno(modify)) }
+  - Edit: do_not_know
+    button: |
+      **Do not know**:
+      ${ word(yesno(do_not_know)) }
+  - Edit: more_child_TF
+    button: |
+      **More child tf**:
+      ${ word(yesno(more_child_TF)) }
+  - Edit: one_child_tf
+    button: |
+      **One child tf**:
+      ${ word(yesno(one_child_tf)) }
+  - Edit: number_of_steps
+    button: |
+      **Number of steps**:
+      ${ number_of_steps }
+  - Edit: basics
+    button: |
+      **Basics**:
+      ${ word(yesno(basics)) }
+  - Edit: user_role
+    button: |
+      **User role**:
+      ${ user_role }
+---
+#  id: download changing_child_support
+#  event: confirmation_and_download
+#  question: |
+#    Your Personal Action Plan is ready!
+#  subquestion: |
+#    You can see, download (and eventually send) your plan.
+#     ${ al_user_bundle.download_list_html() }
+#  buttons:
+#    - Start over: restart  
+#  progress: 100
+#  comment: |
+#    Thank you ${users}. Your form is ready to download and deliver.  
+#    View, download and send your form below. Click the "Edit answers" button to fix any mistakes.
+#    ${ action_button_html(url_action('review_changing_child_support'), label='Edit answers', color='info') }  
+#    ${ al_user_bundle.download_list_html() }
+#    ${ al_user_bundle.send_button_html(show_editable_checkbox=True) }
+---
+# ALDocument objects specify the metadata for each template
+objects:
+  #  - changing_child_support_Post_interview_instructions: ALDocument.using(title="Instructions", filename="changing_child_support_next_steps.docx", enabled=True, has_addendum=False, default_overflow_message=AL_DEFAULT_OVERFLOW_MESSAGE)
+  - changing_child_support_attachment: ALDocument.using(title="Asking for Child Support", filename="changing_child_support", enabled=True, has_addendum=False, default_overflow_message=AL_DEFAULT_OVERFLOW_MESSAGE)
+---
+# Bundles group the ALDocuments into separate downloads, such as for court and for the user
+objects:
+  - al_user_bundle: ALDocumentBundle.using(elements=[changing_child_support_attachment], filename="changing_child_support", title="All forms to download for your records", enabled=True)
+  - al_recipient_bundle: ALDocumentBundle.using(elements=[changing_child_support_attachment],  filename="changing_child_support", title="All forms to file", enabled=True)
+---
+# Each attachment defines a key in an ALDocument. We use `i` as the placeholder here so the same template is 
+# used for "preview" and "final" keys, and logic in the template checks the value of 
+# `i` to show or hide the user's signature
+attachments:
+  #  - name: Post-interview-Instructions
+  #    filename: changing_child_support_next_steps
+  #    docx template file: changing_child_support_next_steps.docx
+  #    variable name: changing_child_support_Post_interview_instructions[i]
+  - name: Changing or Enforcing Child Support
+    filename: changing_or_enforcing_child_support_action_plan
+    variable name: changing_child_support_attachment[i]
+    skip undefined: True
+    docx template file: changing_child_support_action_plan.docx
