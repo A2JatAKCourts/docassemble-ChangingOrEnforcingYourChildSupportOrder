@@ -16,7 +16,7 @@ buttons:
 ---
 code: |
   step_list = []
-  if user_need == 'not wanted':
+  if user_need == 'unwanted':
     step_list.append((wrong_tf, "wrong_tf_idx"))
     step_list.append((wrong_tf2, "wrong_tf2_idx"))
   elif user_need == 'change foreign order':
@@ -148,8 +148,7 @@ template: wrong_tf
 subject: |
   Step ${ wrong_tf_idx }: Try another Guided Assistant
 content: | 
-  * [Enforcing Your Child Support Order](https://Docassemble.AKCourts.gov/start/EnforcingChildSupport)
-  * [Changing Your Child Support Order](https://Docassemble.AKCourts.gov/start/ChangingChildSupport)
+  * [Asking for Child Support](https://docassemble.akcourts.gov/start/AskingForChildSupport/)
   * [Starting A Case to End Your Marriage](https://LegalNav.org/guided_assistant/starting-a-case-to-end-your-marriage/?location=alaska)
   * [Responding if Your Spouse Starts a Case to End Your Marriage](https://LegalNav.org/guided_assistant/responding-if-your-spouse-wants-to-or-starts-a-case-to-end-your-marriage/?location=Alaska)
   * [Starting a Custody Case](https://LegalNav.org/guided_assistant/starting-a-custody-case/?location=alaska)
