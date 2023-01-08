@@ -4,7 +4,7 @@ event: confirmation_and_download
 question: |
   # <i class="fa-thin fa-list"></i>Your Personal Action Plan is ready!
 subquestion: |
-  Your Personal Action Plan in ${ len(step_list) } Steps
+  Your Personal Action Plan for changing or enforcing your child support order in ${ len(step_list) } steps:
   
   % for iteration_index, step_tuple in enumerate( step_list ):
   ${ collapse_template(step_tuple[0], closed_icon="plus", open_icon="minus") }
@@ -40,18 +40,18 @@ code: |
                 step_list.append((parents_agree_step, "parents_agree_idx"))
               else:
                 if middle_of_case:
-                    if defined(interim_order_date):
+                    if defined('interim_order_date'):
                       if date_difference(starting=interim_order_date, ending=today()).days <= 10:
                         step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                         step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
                       if date_difference(starting=interim_order_date, ending=today()).days > 10:
                         step_list.append((learn_modify_step, "learn_modify_idx"))
                         step_list.append((fill_modify_step, "fill_modify_idx"))
-                    elif defined(interim_order_date_period):
+                    elif defined('interim_order_period'):
                       if guess_interim_order_date == 'within 10 days':
                         step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                         step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
-                      if guess_interim_order_date == 'more than 10 days':
+                      elif guess_interim_order_date == 'more than 10 days':
                         step_list.append((learn_modify_step, "learn_modify_idx"))
                         step_list.append((fill_modify_step, "fill_modify_idx"))
                       else:
@@ -71,14 +71,14 @@ code: |
                   step_list.append((fill_modify_step, "fill_modify_idx"))     
             else:
               if middle_of_case:
-                if defined(interim_order_date):
+                if defined('interim_order_date'):
                   if date_difference(starting=interim_order_date, ending=today()).days <= 10:
                     step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                     step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
                   if date_difference(starting=interim_order_date, ending=today()).days > 10:
                     step_list.append((learn_modify_step, "learn_modify_idx"))
                     step_list.append((fill_modify_step, "fill_modify_idx"))
-                elif defined(interim_order_date_period):
+                elif defined('interim_order_date_period'):
                   if guess_interim_order_date == 'within 10 days':
                     step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                     step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
@@ -98,7 +98,7 @@ code: |
                       step_list.append((learn_modify_step, "learn_modify_idx"))
                       step_list.append((fill_modify_step, "fill_modify_idx"))
               else:
-                  if defined(final_order_date):
+                  if defined('final_order_date'):
                     if date_difference(starting=final_order_date, ending=today()).days <= 10:
                       step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                       step_list.append((appeal_step, "appeal_idx"))
@@ -107,7 +107,7 @@ code: |
                       step_list.append((learn_set_aside_step, "learn_set_aside_idx"))
                     elif date_difference(starting=final_order_date, ending=today()).days > 30:
                       step_list.append((learn_set_aside_step, "learn_set_aside_idx"))
-                    elif defined(final_order_date_period):
+                    elif defined('final_order_date_period'):
                       if guess_final_order_date == 'within 10 days':
                         step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                         step_list.append((appeal_step, "appeal_idx"))
