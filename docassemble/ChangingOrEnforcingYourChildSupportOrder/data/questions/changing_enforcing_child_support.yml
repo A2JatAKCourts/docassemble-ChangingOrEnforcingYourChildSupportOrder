@@ -103,23 +103,24 @@ code: |
                 get_steps
                 confirmation_and_download
             else:
-              if defined('final_order_date'):
-                get_steps
-                confirmation_and_download
-              elif defined('final_order_date_period'):
-                if guess_final_order_date == 'unknown':
-                  unknown_final_date
-                  get_steps
-                  confirmation_and_download
-                else:
-                  get_steps
-                  confirmation_and_download   
+             # if defined('final_order_date'):
+              #  get_steps
+              #  confirmation_and_download
+              # elif defined('final_order_date_period'):
+              #  if guess_final_order_date == 'unknown':
+              #    unknown_final_date
+              #    get_steps
+              #   confirmation_and_download
+              #  else:
+              get_steps
+              confirmation_and_download   
         else: # why_change == 'problem'
           if middle_of_case:
-            if defined('interim_order_date'):
-              get_steps
-              confirmation_and_download
-            elif defined('interim_order_date_period'): 
+            interim_order_date_question
+            # if defined('interim_order_date'):
+            #  get_steps
+            #  confirmation_and_download
+            if defined('interim_order_period'): 
               if guess_interim_order_date == 'unknown':
                 unknown_interim_date
                 get_steps
@@ -127,18 +128,18 @@ code: |
               else:
                 get_steps
                 confirmation_and_download
-            else:
-              if defined('final_order_date'):
+          else:
+            final_order_date_question
+              # if defined('final_order_date'):
+              #   get_steps
+              #   confirmation_and_download
+            if defined('final_order_date_period'):
+              if guess_final_order_date == 'unknown':
+                unknown_final_date
                 get_steps
                 confirmation_and_download
-              elif defined('final_order_date_period'):
-                if guess_final_order_date == 'unknown':
-                  unknown_final_date
-                  get_steps
-                  confirmation_and_download
-                else:
-                  get_steps
-                  confirmation_and_download
+            get_steps
+            confirmation_and_download
       else: # if user_need == 'enforce AK order'
         cssd_collect
         get_steps
@@ -170,17 +171,17 @@ code: |
                     get_steps
                     confirmation_and_download
               else:
-                if defined('final_order_date'):
-                  get_steps
-                  confirmation_and_download
-                elif defined('final_order_date_period'):
-                  if guess_final_order_date == 'unknown':
-                    unknown_final_date
-                    get_steps
-                    confirmation_and_download
-                  else:
-                    get_steps
-                    confirmation_and_download     
+                #  # if defined('final_order_date'):
+                #    get_steps
+                #    confirmation_and_download
+                #  elif defined('final_order_date_period'):
+                #    if guess_final_order_date == 'unknown':
+                #      unknown_final_date
+                #      get_steps
+                #      confirmation_and_download
+                #    else:
+                get_steps
+                confirmation_and_download     
           else: # why_change == 'problem'
             if middle_of_case:
               if defined('interim_order_date'):
@@ -349,7 +350,8 @@ subquestion: |
   You can find the date the court sent you your child support order at the bottom of your child support order.  The Certificate of Distribution lists the day court staff sent the order to you.
 fields:
   - "The date your order was distributed": interim_order_date
-    datatype: date
+    datatype: date    
+    max: ${ today() }
     disable if: interim_order_period
   - I do not have the exact date.: interim_order_period
     datatype: yesno
@@ -404,7 +406,8 @@ subquestion: |
   You can find the date the court sent you your child support order at the bottom of your child support order.  The Certificate of Distribution lists the day court staff sent the order to you.
 fields:
   - "The date your order was distributed": final_order_date
-    datatype: date    
+    datatype: date
+    max: ${ today() }
     required: False
     disable if: final_order_period
   - I do not have the exact date.: final_order_period
@@ -419,6 +422,7 @@ fields:
       - It was in the last 10 days.: within 10 days
       - It was more than 10 days ago but within the last 30 days.: between 11 and 30
       - It was more than 30 days ago.: more than 30
+      - I do not know: unknown
 
 #    - note: |     
 #      #### <i class="fa-regular fa-lightbulb"></i> Learn more ####
@@ -434,7 +438,7 @@ fields:
 #  terms:
 #    the court sent you your child support order: |
 #      You can find the date the court sent you your child support order at the bottom of your child support order.  The Certificate of Distribution lists the day court staff sent the order to you. 
-#  continue button field: final_order_date_question
+continue button field: final_order_date_question
 ---
 id: get information about choices if user does not know final order date
 question: |
@@ -453,7 +457,7 @@ fields:
     datatype: checkboxes
     choices:
       - "Motions to Reconsider.": reconsider
-      - "Mmotions to Modify.": modify
+      - "Motions to Modify.": modify
       - "Motions to Set Aside.": set aside
 ---
 ---
