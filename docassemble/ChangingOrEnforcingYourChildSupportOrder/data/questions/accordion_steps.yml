@@ -331,7 +331,7 @@ content: |
 ---
 template: fill_modify_step
 subject: |
-  Step ${ fill_modify_idx }: Ask for interim child support 
+  Step ${ fill_modify_idx }: Fill out the forms to file a Motion to Modify 
 content: |
   <div class='step-subheading'>Use</div>
     *	Motion to Modify Custody, Visitation & Support Packet, [SHC-PAC12](https://courts.alaska.gov/shc/family/shcforms.htm#shc-pac12)

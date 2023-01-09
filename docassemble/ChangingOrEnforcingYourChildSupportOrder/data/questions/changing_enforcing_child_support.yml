@@ -150,7 +150,7 @@ code: |
     else: # if who_ordered == 'unknown'
       if find_who_ordered == 'court':   
         if user_need == 'change AK order':
-          if why_change == schedule:
+          if why_change == 'schedule':
             get_steps
             confirmation_and_download
           elif why_change == 'income':
@@ -159,35 +159,22 @@ code: |
               confirmation_and_download
             else:
               if middle_of_case:
-                if defined('interim_order_date'):
-                  get_steps
-                  confirmation_and_download
-                elif defined('interim_order_date_period'): 
+                interim_order_date_question
+                if defined('interim_order_date_period'): 
                   if guess_interim_order_date == 'unknown':
                     unknown_interim_date
                     get_steps
                     confirmation_and_download
-                  else:
-                    get_steps
-                    confirmation_and_download
+                else:
+                  get_steps
+                  confirmation_and_download
               else:
-                #  # if defined('final_order_date'):
-                #    get_steps
-                #    confirmation_and_download
-                #  elif defined('final_order_date_period'):
-                #    if guess_final_order_date == 'unknown':
-                #      unknown_final_date
-                #      get_steps
-                #      confirmation_and_download
-                #    else:
                 get_steps
                 confirmation_and_download     
           else: # why_change == 'problem'
             if middle_of_case:
-              if defined('interim_order_date'):
-                get_steps
-                confirmation_and_download
-              elif defined('interim_order_date_period'):
+              interim_order_date_question
+              if defined('interim_order_date_period'): 
                 if guess_interim_order_date == 'unknown':
                   unknown_interim_date
                   get_steps
@@ -195,11 +182,12 @@ code: |
                 else:
                   get_steps
                   confirmation_and_download
-            else:
-              if defined('final_order_date'):
+              else:
                 get_steps
-                confirmation_and_download
-              elif defined('final_order_date_period'):
+                confirmation_and_download   
+            else:
+              final_order_date_question
+              if defined('final_order_date_period'):
                 if guess_final_order_date == 'unknown':
                   unknown_final_date
                   get_steps
@@ -207,6 +195,9 @@ code: |
                 else:
                   get_steps
                   confirmation_and_download
+              else:
+                get_steps
+                confirmation_and_download
         else: # if user_need == 'enforce AK order'
           cssd_collect
           get_steps
