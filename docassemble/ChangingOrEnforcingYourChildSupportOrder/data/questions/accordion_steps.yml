@@ -167,8 +167,14 @@ code: |
     elif who_really_ordered == 'cssd':
       if user_need == 'change AK order':
         step_list.append((ask_cssd_step, "ask_cssd_idx"))
+      else: # user_need == 'enforce AK order'
+        step_list.append((cssd_to_enforce_step, "cssd_to_enforce_idx")) 
     else:
-      step_list.append((find_out_step, "find_out_idx"))
+      if user_need == 'change AK order':
+        step_list.append((find_out_step, "find_out_idx"))
+      else:
+        step_list.append((cssd_to_enforce_step, "cssd_to_enforce_idx"))
+        step_list.append((court_to_enforce_step, "court_to_enforce_idx"))
 
   step_list.append((get_help, "get_help_idx"))
   
