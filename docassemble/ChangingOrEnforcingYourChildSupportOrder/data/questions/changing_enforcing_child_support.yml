@@ -63,9 +63,9 @@ objects:
   #  - users: ALPeopleList.using(ask_number=True,target_number=1)
   - users: ALPeopleList.using(there_are_any=False)
 ---
-sections:
-  - review_changing_child_support: Review your answers
----
+# sections:
+#   - review_changing_child_support: Review your answers
+# ---
 #################### Interview order #####################
 comment: |
   Controls order and branching logic for questions specific to this form
@@ -73,7 +73,7 @@ id: interview_order_changing_child_support
 code: |
   # Set the allowed courts for this interview
   # allowed_courts = interview_metadata["changing_child_support"]["allowed courts"]
-  nav.set_section("review_changing_child_support")
+  # nav.set_section("review_changing_child_support")
   user_role = "na"
   if user_need in ('change foreign order','enforce foreign order','unwanted'):
     get_steps
