@@ -4,7 +4,11 @@ event: confirmation_and_download
 question: |
   # <i class="fa-thin fa-list"></i>Your Personal Action Plan is ready!
 subquestion: |
-  Your Personal Action Plan for changing or enforcing your child support order in ${ len(step_list) } steps:
+  % if user_need in ('enforce foreign order', 'enforce AK order'):
+  Your Personal Action Plan for enforcing your child support order in ${ len(step_list) } steps.
+  % else:
+  Your Personal Action Plan for changing your child support order in ${ len(step_list) } steps.
+  % endif
   
   % for iteration_index, step_tuple in enumerate( step_list ):
   ${ collapse_template(step_tuple[0], closed_icon="plus", open_icon="minus") }
@@ -22,8 +26,8 @@ code: |
   elif user_need == 'change foreign order':
     step_list.append((foreign_step, "foreign_idx"))
   elif user_need == 'enforce foreign order':
-    step_list.append((talk_w_other_parent_step, "talk_w_other_parent_idx"))
     step_list.append((cssd_to_enforce_step, "cssd_to_enforce_idx"))
+    step_list.append((talk_w_other_parent_step, "talk_w_other_parent_idx"))
     step_list.append((register_step, "register_idx"))    
     step_list.append((court_to_enforce_step, "court_to_enforce_idx"))
   else:
@@ -159,26 +163,28 @@ code: |
                       step_list.append((file_and_serve_step, "file_and_serve_idx"))
       else: # user_need == 'enforce AK order'
         if cssd_collect == 'yes':
-          step_list.append((talk_w_other_parent_step, "talk_w_other_parent_idx"))
           step_list.append((cssd_to_enforce_step, "cssd_to_enforce_idx"))
+          step_list.append((talk_w_other_parent_step, "talk_w_other_parent_idx"))
         elif cssd_collect == 'no':
           step_list.append((talk_w_other_parent_step, "talk_w_other_parent_idx"))
-          step_list.append((court_to_enforce_step, "court_to_enforce_idx"))
+          step_list.append((court_to_enforce_step, "court_to_enforce_idx"))         
         else:
-          step_list.append((talk_w_other_parent_step, "talk_w_other_parent_idx"))
           step_list.append((cssd_to_enforce_step, "cssd_to_enforce_idx"))
+          step_list.append((talk_w_other_parent_step, "talk_w_other_parent_idx"))
           step_list.append((court_to_enforce_step, "court_to_enforce_idx"))
     elif who_really_ordered == 'cssd':
       if user_need == 'change AK order':
         step_list.append((ask_cssd_step, "ask_cssd_idx"))
       else: # user_need == 'enforce AK order'
-        step_list.append((cssd_to_enforce_step, "cssd_to_enforce_idx")) 
+        step_list.append((cssd_to_enforce_step, "cssd_to_enforce_idx"))
+        step_list.append((talk_w_other_parent_step, "talk_w_other_parent_idx"))
     else:
       if user_need == 'change AK order':
         step_list.append((find_out_step, "find_out_idx"))
       else:
-        step_list.append((talk_w_other_parent_step, "talk_w_other_parent_idx"))
+        step_list.append((find_out_step, "find_out_idx"))
         step_list.append((cssd_to_enforce_step, "cssd_to_enforce_idx"))
+        step_list.append((talk_w_other_parent_step, "talk_w_other_parent_idx"))
         step_list.append((court_to_enforce_step, "court_to_enforce_idx"))
 
   step_list.append((get_help, "get_help_idx"))
@@ -505,19 +511,24 @@ content: |
   % endif
   
   % if user_need == 'enforce AK order':
-  % if who_ordered == 'court' or (who_ordered == 'unkown' and find_who_ordered == 'court'):
+  % if who_really_ordered == 'court':
   % if cssd_collect == 'yes':
-  If Child Support Services Division (CSSD) is collecting your child support, they can enforce your child support order.:
+  If Child Support Services Division (CSSD) is collecting your child support, they can enforce your child support order.
   % elif cssd_collect == 'no':
   If you have a court order for child support and want Child Support Services Division (CSSD) to help you collect it, apply for CSSD services.  You will need a “My Alaska” account:
     * See the CSSD Home Page.
     * Select “Open a Case” or “Online Application for Services.”
   % else: 
   Contact CSSD to see if you have an account. 
+  
   If you do not have an account, apply for CSSD services.
+  
   You will need a “My Alaska” account.
+  
   See the CSSD Home Page.
+  
   Select:
+  
     *	“Open a Case” or
     *	“Online Application for Services.”
   % endif
@@ -525,12 +536,18 @@ content: |
   % endif
   
   [Contact CSSD](https://childsupport.alaska.gov/child-support-services/contact-us)
+  
     *	Customer Service Call Center:
+    
       *	Monday – Thursday, 9:30 am - 4:00 pm
-        *	✆ Phone: (907) 269-6900, 
-        *	Toll Free (In-state): 800-478-3300
+      
+          *	✆ Phone: (907) 269-6900, 
+          *	Toll Free (In-state): 800-478-3300
+        
       *	⌨ Fax: (907) 787-3220
       *	Email: dor.cssd.customerservice.anchorage@alaska.gov
+      
+  Read [Child Support Enforcement FAQ](https://childsupport.alaska.gov/child-support-services/information/faqs/child-support-enforcement-services-faq)
 
   % if user_need =='enforce foreign order':
   Contact the child support agency in the state where you got the order.
@@ -542,6 +559,7 @@ subject: |
   Step ${ talk_w_other_parent_idx }: Talk to the other parent
 content: |
   When the other parent is not following your child support order, you can ask the court to order them to follow it. Generally, the first steps are:
+  
     1.  Ask the other parent in writing to do what the order says.
     1.  In your written request, give them a date to do it by.
     1.  Keep your writing polite and professional.  Remember the judge may see it.
@@ -549,6 +567,7 @@ content: |
     1. Keep a copy of your written request and any written response you get back.
     1. Hopefully they will follow the order and you will not need to go back to court.
     1. If the other parent still does not cooperate, let the court know by filing a motion. A motion is a form you file with the court asking the judge to order the other side to do something.
+    
         *	If you file a motion, attach a copy of what you wrote to the other parent and anything they responded.
 ---
 template: register_step
@@ -600,15 +619,25 @@ content: |
   Once you have registered your child support order, you can ask the Alaska court to enforce it.
   % endif
   **Option 1**: File a Motion & Affidavit to Enforce Order and ask the court to order the other parent to pay. Attach your written request and any response you got back. The court may hold a hearing and issue another order specifically telling the other side to pay by a specific date.
-    * Motion & Affidavit to Enforce Order, SHC-1540 [Word](https://courts.alaska.gov/shc/family/docs/shc-1540.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1540n.pdf)
-    * Order on Motion, SHC-1302 [Word](https://courts.alaska.gov/shc/family/docs/shc-1302.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1302n.pdf)
-    * Notice of Motion, SHC-1630 [Word](https://courts.alaska.gov/shc/family/docs/shc-1630.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1630n.pdf) (Required form if you are filing post-judgment and more than 1 year has passed since the final judgment)
+  
+    Motion & Affidavit to Enforce Order, SHC-1540 [Word](https://courts.alaska.gov/shc/family/docs/shc-1540.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1540n.pdf)
+    
+    Order on Motion, SHC-1302 [Word](https://courts.alaska.gov/shc/family/docs/shc-1302.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1302n.pdf)
+    
+    Notice of Motion, SHC-1630 [Word](https://courts.alaska.gov/shc/family/docs/shc-1630.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1630n.pdf) (Required form if you are filing post-judgment and more than 1 year has passed since the final judgment)
+    
   **Option 2**: File a Motion & Affidavit to Reduce to Judgment, asking the court to issue a judgment for the amount owed to you. Once you have a judgment, you can try to collect the amount by executing on the other parent's Permanent Fund Dividend, bank account, wages, etc.
-    * Motion & Affidavit to Reduce to Judgment, SHC-1530 [Word](https://courts.alaska.gov/shc/family/docs/shc-1530.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1530n.pdf)
-  Order Reducing to Judgment, SHC-1535 [Word](https://courts.alaska.gov/shc/family/docs/shc-1535.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1535n.pdf)
+  
+    Motion & Affidavit to Reduce to Judgment, SHC-1530 [Word](https://courts.alaska.gov/shc/family/docs/shc-1530.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1530n.pdf)
+  
+    Order Reducing to Judgment, SHC-1535 [Word](https://courts.alaska.gov/shc/family/docs/shc-1535.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1535n.pdf)
   Worksheet to Figure Out Judgment Amount, SHC-1536 [Word](https://courts.alaska.gov/shc/family/docs/shc-1536.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1536n.pdf)
-  Notice of Motion, SHC-1630 [Word](https://courts.alaska.gov/shc/family/docs/shc-1630.doc) | PDF (Required form if you are filing post-judgment and more than 1 year has passed since the final judgment)
+  
+    Notice of Motion, SHC-1630 [Word](https://courts.alaska.gov/shc/family/docs/shc-1630.doc) | PDF (Required form if you are filing post-judgment and more than 1 year has passed since the final judgment)
+    
   Read more about:
+  
   [Enforcing Your Order](https://courts.alaska.gov/shc/family/shcenforce.htm)
+  
   [Collecting money owed to you](https://courts.alaska.gov/shc/family/shcenforce.htm)
 ---

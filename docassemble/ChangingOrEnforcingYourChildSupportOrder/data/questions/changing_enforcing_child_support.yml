@@ -257,9 +257,9 @@ fields:
   - no label: who_ordered
     input type: radio
     choices:
-      - The court: court
-      - Child Support Services Division (CSSD): cssd
-      - I do not know who ordered it: unknown
+      - The court.: court
+      - Child Support Services Division (CSSD).: cssd
+      - I do not know who ordered it.: unknown
 ---
 id: find out who ordered it
 question: |
@@ -274,9 +274,9 @@ fields:
     label above field: True    
     input type: radio
     choices:
-      - The court: court
-      - Child Support Services Division (CSSD): cssd
-      - I still do not know who ordered it: unknown
+      - The court.: court
+      - Child Support Services Division (CSSD).: cssd
+      - I still do not know who ordered it.: unknown
 ---
 id: Does CSSD collect?
 question: |
