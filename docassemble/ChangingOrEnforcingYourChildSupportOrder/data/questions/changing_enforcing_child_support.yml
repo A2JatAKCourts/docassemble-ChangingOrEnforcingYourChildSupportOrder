@@ -49,7 +49,7 @@ code: |
   AL_DEFAULT_STATE = "AK"
 ---
 code: |
-  github_repo_name =  'docassemble-ChangingChildSupport'
+  github_repo_name =  'docassemble-ChangingOrEnforcingYourChildSupportOrder'
 ---
 code: |
   interview_short_title = "Changing Child Support in Alaska"
