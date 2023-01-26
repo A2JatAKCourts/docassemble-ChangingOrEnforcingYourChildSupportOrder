@@ -166,6 +166,7 @@ code: |
           step_list.append((cssd_to_enforce_step, "cssd_to_enforce_idx"))
           step_list.append((talk_w_other_parent_step, "talk_w_other_parent_idx"))
         elif cssd_collect == 'no':
+          step_list.append((cssd_to_enforce_step, "cssd_to_enforce_idx"))
           step_list.append((talk_w_other_parent_step, "talk_w_other_parent_idx"))
           step_list.append((court_to_enforce_step, "court_to_enforce_idx"))         
         else:
@@ -198,9 +199,9 @@ template: wrong_tf
 subject: |
   Step ${ wrong_tf_idx }: Try another Guided Assistant
 content: | 
-  * [Asking for Child Support](https://docassemble.akcourts.gov/start/AskingForChildSupport/)
+  * [Asking for Child Support](https://docassemble.akcourts.gov/start/AskingForChildSupport)
   * [Starting A Case to End Your Marriage](https://LegalNav.org/guided_assistant/starting-a-case-to-end-your-marriage/?location=alaska)
-  * [Responding if Your Spouse Starts a Case to End Your Marriage](https://LegalNav.org/guided_assistant/responding-if-your-spouse-wants-to-or-starts-a-case-to-end-your-marriage/?location=Alaska)
+  * [Responding if Your Spouse Starts a Case to End Your Marriage](https://LegalNav.org/guided_assistant/responding-if-your-spouse-wants-to-or-starts-a-case-to-end-your-marriage/?location=alaska)
   * [Starting a Custody Case](https://LegalNav.org/guided_assistant/starting-a-custody-case/?location=alaska)
   * [Responding if Your Spouse Starts a Custody Case](https://LegalNav.org/guided_assistant/responding-if-your-spouse-wants-to-or-starts-a-custody-case/?location=Alaska)
   * [Enforcing a Custody Order](https://LegalNav.org/guided_assistant/enforcing-a-custody-order/?location=alaska)
@@ -233,67 +234,86 @@ template: ask_cssd_step
 subject: |
   Step ${ ask_cssd_idx }: Ask CSSD to change your child support
 content: |
-  A child support order from Alaska Child Support Services Division (CSSD) is called an administrative order.  CSSD can change administrative orders.  This is called "modifying" child support.
-
-  CSSD can modify your order if: 
-
-    * The cost of your child's health insurance premium changes, or 
-    * Your income or the other parent's income changes so that a new child support calculation would be at least 15% more or 15% less than the payment you have now, or
-    *	Your children's schedule changes so that a new child support calculation would be at least 15% more or 15% less than the payment you have now.
-
-	[Contact CSSD](https://childsupport.alaska.gov/child-support-services/contact-us)
-    *	Customer Service Call Center:
-      *	Monday – Thursday, 9:30 am - 4:00 pm
-        *	✆ Phone: (907) 269-6900, 
-        *	Toll Free (In-state): 800-478-3300
-      *	⌨ Fax: (907) 787-3220
-      *	Email: dor.cssd.customerservice.anchorage@alaska.gov
-
-  **Timing**.  If your parenting schedule changes, or your income or the other parent's income changes, it is important to tell CSSD **right away**. 
-    *	CSSD cannot go back and change child support that was due in the past.
-    *	Until you contact CSSD, the old child support amount applies and the parent who owes child support still owes the old amount, even if income or the schedule has changed. 
-
-  Read more about CSSD
-    *	[Modification FAQs](https://childsupport.alaska.gov/child-support-services/information/faqs/modifications-faq)
-    *	[Modification Guidebook Brochure](https://childsupport.alaska.gov/docs/childsupportserviceslibraries/brochures/04-6204-red-mod-rev-02-2022.pdf?sfvrsn=ded6dba8_3)
-    *	[Home page](https://childsupport.alaska.gov/child-support-services)
+  <p>A child support order from Alaska Child Support Services Division (CSSD) is called an administrative order.  CSSD can change administrative orders.  This is called "modifying" child support.</p>
+  <p>CSSD can modify your order if: </p>
+  <ul>
+    <li>The cost of your child's health insurance premium changes, or </li>
+    <li>Your income or the other parent's income changes so that a new child support calculation would be at least 15% more or 15% less than the payment you have now, or </li>
+    <li>Your children's schedule changes so that a new child support calculation would be at least 15% more or 15% less than the payment you have now. </li>
+  </ul>
+  <a href="https://childsupport.alaska.gov/child-support-services/contact-us">Contact CSSD</a>
+  <li>Customer Service Call Center:<br> 
+  Monday - Thursday, 9:30 am - 4:00 pm</li>
+  <ul>
+  <li>✆ Phone: (907) 269-6900, </li>
+  <li>Toll Free (In-state): 800-478-3300 </li>
+  </ul>
+  </li>
+  <li>⌨ Fax: (907) 787-3220 </li>
+  <li>Email: dor.cssd.customerservice.anchorage@alaska.gov </li>
+  </ul>
+   <div class='step-subheading'>Timing</div>
+   <ul>
+   <li>If your parenting schedule changes, or your income or the other parent's income changes, it is important to tell CSSD <strong>right away</strong>. </li>
+    <li>CSSD cannot go back and change child support that was due in the past. </li>
+    <li>Until you contact CSSD, the old child support amount applies and the parent who owes child support still owes the old amount, even if income or the schedule has changed. </li>
+  </ul>
+  <div class='step-subheading'>Read more about CSSD </div>
+  <ul>
+    <li><a href ="https://childsupport.alaska.gov/child-support-services/information/faqs/modifications-faq">Modification FAQs</a></li>
+    <li><a href ="https://childsupport.alaska.gov/docs/childsupportserviceslibraries/brochures/04-6204-red-mod-rev-02-2022.pdf">Modification Guidebook Brochure</a></li>
+    <li><a href ="https://childsupport.alaska.gov/child-support-services">Home page</a></li>
+  </ul>
+  
 ---
 template: find_out_step
 subject: |
   Step ${ find_out_idx }: Find out who issued your child support order
 content: |
+  <div class='step-subheading'>Contact CSSD</div>
   [Contact CSSD](https://childsupport.alaska.gov/child-support-services/contact-us) to ask if they issued your child support order.
-
   % if user_need == 'change AK order':
   If they did, they can give you information about changing it.  Changing an order is called “modifying” it.
   % elif user_need == 'enforce AK order':
   If they did, they can give you information about enforcing it.
   % endif
-  
-  Customer Service Call Center:
-    *	Monday - Thursday, 9:30 am - 4:00 pm
-      *	✆ Phone: (907) 269-6900, 
-      *	Toll Free (In-state): 800-478-3300
-    *	⌨ Fax: (907) 787-3220
-    *	Email: dor.cssd.customerservice.anchorage@alaska.gov
-  
+  <ul>
+    <li>Customer Service Call Center:<br>
+    Monday - Thursday, 9:30 am - 4:00 pm
+      <ul>
+        <li>✆ Phone: (907) 269-6900, </li>
+        <li>Toll Free (In-state): 800-478-3300 </li>
+      </ul>
+    </li>
+    <li>⌨ Fax: (907) 787-3220 </li>
+    <li>Email: dor.cssd.customerservice.anchorage@alaska.gov </li>
+  </ul>
   If CSSD issued your order, see:
+  <ul>
   % if user_need == 'change AK order':
-    *	[Modification FAQs](https://childsupport.alaska.gov/child-support-services/information/faqs/modifications-faq)
-    *	[Modification Guidebook Brochure](https://childsupport.alaska.gov/docs/childsupportserviceslibraries/brochures/04-6204-red-mod-rev-02-2022.pdf?sfvrsn=ded6dba8_3)
+  <li>
+  <a href="https://childsupport.alaska.gov/child-support-services/information/faqs/modifications-faq">Modification FAQs</a></li>
+  <li><a href="https://childsupport.alaska.gov/docs/childsupportserviceslibraries/brochures/04-6204-red-mod-rev-02-2022.pdf">Modification Guidebook Brochure</a></li>
   % elif  user_need == 'enforce AK order':
-    *	[Child Support Enforcement FAQ](https://childsupport.alaska.gov/child-support-services/information/faqs/child-support-enforcement-services-faq)
+  <li>
+  <a href="https://childsupport.alaska.gov/child-support-services/information/faqs/child-support-enforcement-services-faq">Child Support Enforcement FAQ</a></li>
   % endif
-    * [Home page](https://childsupport.alaska.gov/child-support-services)
-    * Contact [your local court](https://courts.alaska.gov/courtdir/index.htm) or look on [CourtView](https://records.courts.alaska.gov/eaccess/home.page.2) to see if the court issued your child support order.  If the court issued your order:
-      *	Come back and take this Guided Assistant interview again, or
-  % if user_need == 'change AK order':
-      *	Read [Modifying Child Custody or Child Support Order](https://courts.alaska.gov/shc/family/shcmodify.htm). 
-  % elif  user_need == 'enforce AK order':
-      *	[Read Enforcing Your Order](https://courts.alaska.gov/shc/family/shcenforce.htm)
-  % endif
-
-  % if user_need == 'change AK order':
+  <li><a href="https://childsupport.alaska.gov/child-support-services">Home page</a></li>
+  </ul>
+  <div class='step-subheading'>Contact your local court</div>
+  <p>Contact <a href="https://courts.alaska.gov/courtdir/index.htm">your local court</a> or look on <a href="https://records.courts.alaska.gov/eaccess/home.page.2">CourtView</a> to see if the court issued your child support order.</p>  
+  % if  user_need == 'enforce AK order':
+  If the court issued your order:
+  <ul>
+  <li>Come back and take this Guided Assistant interview again, or</li>
+  <li>Read <a href="https://courts.alaska.gov/shc/family/shcenforce.htm">Enforcing Your Order</a>.</li>
+  </ul>
+  % elif user_need == 'change AK order':
+  If the court issued your order:
+  <ul>
+  <li>Come back and take this Guided Assistant interview again, or</li>
+  <li>Read <a href="https://courts.alaska.gov/shc/family/shcmodify.htm">Modifying Child Custody or Child Support Order</a>.</li>
+  </ul>
   <div class='step-subheading'>Changes</div>
     *	If your parenting schedule changes, or your income or the other parent's income changes, it is important to tell the court or CSSD right away.  If CSSD issued your order, tell CSSD.  If the court issued your order, tell the court.
     * CSSD and the court cannot go back and change child support that was due in the past.  They can only change child support starting when you file something asking to change it, and notify the other parent that you are asking for a change.
@@ -305,58 +325,69 @@ subject: |
   Step ${ learn_reconsider_idx }: Learn about Motions to Reconsider
 content: |
   To ask your trial judge to reconsider a decision, file a Motion to Reconsider.  You only have 10 days after the order is distributed to file the motion.  Find the distribution date at the bottom of the order on the Certificate of Distribution.  It is the day court staff sent the order to you.
-
+  
   [Alaska Rule of Civil Procedure](https://courts.alaska.gov/rules/docs/civ.pdf) 77(k) lists **4 reasons** you can ask the court to reconsider a judge's decision:
-
-  1.	The court has overlooked, misapplied or failed to consider a statute, decision or principle directly controlling. This means the court made a mistake in applying the law to the case.
-  
-  For example, Civil Rule 90.3 states the child support calculations for different parenting arrangements. If there is one child primarily living with one parent, Rule 90.3 states the other parent is supposed to pay 20% of their adjusted annual income to the other parent for the child support. If the judge figures out the child support amount to be 27% of adjusted income for one child, the motion for reconsideration would state that the judge misapplied Civil Rule 90.3.
-  
-  2.	The court has overlooked or misconceived some material fact or proposition of law. This means the court got an important fact wrong.
-
-  For example, in a divorce case, the parties agree that the marital home is worth $100,000. The judge states that the house is worth $200,000.  The spouse who was awarded the house could file a motion for reconsideration.  The motion for reconsideration would state the judge used the wrong dollar amount for the house in dividing the property.
-  
-  3.	The court has overlooked or misconceived a material question in the case. This means the court misunderstood what you were asking for in your case or in a motion.
-  
-  For example, a child changed from living full time with their mom to living full time with their dad.  Under the child support formula, dad used to pay child support to mom based on the primary custody child support formula.  Now, mom should pay child support to dad based on the primary custody child support formula.  Dad filed a motion to modify child support.  The judge denied dad’s motion because the parents’ incomes did not change.  Dad can file a motion to reconsider and tell the judge they overlooked the question about whether there was a change in the parenting schedule.
-  
-  4.	The law applied in the ruling was changed by a later court decision or statute. This means the court applied a rule or law that changed.
-  
-  For example, on April 15, 2018, Civil Rule 90.3 changed to allow a parent to deduct the cost of their own health insurance from their gross income, up to 10% of the parent's gross income. If the court calculated child support on April 14, but did not allow for the health insurance deduction which resulted in a higher child support amount, the parent could file a motion for reconsideration based on the changed Civil Rule 90.3.
+  <ol>
+  <li>The court has overlooked, misapplied or failed to consider a statute, decision or principle directly controlling. This means the court made a mistake in applying the law to the case.
+  <br>
+  For example, Civil Rule 90.3 states the child support calculations for different parenting arrangements. If there is one child primarily living with one parent, Rule 90.3 states the other parent is supposed to pay 20% of their adjusted annual income to the other parent for the child support. If the judge figures out the child support amount to be 27% of adjusted income for one child, the motion for reconsideration would state that the judge misapplied Civil Rule 90.3.</li>
+  <li> The court has overlooked or misconceived some material fact or proposition of law. This means the court got an important fact wrong.
+  <br>
+  For example, in a divorce case, the parties agree that the marital home is worth $100,000. The judge states that the house is worth $200,000.  The spouse who was awarded the house could file a motion for reconsideration.  The motion for reconsideration would state the judge used the wrong dollar amount for the house in dividing the property.</li>
+  <li> The court has overlooked or misconceived a material question in the case. This means the court misunderstood what you were asking for in your case or in a motion.
+  <br>
+  For example, a child changed from living full time with their mom to living full time with their dad.  Under the child support formula, dad used to pay child support to mom based on the primary custody child support formula.  Now, mom should pay child support to dad based on the primary custody child support formula.  Dad filed a motion to modify child support.  The judge denied dad’s motion because the parents’ incomes did not change.  Dad can file a motion to reconsider and tell the judge they overlooked the question about whether there was a change in the parenting schedule.</li>
+  <li> The law applied in the ruling was changed by a later court decision or statute. This means the court applied a rule or law that changed.
+  <br>
+  For example, on April 15, 2018, Civil Rule 90.3 changed to allow a parent to deduct the cost of their own health insurance from their gross income, up to 10% of the parent's gross income. If the court calculated child support on April 14, but did not allow for the health insurance deduction which resulted in a higher child support amount, the parent could file a motion for reconsideration based on the changed Civil Rule 90.3.</li>
+  </ol>
 ---
 template: fill_reconsider_step
 subject: |
-  Step ${ fill_reconsider_idx }: Fill out the forms to file a Motion to Reconsider
+  Step ${ fill_reconsider_idx }: Fill out the Motion to Reconsider forms
 content: |
   <div class='step-subheading'>Use</div>
-    *	Motion and Affidavit for Reconsideration, SHC-1545 [Word](https://courts.alaska.gov/shc/family/docs/shc-1545.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1545n.pdf)
-    *	Proposed Order on Motion, SHC-1302 [Word](courts.alaska.gov/shc/family/docs/shc-1302.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1302n.pdf)
-    <div class='step-subheading'>Procedure</div>
-    *	The judge does not hold a hearing about a Motion to Reconsider so write your whole argument in the motion.
-    *	Your Motion to Reconsider and all the attachments must be 5 pages or less.
-    *	Usually when you file a motion:
-    *	the other side files a written response, 
-    *	you have a chance to reply, and 
-    *	the judge decides.  
-    *	A Motion to Reconsider is different:
-    *	The other parent does not have to respond unless the judge sends a written request for a response.  
-    *	If the judge does nothing for 30 days, it means the judge is not going to grant your motion to reconsider.  You will not get anything in writing.
-    *	Read [Options after you get a judge's decision](https://courts.alaska.gov/shc/family/after-judgment.htm).
+  <ul>
+  <li>  Motion and Affidavit for Reconsideration, SHC-1545 <a href="https://courts.alaska.gov/shc/family/docs/shc-1545.doc">Word</a> | <a href="https://courts.alaska.gov/shc/family/docs/shc-1545n.pdf">PDF </a></li>
+  <li> Proposed Order on Motion, SHC-1302 <a href="https://courts.alaska.gov/shc/family/docs/shc-1302.doc">Word</a> | <a href="https://courts.alaska.gov/shc/family/docs/shc-1302n.pdf">PDF</a></li>
+  </ul>
+  <div class='step-subheading'>Procedure</div>
+  <ul>
+  <li>The judge does not hold a hearing about a Motion to Reconsider so write your whole argument in the motion.</li>
+  <li>Your Motion to Reconsider and all the attachments must be 5 pages or less.</li>
+  <li>Usually when you file a motion:
+  <ul>
+  <li>the other side files a written response, 
+  </li>
+  <li>you have a chance to reply, and 
+  </li>
+  <li>the judge decides.</li>
+  </ul>
+  <li>A Motion to Reconsider is different:
+  <ul>
+  <li>The other parent does not have to respond unless the judge sends a written request for a response.</li>
+  <li>If the judge does nothing for 30 days, it means the judge is not going to grant your motion to reconsider.  You will not get anything in writing.</li>
+  </ul></li>
+  <li>Read <a href="https://courts.alaska.gov/shc/family/after-judgment.htm">Options after you get a judge's decision</a>.</li>
+  </ul>
 ---
 template: learn_modify_step
 subject: |
   Step ${ learn_modify_idx }: Learn about Motions to Modify
 content: |
   Changing your child support order is called “modifying” child support.  The child support rule, [Alaska Rule of Civil Procedure 90.3](https://courts.alaska.gov/rules/docs/civ.pdf), states you need to prove there has been a “material change in circumstances” to modify child support. The most common changes in circumstances are:
+  
     * Your children's schedule changes and they spend more or fewer overnights with you than they used to, or
     * Your income or the other parent's income changes.
+    
   <div class='step-subheading'>Calculate your new child support amount</div>
   Figure out the new child support amount using the new schedule or new income information.  
+    
     * Calculate the percent of overnights your children spend with you and with the other parent. For example, if your child spends 4 nights each week with you and 3 nights each week with their other parent, they spend 209 overnights each year with you and 156 nights each year with the other parent.  This is 57% of overnights with you and 43% of overnights with the other parent.  
-    * Use the percentages to fill out the [Child Support Guidelines Affidavit](https://public.courts.alaska.gov/web/forms/docs/dr-305.pdf). Read [How to Fill out the Child Support Guidelines Affidavit](https://courts.alaska.gov/shc/family/docs/shc-dr305f-sample.pdf) to help you fill out this form.
+    * Use the percentages to fill out the Child Support Guidelines Affidavit,[DR-305](https://public.courts.alaska.gov/web/forms/docs/dr-305.pdf). Read [How to Fill out the Child Support Guidelines Affidavit](https://courts.alaska.gov/shc/family/docs/shc-dr305f-sample.pdf) to help you fill out this form.
     * If your children have a primary custody child support schedule, the Child Support Guidelines Affidavit tells you the new child support amount. If you do not have a primary custody child support schedule, use one of these forms:
     * Shared Custody Support Calculation, [DR-306](https://public.courts.alaska.gov/web/forms/docs/dr-306.pdf ) [Fill-In PDF] for a shared custody schedule, 
-    * Hybrid Custody Child Support Calculation, [DR-308](https://public.courts.alaska.gov/web/forms/docs/dr-306.pdf ) for a hybrid custody child support schedule, or
+    * Hybrid Custody Child Support Calculation, [DR-308](https://public.courts.alaska.gov/web/forms/docs/dr-308.pdf ) for a hybrid custody child support schedule, or
     * Divided Custody Child Support Calculation, [DR-307](https://public.courts.alaska.gov/web/forms/docs/dr-307.pdf ) for a divided custody child support schedule.
   <div class='step-subheading'>Compare the old and new child support amounts to see if there is a material change in circumstances.</div>
     * If the new child support amount is 15% more or less than the old amount, there is a presumption that there is a material change in circumstances.
@@ -364,38 +395,45 @@ content: |
     * $85 or less, or
     * $115 or more.
   <div class='step-subheading'>Timing</div>
-    * If your parenting schedule changes, or your income or the other parent’s income changes, it is important to tell the court right away.
+  
+    * If your parenting schedule changes, or your income or the other parent’s income changes, it is important to tell the court **right away**.
     * The judge cannot go back and change child support that was due in the past.  They can only change child support starting when you file something asking to change it, and notify the other parent that you are asking for a change.
     * Until you file a motion in court, the old child support amount applies and the parent who owes child support still owes the old amount, even if income or the schedule has changed.
-    * After you file your motion, but before the judge decides, can be confusing.  If the judge changes child support, they also pick the day the new amount starts.  This is usually the day a parent filed a motion to modify and gave it to the other parent.
+    * After you file your motion, but before the judge decides, can be confusing.  If the judge changes child support, they also pick the day the new amount starts.  This is usually the day a parent filed a Motion to Modify and gave it to the other parent.
   If child support changes, 1 parent may owe the other money for the time between when the motion was filed and when the judge decided.
 ---
 template: fill_modify_step
 subject: |
-  Step ${ fill_modify_idx }: Fill out the forms to file a Motion to Modify 
+  Step ${ fill_modify_idx }: Fill out the Motion to Modify forms 
 content: |
   <div class='step-subheading'>Use</div>
     *	Motion to Modify Custody, Visitation & Support Packet, [SHC-PAC12](https://courts.alaska.gov/shc/family/shcforms.htm#shc-pac12)
   <div class='step-subheading'>Procedure</div>
-  There is a $75 filing fee for a Motion to Modify
-  The other parent has 10 days to file a response (13 if you mail it).
-  You have 5 days to file a reply
-  Read [Options after you get a judge's decision](https://courts.alaska.gov/shc/family/after-judgment.htm)
+  <ul>
+  <li>
+  There is a $75 filing fee for a Motion to Modify.</li>
+  <li>The other parent has 10 days to file a response (13 if you mail it).</li>
+  <li>You have 5 days to file a reply.</li>
+  <li>Read <a href="https://courts.alaska.gov/shc/family/after-judgment.htm">Options after you get a judge's decision.</a></li>
+  </ul>
 ---
 template: ask_court_step
 subject: |
   Step ${ ask_court_idx }: Ask the court to change your Parenting Plan and your child support order  
 content: |
-  If you need to change child support because you have a new schedule that is different than the schedule in your custody order, file a Motion to Modify Custody and Child Support.  
+  If you need to change child support because you have a new schedule that is different than the schedule in your custody order, file a Motion to Modify Custody and Child Support.
+  
     * Use the Guided Assistant Interview [Changing a Custody Order](https://legalnav.org/guided_assistant/changing-a-custody-order/?location=Alaska) for a Personal Action Plan about changing both child support and your schedule.
-    * Read [Modifying Child Custody or Child Support Order](https://courts.alaska.gov/shc/family/shcmodify.htm)
+    * Read [Modifying Child Custody or Child Support Order](https://courts.alaska.gov/shc/family/shcmodify.htm).
+    
   <div class='step-subheading'>The most common reasons to change child support</div> 
+  
     * Your children's schedule changes and they spend more or fewer overnights with you than they used to, or
     * Your income or the other parent's income changes.
     If you and the other parent agree to change child support, give your written agreement to the court. Giving the agreement to the court is called “filing” it.
   <div class='step-subheading'>It is important to file your agreement right away</div>
   Until you file it with the court, the old child support amount applies and the parent who owes child support still owes the old amount.  
-  Read:
+  <div class='step-subheading'>Read</div>
     * Instructions for Uncontested Modifications, SHC-1505 [Word](https://courts.alaska.gov/shc/family/docs/shc-1505.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1505n.pdf)
     * [How to Fill out the Child Support Guidelines Affidavit](https://courts.alaska.gov/shc/family/docs/shc-dr305f-sample.pdf)
 ---
@@ -405,14 +443,17 @@ subject: |
 content: |
   <div class='step-subheading'>Fill out the court forms to tell the judge your agreement.</div>
   If just child support changes, fill out and file:
+  
     * Joint Motion, SHC-1310 [Word](https://courts.alaska.gov/shc/family/docs/shc-1310.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1310n.pdf)
     * Joint Affidavit, SHC-1320 [Word](https://courts.alaska.gov/shc/family/docs/shc-1320.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1320n.pdf)
     * Order for Modification of Child Support, [DR-301](https://public.courts.alaska.gov/web/forms/docs/dr-301.pdf)[Fill-In PDF]
-    * Child Support Guidelines Affidavit, [DR-305](https://public.courts.alaska.gov/web/forms/docs/dr-301.pdf)[Fill-In  PDF] (each parent files their own)
+    * Child Support Guidelines Affidavit, [DR-305](https://public.courts.alaska.gov/web/forms/docs/dr-305.pdf)[Fill-In  PDF] (each parent files their own)
     * Child Custody Jurisdiction Affidavit, [DR-150](https://public.courts.alaska.gov/web/forms/docs/dr-150.pdf"> [Fill-In  PDF] (each parent files their own)
     * Joint Motion to Put Settlement on the Record,  SHC-1063 [Word](https://courts.alaska.gov/shc/family/docs/shc-1063.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1063n.pdf)
     * Information Sheet, [DR-314](https://public.courts.alaska.gov/web/forms/docs/dr-314.pdf) [Fill-In PDF]
+    
   If you do not have a primary custody child support  schedule, use one of these forms:
+  
     * Shared Custody Support Calculation, [DR-306](https://public.courts.alaska.gov/web/forms/docs/dr-306.pdf) [Fill-In PDF] for a shared custody schedule, 
     * Hybrid Custody Child Support Calculation, [DR-308](https://public.courts.alaska.gov/web/forms/docs/dr-308.pdf) for a hybrid custody child support schedule, or
     * Divided Custody Child Support Calculation, [DR-307](https://public.courts.alaska.gov/web/forms/docs/dr-307.pdf) for a divided custody child support schedule.
@@ -432,28 +473,37 @@ template: learn_set_aside_step
 subject: |
   Step ${ learn_set_aside_idx }: Learn about Motions to Set Aside
 content: |
-  A Motion to Set Aside Judgment or Order asks the court to set aside or "undo" a final decision in a case.  You can ask the court to set aside your child support order if:
-    * it is a "reasonable" amount of time since the date on the clerk’s certificate of distribution on the written order, and for some reasons no later than 1 year from that date, and
-    * it is based on one or more of the reasons stated in Civil Rule 60(a) or (b). 
-  Civil Rule 60(a) provides that a party can file a Motion to Set Aside the Judgment or Order if the court made a clerical mistake or accidentally left something out of a document.
-  Civil Rule 60(b) specifies the reasons the court may set aside a judgment which include:
-    * mistake; not paying close attention (inadvertence); an unexpected action, sudden confusion or an unanticipated event (surprise), or a legitimate excuse for failing to take required action (excusable neglect);
-    Note: it must be 1 year or less since the court distributed the Judgment or order
-    * newly discovered evidence which could not have been discovered by taking reasonable steps within the 10 days allowed to request a new trial;
-    Note: it must be 1 year or less since the court distributed the judgment or order
-    * fraud, misrepresentation, or other misconduct from the other side;
-    Note: It must be 1 year or less since the court distributed the judgment or order
-    * the judgment is void;
-    Note: It must be a "reasonable" amount of time since the court distributed the judgment or order.
-    * the judgment has been satisfied, released or discharged, or a prior judgment upon which it is based has been reversed or otherwise vacated or it is no longer fair that the judgment should apply at this time; 
-    Note: It must be a "reasonable" amount of time since the court distributed the judgment or order.or
-    * any other reason justifying relief from the judgment 
-    Note: It must be a "reasonable" amount of time since the court distributed the judgment or order.
-  Examples of reasons under Civil Rule 60(b):
-    * Paperwork filed contained mistakes or was filed incorrectly.
-    * The court did not have jurisdiction or authority over the matter.
-    * The judgment has already been paid.
-    * The party is a victim of identity theft.
+  <p><strong>A Motion to Set Aside Judgment or Order</strong> asks the court to set aside or &quot;undo&quot; a final decision in a case.  You can ask the court to set aside your child support order if:
+  <ul>
+  <li>it is a <strong>&quot;reasonable&quot; amount of time</strong> since the date on the clerk’s certificate of distribution on the written order, and for some reasons <strong>no later than 1 year </strong>from that date, and</li>
+  <li>it is based on one or more of the reasons stated in Civil Rule 60(a) or (b). </li>
+  </ul>
+  </p>
+  <p><strong>Civil Rule 60(a)</strong> provides that a party can file a <strong>Motion to Set Aside the Judgment or Order</strong> if the court made a clerical mistake or accidentally left something out of a document.</p>
+  <p>
+    <strong>Civil Rule 60(b)</strong> specifies the reasons the court may set aside a judgment which include:
+  <ul>
+  <li>mistake; not paying close attention (inadvertence); an unexpected action, sudden confusion or an unanticipated event (surprise), or a legitimate excuse for failing to take required action (excusable neglect);<br>
+  Note: it must be 1 year or less since the court distributed the Judgment or order.</li>
+  <li>newly discovered evidence which could not have been discovered by taking reasonable steps within the 10 days allowed to request a new trial;<br>
+  Note: it must be 1 year or less since the court distributed the judgment or order.</li>
+  <li>fraud, misrepresentation, or other misconduct from the other side;<br>
+  Note: It must be 1 year or less since the court distributed the judgment or order.</li>
+  <li>the judgment is void;<br>
+  Note: It must be a &quot;reasonable&quot; amount of time since the court distributed the judgment or order.</li>
+  <li>the judgment has been satisfied, released or discharged, or a prior judgment upon which it is based has been reversed or otherwise vacated or it is no longer fair that the judgment should apply at this time; <br>
+  Note: It must be a &quot;reasonable&quot; amount of time since the court distributed the judgment or order.or</li>
+  <li>any other reason justifying relief from the judgment <br>
+  Note: It must be a &quot;reasonable&quot; amount of time since the court distributed the judgment or order.</li>
+  </ul></p>
+  <p>Examples of reasons under Civil Rule 60(b):
+  <ul>
+  <li>Paperwork filed contained mistakes or was filed incorrectly.</li>
+  <li>The court did not have jurisdiction or authority over the matter.</li>
+  <li>The judgment has already been paid.</li>
+  <li>The party is a victim of identity theft.</li>
+  </ul>
+  </p>
 ---
 template: fill_set_aside_step
 subject: |
@@ -479,13 +529,13 @@ content: |
   [Alaska Child Support Services Division (CSSD)](https://childsupport.alaska.gov/child-support-services/contact-us)
   
     *	Customer Service Call Center:
-      *	Monday – Thursday, 9:30 am - 4:00 pm
+      Monday - Thursday, 9:30 am - 4:00 pm
         *	✆ Phone: (907) 269-6900, 
         *	Toll Free (In-state): 800-478-3300
-      *	⌨ Fax: (907) 787-3220
-      *	Email: dor.cssd.customerservice.anchorage@alaska.gov
+    *	⌨ Fax: (907) 787-3220
+    *	Email: dor.cssd.customerservice.anchorage@alaska.gov
   <div class='step-subheading'>Contact the child support agency in the state where you got the order</div>
-    *	[Contact Information for State Child Support Agencies](https://www.acf.hhs.gov/css/parents/find-local-child-support-office).
+  [Contact Information for State Child Support Agencies](https://www.acf.hhs.gov/css/parents/find-local-child-support-office).
  
   If you still need more help, you may want to [contact a lawyer](https://courts.alaska.gov/shc/shclawyer.htm).
 ---
@@ -516,7 +566,8 @@ content: |
   If Child Support Services Division (CSSD) is collecting your child support, they can enforce your child support order.
   % elif cssd_collect == 'no':
   If you have a court order for child support and want Child Support Services Division (CSSD) to help you collect it, apply for CSSD services.  You will need a “My Alaska” account:
-    * See the CSSD Home Page.
+  
+    * See the [CSSD Home Page](https://childsupport.alaska.gov).
     * Select “Open a Case” or “Online Application for Services.”
   % else: 
   Contact CSSD to see if you have an account. 
@@ -525,7 +576,7 @@ content: |
   
   You will need a “My Alaska” account.
   
-  See the CSSD Home Page.
+  See the [CSSD Home Page](https://childsupport.alaska.gov).
   
   Select:
   
@@ -535,23 +586,25 @@ content: |
   % endif
   % endif
   
-  [Contact CSSD](https://childsupport.alaska.gov/child-support-services/contact-us)
-  
-    *	Customer Service Call Center:
-    
-      *	Monday – Thursday, 9:30 am - 4:00 pm
-      
-          *	✆ Phone: (907) 269-6900, 
-          *	Toll Free (In-state): 800-478-3300
-        
-      *	⌨ Fax: (907) 787-3220
-      *	Email: dor.cssd.customerservice.anchorage@alaska.gov
+   <a href="https://childsupport.alaska.gov/child-support-services/contact-us">Contact CSSD</a>
+  <ul>
+    <li>Customer Service Call Center: <br>
+    Monday - Thursday, 9:30 am - 4:00 pm
+      <ul>
+        <li>✆ Phone: (907) 269-6900, </li>
+        <li>Toll Free (In-state): 800-478-3300 </li>
+      </ul>
+    </li>
+    <li>⌨ Fax: (907) 787-3220 </li>
+    <li>Email: dor.cssd.customerservice.anchorage@alaska.gov </li>
+  </ul>
       
   Read [Child Support Enforcement FAQ](https://childsupport.alaska.gov/child-support-services/information/faqs/child-support-enforcement-services-faq)
 
   % if user_need =='enforce foreign order':
   Contact the child support agency in the state where you got the order.
-    * [Contact Information for State Child Support Agencies.(https://www.acf.hhs.gov/css/parents/find-local-child-support-office)]
+  
+    * [Contact Information for State Child Support Agencies](https://www.acf.hhs.gov/css/parents/find-local-child-support-office).
   % endif
 ---
 template: talk_w_other_parent_step
@@ -560,27 +613,32 @@ subject: |
 content: |
   When the other parent is not following your child support order, you can ask the court to order them to follow it. Generally, the first steps are:
   
-    1.  Ask the other parent in writing to do what the order says.
-    1.  In your written request, give them a date to do it by.
-    1.  Keep your writing polite and professional.  Remember the judge may see it.
+    1. Ask the other parent in writing to do what the order says.
+    1. In your written request, give them a date to do it by.
+    1. Keep your writing polite and professional.  Remember the judge may see it.
     1. Tell them if they do not do it you will ask the judge to enforce the order.
     1. Keep a copy of your written request and any written response you get back.
     1. Hopefully they will follow the order and you will not need to go back to court.
     1. If the other parent still does not cooperate, let the court know by filing a motion. A motion is a form you file with the court asking the judge to order the other side to do something.
-    
-        *	If you file a motion, attach a copy of what you wrote to the other parent and anything they responded.
+    1. If you file a motion, attach a copy of what you wrote to the other parent and anything they responded.
 ---
 template: register_step
 subject: |
   Step ${ register_idx }: Register your child support order from another state
 content: |
-  A child support order from another state is called a “foreign order.”
-  If you want the Alaska courts or Alaska police to enforce your foreign child support order, register your foreign order in an Alaska court 
-  There is no filing fee to register a foreign child support order.
-    1.  Give the following to an Alaska court. This is called “filing” your documents.
+  
+  * A child support order from another state is called a “foreign order.”
+  
+  * If you want the Alaska courts or Alaska police to enforce your foreign child support order, register your foreign order in an Alaska court.
+  
+  * There is no filing fee to register a foreign child support order.
+  
+  1. Give the following to an Alaska court. This is called “filing” your documents.
+   
       *	1 certified or exemplified copy of the original order.
       *	1 photocopy of the certified or exemplified original order. And
       *	These forms:
+      
           * Instructions - Registration of Support Order Issued by Another State, [DR-341](https://public.courts.alaska.gov/web/forms/docs/dr-341.pdf) [Fill-In PDF]
           * Petition to Register a Support Order from Another State, [DR-342](https://public.courts.alaska.gov/web/forms/docs/dr-342.pdf) [Fill-In PDF]
           * Confidential Information Sheet - Support Order from Another State, [DR-343](https://public.courts.alaska.gov/web/forms/docs/dr-343.pdf) [Fill-In PDF]
@@ -588,26 +646,34 @@ content: |
           Completed except for the date and clerk's signature
           * Request for Hearing About Registered Child Support Order, [DR-345](https://public.courts.alaska.gov/web/forms/docs/dr-345.pdf) [Fill-In PDF]
           Only fill in the Petitioner's and Respondent's names in the caption at the top left and leave the rest blank
-          * Confirmation of Registered Support Order, [DR-347](https://public.courts.alaska.gov/web/forms/docs/dr-342.pdf) [Fill-In PDF]
+          * Confirmation of Registered Support Order, [DR-347](https://public.courts.alaska.gov/web/forms/docs/dr-342.pdf) [Fill-In PDF]          
           Only fill in the Petitioner's and Respondent's names in the caption at the top left and leave the rest blank
           * Case description form, [CIV-125S](https://public.courts.alaska.gov/web/forms/docs/civ-125s.pdf)
+          
+          
     1.  Tell the court how you want it to deliver the documents to the opposing party by:
+    
       * 1st class US mail, which is free.
       * Certified mail, which you have to pay for. Or
       * A process server, which you have to arrange and pay for.
 
     * **1st class US mail**: Give the clerk at the court:
+    
       * the packet of forms to register a foreign order
       * envelope(s) addressed to the opposing party
       * a copy of all documents you are filling PLUS a Request for Hearing form for the opposing party
+      
     * **Certified mail**: Give the clerk at the court:
+    
       * the packet of forms to register a foreign order
       * envelope(s) addressed to the opposing party
       * a copy of all documents you are filling PLUS a Request for Hearing form for the opposing party
       * the filled-out mailing forms for certified mail, restricted delivery, return receipt requested from the Post Office for each of the parties listed in the certificate of distribution on the Notice of Registration Order. On the green card, fill out your return address so you get the green card back later.
       * enough postage for the court to serve by certified mail, restricted delivery, return receipt requested.
       * Before coming to court, it is your responsibility to go to the Post Office and get the forms for certified mail, restricted delivery, return receipt requested, and figure out how much it will cost to mail the forms by this method and put the stamps on the envelope. If you don't provide the correct stamped envelope, your paperwork may be rejected.
+      
     * **Process server**: Give the clerk:
+    
       * the packet of forms to register a foreign order
       * service instructions for the specific process server you want the court to use. Read the instructions about Personal Service By Process Server in [CIV-106](https://public.courts.alaska.gov/web/forms/docs/civ-106.pdf) 
 ---
@@ -635,7 +701,7 @@ content: |
   
     Notice of Motion, SHC-1630 [Word](https://courts.alaska.gov/shc/family/docs/shc-1630.doc) | PDF (Required form if you are filing post-judgment and more than 1 year has passed since the final judgment)
     
-  Read more about:
+  <div class='step-subheading'>Read more about</div>
   
   [Enforcing Your Order](https://courts.alaska.gov/shc/family/shcenforce.htm)
   
