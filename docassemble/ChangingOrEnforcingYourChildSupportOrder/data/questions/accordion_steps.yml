@@ -473,7 +473,7 @@ template: learn_set_aside_step
 subject: |
   Step ${ learn_set_aside_idx }: Learn about Motions to Set Aside
 content: |
-  <p><strong>A Motion to Set Aside Judgment or Order</strong> asks the court to set aside or &quot;undo&quot; a final decision in a case.  You can ask the court to set aside your child support order if:
+  <p>You may want to file a <strong>Motion to Set Aside Judgment or Order</strong>. This motion asks the court to set aside or &quot;undo&quot; a final decision in a case.  You can ask the court to set aside your child support order if:
   <ul>
   <li>it is a <strong>&quot;reasonable&quot; amount of time</strong> since the date on the clerk’s certificate of distribution on the written order, and for some reasons <strong>no later than 1 year </strong>from that date, and</li>
   <li>it is based on one or more of the reasons stated in Civil Rule 60(a) or (b). </li>
@@ -509,6 +509,7 @@ template: fill_set_aside_step
 subject: |
   Step ${ fill_set_aside_idx }: Fill out the forms to file a Motion to Set Aside
 content: |
+  If you decide to file a Motion to Set Aside because it fits your case:
   <div class='step-subheading'>Use</div>
     * Motion and Affidavit to Set Aside the Judgment or Order, SHC-1548 [Word](https://courts.alaska.gov/shc/family/docs/shc-1548.doc) |[PDF](https://courts.alaska.gov/shc/family/docs/shc-1548n.pdf)
     * Proposed Order on Motion, SHC-1302 [Word](https://courts.alaska.gov/shc/family/docs/shc-1302.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1302n.pdf)
