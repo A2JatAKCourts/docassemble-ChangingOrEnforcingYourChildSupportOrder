@@ -441,7 +441,9 @@ template: parents_agree_step
 subject: |
   Step ${ parents_agree_idx }: Tell the court about your agreement
 content: |
-  <div class='step-subheading'>Fill out the court forms to tell the judge your agreement.</div>
+  <div class='step-subheading'>Read</div>
+  [How to fill out the Child Support Guidelines Affidavit](https://courts.alaska.gov/shc/family/docs/shc-dr305f-sample.pdf)
+  <div class='step-subheading'>Fill out the court forms to tell the judge your agreement</div>
   If just child support changes, fill out and file:
   
     * Joint Motion, SHC-1310 [Word](https://courts.alaska.gov/shc/family/docs/shc-1310.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1310n.pdf)
