@@ -168,11 +168,13 @@ code: |
         elif cssd_collect == 'no':
           step_list.append((cssd_to_enforce_step, "cssd_to_enforce_idx"))
           step_list.append((talk_w_other_parent_step, "talk_w_other_parent_idx"))
-          step_list.append((court_to_enforce_step, "court_to_enforce_idx"))         
+          step_list.append((court_to_enforce_step, "court_to_enforce_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
         else:
           step_list.append((cssd_to_enforce_step, "cssd_to_enforce_idx"))
           step_list.append((talk_w_other_parent_step, "talk_w_other_parent_idx"))
           step_list.append((court_to_enforce_step, "court_to_enforce_idx"))
+          step_list.append((file_and_serve_step, "file_and_serve_idx"))
     elif who_really_ordered == 'cssd':
       if user_need == 'change AK order':
         step_list.append((ask_cssd_step, "ask_cssd_idx"))
@@ -187,6 +189,7 @@ code: |
         step_list.append((cssd_to_enforce_step, "cssd_to_enforce_idx"))
         step_list.append((talk_w_other_parent_step, "talk_w_other_parent_idx"))
         step_list.append((court_to_enforce_step, "court_to_enforce_idx"))
+        step_list.append((file_and_serve_step, "file_and_serve_idx"))
 
   step_list.append((get_help, "get_help_idx"))
   
@@ -411,7 +414,7 @@ content: |
   <div class='step-subheading'>Procedure</div>
   <ul>
   <li>
-  There is a $75 filing fee for a Motion to Modify.</li>
+  There is a $75 filing fee for a <strong>Motion to Modify</strong>.</li>
   <li>The other parent has 10 days to file a response (13 if you mail it).</li>
   <li>You have 5 days to file a reply.</li>
   <li>Read <a href="https://courts.alaska.gov/shc/family/after-judgment.htm">Options after you get a judge's decision.</a></li>
@@ -546,14 +549,25 @@ template: file_and_serve_step
 subject: |
   Step ${ file_and_serve_idx }: File and serve your forms
 content: |
-  1.	Make 2 copies of everything you are going to give the court.  
-  1.	Keep 1 copy for your own records.
-  1.	You must give the other parent 1 copy of everything you file with the court.  This is called “service.” 
-    *	You can mail or hand-deliver your copy.
-    *	If the other parent files anything in court that says they agree to service by email, you can email the copies you made for them.
-    *	If the other parent has a lawyer, you can serve the other parent by giving their lawyer the copy by email, mail or hand-delivery.
-  1.	Fill out the Certificate of Service. It tells the court how you are giving copies to the other parent.
-  1.	Mail, email or hand-deliver your forms to the court.   This is called “filing” them.
+  % if defined('final_order_date') or (defined('guess_final_order_date') and guess_final_order_date == 'between 11 and 30') or (defined('guess_final_order_date') and guess_final_order_date == 'more than 30'):
+  <p>If you decide that a Motion to Set Aside fits your case:</p>
+  % endif
+  % if user_need == 'enforce AK order':
+  <p>If you decide to ask the court to enforce your child support order:</p>
+  % endif
+  <ol>
+  <li>Make 2 copies of everything you are going to give the court.</li>
+  <li>Keep 1 copy for your own records.</li>
+  <li>You must give the other parent 1 copy of everything you file with the court.  This is called “service.”
+  <ul>
+  <li>You can mail or hand-deliver your copy.</li>
+  <li>If the other parent files anything in court that says they agree to service by email, you can email the copies you made for them.</li>
+  <li>If the other parent has a lawyer, you can serve the other parent by giving their lawyer the copy by email, mail or hand-delivery.</li>
+  </ul></li>
+  <li>Fill out the Certificate of Service. It tells the court how you are giving copies to the other parent.</li>
+  <li>Mail, email or hand-deliver your forms to the court.   This is called “filing” them.
+  </li>
+  </ol>
 ---
 template: cssd_to_enforce_step
 subject: |
@@ -602,28 +616,28 @@ content: |
     <li>Email: dor.cssd.customerservice.anchorage@alaska.gov </li>
   </ul>
       
-  Read [Child Support Enforcement FAQ](https://childsupport.alaska.gov/child-support-services/information/faqs/child-support-enforcement-services-faq)
+  <div class='step-subheading'>Read</div>
+  [Child Support Enforcement FAQ](https://childsupport.alaska.gov/child-support-services/information/faqs/child-support-enforcement-services-faq)
 
   % if user_need =='enforce foreign order':
-  Contact the child support agency in the state where you got the order.
-  
-    * [Contact Information for State Child Support Agencies](https://www.acf.hhs.gov/css/parents/find-local-child-support-office).
+  <div class='step-subheading'>Contact the child support agency in the state where you got the order</div>
+  [Contact Information for State Child Support Agencies](https://www.acf.hhs.gov/css/parents/find-local-child-support-office).
   % endif
 ---
 template: talk_w_other_parent_step
 subject: |
   Step ${ talk_w_other_parent_idx }: Talk to the other parent
 content: |
-  When the other parent is not following your child support order, you can ask the court to order them to follow it. Generally, the first steps are:
+  When the other parent is not following your child support order, you can ask the court to order them to follow it. It is a good idea to talk to the other parent first:
   
-    1. Ask the other parent in writing to do what the order says.
-    1. In your written request, give them a date to do it by.
-    1. Keep your writing polite and professional.  Remember the judge may see it.
-    1. Tell them if they do not do it you will ask the judge to enforce the order.
-    1. Keep a copy of your written request and any written response you get back.
-    1. Hopefully they will follow the order and you will not need to go back to court.
-    1. If the other parent still does not cooperate, let the court know by filing a motion. A motion is a form you file with the court asking the judge to order the other side to do something.
-    1. If you file a motion, attach a copy of what you wrote to the other parent and anything they responded.
+    * Ask the other parent in writing to do what the order says.
+    * In your written request, give them a date to do it by.
+    * Keep your writing polite and professional.  Remember the judge may see it.
+    * Tell them if they do not do it you will ask the judge to enforce the order.
+    * Keep a copy of your written request and any written response you get back.
+    * Hopefully they will follow the order and you will not need to go back to court.
+    * If the other parent still does not cooperate, let the court know by filing a motion. A motion is a form you file with the court asking the judge to order the other side to do something.
+    * If you file a motion, attach a copy of what you wrote to the other parent and anything they responded.
 ---
 template: register_step
 subject: |
@@ -687,7 +701,8 @@ content: |
   % if user_need == 'enforce_foreign_order':
   Once you have registered your child support order, you can ask the Alaska court to enforce it.
   % endif
-  **Option 1**: File a Motion & Affidavit to Enforce Order and ask the court to order the other parent to pay. Attach your written request and any response you got back. The court may hold a hearing and issue another order specifically telling the other side to pay by a specific date.
+  <div class='step-subheading'>Option 1</div> 
+  File a Motion & Affidavit to Enforce Order and ask the court to order the other parent to pay. Attach your written request and any response you got back. The court may hold a hearing and issue another order specifically telling the other side to pay by a specific date.
   
     Motion & Affidavit to Enforce Order, SHC-1540 [Word](https://courts.alaska.gov/shc/family/docs/shc-1540.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1540n.pdf)
     
@@ -695,14 +710,15 @@ content: |
     
     Notice of Motion, SHC-1630 [Word](https://courts.alaska.gov/shc/family/docs/shc-1630.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1630n.pdf) (Required form if you are filing post-judgment and more than 1 year has passed since the final judgment)
     
-  **Option 2**: File a Motion & Affidavit to Reduce to Judgment, asking the court to issue a judgment for the amount owed to you. Once you have a judgment, you can try to collect the amount by executing on the other parent's Permanent Fund Dividend, bank account, wages, etc.
+  <div class='step-subheading'>Option 2</div>
+  File a Motion & Affidavit to Reduce to Judgment, asking the court to issue a judgment for the amount owed to you. Once you have a judgment, you can try to collect the amount by executing on the other parent's Permanent Fund Dividend, bank account, wages, etc.
   
     Motion & Affidavit to Reduce to Judgment, SHC-1530 [Word](https://courts.alaska.gov/shc/family/docs/shc-1530.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1530n.pdf)
   
     Order Reducing to Judgment, SHC-1535 [Word](https://courts.alaska.gov/shc/family/docs/shc-1535.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1535n.pdf)
   Worksheet to Figure Out Judgment Amount, SHC-1536 [Word](https://courts.alaska.gov/shc/family/docs/shc-1536.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1536n.pdf)
   
-    Notice of Motion, SHC-1630 [Word](https://courts.alaska.gov/shc/family/docs/shc-1630.doc) | PDF (Required form if you are filing post-judgment and more than 1 year has passed since the final judgment)
+    Notice of Motion, SHC-1630 [Word](https://courts.alaska.gov/shc/family/docs/shc-1630.doc) | PDF (Required form if you are filing [post-judgment](https://courts.alaska.gov/shc/family/glossary.htm#post-judgment) and more than 1 year has passed since the final judgment)
     
   <div class='step-subheading'>Read more about</div>
   
