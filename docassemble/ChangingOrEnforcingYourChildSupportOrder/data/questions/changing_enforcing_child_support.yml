@@ -5,6 +5,9 @@ include:
   - accordion_steps.yml
   # - bundling_forms_for_downloading.yml
 ---
+code: |
+  OrderSentDate = CertOfDistrAnnotated.png
+---
 metadata:
   title: |
     Changing or Enforcing Child Support in Alaska
@@ -46,7 +49,7 @@ code: |
   AL_DEFAULT_STATE = "AK"
 ---
 code: |
-  github_repo_name =  'docassemble-ChangingOrEnforcingYourChildSupportOrder'
+  github_repo_name =  'docassemble-ChangingChildSupportIssues'
 ---
 code: |
   interview_short_title = "Changing Child Support in Alaska"
@@ -335,7 +338,7 @@ id: interim order date question
 question: |
   What is the date the court sent your interim child support order?
 subquestion: |
-  You can find the date the court sent you your child support order at the bottom of your child support order.  The Certificate of Distribution lists the day court staff sent the order to you.
+  Use the date the court sent your child support order to you. Look at the last page of the order. The date is in the box at the bottom of the page. ![Markdown logo](https://docassembledev.akcourts.gov/playgroundstatic/ChangingYourChildSupportOrder/3/CertOfDistrAnnotated.png)   
 fields:
   - "The date your order was distributed": interim_order_date
     datatype: date    
