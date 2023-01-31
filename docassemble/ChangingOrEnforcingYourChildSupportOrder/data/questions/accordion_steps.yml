@@ -30,6 +30,7 @@ code: |
     step_list.append((talk_w_other_parent_step, "talk_w_other_parent_idx"))
     step_list.append((register_step, "register_idx"))    
     step_list.append((court_to_enforce_step, "court_to_enforce_idx"))
+    step_list.append((file_and_serve_step, "file_and_serve_idx"))
   else:
     who_really_ordered = who_ordered
     if who_ordered == 'unknown':
@@ -39,8 +40,8 @@ code: |
           if why_change == 'schedule':
             step_list.append((learn_modify_step, "learn_modify_idx"))
             step_list.append((fill_modify_step, "fill_modify_idx"))
+            step_list.append((ask_court_step, "ask_court_idx"))
             step_list.append((file_and_serve_step, "file_and_serve_idx"))
-            step_list.append((ask_court_step, "ask_court_idx"))    
           elif why_change == 'income':
             if parents_agree:
               step_list.append((parents_agree_step, "parents_agree_idx"))
@@ -552,7 +553,7 @@ content: |
   % if defined('final_order_date') or (defined('guess_final_order_date') and guess_final_order_date == 'between 11 and 30') or (defined('guess_final_order_date') and guess_final_order_date == 'more than 30'):
   <p>If you decide that a Motion to Set Aside fits your case:</p>
   % endif
-  % if user_need == 'enforce AK order':
+  % if user_need in('enforce AK order', 'enforce foreign order'):
   <p>If you decide to ask the court to enforce your child support order:</p>
   % endif
   <ol>
@@ -698,7 +699,7 @@ template: court_to_enforce_step
 subject: |
   Step ${ court_to_enforce_idx }: Ask the court to enforce your order
 content: |
-  % if user_need == 'enforce_foreign_order':
+  % if user_need == 'enforce foreign order':
   Once you have registered your child support order, you can ask the Alaska court to enforce it.
   % endif
   <div class='step-subheading'>Option 1</div> 
