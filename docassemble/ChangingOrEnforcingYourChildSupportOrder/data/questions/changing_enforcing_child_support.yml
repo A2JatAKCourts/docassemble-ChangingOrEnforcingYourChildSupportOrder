@@ -82,6 +82,7 @@ code: |
     if who_ordered == 'court':
       if user_need == 'change AK order':
         if why_change == 'schedule':
+          schedule_change
           get_steps
           confirmation_and_download
         elif why_change == 'income':
@@ -151,6 +152,7 @@ code: |
       if find_who_ordered == 'court':   
         if user_need == 'change AK order':
           if why_change == 'schedule':
+            schedule_change
             get_steps
             confirmation_and_download
           elif why_change == 'income':
@@ -302,23 +304,25 @@ fields:
     input type: radio
     choices:
       - "My income or the other parent's income changed.": income
-      - "We changed our schedule": schedule
+      - "We changed our schedule.": schedule
         help: |
           The children spend more overnights with me or the other parent than they used to.         
       - "There is a problem with the order.": problem
-  - note: |     
-     #### <i class="fa-regular fa-lightbulb"></i> Learn more ####
-     **Schedule changes:** 
-     
-     When your parenting schedule changes and you want to change child support to match the new schedule, you need to change **both** your parenting plan order and your child support order.
-     
-     Use a different Guided Assistant Interview - [Changing a Custody Order](https://www.legalnav.org/guided_assistant/changing-a-custody-order/?location=alaska) - for a personalized action plan about changing child support and your parenting plan order.
-     
-     **Some examples of problems with an order:**
-     
-       *	The judge made a mistake.
-       *	The judge’s decision was based on a fact you just found out is not true.
-       *	You found new evidence you could **not** have found before the judge decided.
+        help: |
+           **Some examples of problems with an order:**
+           
+             *	The judge made a mistake.
+             *	The judge’s decision was based on a fact you just found out is not true.
+             *	You found new evidence you could **not** have found before the judge decided.
+---
+id: parenting schedule changed
+question: |
+  Schedule changes
+subquestion: |     
+  When your parenting schedule changes and you want to change child support to match the new schedule, you need to change **both** your parenting plan order and your child support order.
+  
+  Use a different Guided Assistant Interview - [Changing a Custody Order](https://www.legalnav.org/guided_assistant/changing-a-custody-order/?location=alaska) - to get your Personal Action Plan for changing child support and your parenting plan order.
+continue button field: schedule_change
 ---
 id: Do parents agree?
 question: |

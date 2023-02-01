@@ -26,9 +26,9 @@ code: |
   elif user_need == 'change foreign order':
     step_list.append((foreign_step, "foreign_idx"))
   elif user_need == 'enforce foreign order':
-    step_list.append((cssd_to_enforce_step, "cssd_to_enforce_idx"))
-    step_list.append((talk_w_other_parent_step, "talk_w_other_parent_idx"))
+    step_list.append((cssd_to_enforce_step, "cssd_to_enforce_idx"))    
     step_list.append((register_step, "register_idx"))    
+    step_list.append((talk_w_other_parent_step, "talk_w_other_parent_idx"))
     step_list.append((court_to_enforce_step, "court_to_enforce_idx"))
     step_list.append((file_and_serve_step, "file_and_serve_idx"))
   else:
@@ -38,10 +38,7 @@ code: |
     if who_really_ordered == 'court':
       if user_need == 'change AK order':
           if why_change == 'schedule':
-            step_list.append((learn_modify_step, "learn_modify_idx"))
-            step_list.append((fill_modify_step, "fill_modify_idx"))
             step_list.append((ask_court_step, "ask_court_idx"))
-            step_list.append((file_and_serve_step, "file_and_serve_idx"))
           elif why_change == 'income':
             if parents_agree:
               step_list.append((parents_agree_step, "parents_agree_idx"))
