@@ -620,12 +620,10 @@ content: |
     <li>⌨ Fax: (907) 787-3220 </li>
     <li>Email: dor.cssd.customerservice.anchorage@alaska.gov </li>
   </ul>
-      
-  <div class='step-subheading'>Read</div>
-  [Child Support Enforcement FAQ](https://childsupport.alaska.gov/child-support-services/information/faqs/child-support-enforcement-services-faq)
+
+  [Read Child Support Enforcement FAQ](https://childsupport.alaska.gov/child-support-services/information/faqs/child-support-enforcement-services-faq)
 
   % if user_need =='enforce foreign order':
-  <div class='step-subheading'>Contact the child support agency in the state where you got the order</div>
   [Contact Information for State Child Support Agencies](https://www.acf.hhs.gov/css/parents/find-local-child-support-office).
   % endif
 ---
