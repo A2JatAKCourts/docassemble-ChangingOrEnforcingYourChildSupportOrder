@@ -456,9 +456,9 @@ fields:
     datatype: checkboxes
     choices:
       - "Motions to Reconsider.": reconsider
-      - "Motions to Modify.": modify
+      - "Appeals.": appeal
       - "Motions to Set Aside.": set aside
----
+    none of the above: False
 ---
 id: child support draft template review screen
 event: review_changing_child_support
