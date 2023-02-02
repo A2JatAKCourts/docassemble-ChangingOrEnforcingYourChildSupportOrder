@@ -592,15 +592,13 @@ content: |
     * See the [CSSD Home Page](https://childsupport.alaska.gov).
     * Select “Open a Case” or “Online Application for Services.”
   % else: 
-  Contact CSSD to see if you have an account. 
+  [Contact CSSD](https://childsupport.alaska.gov/child-support-services/contact-us) to see if you have an account. 
   
   If you do not have an account, apply for CSSD services.
   
   You will need a “My Alaska” account.
   
-  See the [CSSD Home Page](https://childsupport.alaska.gov).
-  
-  Select:
+  See the [CSSD Home Page](https://childsupport.alaska.gov) and select:
   
     *	“Open a Case” or
     *	“Online Application for Services.”
