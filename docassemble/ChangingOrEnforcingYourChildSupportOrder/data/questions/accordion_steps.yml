@@ -330,7 +330,8 @@ template: learn_reconsider_step
 subject: |
   Step ${ learn_reconsider_idx }: Learn about Motions to Reconsider
 content: |
-  To ask your trial judge to reconsider a decision, file a Motion to Reconsider.  You only have 10 days after the order is distributed to file the motion.  Find the distribution date at the bottom of the order on the Certificate of Distribution.  It is the day court staff sent the order to you.
+  To ask your trial judge to reconsider a decision, file a Motion to Reconsider.  You only have 10 days after 
+  Use the date the court sent your child support order to you. Look at the last page of the order. The date is in the box at the bottom of the page. ![Markdown logo](https://docassembledev.akcourts.gov/playgroundstatic/ChangingYourChildSupportOrder/3/CertOfDistrAnnotated.png)   
   
   [Alaska Rule of Civil Procedure](https://courts.alaska.gov/rules/docs/civ.pdf) 77(k) lists **4 reasons** you can ask the court to reconsider a judge's decision:
   <ol>
@@ -487,6 +488,7 @@ content: |
   <li>it is based on one or more of the reasons stated in Civil Rule 60(a) or (b). </li>
   </ul>
   </p>
+  Use the date the court sent your child support order to you. Look at the last page of the order. The date is in the box at the bottom of the page. ![Markdown logo](https://docassembledev.akcourts.gov/playgroundstatic/ChangingYourChildSupportOrder/3/CertOfDistrAnnotated.png)  
   <p><strong>Civil Rule 60(a)</strong> provides that a party can file a <strong>Motion to Set Aside the Judgment or Order</strong> if the court made a clerical mistake or accidentally left something out of a document.</p>
   <p>
     <strong>Civil Rule 60(b)</strong> specifies the reasons the court may set aside a judgment which include:

@@ -400,7 +400,7 @@ id: final order date question
 question: |
   What is the date the court sent your final child support order?
 subquestion: |
-  You can find the date the court sent you your child support order at the bottom of your child support order.  The Certificate of Distribution lists the day court staff sent the order to you.
+  Use the date the court sent your child support order to you. Look at the last page of the order. The date is in the box at the bottom of the page. ![Markdown logo](https://docassembledev.akcourts.gov/playgroundstatic/ChangingYourChildSupportOrder/3/CertOfDistrAnnotated.png)   
 fields:
   - "The date your order was distributed": final_order_date
     datatype: date
