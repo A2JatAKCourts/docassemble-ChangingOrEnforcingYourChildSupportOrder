@@ -5,9 +5,9 @@ include:
   - accordion_steps.yml
   # - bundling_forms_for_downloading.yml
 ---
-# code: |
-#   OrderSentDate = CertOfDistrAnnotated.png
-# ---
+images:
+  certificate: CertOfDistrAnnotated.png
+---
 metadata:
   title: |
     Changing or Enforcing Child Support in Alaska
@@ -343,7 +343,7 @@ question: |
   What is the date the court sent your interim child support order?
 subquestion: |
   Use the date the court sent your child support order to you. Look at the last page of the order. The date is in the box at the bottom of the page. 
-  [File CertOfDistrAnnotated.png, None, screenshot of box with date court sent order]
+  [FILE certificate, 100%, This is a screenshot of the box with the date the court sent your order.]
 fields:
   - "The date your order was distributed": interim_order_date
     datatype: date    
@@ -403,7 +403,7 @@ question: |
 subquestion: |
   Use the date the court sent your child support order to you. Look at the last page of the order. The date is in the box at the bottom of the page. 
   
-  [File CertOfDistrAnnotated.png, None, screenshot of box with date court sent order]   
+  [FILE CertOfDistrAnnotated.png, None, This is a screenshot of the box with the date the court sent your order.]   
 fields:
   - "The date your order was distributed": final_order_date
     datatype: date
