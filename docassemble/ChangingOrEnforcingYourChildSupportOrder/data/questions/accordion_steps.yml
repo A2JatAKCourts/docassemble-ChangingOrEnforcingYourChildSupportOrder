@@ -206,12 +206,12 @@ subject: |
   Step ${ wrong_tf_idx }: Try another Guided Assistant
 content: | 
   * [Asking for Child Support](https://docassemble.akcourts.gov/start/AskingForChildSupport)
-  * [Starting A Case to End Your Marriage](https://LegalNav.org/guided_assistant/starting-a-case-to-end-your-marriage/?location=alaska)
-  * [Responding if Your Spouse Starts a Case to End Your Marriage](https://LegalNav.org/guided_assistant/responding-if-your-spouse-wants-to-or-starts-a-case-to-end-your-marriage/?location=alaska)
-  * [Starting a Custody Case](https://LegalNav.org/guided_assistant/starting-a-custody-case/?location=alaska)
-  * [Responding if Your Spouse Starts a Custody Case](https://LegalNav.org/guided_assistant/responding-if-your-spouse-wants-to-or-starts-a-custody-case/?location=Alaska)
-  * [Enforcing a Custody Order](https://LegalNav.org/guided_assistant/enforcing-a-custody-order/?location=alaska)
-  * [Changing a Custody Order](https://LegalNav.org/guided_assistant/changing-a-custody-order/?location=alaska)
+  * [Start a Case to End Your Marriage or Legally Separate](https://docassembledev.akcourts.gov/start/Divorce)
+  * [Respond in a Case to End Your Marriage or Legally Separate](https://docassemble.akcourts.gov/start/RespondToDivorce)
+  * [Ask the Court for a Child Custody or Parenting Plan Order](https://docassemble.akcourts.gov/start/AskingForChildCustody)
+  * [Respond in Your Child Custody or Parenting Plan Case](https://docassemble.akcourts.gov/start/RespondToCustody)
+  * [Enforcing Your Child Custody or Parenting Plan Order in Alaska](https://docassemble.akcourts.gov/start/EnforcingChildCustody)
+  * [Changing Your Child Custody or Parenting Plan Order](https://docassemble.akcourts.gov/start/ChangingChildCustody)
 --- 
 template: wrong_tf2
 subject: | 
@@ -232,9 +232,9 @@ content: |
   <span class="subheading">Many lawyers</span>
   offer free or flat fee consultations without having to hire them for the whole case. [Find a Lawyer](https://courts.alaska.gov/shc/shclawyer.htm).
   
-  Depending on your income, you may qualify for [Alaska Free Legal Answers](https://legalnav.org/resource/alaska-free-legal-answers).
+  Depending on your income, you may qualify for [Alaska Free Legal Answers](https://alaska.freelegalanswers.org).
   
-  Depending on your income and circumstances, you may qualify for a free lawyer from [Alaska Legal Services](alsc-law.org/apply-for-services).
+  Depending on your income and circumstances, you may qualify for a free lawyer from [Alaska Legal Services](https://alsc-law.org/apply-for-services).
 ---
 template: ask_cssd_step
 subject: |
@@ -248,12 +248,13 @@ content: |
     <li>Your children's schedule changes so that a new child support calculation would be at least 15% more or 15% less than the payment you have now. </li>
   </ul>
   <a href="https://childsupport.alaska.gov/child-support-services/contact-us">Contact CSSD</a>
+  <ul>
   <li>Customer Service Call Center:<br> 
   Monday - Thursday, 9:30 am - 4:00 pm</li>
-  <ul>
-  <li>✆ Phone: (907) 269-6900, </li>
-  <li>Toll Free (In-state): 800-478-3300 </li>
-  </ul>
+    <ul>
+    <li>✆ Phone: (907) 269-6900, </li>
+    <li>Toll Free (In-state): 800-478-3300 </li>
+    </ul>
   </li>
   <li>⌨ Fax: (907) 787-3220 </li>
   <li>Email: dor.cssd.customerservice.anchorage@alaska.gov </li>
@@ -330,8 +331,9 @@ template: learn_reconsider_step
 subject: |
   Step ${ learn_reconsider_idx }: Learn about Motions to Reconsider
 content: |
-  To ask your trial judge to reconsider a decision, file a Motion to Reconsider.  You only have 10 days after 
-  Use the date the court sent your child support order to you. Look at the last page of the order. The date is in the box at the bottom of the page. ![Markdown logo](https://docassembledev.akcourts.gov/playgroundstatic/ChangingYourChildSupportOrder/3/CertOfDistrAnnotated.png)   
+  To ask your trial judge to reconsider a decision, file a <strong>Motion to Reconsider</strong>.  You have only 10 days after the date the court sent your child support order to you. Look at the last page of the order. The date is in the box at the bottom of the page. 
+    
+  [FILE CertOfDistrAnnotated.png, None, This is a screenshot of the box that shows the date the court sent your order to you.]    
   
   [Alaska Rule of Civil Procedure](https://courts.alaska.gov/rules/docs/civ.pdf) 77(k) lists **4 reasons** you can ask the court to reconsider a judge's decision:
   <ol>
@@ -355,13 +357,13 @@ subject: |
 content: |
   <div class='step-subheading'>Use</div>
   <ul>
-  <li>  Motion and Affidavit for Reconsideration, SHC-1545 <a href="https://courts.alaska.gov/shc/family/docs/shc-1545.doc">Word</a> | <a href="https://courts.alaska.gov/shc/family/docs/shc-1545n.pdf">PDF </a></li>
-  <li> Proposed Order on Motion, SHC-1302 <a href="https://courts.alaska.gov/shc/family/docs/shc-1302.doc">Word</a> | <a href="https://courts.alaska.gov/shc/family/docs/shc-1302n.pdf">PDF</a></li>
+  <li><strong>Motion and Affidavit for Reconsideration, SHC-1545</strong> <a href="https://courts.alaska.gov/shc/family/docs/shc-1545.doc">Word</a> | <a href="https://courts.alaska.gov/shc/family/docs/shc-1545n.pdf">PDF </a></li>
+  <li><strong>Proposed Order on Motion, SHC-1302</strong><a href="https://courts.alaska.gov/shc/family/docs/shc-1302.doc">Word</a> | <a href="https://courts.alaska.gov/shc/family/docs/shc-1302n.pdf">PDF</a></li>
   </ul>
   <div class='step-subheading'>Procedure</div>
   <ul>
-  <li>The judge does not hold a hearing about a Motion to Reconsider so write your whole argument in the motion.</li>
-  <li>Your Motion to Reconsider and all the attachments must be 5 pages or less.</li>
+  <li>The judge does not hold a hearing about a <strong>Motion to Reconsider</strong> so write your whole argument in the motion.</li>
+  <li>Your <strong>Motion to Reconsider</strong> and all the attachments must be 5 pages or less.</li>
   <li>Usually when you file a motion:
   <ul>
   <li>the other side files a written response, 
@@ -391,11 +393,13 @@ content: |
   Figure out the new child support amount using the new schedule or new income information.  
     
     * Calculate the percent of overnights your children spend with you and with the other parent. For example, if your child spends 4 nights each week with you and 3 nights each week with their other parent, they spend 209 overnights each year with you and 156 nights each year with the other parent.  This is 57% of overnights with you and 43% of overnights with the other parent.  
-    * Use the percentages to fill out the Child Support Guidelines Affidavit,[DR-305](https://public.courts.alaska.gov/web/forms/docs/dr-305.pdf). Read [How to Fill out the Child Support Guidelines Affidavit](https://courts.alaska.gov/shc/family/docs/shc-dr305f-sample.pdf) to help you fill out this form.
-    * If your children have a primary custody child support schedule, the Child Support Guidelines Affidavit tells you the new child support amount. If you do not have a primary custody child support schedule, use one of these forms:
-    * Shared Custody Support Calculation, [DR-306](https://public.courts.alaska.gov/web/forms/docs/dr-306.pdf ) [Fill-In PDF] for a shared custody schedule, 
-    * Hybrid Custody Child Support Calculation, [DR-308](https://public.courts.alaska.gov/web/forms/docs/dr-308.pdf ) for a hybrid custody child support schedule, or
-    * Divided Custody Child Support Calculation, [DR-307](https://public.courts.alaska.gov/web/forms/docs/dr-307.pdf ) for a divided custody child support schedule.
+    * Use the percentages to fill out the <strong>Child Support Guidelines Affidavit</strong>, [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-305.pdf">DR-305</a>]. Read [How to Fill out the Child Support Guidelines Affidavit](https://courts.alaska.gov/shc/family/docs/shc-dr305f-sample.pdf) to help you fill out this form.
+    * If your children have a primary custody child support schedule, the <strong>Child Support Guidelines Affidavit</strong> tells you the new child support amount. If you do not have a primary custody child support schedule, use one of these forms:
+    <ul>
+  <li><strong>Shared Custody Support Calculation, [DR-306]</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-306.pdf">Fill-In PDF</a>] for a shared custody schedule, </li>
+  <li><strong>Hybrid Custody Child Support Calculation, [DR-308]</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-308.pdf">PDF</a>] for a hybrid custody child support schedule, or</li>
+  <li><strong>Divided Custody Child Support Calculation, [DR-307]</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-307.pdf">PDF</a>] for a divided custody child support schedule.</li>
+  </ul>
   <div class='step-subheading'>Compare the old and new child support amounts to see if there is a material change in circumstances.</div>
     * If the new child support amount is 15% more or less than the old amount, there is a presumption that there is a material change in circumstances.
     * For example, if the old child support amount was $100 per month, there would be a material change if the new amount was
@@ -414,11 +418,11 @@ subject: |
   Step ${ fill_modify_idx }: Fill out the Motion to Modify forms 
 content: |
   <div class='step-subheading'>Use</div>
-    *	Motion to Modify Custody, Visitation & Support Packet, [SHC-PAC12](https://courts.alaska.gov/shc/family/shcforms.htm#shc-pac12)
+    *	<strong>Motion to Modify Custody, Visitation & Support Packet</strong>, [SHC-PAC12](https://courts.alaska.gov/shc/family/shcforms.htm#shc-pac12)
   <div class='step-subheading'>Procedure</div>
   <ul>
   <li>
-  There is a $75 filing fee for a <strong>Motion to Modify</strong>.</li>
+  There is a $75 filing fee for a motion to modify.</li>
   <li>The other parent has 10 days to file a response (13 if you mail it).</li>
   <li>You have 5 days to file a reply.</li>
   <li>Read <a href="https://courts.alaska.gov/shc/family/after-judgment.htm">Options after you get a judge's decision.</a></li>
@@ -428,9 +432,9 @@ template: ask_court_step
 subject: |
   Step ${ ask_court_idx }: Ask the court to change your Parenting Plan and your child support order  
 content: |
-  If you need to change child support because you have a new schedule that is different than the schedule in your custody order, file a Motion to Modify Custody and Child Support.
+  If you need to change child support because you have a new schedule that is different than the schedule in your custody order, file a <strong>Motion to Modify Custody and Child Support</strong>.
   
-    * Use the Guided Assistant Interview [Changing a Custody Order](https://legalnav.org/guided_assistant/changing-a-custody-order/?location=Alaska) for a Personal Action Plan about changing both child support and your schedule.
+    * Use the Guided Assistant Interview [Changing Your Custody or Parenting Plan Order](https://docassemble.akcourts.gov/start/ChangingChildCustody) for a Personal Action Plan about changing both child support and your schedule.
     * Read [Modifying Child Custody or Child Support Order](https://courts.alaska.gov/shc/family/shcmodify.htm).
     
   <div class='step-subheading'>The most common reasons to change child support</div> 
@@ -441,7 +445,7 @@ content: |
   <div class='step-subheading'>It is important to file your agreement right away</div>
   Until you file it with the court, the old child support amount applies and the parent who owes child support still owes the old amount.  
   <div class='step-subheading'>Read</div>
-    * Instructions for Uncontested Modifications, SHC-1505 [Word](https://courts.alaska.gov/shc/family/docs/shc-1505.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1505n.pdf)
+    * <strong>Instructions for Uncontested Modifications, SHC-1505</strong> [Word](https://courts.alaska.gov/shc/family/docs/shc-1505.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1505n.pdf)
     * [How to Fill out the Child Support Guidelines Affidavit](https://courts.alaska.gov/shc/family/docs/shc-dr305f-sample.pdf)
 ---
 template: parents_agree_step
@@ -450,25 +454,31 @@ subject: |
 content: |
   <div class='step-subheading'>Read</div>
   [How to fill out the Child Support Guidelines Affidavit](https://courts.alaska.gov/shc/family/docs/shc-dr305f-sample.pdf)
-  <div class='step-subheading'>Fill out the court forms to tell the judge your agreement</div>
-  If just child support changes, fill out and file:
-  
-    * Joint Motion, SHC-1310 [Word](https://courts.alaska.gov/shc/family/docs/shc-1310.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1310n.pdf)
-    * Joint Affidavit, SHC-1320 [Word](https://courts.alaska.gov/shc/family/docs/shc-1320.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1320n.pdf)
-    * Order for Modification of Child Support, [DR-301](https://public.courts.alaska.gov/web/forms/docs/dr-301.pdf)[Fill-In PDF]
-    * Child Support Guidelines Affidavit, [DR-305](https://public.courts.alaska.gov/web/forms/docs/dr-305.pdf)[Fill-In  PDF] (each parent files their own)
-    * Child Custody Jurisdiction Affidavit, [DR-150](https://public.courts.alaska.gov/web/forms/docs/dr-150.pdf"> [Fill-In  PDF] (each parent files their own)
-    * Joint Motion to Put Settlement on the Record,  SHC-1063 [Word](https://courts.alaska.gov/shc/family/docs/shc-1063.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1063n.pdf)
-    * Information Sheet, [DR-314](https://public.courts.alaska.gov/web/forms/docs/dr-314.pdf) [Fill-In PDF]
-    
-  If you do not have a primary custody child support  schedule, use one of these forms:
-  
-    * Shared Custody Support Calculation, [DR-306](https://public.courts.alaska.gov/web/forms/docs/dr-306.pdf) [Fill-In PDF] for a shared custody schedule, 
-    * Hybrid Custody Child Support Calculation, [DR-308](https://public.courts.alaska.gov/web/forms/docs/dr-308.pdf) for a hybrid custody child support schedule, or
-    * Divided Custody Child Support Calculation, [DR-307](https://public.courts.alaska.gov/web/forms/docs/dr-307.pdf) for a divided custody child support schedule.
-  If your parenting schedule also changes include:<ul>
+  <div class='step-subheading'>Fill out the court forms to tell the judge your agreement</div> If just child support changes, fill out and file:
+  <ul>
+    <li><strong>Joint Motion, SHC-1310</strong> [<a href="https://courts.alaska.gov/shc/family/docs/shc-1310.doc">Word</a>] | [<a href="https://courts.alaska.gov/shc/family/docs/shc-1310n.pdf">PDF</a>]</li>
+    <li><strong>Joint Affidavit, SHC-1320</strong> [<a href="https://courts.alaska.gov/shc/family/docs/shc-1320.doc">Word</a>] | [<a href="https://courts.alaska.gov/shc/family/docs/shc-1320n.pdf">PDF</a>]</li>
+    <li><strong>Order for Modification of Child Support, [DR-301] </strong>[<a href="https://public.courts.alaska.gov/web/forms/docs/dr-301.pdf">PDF</a>]</li>
+    <li><strong>Child Support Guidelines Affidavit, [DR-305]</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-305.pdf">Fill-In PDF</a>]<br>
+      Each parent files their own.</li>
+    <li><strong>Child Custody Jurisdiction Affidavit, [DR-150]</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-150.pdf">Fill-In  PDF</a>]<br>
+      Each parent files their own.</li>
+    <li><strong>Joint Motion to Put Settlement on the Record,  SHC-1063</strong> [<a href="https://courts.alaska.gov/shc/family/docs/shc-1063.doc">Word</a>] | [<a href="https://courts.alaska.gov/shc/family/docs/shc-1063n.pdf">PDF</a>]</li>
+    <li><strong>Information Sheet, [DR-314]</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-314.pdf">Fill-In PDF</a>]</li>
+  </ul>
+  <p> If you do not have a primary custody child support schedule, use one of these forms:</p>
+  <ul>
+    <li><strong>Shared Custody Support Calculation, [DR-306]</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-306.pdf">Fill-In PDF</a>] for a shared custody schedule, </li>
+    <li><strong>Hybrid Custody Child Support Calculation, [DR-308]</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-308.pdf">PDF</a>] for a hybrid custody child support schedule, or</li>
+    <li><strong>Divided Custody Child Support Calculation, [DR-307]</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-307.pdf">PDF</a>] for a divided custody child support schedule.</li>
+  </ul>
+  <p>If your parenting schedule also changes include:
+      <ul>
+        <li><strong>Parenting Plan Agreement & Order, SHC-1128</strong> [<a href="https://courts.alaska.gov/shc/family/docs/shc-1128.docx">Word</a>] | [<a href="https://courts.alaska.gov/shc/family/docs/shc-1128n.pdf">PDF</a>]</li>
+      </ul>
+    </p>
 
-    * Parenting Plan Agreement &amp; Order, SHC-1128 [Word](https://courts.alaska.gov/shc/family/docs/shc-1128.docx) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1128n.pdf)
+  
 ---
 template: appeal_step
 subject: |
@@ -488,13 +498,15 @@ content: |
   <li>it is based on one or more of the reasons stated in Civil Rule 60(a) or (b). </li>
   </ul>
   </p>
-  Use the date the court sent your child support order to you. Look at the last page of the order. The date is in the box at the bottom of the page. ![Markdown logo](https://docassembledev.akcourts.gov/playgroundstatic/ChangingYourChildSupportOrder/3/CertOfDistrAnnotated.png)  
+  Use the date the court sent your child support order to you. Look at the last page of the order. The date is in the box at the bottom of the page. 
+  [FILE CertOfDistrAnnotated.png, None, This is a screenshot of the box that shows the date the court sent your order to you.]    
+  
   <p><strong>Civil Rule 60(a)</strong> provides that a party can file a <strong>Motion to Set Aside the Judgment or Order</strong> if the court made a clerical mistake or accidentally left something out of a document.</p>
   <p>
     <strong>Civil Rule 60(b)</strong> specifies the reasons the court may set aside a judgment which include:
   <ul>
   <li>mistake; not paying close attention (inadvertence); an unexpected action, sudden confusion or an unanticipated event (surprise), or a legitimate excuse for failing to take required action (excusable neglect);<br>
-  Note: it must be 1 year or less since the court distributed the Judgment or order.</li>
+  Note: it must be 1 year or less since the court distributed the judgment or order.</li>
   <li>newly discovered evidence which could not have been discovered by taking reasonable steps within the 10 days allowed to request a new trial;<br>
   Note: it must be 1 year or less since the court distributed the judgment or order.</li>
   <li>fraud, misrepresentation, or other misconduct from the other side;<br>
@@ -521,8 +533,8 @@ subject: |
 content: |
   If you decide to file a Motion to Set Aside because it fits your case:
   <div class='step-subheading'>Use</div>
-    * Motion and Affidavit to Set Aside the Judgment or Order, SHC-1548 [Word](https://courts.alaska.gov/shc/family/docs/shc-1548.doc) |[PDF](https://courts.alaska.gov/shc/family/docs/shc-1548n.pdf)
-    * Proposed Order on Motion, SHC-1302 [Word](https://courts.alaska.gov/shc/family/docs/shc-1302.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1302n.pdf)
+    * **Motion and Affidavit to Set Aside the Judgment or Order, SHC-1548** [Word](https://courts.alaska.gov/shc/family/docs/shc-1548.doc) |[PDF](https://courts.alaska.gov/shc/family/docs/shc-1548n.pdf)
+    * **Proposed Order on Motion, SHC-1302** [Word](https://courts.alaska.gov/shc/family/docs/shc-1302.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1302n.pdf)
   <div class='step-subheading'>Procedure</div>
     * The other parent has 10 days to respond to the court in writing (13 days if you mailed it to them).  The document is called a “response” or an “opposition.”  
     * You have 5 days to reply to anything the other parent put in their response that you did not talk about in your motion (8 days if they mailed it to you).  Read about [replying](https://courts.alaska.gov/shc/family/motions.htm#reply).
@@ -555,7 +567,7 @@ subject: |
   Step ${ file_and_serve_idx }: File and serve your forms
 content: |
   % if defined('final_order_date') or (defined('guess_final_order_date') and guess_final_order_date == 'between 11 and 30') or (defined('guess_final_order_date') and guess_final_order_date == 'more than 30'):
-  <p>If you decide that a Motion to Set Aside fits your case:</p>
+  <p>If you decide that a <strong>Motion to Set Aside</strong> fits your case:</p>
   % endif
   % if user_need in('enforce AK order', 'enforce foreign order'):
   <p>If you decide to ask the court to enforce your child support order:</p>
@@ -657,16 +669,16 @@ content: |
       *	1 photocopy of the certified or exemplified original order. And
       *	These forms:
       
-          * Instructions - Registration of Support Order Issued by Another State, [DR-341](https://public.courts.alaska.gov/web/forms/docs/dr-341.pdf) [Fill-In PDF]
-          * Petition to Register a Support Order from Another State, [DR-342](https://public.courts.alaska.gov/web/forms/docs/dr-342.pdf) [Fill-In PDF]
-          * Confidential Information Sheet - Support Order from Another State, [DR-343](https://public.courts.alaska.gov/web/forms/docs/dr-343.pdf) [Fill-In PDF]
-          * Notice of Registration of Another State's Support Order, [DR-344](https://public.courts.alaska.gov/web/forms/docs/dr-344.pdf) [Fill-In PDF]
+          * <strong>Instructions - Registration of Support Order Issued by Another State, DR-341</strong> [Fill-In PDF](https://public.courts.alaska.gov/web/forms/docs/dr-341.pdf)
+          * <strong>Petition to Register a Support Order from Another State, DR-342</strong> [Fill-In PDF](https://public.courts.alaska.gov/web/forms/docs/dr-342.pdf)
+          * <strong>Confidential Information Sheet - Support Order from Another State, [DR-343</strong> [Fill-In PDF](https://public.courts.alaska.gov/web/forms/docs/dr-343.pdf)
+          * <strong>Notice of Registration of Another State's Support Order, DR-344</strong> [Fill-In PDF](https://public.courts.alaska.gov/web/forms/docs/dr-344.pdf)
           Completed except for the date and clerk's signature
-          * Request for Hearing About Registered Child Support Order, [DR-345](https://public.courts.alaska.gov/web/forms/docs/dr-345.pdf) [Fill-In PDF]
+          * <strong>Request for Hearing About Registered Child Support Order, DR-345</strong> [Fill-In PDF](https://public.courts.alaska.gov/web/forms/docs/dr-345.pdf)
           Only fill in the Petitioner's and Respondent's names in the caption at the top left and leave the rest blank
-          * Confirmation of Registered Support Order, [DR-347](https://public.courts.alaska.gov/web/forms/docs/dr-342.pdf) [Fill-In PDF]          
-          Only fill in the Petitioner's and Respondent's names in the caption at the top left and leave the rest blank
-          * Case description form, [CIV-125S](https://public.courts.alaska.gov/web/forms/docs/civ-125s.pdf)
+          * <strong>Confirmation of Registered Support Order, DR-347</strong> [Fill-In PDF](https://public.courts.alaska.gov/web/forms/docs/dr-347.pdf)          
+          Only fill in the Petitioner's and Respondent's names in the top left. Leave the rest blank
+          * <strong>Case description form</strong>, [CIV-125S](https://public.courts.alaska.gov/web/forms/docs/civ-125s.pdf)
           
           
     1.  Tell the court how you want it to deliver the documents to the opposing party by:
@@ -703,23 +715,24 @@ content: |
   Once you have registered your child support order, you can ask the Alaska court to enforce it.
   % endif
   <div class='step-subheading'>Option 1</div> 
-  File a Motion & Affidavit to Enforce Order and ask the court to order the other parent to pay. Attach your written request and any response you got back. The court may hold a hearing and issue another order specifically telling the other side to pay by a specific date.
+  File a **Motion & Affidavit to Enforce Order** and ask the court to order the other parent to pay. Attach your written request and any response you got back. The court may hold a hearing and issue another order specifically telling the other side to pay by a specific date.
   
-    Motion & Affidavit to Enforce Order, SHC-1540 [Word](https://courts.alaska.gov/shc/family/docs/shc-1540.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1540n.pdf)
+    **Motion & Affidavit to Enforce Order, SHC-1540** [Word](https://courts.alaska.gov/shc/family/docs/shc-1540.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1540n.pdf)
     
-    Order on Motion, SHC-1302 [Word](https://courts.alaska.gov/shc/family/docs/shc-1302.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1302n.pdf)
+    **Order on Motion, SHC-1302** [Word](https://courts.alaska.gov/shc/family/docs/shc-1302.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1302n.pdf)
     
-    Notice of Motion, SHC-1630 [Word](https://courts.alaska.gov/shc/family/docs/shc-1630.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1630n.pdf) (Required form if you are filing post-judgment and more than 1 year has passed since the final judgment)
+    **Notice of Motion, SHC-1630** [Word](https://courts.alaska.gov/shc/family/docs/shc-1630.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1630n.pdf) (Required form if you are filing post-judgment and more than 1 year has passed since the final judgment)
     
   <div class='step-subheading'>Option 2</div>
-  File a Motion & Affidavit to Reduce to Judgment, asking the court to issue a judgment for the amount owed to you. Once you have a judgment, you can try to collect the amount by executing on the other parent's Permanent Fund Dividend, bank account, wages, etc.
+  File a **Motion & Affidavit to Reduce to Judgment**, asking the court to issue a judgment for the amount owed to you. Once you have a judgment, you can try to collect the amount by executing on the other parent's Permanent Fund Dividend, bank account, wages, etc.
   
-    Motion & Affidavit to Reduce to Judgment, SHC-1530 [Word](https://courts.alaska.gov/shc/family/docs/shc-1530.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1530n.pdf)
+    **Motion & Affidavit to Reduce to Judgment, SHC-1530** [Word](https://courts.alaska.gov/shc/family/docs/shc-1530.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1530n.pdf)
   
-    Order Reducing to Judgment, SHC-1535 [Word](https://courts.alaska.gov/shc/family/docs/shc-1535.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1535n.pdf)
-  Worksheet to Figure Out Judgment Amount, SHC-1536 [Word](https://courts.alaska.gov/shc/family/docs/shc-1536.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1536n.pdf)
+    **Order Reducing to Judgment, SHC-1535** [Word](https://courts.alaska.gov/shc/family/docs/shc-1535.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1535n.pdf)
+    
+    **Worksheet to Figure Out Judgment Amount, SHC-1536** [Word](https://courts.alaska.gov/shc/family/docs/shc-1536.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1536n.pdf)
   
-    Notice of Motion, SHC-1630 [Word](https://courts.alaska.gov/shc/family/docs/shc-1630.doc) | PDF (Required form if you are filing [post-judgment](https://courts.alaska.gov/shc/family/glossary.htm#post-judgment) and more than 1 year has passed since the final judgment)
+    **Notice of Motion, SHC-1630** [Word](https://courts.alaska.gov/shc/family/docs/shc-1630.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1630n.pdf)  (Required form if you are filing [post-judgment](https://courts.alaska.gov/shc/family/glossary.htm#post-judgment) and more than 1 year has passed since the final judgment)
     
   <div class='step-subheading'>Read more about</div>
   

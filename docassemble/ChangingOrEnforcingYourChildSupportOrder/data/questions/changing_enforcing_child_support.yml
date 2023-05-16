@@ -269,7 +269,7 @@ question: |
 subquestion: |
   
   *	Look at the top of your child support order to see if it was ordered by the Alaska Court System or Child Support Services Division.
-  * Look for your name in [CourtView](https://records.courts.alaska.gov/eaccess/home.page.2), the Alaska Court System’s list of public court cases. Open up your divorce or custody case.  See if there is an entry for a “child support order
+  * Look for your name in [CourtView](https://records.courts.alaska.gov/eaccess/home.page.2), the Alaska Court System’s list of public court cases. Open up your divorce or custody case.  See if there is an entry for a “child support order".
   * Contact [Child Support Services Division](https://childsupport.alaska.gov/child-support-services/contact-us) and ask them.
 fields:
   - Who issued your child support order?: find_who_ordered
@@ -345,7 +345,7 @@ subquestion: |
   Use the date the court sent your child support order to you. Look at the last page of the order. The date is in the box at the bottom of the page. 
   [FILE certificate, 100%, This is a screenshot of the box with the date the court sent your order.]
 fields:
-  - "The date your order was distributed": interim_order_date
+  - "The date of your order": interim_order_date
     datatype: date    
     max: ${ today() }
     disable if: interim_order_period
@@ -403,9 +403,9 @@ question: |
 subquestion: |
   Use the date the court sent your child support order to you. Look at the last page of the order. The date is in the box at the bottom of the page. 
   
-  [FILE CertOfDistrAnnotated.png, None, This is a screenshot of the box with the date the court sent your order.]   
+  [FILE CertOfDistrAnnotated.png, None, This is a screenshot of the box that shows the date the court sent your order to you.]   
 fields:
-  - "The date your order was distributed": final_order_date
+  - "The date of your order": final_order_date
     datatype: date
     max: ${ today() }
     required: False
