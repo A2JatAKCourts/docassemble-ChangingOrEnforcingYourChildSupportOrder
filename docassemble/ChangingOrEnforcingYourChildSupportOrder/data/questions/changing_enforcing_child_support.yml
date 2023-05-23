@@ -340,7 +340,7 @@ fields:
 ---
 id: interim order date question
 question: |
-  What is the date the court sent your interim child support order?
+  What is the date the court sent your interim child support order to you?
 subquestion: |
   Use the date the court sent your child support order to you. Look at the last page of the order. The date is in the box at the bottom of the page. 
   [FILE certificate, 100%, This is a screenshot of the box with the date the court sent your order.]
@@ -350,7 +350,7 @@ fields:
     max: ${ today() }
     disable if: interim_order_period
     help: |
-      This is the date in the Certificate of Distribution section at the bottom of your order.
+      This is the date in the box at the bottom of your order.
   - I do not have the exact date.: interim_order_period
     datatype: yesno
     enable if: 
@@ -365,7 +365,7 @@ fields:
       - I do not know.: unknown
   - note: |
       #### <i class="fa-regular fa-lightbulb"></i> Learn more ####
-       You have different ways to ask the court to change your child support order when your situation changes.  It can depend on when the court sent you the order.
+       You have different ways to ask the court to change your child support order when your situation changes.  It can depend on when the court sent the order to you.
   
       For the first 10 days after {the court sent your child support order}, you can file a “Motion to Reconsider."  It asks the trial judge to fix something they overlooked or misunderstood.
        
@@ -373,8 +373,8 @@ fields:
        
         Your Action Plan will not include information about options that do not apply in your case.
 terms:
-  the court sent your child support order: |
-      You can find the date the court sent you your child support order at the bottom of your child support order.  The Certificate of Distribution lists the day court staff sent the order to you.
+  the court sent your child support order to you: |
+      You can find the date the court sent your child support order to you in the box at the bottom of your child support order.
 continue button field: interim_order_date_question
 ---
 id: get information about choices user does not know interim order date
@@ -395,7 +395,7 @@ fields:
       - Both.: both
 terms:
   after you get a child support order: |
-    You can find the date the court sent you your child support order at the bottom of your child support order.  The Certificate of Distribution lists the day court staff sent the order to you.
+    You can find the date the court sent your child support order to you in the box at the bottom of your child support order.
 ---
 id: final order date question
 question: |
@@ -411,7 +411,7 @@ fields:
     required: False
     disable if: final_order_period
     help: |
-      This is the date in the Certificate of Distribution section at the bottom of your order.
+      This is the date in the box at the bottom of your order.
   - I do not have the exact date.: final_order_period
     datatype: yesno
     enable if: 
@@ -430,7 +430,7 @@ fields:
 #      #### <i class="fa-regular fa-lightbulb"></i> Learn more ####
 #     You have different ways to ask the court to change your child support order when you think there is a mistake.  It can depend on how old your order is.
 #     
-#     For the first 10 days after {the court sent you your child support order}, you can file a “Motion to Reconsider.”  It asks the trial judge to fix something they overlooked or misunderstood.
+#     For the first 10 days after {the court sent your child support order to you}, you can file a “Motion to Reconsider.”  It asks the trial judge to fix something they overlooked or misunderstood.
 #     
 #     For the first 30 days after you get a child support order, you can file an appeal.  An appeal asks the Alaska Supreme Court to change a mistake made by the trial judge.
 #     
@@ -438,19 +438,19 @@ fields:
 #     
 #     Your Action Plan will not include information about options that do not apply in your case.  
 #  terms:
-#    the court sent you your child support order: |
-#      You can find the date the court sent you your child support order at the bottom of your child support order.  The Certificate of Distribution lists the day court staff sent the order to you. 
+#    the court sent your child support order to you: |
+#      You can find the date the court sent your child support order to you in the box at the bottom of the order.  
 continue button field: final_order_date_question
 ---
 id: get information about choices if user does not know final order date
 question: |
   What do you want to get information about?
 subquestion: |
-  For the first 10 days after {the court sent you your child support order}, you can file a “Motion to Reconsider.”  It asks the trial judge to fix something they overlooked or misunderstood.
+  For the first 10 days after {the court sent your child support order to you}, you can file a **Motion to Reconsider**.  It asks the trial judge to fix something they overlooked or misunderstood.
 
-  For the first 30 days {after the court sent you your child support order}, you can file an appeal.  An appeal asks the Alaska Supreme Court to change a mistake made by the trial judge.
+  For the first 30 days {after the court sent your child support order to you}, you can file an **Appeal**.  An appeal asks the Alaska Supreme Court to change a mistake made by the trial judge.
 
-  You can always file a “Motion to Set Aside.”  A  “Motion to Set Aside” asks the judge to change the order because of certain kinds of mistakes.  For some mistakes, you must file the motion in the first year.
+  You can always file a **Motion to Set Aside**.  A  **Motion to Set Aside** asks the judge to change the order because of certain kinds of mistakes.  For some mistakes, you must file the motion in the first year.
 
   I want to get information about? Check all that apply.
 
