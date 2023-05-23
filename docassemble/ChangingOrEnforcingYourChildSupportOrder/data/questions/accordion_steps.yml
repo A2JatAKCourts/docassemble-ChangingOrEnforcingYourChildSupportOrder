@@ -14,7 +14,7 @@ subquestion: |
   ${ collapse_template(step_tuple[0], closed_icon="plus", open_icon="minus") }
   % endfor
   
-   ${ al_user_bundle.download_list_html() }
+  ${ download_buttons_html(al_user_bundle) }
 buttons:
   - Start over: restart
 ---
