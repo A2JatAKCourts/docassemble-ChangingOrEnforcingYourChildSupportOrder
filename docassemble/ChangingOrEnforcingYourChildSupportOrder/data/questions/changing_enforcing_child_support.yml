@@ -69,7 +69,7 @@ objects:
 #################### Interview order #####################
 comment: |
   Controls order and branching logic for questions specific to this form
-id: interview_order_changing_child_support
+id: interview order changing child support
 code: |
   # Set the allowed courts for this interview
   # allowed_courts = interview_metadata["changing_child_support"]["allowed courts"]
@@ -90,6 +90,7 @@ code: |
             get_steps
             confirmation_and_download
           else:
+            parents_agree_resources
             if middle_of_case:
               interim_order_date_question
               # if defined('interim_order_date'):
@@ -160,6 +161,7 @@ code: |
               get_steps
               confirmation_and_download
             else:
+              parents_agree_resources
               if middle_of_case:
                 interim_order_date_question
                 if defined('interim_order_date_period'): 
@@ -329,7 +331,25 @@ question: |
   Do you and the other parent agree about changing child support?
 fields:
   - no label: parents_agree
+    datatype: yesnomaybe
+---
+id: resources to help parents agree
+question: |
+  Do you want help to reach an agreement?
+subquestion: |
+  If both of you want to reach an agreement **before** the judge decides for you, you can try:
+  
+  * Talking to each other.
+  * Mediation, or
+  * Collaborative law.
+  
+  Read about the different ways you can find a plan that works for both of you and your children.
+
+fields:
+  - "Do you want this information in your Action Plan?": parents_agree_resources
     datatype: yesnoradio
+
+
 ---
 id: Interim order?
 question: |

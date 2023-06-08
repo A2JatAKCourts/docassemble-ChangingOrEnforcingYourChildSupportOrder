@@ -43,6 +43,9 @@ code: |
           if parents_agree:
             step_list.append((parents_agree_step, "parents_agree_idx"))
           else:
+            if parents_agree_resources:
+              step_list.append((parents_agree_resources_step, "parents_agree_resources_idx"))
+              step_list.append((parents_agree_step, "parents_agree_idx"))
             if middle_of_case:
                 if defined('interim_order_date'):
                   if date_difference(starting=interim_order_date, ending=today()).days <= 10:
@@ -447,6 +450,25 @@ content: |
   <div class='step-subheading'>Read</div>
     * <strong>Instructions for Uncontested Modifications, SHC-1505</strong> [Word](https://courts.alaska.gov/shc/family/docs/shc-1505.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1505n.pdf)
     * [How to Fill out the Child Support Guidelines Affidavit](https://courts.alaska.gov/shc/family/docs/shc-dr305f-sample.pdf)
+---
+template: parents_agree_resources_step
+subject: |
+  Step ${ parents_agree_resources_idx }: Tell the court about your agreement
+content: |
+  <div class='step-subheading'>Find out if you agree</div>
+  If you want a change to your child support order, you can ask the other parent to see if they agree.
+  
+  If both of you want to reach an agreement you can try:
+  *	Talking to each other.
+  *	Mediation. 
+  *	Collaborative Law.
+  
+  <div class='step-subheading'>Talking to each other</div>
+  Some parents want to work out an agreement before the judge decides for you. You may be able to talk to each other in person, on-line, or maybe a friend or family member can help.
+  <div class='step-subheading'>Mediation</div>
+  
+  <div class='step-subheading'>Collaborative Law</div>
+
 ---
 template: parents_agree_step
 subject: |
