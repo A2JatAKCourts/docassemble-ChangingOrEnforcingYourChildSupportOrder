@@ -90,7 +90,8 @@ code: |
             get_steps
             confirmation_and_download
           else:
-            parents_agree_resources
+            if parents_agree is None:
+              parents_agree_resources
             if middle_of_case:
               interim_order_date_question
               # if defined('interim_order_date'):
@@ -161,7 +162,8 @@ code: |
               get_steps
               confirmation_and_download
             else:
-              parents_agree_resources
+              if parents_agree is None:
+                parents_agree_resources
               if middle_of_case:
                 interim_order_date_question
                 if defined('interim_order_date_period'): 
@@ -247,7 +249,7 @@ fields:
       - "Change a child support order from another state.": change foreign order
       - "Enforce an Alaska child support order.": enforce AK order
       - "Enforce a child support order from another state.": enforce foreign order
-      - "This is not what I was looking for.": unwanted
+  #   - "This is not what I was looking for.": unwanted
   - note: |     
      #### <i class="fa-regular fa-lightbulb"></i> Learn more ####
      To get a copy of your child support order, contact the court or child support agency that issued your order.  Ask them how to get a copy.
@@ -328,28 +330,24 @@ continue button field: schedule_change
 ---
 id: Do parents agree?
 question: |
-  Do you and the other parent agree about changing child support?
+  Does the other parent agree the amount of child support should change?
+subquestion: |
+  If you think your child support order should change, you can ask the other parent to see if they agree. 
+  You may be able to talk to each other in person, on-line, or maybe a friend or family member can help.   
+  
 fields:
   - no label: parents_agree
     datatype: yesnomaybe
 ---
 id: resources to help parents agree
 question: |
-  Do you want help to reach an agreement?
+  Do you want to know how to tell the court about an agreement?
 subquestion: |
-  If both of you want to reach an agreement **before** the judge decides for you, you can try:
-  
-  * Talking to each other.
-  * Mediation, or
-  * Collaborative law.
-  
-  Read about the different ways you can find a plan that works for both of you and your children.
+  If you find out the other parent **does** agree the amount of child support should change, do you want information about how to tell the court about your agreement? 
 
 fields:
-  - "Do you want this information in your Action Plan?": parents_agree_resources
+  - no label: parents_agree_resources
     datatype: yesnoradio
-
-
 ---
 id: Interim order?
 question: |

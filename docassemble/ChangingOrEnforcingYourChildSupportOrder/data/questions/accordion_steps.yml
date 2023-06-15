@@ -20,10 +20,11 @@ buttons:
 ---
 code: |
   step_list = []
-  if user_need == 'unwanted':
-    step_list.append((wrong_tf, "wrong_tf_idx"))
-    step_list.append((wrong_tf2, "wrong_tf2_idx"))
-  elif user_need == 'change foreign order':
+  #  if user_need == 'unwanted':
+  #    step_list.append((wrong_tf, "wrong_tf_idx"))
+  #    step_list.append((wrong_tf2, "wrong_tf2_idx"))
+  #  elif user_need == 'change foreign order':
+  if user_need == 'change foreign order':
     step_list.append((foreign_step, "foreign_idx"))
   elif user_need == 'enforce foreign order':
     step_list.append((cssd_to_enforce_step, "cssd_to_enforce_idx"))    
@@ -453,15 +454,15 @@ content: |
 ---
 template: parents_agree_resources_step
 subject: |
-  Step ${ parents_agree_resources_idx }: Tell the court about your agreement
+  Step ${ parents_agree_resources_idx }: Find out if you can agree with the other parent
 content: |
-  <div class='step-subheading'>Find out if you agree</div>
   If you want a change to your child support order, you can ask the other parent to see if they agree.
   
   If both of you want to reach an agreement you can try:
-  *	Talking to each other.
-  *	Mediation. 
-  *	Collaborative Law.
+  
+    *	Talking to each other.
+    *	Mediation. 
+    *	Collaborative Law.
   
   <div class='step-subheading'>Talking to each other</div>
   Some parents want to work out an agreement before the judge decides for you. You may be able to talk to each other in person, on-line, or maybe a friend or family member can help.
