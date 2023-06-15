@@ -75,142 +75,142 @@ code: |
   # allowed_courts = interview_metadata["changing_child_support"]["allowed courts"]
   # nav.set_section("review_changing_child_support")
   user_role = "na"
-  if user_need in ('change foreign order','enforce foreign order','unwanted'):
-    get_steps
-    confirmation_and_download
-  else:
-    if who_ordered == 'court':
-      if user_need == 'change AK order':
-        if why_change == 'schedule':
-          schedule_change
-          get_steps
-          confirmation_and_download
-        elif why_change == 'income':
-          if parents_agree:
-            get_steps
-            confirmation_and_download
-          else:
-            if parents_agree is None:
-              parents_agree_resources
-            if middle_of_case:
-              interim_order_date_question
-              # if defined('interim_order_date'):
-              # get_steps
-              #  confirmation_and_download
-              if defined('interim_order_date_period'):
-                if guess_interim_order_date == 'unknown':
-                 unknown_interim_date
-                 get_steps
-                 confirmation_and_download
-              else:
-                get_steps
-                confirmation_and_download
-            else:
-             # if defined('final_order_date'):
-              #  get_steps
-              #  confirmation_and_download
-              # elif defined('final_order_date_period'):
-              #  if guess_final_order_date == 'unknown':
-              #    unknown_final_date
-              #    get_steps
-              #   confirmation_and_download
-              #  else:
-              get_steps
-              confirmation_and_download   
-        else: # why_change == 'problem'
-          if middle_of_case:
-            interim_order_date_question
-            # if defined('interim_order_date'):
-            #  get_steps
-            #  confirmation_and_download
-            if defined('interim_order_period'): 
-              if guess_interim_order_date == 'unknown':
-                unknown_interim_date
-                get_steps
-                confirmation_and_download
-              else:
-                get_steps
-                confirmation_and_download
-          else:
-            final_order_date_question
-              # if defined('final_order_date'):
-              #   get_steps
-              #   confirmation_and_download
-            if defined('final_order_date_period'):
-              if guess_final_order_date == 'unknown':
-                unknown_final_date
-                get_steps
-                confirmation_and_download
-            get_steps
-            confirmation_and_download
-      else: # if user_need == 'enforce AK order'
-        cssd_collect
-        get_steps
-        confirmation_and_download
-    elif who_ordered == 'cssd': #for both changing and enforcing AK orders
-      get_steps
-      confirmation_and_download
-    else: # if who_ordered == 'unknown'
-      if find_who_ordered == 'court':   
-        if user_need == 'change AK order':
-          if why_change == 'schedule':
-            schedule_change
-            get_steps
-            confirmation_and_download
-          elif why_change == 'income':
-            if parents_agree:
-              get_steps
-              confirmation_and_download
-            else:
-              if parents_agree is None:
-                parents_agree_resources
-              if middle_of_case:
-                interim_order_date_question
-                if defined('interim_order_date_period'): 
-                  if guess_interim_order_date == 'unknown':
-                    unknown_interim_date
-                    get_steps
-                    confirmation_and_download
-                else:
-                  get_steps
-                  confirmation_and_download
-              else:
-                get_steps
-                confirmation_and_download     
-          else: # why_change == 'problem'
-            if middle_of_case:
-              interim_order_date_question
-              if defined('interim_order_date_period'): 
-                if guess_interim_order_date == 'unknown':
-                  unknown_interim_date
-                  get_steps
-                  confirmation_and_download
-                else:
-                  get_steps
-                  confirmation_and_download
-              else:
-                get_steps
-                confirmation_and_download   
-            else:
-              final_order_date_question
-              if defined('final_order_date_period'):
-                if guess_final_order_date == 'unknown':
-                  unknown_final_date
-                  get_steps
-                  confirmation_and_download
-                else:
-                  get_steps
-                  confirmation_and_download
-              else:
-                get_steps
-                confirmation_and_download
-        else: # if user_need == 'enforce AK order'
-          cssd_collect
-          get_steps
-          confirmation_and_download
-      else: # find_who_ordered in('cssd', 'unknown')
-        get_steps
-        confirmation_and_download
+  #if user_need in ('change foreign order','enforce foreign order','unwanted'):
+  #  get_steps
+  #  confirmation_and_download
+  #else:
+  #  if who_ordered == 'court':
+  #    if user_need == 'change AK order':
+  #      if why_change == 'schedule':
+  #        schedule_change
+  #        get_steps
+  #        confirmation_and_download
+  #      elif why_change == 'income':
+  #        if parents_agree:
+  #          get_steps
+  #          confirmation_and_download
+  #        else:
+  #          if parents_agree is None:
+  #            parents_agree_resources
+  #          if middle_of_case:
+  #            interim_order_date_question
+  #            # if defined('interim_order_date'):
+  #            # get_steps
+  #            #  confirmation_and_download
+  #            if defined('interim_order_date_period'):
+  #              if guess_interim_order_date == 'unknown':
+  #               unknown_interim_date
+  #               get_steps
+  #               confirmation_and_download
+  #            else:
+  #              get_steps
+  #              confirmation_and_download
+  #          else:
+  #           # if defined('final_order_date'):
+  #            #  get_steps
+  #            #  confirmation_and_download
+  #            # elif defined('final_order_date_period'):
+  #            #  if guess_final_order_date == 'unknown':
+  #            #    unknown_final_date
+  #            #    get_steps
+  #            #   confirmation_and_download
+  #            #  else:
+  #            get_steps
+  #            confirmation_and_download   
+  #      else: # why_change == 'problem'
+  #        if middle_of_case:
+  #          interim_order_date_question
+  #          # if defined('interim_order_date'):
+  #          #  get_steps
+  #          #  confirmation_and_download
+  #          if defined('interim_order_period'): 
+  #            if guess_interim_order_date == 'unknown':
+  #              unknown_interim_date
+  #              get_steps
+  #              confirmation_and_download
+  #            else:
+  #              get_steps
+  #              confirmation_and_download
+  #        else:
+  #          final_order_date_question
+  #            # if defined('final_order_date'):
+  #            #   get_steps
+  #            #   confirmation_and_download
+  #          if defined('final_order_date_period'):
+  #            if guess_final_order_date == 'unknown':
+  #              unknown_final_date
+  #              get_steps
+  #              confirmation_and_download
+  #          get_steps
+  #          confirmation_and_download
+  #    else: # if user_need == 'enforce AK order'
+  #      cssd_collect
+  #      get_steps
+  #      confirmation_and_download
+  #  elif who_ordered == 'cssd': #for both changing and enforcing AK orders
+  #    get_steps
+  #    confirmation_and_download
+  #  else: # if who_ordered == 'unknown'
+  #    if find_who_ordered == 'court':   
+  #      if user_need == 'change AK order':
+  #        if why_change == 'schedule':
+  #          schedule_change
+  #          get_steps
+  #          confirmation_and_download
+  #        elif why_change == 'income':
+  #          if parents_agree:
+  #            get_steps
+  #            confirmation_and_download
+  #          else:
+  #            if parents_agree is None:
+  #              parents_agree_resources
+  #            if middle_of_case:
+  #              interim_order_date_question
+  #              if defined('interim_order_date_period'): 
+  #                if guess_interim_order_date == 'unknown':
+  #                  unknown_interim_date
+  #                  get_steps
+  #                  confirmation_and_download
+  #              else:
+  #                get_steps
+  #                confirmation_and_download
+  #            else:
+  #              get_steps
+  #              confirmation_and_download     
+  #        else: # why_change == 'problem'
+  #          if middle_of_case:
+  #            interim_order_date_question
+  #            if defined('interim_order_date_period'): 
+  #              if guess_interim_order_date == 'unknown':
+  #                unknown_interim_date
+  #                get_steps
+  #                confirmation_and_download
+  #              else:
+  #                get_steps
+  #                confirmation_and_download
+  #            else:
+  #              get_steps
+  #              confirmation_and_download   
+  #          else:
+  #            final_order_date_question
+  #            if defined('final_order_date_period'):
+  #              if guess_final_order_date == 'unknown':
+  #                unknown_final_date
+  #                get_steps
+  #                confirmation_and_download
+  #              else:
+  #                get_steps
+  #                confirmation_and_download
+  #            else:
+  #              get_steps
+  #              confirmation_and_download
+  #      else: # if user_need == 'enforce AK order'
+  #        cssd_collect
+  #        get_steps
+  #        confirmation_and_download
+  #    else: # find_who_ordered in('cssd', 'unknown')
+  get_steps
+  confirmation_and_download
   interview_order_changing_child_support = True
 ---
 ###################### Main order ######################
