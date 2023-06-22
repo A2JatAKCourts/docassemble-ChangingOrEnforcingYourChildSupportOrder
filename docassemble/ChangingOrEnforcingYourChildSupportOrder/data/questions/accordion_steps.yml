@@ -413,7 +413,7 @@ content: |
 ---
 template: expect_reconsider_step
 subject: |
-  Step ${ expect_reconsider_idx }: Learn about Motions to Modify
+  Step ${ expect_reconsider_idx }: What to expect after you file a Motion to Reconsider 
 content: |
   <p>A <strong>Motion to Reconsider</strong> is different from other motions.</p>
   <p>The other parent does not have to respond unless the judge sends  a notice and asks the other parent to respond in writing.</p>
