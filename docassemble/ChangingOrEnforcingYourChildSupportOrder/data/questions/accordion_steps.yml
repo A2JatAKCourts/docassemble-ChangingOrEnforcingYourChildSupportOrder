@@ -55,6 +55,7 @@ code: |
                     step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                     step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
                     step_list.append((file_and_serve_step, "file_and_serve_idx"))
+                    step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
                   if date_difference(starting=interim_order_date, ending=today()).days > 10:
                     step_list.append((learn_modify_step, "learn_modify_idx"))
                     step_list.append((fill_modify_step, "fill_modify_idx"))
@@ -64,6 +65,7 @@ code: |
                     step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                     step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
                     step_list.append((file_and_serve_step, "file_and_serve_idx"))
+                    step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
                   elif guess_interim_order_date == 'more than 10 days':
                     step_list.append((learn_modify_step, "learn_modify_idx"))
                     step_list.append((fill_modify_step, "fill_modify_idx"))
@@ -73,6 +75,7 @@ code: |
                       step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                       step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
                       step_list.append((file_and_serve_step, "file_and_serve_idx"))
+                      step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
                     elif unknown_interim_date == 'modify':
                       step_list.append((learn_modify_step, "learn_modify_idx"))
                       step_list.append((fill_modify_step, "fill_modify_idx"))
@@ -83,6 +86,7 @@ code: |
                       step_list.append((learn_modify_step, "learn_modify_idx"))
                       step_list.append((fill_modify_step, "fill_modify_idx"))
                       step_list.append((file_and_serve_step, "file_and_serve_idx"))
+                      step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
             else:
               step_list.append((learn_modify_step, "learn_modify_idx"))
               step_list.append((fill_modify_step, "fill_modify_idx"))
@@ -95,6 +99,7 @@ code: |
                 step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                 step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
                 step_list.append((file_and_serve_step, "file_and_serve_idx"))
+                step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
               if date_difference(starting=interim_order_date, ending=today()).days > 10:
                 step_list.append((learn_modify_step, "learn_modify_idx"))
                 step_list.append((fill_modify_step, "fill_modify_idx"))
@@ -104,6 +109,7 @@ code: |
                 step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                 step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
                 step_list.append((file_and_serve_step, "file_and_serve_idx"))
+                step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
               elif guess_interim_order_date == 'more than 10 days':
                 step_list.append((learn_modify_step, "learn_modify_idx"))
                 step_list.append((fill_modify_step, "fill_modify_idx"))
@@ -113,6 +119,7 @@ code: |
                   step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                   step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
                   step_list.append((file_and_serve_step, "file_and_serve_idx"))
+                  step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
                 elif unknown_interim_date == 'modify':
                   step_list.append((learn_modify_step, "learn_modify_idx"))
                   step_list.append((fill_modify_step, "fill_modify_idx"))
@@ -123,6 +130,7 @@ code: |
                   step_list.append((learn_modify_step, "learn_modify_idx"))
                   step_list.append((fill_modify_step, "fill_modify_idx"))
                   step_list.append((file_and_serve_step, "file_and_serve_idx"))
+                  step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
           else: # not middle of case
             final_order_date_question
             if defined('final_order_date'):
@@ -131,6 +139,7 @@ code: |
                 step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                 step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
                 step_list.append((file_and_serve_step, "file_and_serve_idx"))
+                step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
               if date_difference(starting=final_order_date, ending=today()).days > 10 and date_difference(starting=final_order_date, ending=today()).days <= 30:                      
                 step_list.append((appeal_step, "appeal_idx"))
                 step_list.append((learn_set_aside_step, "learn_set_aside_idx"))   
@@ -146,6 +155,7 @@ code: |
                 step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                 step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
                 step_list.append((file_and_serve_step, "file_and_serve_idx"))
+                step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
               elif guess_final_order_date == 'between 11 and 30':                 
                 step_list.append((appeal_step, "appeal_idx"))
                 step_list.append((learn_set_aside_step, "learn_set_aside_idx")) 
@@ -166,6 +176,8 @@ code: |
                   step_list.append((fill_set_aside_step, "fill_set_aside_idx"))
                 if unknown_final_date.any_true('reconsider','set aside'):
                   step_list.append((file_and_serve_step, "file_and_serve_idx"))
+                  if unknown_final_date['reconsider']:
+                    step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
       else: # user_need == 'enforce AK order'
         step_list.append((cssd_to_enforce_step, "cssd_to_enforce_idx"))
         step_list.append((talk_w_other_parent_step, "talk_w_other_parent_idx"))
@@ -339,25 +351,46 @@ template: learn_reconsider_step
 subject: |
   Step ${ learn_reconsider_idx }: Learn about Motions to Reconsider
 content: |
-  To ask your trial judge to reconsider a decision, file a <strong>Motion to Reconsider</strong>.  You have only 10 days after the date the court sent your child support order to you. Look at the last page of the order. The date is in the box at the bottom of the page. 
-    
-  [FILE CertOfDistrAnnotated.png, None, This is a screenshot of the box that shows the date the court sent your order to you.]    
+  <p>To ask your trial judge to reconsider a  decision, file a <strong>Motion to Reconsider</strong></p>
+  <p>You have only 10 days after the date the  court sent your child support order to you. </p>
+  <p>Look at the last page of the order. The date  to count from is in the box at the bottom of the page. The box looks something  like this.</p>
   
-  [Alaska Rule of Civil Procedure](https://courts.alaska.gov/rules/docs/civ.pdf) 77(k) lists **4 reasons** you can ask the court to reconsider a judge's decision:
+  [FILE CertOfDistrAnnotated.png, 100%, This is a screenshot of the box that shows the date the court sent your order to you.]
+  
+  <p> If the 10th day is a  weekend or holiday, your motion is due the next day the court is open.  For example, if the 10th day is a Saturday,  and the court is open Monday, your motion is due Monday.  If Monday is a holiday, your motion is due  Tuesday.</p>
+  <div class='step-subheading'>You can ask a judge to reconsider  their decision for 4 reasons </div>
   <ol>
-  <li>The court has overlooked, misapplied or failed to consider a statute, decision or principle directly controlling. This means the court made a mistake in applying the law to the case.
-  <br>
-  For example, Civil Rule 90.3 states the child support calculations for different parenting arrangements. If there is one child primarily living with one parent, Rule 90.3 states the other parent is supposed to pay 20% of their adjusted annual income to the other parent for the child support. If the judge figures out the child support amount to be 27% of adjusted income for one child, the motion for reconsideration would state that the judge misapplied Civil Rule 90.3.</li>
-  <li> The court has overlooked or misconceived some material fact or proposition of law. This means the court got an important fact wrong.
-  <br>
-  For example, in a divorce case, the parties agree that the marital home is worth $100,000. The judge states that the house is worth $200,000.  The spouse who was awarded the house could file a motion for reconsideration.  The motion for reconsideration would state the judge used the wrong dollar amount for the house in dividing the property.</li>
-  <li> The court has overlooked or misconceived a material question in the case. This means the court misunderstood what you were asking for in your case or in a motion.
-  <br>
-  For example, a child changed from living full time with their mom to living full time with their dad.  Under the child support formula, dad used to pay child support to mom based on the primary custody child support formula.  Now, mom should pay child support to dad based on the primary custody child support formula.  Dad filed a motion to modify child support.  The judge denied dad’s motion because the parents’ incomes did not change.  Dad can file a motion to reconsider and tell the judge they overlooked the question about whether there was a change in the parenting schedule.</li>
-  <li> The law applied in the ruling was changed by a later court decision or statute. This means the court applied a rule or law that changed.
-  <br>
-  For example, on April 15, 2018, Civil Rule 90.3 changed to allow a parent to deduct the cost of their own health insurance from their gross income, up to 10% of the parent's gross income. If the court calculated child support on April 14, but did not allow for the health insurance deduction which resulted in a higher child support amount, the parent could file a motion for reconsideration based on the changed Civil Rule 90.3.</li>
+    <li>The judge overlooked, misapplied or failed to  consider a statute, decision or principle directly controlling. This means the  judge made a mistake when they applied the law in your case.
+      <p><strong>For example</strong></p>
+      <ul>
+        <li>Rule 90.3 states that if a child spends at least  256 nights with one parent, that parent has primary custody and the other  parent  pays 20% of their adjusted annual  income for child support to the parent the child lives with. .</li>
+        <li>If the judge used 27% of adjusted income instead  of 20%, the <strong>Motion to Reconsider</strong> would state that the judge misapplied Civil Rule 90.3.</li>
+      </ul>
+    </li>
+    <li>The judge overlooked or misconceived some  material fact or proposition of law. This means the judge got an important fact  wrong.
+      <p><strong>For example</strong></p>
+      <ul>
+        <li>The parents agree that mom makes $25,000 every  year. They file the forms to tell the judge they agree. The judge calculated  child support using $35,000 for mom's income. </li>
+        <li>The <strong>Motion  to Reconsider</strong> would state that the judge used the wrong income to calculate  child support.</li>
+      </ul>
+    </li>
+    <li>The judge overlooked or misconceived a material  question in the case. This means the judge misunderstood what you were asking for.
+      <p><strong>For example</strong></p>
+      <ul>
+        <li>A child changed from living full time with their  mom to living full time with their dad. Under the child support formula, dad  used to pay child support to mom based on the primary custody child support  calculation. Now, mom should pay child support to dad based on the primary  custody child support calculation. Dad filed a motion to modify child support.  The judge denied dad's motion because the parents' incomes did not change.  </li>
+        <li>The <strong>Motion  to Reconsider</strong> would state the judge did not include the changed parenting  schedule in the child support calculation.</li>
+      </ul>
+    </li>
+    <li>The law applied in the ruling was changed by a later  court decision or statute. This means the judge used a rule or law that  changed.
+      <p><strong>For example</strong></p>
+      <ul>
+        <li>On April 15, 2018, Civil Rule 90.3 changed to  allow a parent to deduct the cost of their own health insurance from their  gross income, up to 10% of the parent's gross income.</li>
+        <li>If the judge calculated child support on April  14 and did not subtract the cost of the parent's health insurance, the Motion  to Reconsider would explain the cost of the parent's health insurance and state  that Civil Rule 90.3 changed on April 15, 2018.</li>
+      </ul>
+    </li>
   </ol>
+  <p>See <a href="https://courts.alaska.gov/rules/docs/civ.pdf">Alaska Rule of Civil Procedure</a> 77(k) to read the court rules about the <strong>4 reasons</strong> you can ask the court to reconsider a judge's decision:</p>
+  
 ---
 template: fill_reconsider_step
 subject: |
@@ -365,28 +398,29 @@ subject: |
 content: |
   <div class='step-subheading'>Use</div>
   <ul>
-  <li><strong>Motion and Affidavit for Reconsideration, SHC-1545</strong> <a href="https://courts.alaska.gov/shc/family/docs/shc-1545.doc">Word</a> | <a href="https://courts.alaska.gov/shc/family/docs/shc-1545n.pdf">PDF </a></li>
-  <li><strong>Proposed Order on Motion, SHC-1302</strong><a href="https://courts.alaska.gov/shc/family/docs/shc-1302.doc">Word</a> | <a href="https://courts.alaska.gov/shc/family/docs/shc-1302n.pdf">PDF</a></li>
+    <li><strong>Motion and Affidavit to Reconsider, SHC-1545</strong> <a href="https://courts.alaska.gov/shc/family/docs/shc-1545.doc" target="_blank">Word</a> | <a href="https://courts.alaska.gov/shc/family/docs/shc-1545n.pdf" target="_blank">PDF</a></li>
+    <ul>
+      <li>Put everything you want the judge to know and  think about in your motion. You will not be able to tell the judge in person  because they rarely hold a hearing for a <strong>Motion  to Reconsider</strong>.</li>
+      <li>Your <strong>Motion to Reconsider</strong> must be no  more than 5 pages, including attachments.</li>
+      <li><strong>Wait</strong> to sign the form until you can sign in front of a notary or someone who has the  power to take oaths, like a court clerk or a postal employee. You can do this  for free at the court. Bring a photo ID</li>
+      <li>If you cannot get to a notary public or someone  who has the power to take oaths, you can &quot;self-certify&quot;.  Use</li>
+      <ul>
+        <li><strong>Self-Certification  (No Notary Available), TF-835</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/tf-835.pdf">Fill-In PDF</a>]</li>
+      </ul>
+    </ul>
+    <li><strong>Proposed  Order on Motion, SHC-1302</strong>&nbsp;<a href="https://courts.alaska.gov/shc/family/docs/shc-1302.doc" target="_blank">Word</a>&nbsp;|&nbsp;<a href="https://courts.alaska.gov/shc/family/docs/shc-1302n.pdf" target="_blank">PDF</a>.  Do <strong>not</strong> sign this form.</li>
   </ul>
-  <div class='step-subheading'>Procedure</div>
-  <ul>
-  <li>The judge does not hold a hearing about a <strong>Motion to Reconsider</strong> so write your whole argument in the motion.</li>
-  <li>Your <strong>Motion to Reconsider</strong> and all the attachments must be 5 pages or less.</li>
-  <li>Usually when you file a motion:
-  <ul>
-  <li>the other side files a written response, 
-  </li>
-  <li>you have a chance to reply, and 
-  </li>
-  <li>the judge decides.</li>
-  </ul>
-  <li>A Motion to Reconsider is different:
-  <ul>
-  <li>The other parent does not have to respond unless the judge sends a written request for a response.</li>
-  <li>If the judge does nothing for 30 days, it means the judge is not going to grant your motion to reconsider.  You will not get anything in writing.</li>
-  </ul></li>
-  <li>Read <a href="https://courts.alaska.gov/shc/family/after-judgment.htm">Options after you get a judge's decision</a>.</li>
-  </ul>
+---
+template: expect_reconsider_step
+subject: |
+  Step ${ expect_reconsider_idx }: Learn about Motions to Modify
+content: |
+  <p>A <strong>Motion to Reconsider</strong> is different from other motions.</p>
+  <p>The other parent does not have to respond unless the judge sends  a notice and asks the other parent to respond in writing.</p>
+  <p> If the judge agrees to reconsider their decision, they may ask  the other parent to respond in writing or they may change the decision.  Usually, the judge only changes their  decision after they ask the other parent for a written response.</p>
+  <p>If the judge does nothing for 30 days, it  means the judge is not going to grant your <strong>Motion  to Reconsider</strong>.&nbsp; You will not get anything in writing</a>.  The original decision is not changed.</p>
+  <p>The 30 days starts when  you file your <strong>Motion to Reconsider</strong>.&nbsp;  If the judge asks the other parent to respond in writing, the 30 days starts  over when the other parent files their written response.</p>
+  <p>Read the court's web  page <a href="https://courts.alaska.gov/shc/family/after-judgment.htm">Options  after you get a judge's decision</a>.</p>
 ---
 template: learn_modify_step
 subject: |
@@ -477,33 +511,56 @@ content: |
 ---
 template: parents_agree_step
 subject: |
-  Step ${ parents_agree_idx }: Tell the court about your agreement
+  Step ${ parents_agree_idx }: 
+  % if parents_agree:
+  Tell the court about your agreement
+  % elif parents_agree is None:
+  If you reach an agreement, tell the court about your agreement
+  % endif %
 content: |
-  <div class='step-subheading'>Read</div>
-  [How to fill out the Child Support Guidelines Affidavit](https://courts.alaska.gov/shc/family/docs/shc-dr305f-sample.pdf)
-  <div class='step-subheading'>Fill out the court forms to tell the judge your agreement</div> If just child support changes, fill out and file:
+  <p>Only the judge can change the amount of child support in your  order.</p>
+  <p>But you can use a <strong>Joint  Motion to Modify Child Support</strong> to tell the judge about your agreement if you both agree that:</p>
   <ul>
-    <li><strong>Joint Motion, SHC-1310</strong> [<a href="https://courts.alaska.gov/shc/family/docs/shc-1310.doc">Word</a>] | [<a href="https://courts.alaska.gov/shc/family/docs/shc-1310n.pdf">PDF</a>]</li>
-    <li><strong>Joint Affidavit, SHC-1320</strong> [<a href="https://courts.alaska.gov/shc/family/docs/shc-1320.doc">Word</a>] | [<a href="https://courts.alaska.gov/shc/family/docs/shc-1320n.pdf">PDF</a>]</li>
-    <li><strong>Order for Modification of Child Support, [DR-301] </strong>[<a href="https://public.courts.alaska.gov/web/forms/docs/dr-301.pdf">PDF</a>]</li>
-    <li><strong>Child Support Guidelines Affidavit, [DR-305]</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-305.pdf">Fill-In PDF</a>]<br>
-      Each parent files their own.</li>
-    <li><strong>Child Custody Jurisdiction Affidavit, [DR-150]</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-150.pdf">Fill-In  PDF</a>]<br>
-      Each parent files their own.</li>
-    <li><strong>Joint Motion to Put Settlement on the Record,  SHC-1063</strong> [<a href="https://courts.alaska.gov/shc/family/docs/shc-1063.doc">Word</a>] | [<a href="https://courts.alaska.gov/shc/family/docs/shc-1063n.pdf">PDF</a>]</li>
-    <li><strong>Information Sheet, [DR-314]</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-314.pdf">Fill-In PDF</a>]</li>
+    <li>your financial situation has changed,</li>
+    <li>the amounts you use to calculate child support  have changed, <strong>and</strong></li>
+    <li>after you use the child support formula, you get  a different amount from the amount in your current order. </li>
   </ul>
-  <p> If you do not have a primary custody child support schedule, use one of these forms:</p>
+  <p>If both parents agree the amount should change, file your joint  motion <strong>right away</strong>. Until you file  your motion with the court, <strong>the parent  who owes child support still owes the amount in your current order</strong>.</p>
+  <p>If the judge agrees to change the amount of your child support,  the judge will sign a new order. The new order includes the date the amount  changed. This date is usually in the past. It will not be earlier than the date  you filed your motion.</p>
+  <p><strong>For example</strong></p>
   <ul>
-    <li><strong>Shared Custody Support Calculation, [DR-306]</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-306.pdf">Fill-In PDF</a>] for a shared custody schedule, </li>
-    <li><strong>Hybrid Custody Child Support Calculation, [DR-308]</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-308.pdf">PDF</a>] for a hybrid custody child support schedule, or</li>
-    <li><strong>Divided Custody Child Support Calculation, [DR-307]</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-307.pdf">PDF</a>] for a divided custody child support schedule.</li>
+    <li>You agree about a new child support amount on  March 1, but you do not file anything with the court until June 21.</li>
+    <li>The judge agrees to change your child support  and signs a new child support order on September 1.</li>
+    <li>The new order says the new child support amount starts  July 1. </li>
+    <li>The parent who owed child support under the old  order, still owes the old child support amount from March 1 to July 1.</li>
   </ul>
-  <p>If your parenting schedule also changes include:
-      <ul>
-        <li><strong>Parenting Plan Agreement & Order, SHC-1128</strong> [<a href="https://courts.alaska.gov/shc/family/docs/shc-1128.docx">Word</a>] | [<a href="https://courts.alaska.gov/shc/family/docs/shc-1128n.pdf">PDF</a>]</li>
-      </ul>
-    </p>
+  <div class='step-subheading'>Read</div class='step-subheading'>
+  <p><a href="https://courts.alaska.gov/shc/family/docs/shc-dr305f-sample.pdf"><strong>How to fill out the Child Support  Guidelines Affidavit</strong></a></p>
+  <div class='step-subheading'>Use these forms to tell the judge about your agreement</div class='step-subheading'>
+  <ul>
+    <li><strong>Joint  Motion, SHC-1310</strong> <a href="https://courts.alaska.gov/shc/family/docs/shc-1310.doc">Word</a> | <a href="https://courts.alaska.gov/shc/family/docs/shc-1310n.pdf">PDF</a><br>
+      Put "Joint Motion to Modify" in the JOINT  MOTION FOR box.</li>
+    <li><strong>Joint  Affidavit, SHC-1320</strong> <a href="https://courts.alaska.gov/shc/family/docs/shc-1320.doc">Word</a> | <a href="https://courts.alaska.gov/shc/family/docs/shc-1320n.pdf">PDF</a><br>
+      Wait to sign the form until you can sign in front of a notary public or  someone who has the power to take oaths, like a court clerk or a postal  employee. You can do this for free at the court. Bring a photo ID.</li>
+    <li><strong>Order for  Modification of Child Support, DR-301</strong>, [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-301.pdf">Fill-In PDF</a>]<br>
+      Do <strong>not</strong> sign this form. Only the  judge signs it.</li>
+    <li><strong>Child  Support Guidelines Affidavit, DR-305</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-305.pdf">Fill-In PDF</a>]<br>
+      You need 2 of these. Each parent fills out their own affidavit. Wait to sign  the form until you can sign in front of a notary public or someone who has the  power to take oaths, like a court clerk or a postal employee. You can do this  for free at the court. Bring a photo ID.</li>
+    <li><strong>Child  Custody Jurisdiction Affidavit, DR-150</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-150.pdf">Fill-In PDF</a>]<br>
+      You need 2 of these. Each parent files their own affidavit. Wait to sign the  form until you can sign in front of a notary public or someone who has the  power to take oaths, like a court clerk or a postal employee. You can do this  for free at the court. Bring a photo ID. </li>
+    <li><strong>Joint  Motion to Put Settlement on the Record, SHC-1063</strong> <a href="https://courts.alaska.gov/shc/family/docs/shc-1063.doc">Word</a> | <a href="https://courts.alaska.gov/shc/family/docs/shc-1063n.pdf">PDF</a></li>
+  </ul>
+  <div class='step-subheading'>Also</div class='step-subheading'>
+  <p>If you cannot get to a notary public or someone who has the power  to take oaths, you can &quot;self-certify&quot;.  Use:</p>
+  <ul>
+    <li><strong>Self-Certification  (No Notary Available), TF-835</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/tf-835.pdf">Fill-In PDF</a>]</li>
+  </ul>
+  <p>If your Parenting Plan is <strong>not</strong> a primary custody plan, when children spend at least 256 nights  a year with the same parent, use one of these forms:</p>
+  <ul>
+    <li><strong>Shared  Custody Support Calculation, DR-306</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-306.pdf">Fill-In PDF</a>] for a shared  custody schedule,</li>
+    <li><strong>Hybrid  Custody Child Support Calculation, DR-308</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-308.pdf">Fill-In PDF</a>] for a hybrid custody child  support schedule, or</li>
+    <li><strong>Divided  Custody Child Support Calculation, DR-307</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-307.pdf">Fill-In PDF</a>] for a divided custody child support schedule.</li>
+  </ul>
 
   
 ---
