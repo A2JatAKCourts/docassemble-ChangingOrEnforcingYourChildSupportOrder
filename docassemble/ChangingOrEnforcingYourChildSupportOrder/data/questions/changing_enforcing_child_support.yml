@@ -421,7 +421,7 @@ question: |
 subquestion: |
   Use the date the court sent your child support order to you. Look at the last page of the order. The date is in the box at the bottom of the page. 
   
-  [FILE CertOfDistrAnnotated.png, None, This is a screenshot of the box that shows the date the court sent your order to you.]   
+  [FILE CertOfDistrAnnotated.png, 100%, This is a screenshot of the box that shows the date the court sent your order to you.]   
 fields:
   - "The date of your order": final_order_date
     datatype: date
