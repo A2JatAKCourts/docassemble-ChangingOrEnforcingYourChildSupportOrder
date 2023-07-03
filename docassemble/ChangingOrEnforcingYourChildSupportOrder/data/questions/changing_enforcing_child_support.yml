@@ -2,6 +2,7 @@
 include:
   - docassemble.AssemblyLine:assembly_line.yml
   - docassemble.AKA2JBranding:custom_organization.yml
+  - docassemble.AKA2JBranding:aka2j_templates.yml
   - accordion_steps.yml
   # - bundling_forms_for_downloading.yml
 ---
@@ -69,144 +70,148 @@ objects:
 #################### Interview order #####################
 comment: |
   Controls order and branching logic for questions specific to this form
-id: interview_order_changing_child_support
+id: interview order changing child support
 code: |
   # Set the allowed courts for this interview
   # allowed_courts = interview_metadata["changing_child_support"]["allowed courts"]
   # nav.set_section("review_changing_child_support")
   user_role = "na"
-  if user_need in ('change foreign order','enforce foreign order','unwanted'):
-    get_steps
-    confirmation_and_download
-  else:
-    if who_ordered == 'court':
-      if user_need == 'change AK order':
-        if why_change == 'schedule':
-          schedule_change
-          get_steps
-          confirmation_and_download
-        elif why_change == 'income':
-          if parents_agree:
-            get_steps
-            confirmation_and_download
-          else:
-            if middle_of_case:
-              interim_order_date_question
-              # if defined('interim_order_date'):
-              # get_steps
-              #  confirmation_and_download
-              if defined('interim_order_date_period'):
-                if guess_interim_order_date == 'unknown':
-                 unknown_interim_date
-                 get_steps
-                 confirmation_and_download
-              else:
-                get_steps
-                confirmation_and_download
-            else:
-             # if defined('final_order_date'):
-              #  get_steps
-              #  confirmation_and_download
-              # elif defined('final_order_date_period'):
-              #  if guess_final_order_date == 'unknown':
-              #    unknown_final_date
-              #    get_steps
-              #   confirmation_and_download
-              #  else:
-              get_steps
-              confirmation_and_download   
-        else: # why_change == 'problem'
-          if middle_of_case:
-            interim_order_date_question
-            # if defined('interim_order_date'):
-            #  get_steps
-            #  confirmation_and_download
-            if defined('interim_order_period'): 
-              if guess_interim_order_date == 'unknown':
-                unknown_interim_date
-                get_steps
-                confirmation_and_download
-              else:
-                get_steps
-                confirmation_and_download
-          else:
-            final_order_date_question
-              # if defined('final_order_date'):
-              #   get_steps
-              #   confirmation_and_download
-            if defined('final_order_date_period'):
-              if guess_final_order_date == 'unknown':
-                unknown_final_date
-                get_steps
-                confirmation_and_download
-            get_steps
-            confirmation_and_download
-      else: # if user_need == 'enforce AK order'
-        cssd_collect
-        get_steps
-        confirmation_and_download
-    elif who_ordered == 'cssd': #for both changing and enforcing AK orders
-      get_steps
-      confirmation_and_download
-    else: # if who_ordered == 'unknown'
-      if find_who_ordered == 'court':   
-        if user_need == 'change AK order':
-          if why_change == 'schedule':
-            schedule_change
-            get_steps
-            confirmation_and_download
-          elif why_change == 'income':
-            if parents_agree:
-              get_steps
-              confirmation_and_download
-            else:
-              if middle_of_case:
-                interim_order_date_question
-                if defined('interim_order_date_period'): 
-                  if guess_interim_order_date == 'unknown':
-                    unknown_interim_date
-                    get_steps
-                    confirmation_and_download
-                else:
-                  get_steps
-                  confirmation_and_download
-              else:
-                get_steps
-                confirmation_and_download     
-          else: # why_change == 'problem'
-            if middle_of_case:
-              interim_order_date_question
-              if defined('interim_order_date_period'): 
-                if guess_interim_order_date == 'unknown':
-                  unknown_interim_date
-                  get_steps
-                  confirmation_and_download
-                else:
-                  get_steps
-                  confirmation_and_download
-              else:
-                get_steps
-                confirmation_and_download   
-            else:
-              final_order_date_question
-              if defined('final_order_date_period'):
-                if guess_final_order_date == 'unknown':
-                  unknown_final_date
-                  get_steps
-                  confirmation_and_download
-                else:
-                  get_steps
-                  confirmation_and_download
-              else:
-                get_steps
-                confirmation_and_download
-        else: # if user_need == 'enforce AK order'
-          cssd_collect
-          get_steps
-          confirmation_and_download
-      else: # find_who_ordered in('cssd', 'unknown')
-        get_steps
-        confirmation_and_download
+  #if user_need in ('change foreign order','enforce foreign order','unwanted'):
+  #  get_steps
+  #  confirmation_and_download
+  #else:
+  #  if who_ordered == 'court':
+  #    if user_need == 'change AK order':
+  #      if why_change == 'schedule':
+  #        schedule_change
+  #        get_steps
+  #        confirmation_and_download
+  #      elif why_change == 'income':
+  #        if parents_agree:
+  #          get_steps
+  #          confirmation_and_download
+  #        else:
+  #          if parents_agree is None:
+  #            parents_agree_resources
+  #          if middle_of_case:
+  #            interim_order_date_question
+  #            # if defined('interim_order_date'):
+  #            # get_steps
+  #            #  confirmation_and_download
+  #            if defined('interim_order_date_period'):
+  #              if guess_interim_order_date == 'unknown':
+  #               unknown_interim_date
+  #               get_steps
+  #               confirmation_and_download
+  #            else:
+  #              get_steps
+  #              confirmation_and_download
+  #          else:
+  #           # if defined('final_order_date'):
+  #            #  get_steps
+  #            #  confirmation_and_download
+  #            # elif defined('final_order_date_period'):
+  #            #  if guess_final_order_date == 'unknown':
+  #            #    unknown_final_date
+  #            #    get_steps
+  #            #   confirmation_and_download
+  #            #  else:
+  #            get_steps
+  #            confirmation_and_download   
+  #      else: # why_change == 'problem'
+  #        if middle_of_case:
+  #          interim_order_date_question
+  #          # if defined('interim_order_date'):
+  #          #  get_steps
+  #          #  confirmation_and_download
+  #          if defined('interim_order_period'): 
+  #            if guess_interim_order_date == 'unknown':
+  #              unknown_interim_date
+  #              get_steps
+  #              confirmation_and_download
+  #            else:
+  #              get_steps
+  #              confirmation_and_download
+  #        else:
+  #          final_order_date_question
+  #            # if defined('final_order_date'):
+  #            #   get_steps
+  #            #   confirmation_and_download
+  #          if defined('final_order_date_period'):
+  #            if guess_final_order_date == 'unknown':
+  #              unknown_final_date
+  #              get_steps
+  #              confirmation_and_download
+  #          get_steps
+  #          confirmation_and_download
+  #    else: # if user_need == 'enforce AK order'
+  #      cssd_collect
+  #      get_steps
+  #      confirmation_and_download
+  #  elif who_ordered == 'cssd': #for both changing and enforcing AK orders
+  #    get_steps
+  #    confirmation_and_download
+  #  else: # if who_ordered == 'unknown'
+  #    if find_who_ordered == 'court':   
+  #      if user_need == 'change AK order':
+  #        if why_change == 'schedule':
+  #          schedule_change
+  #          get_steps
+  #          confirmation_and_download
+  #        elif why_change == 'income':
+  #          if parents_agree:
+  #            get_steps
+  #            confirmation_and_download
+  #          else:
+  #            if parents_agree is None:
+  #              parents_agree_resources
+  #            if middle_of_case:
+  #              interim_order_date_question
+  #              if defined('interim_order_date_period'): 
+  #                if guess_interim_order_date == 'unknown':
+  #                  unknown_interim_date
+  #                  get_steps
+  #                  confirmation_and_download
+  #              else:
+  #                get_steps
+  #                confirmation_and_download
+  #            else:
+  #              get_steps
+  #              confirmation_and_download     
+  #        else: # why_change == 'problem'
+  #          if middle_of_case:
+  #            interim_order_date_question
+  #            if defined('interim_order_date_period'): 
+  #              if guess_interim_order_date == 'unknown':
+  #                unknown_interim_date
+  #                get_steps
+  #                confirmation_and_download
+  #              else:
+  #                get_steps
+  #                confirmation_and_download
+  #            else:
+  #              get_steps
+  #              confirmation_and_download   
+  #          else:
+  #            final_order_date_question
+  #            if defined('final_order_date_period'):
+  #              if guess_final_order_date == 'unknown':
+  #                unknown_final_date
+  #                get_steps
+  #                confirmation_and_download
+  #              else:
+  #                get_steps
+  #                confirmation_and_download
+  #            else:
+  #              get_steps
+  #              confirmation_and_download
+  #      else: # if user_need == 'enforce AK order'
+  #        cssd_collect
+  #        get_steps
+  #        confirmation_and_download
+  #    else: # find_who_ordered in('cssd', 'unknown')
+  get_steps
+  confirmation_and_download
   interview_order_changing_child_support = True
 ---
 ###################### Main order ######################
@@ -245,7 +250,7 @@ fields:
       - "Change a child support order from another state.": change foreign order
       - "Enforce an Alaska child support order.": enforce AK order
       - "Enforce a child support order from another state.": enforce foreign order
-      - "This is not what I was looking for.": unwanted
+  #   - "This is not what I was looking for.": unwanted
   - note: |     
      #### <i class="fa-regular fa-lightbulb"></i> Learn more ####
      To get a copy of your child support order, contact the court or child support agency that issued your order.  Ask them how to get a copy.
@@ -326,9 +331,23 @@ continue button field: schedule_change
 ---
 id: Do parents agree?
 question: |
-  Do you and the other parent agree about changing child support?
+  Does the other parent agree the amount of child support should change?
+subquestion: |
+  If you think your child support order should change, you can ask the other parent to see if they agree. 
+  You may be able to talk to each other in person, on-line, or maybe a friend or family member can help.   
+  
 fields:
   - no label: parents_agree
+    datatype: yesnomaybe
+---
+id: resources to help parents agree
+question: |
+  Do you want to know how to tell the court about an agreement?
+subquestion: |
+  If you find out the other parent **does** agree the amount of child support should change, do you want information about how to tell the court about your agreement? 
+
+fields:
+  - no label: parents_agree_resources
     datatype: yesnoradio
 ---
 id: Interim order?
@@ -343,7 +362,8 @@ question: |
   What is the date the court sent your interim child support order to you?
 subquestion: |
   Use the date the court sent your child support order to you. Look at the last page of the order. The date is in the box at the bottom of the page. 
-  [FILE certificate, 100%, This is a screenshot of the box with the date the court sent your order.]
+  
+  [FILE CertOfDistrAnnotated.png, 100%, This is a screenshot of the box with the date the court sent your order.]
 fields:
   - "The date of your order": interim_order_date
     datatype: date    
@@ -367,11 +387,11 @@ fields:
       #### <i class="fa-regular fa-lightbulb"></i> Learn more ####
        You have different ways to ask the court to change your child support order when your situation changes.  It can depend on when the court sent the order to you.
   
-      For the first 10 days after {the court sent your child support order}, you can file a “Motion to Reconsider."  It asks the trial judge to fix something they overlooked or misunderstood.
+      For the first 10 days after {the court sent your child support order}, you can file a **Motion to Reconsider**.  It asks the trial judge to fix something they overlooked or misunderstood.
        
-        After 10 days, you can file a “Motion to Modify.”
+        After 10 days, you can file a **Motion to Modify**.
        
-        Your Action Plan will not include information about options that do not apply in your case.
+        Your Action Plan will only include information about options that apply in your case.
 terms:
   the court sent your child support order to you: |
       You can find the date the court sent your child support order to you in the box at the bottom of your child support order.
@@ -379,13 +399,13 @@ continue button field: interim_order_date_question
 ---
 id: get information about choices user does not know interim order date
 question: |
-  What do you want to get information about?
+  What do you want information about?
 subquestion: |
-  For the first 10 days {after you get a child support order}, you can file a “Motion to Reconsider" if you think the judge made a mistake.
+  For the first 10 days {after you get a child support order}, you can file a **Motion to Reconsider** if you think the judge made a mistake.
 
-  After 10 days, you can file a “Motion to Modify” if the situation has changed.
+  After 10 days, you can file a **Motion to Modify** if the situation has changed.
 
-  I want to get information about:
+  I want information about:
 fields:
   - no label: unknown_interim_date
     datatype: radio
@@ -403,7 +423,7 @@ question: |
 subquestion: |
   Use the date the court sent your child support order to you. Look at the last page of the order. The date is in the box at the bottom of the page. 
   
-  [FILE CertOfDistrAnnotated.png, None, This is a screenshot of the box that shows the date the court sent your order to you.]   
+  [FILE CertOfDistrAnnotated.png, 100%, This is a screenshot of the box that shows the date the court sent your order to you.]   
 fields:
   - "The date of your order": final_order_date
     datatype: date
