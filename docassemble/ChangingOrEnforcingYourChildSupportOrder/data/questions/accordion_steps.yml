@@ -22,6 +22,8 @@ code: |
   step_list = []
   other_party_in_case  = 'the other parent'
   certificate_of_service_image = ''
+  file_motion_to_set_aside = ''
+  file_motion_to_enforce = ''
   #  if user_need == 'unwanted':
   #    step_list.append((wrong_tf, "wrong_tf_idx"))
   #    step_list.append((wrong_tf2, "wrong_tf2_idx"))
@@ -33,6 +35,7 @@ code: |
     step_list.append((register_step, "register_idx"))    
     step_list.append((talk_w_other_parent_step, "talk_w_other_parent_idx"))
     step_list.append((court_to_enforce_step, "court_to_enforce_idx"))
+    service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_enforce.png'
     certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_enforce.png, 100%, Certificate of Service box]'
     step_list.append((cert_of_service_step, "cert_of_service_idx"))
     step_list.append((file_step, "file_idx"))
@@ -59,6 +62,7 @@ code: |
                   if date_difference(starting=interim_order_date, ending=today()).days <= 10:
                     step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                     step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
+                    service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png'
                     certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]'
                     step_list.append((cert_of_service_step, "cert_of_service_idx"))
                     step_list.append((file_step, "file_idx"))
@@ -67,6 +71,7 @@ code: |
                   if date_difference(starting=interim_order_date, ending=today()).days > 10:
                     step_list.append((learn_modify_step, "learn_modify_idx"))
                     step_list.append((fill_modify_step, "fill_modify_idx"))
+                    service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_modify.png'
                     certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                     step_list.append((cert_of_service_step, "cert_of_service_idx"))
                     step_list.append((file_step, "file_idx"))
@@ -75,6 +80,7 @@ code: |
                   if guess_interim_order_date == 'within 10 days':
                     step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                     step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
+                    service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png.png'
                     certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]'
                     step_list.append((cert_of_service_step, "cert_of_service_idx"))
                     step_list.append((file_step, "file_idx"))
@@ -83,6 +89,7 @@ code: |
                   elif guess_interim_order_date == 'more than 10 days':
                     step_list.append((learn_modify_step, "learn_modify_idx"))
                     step_list.append((fill_modify_step, "fill_modify_idx"))
+                    service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_modify.png'
                     certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                     step_list.append((cert_of_service_step, "cert_of_service_idx"))
                     step_list.append((file_step, "file_idx"))
@@ -91,6 +98,7 @@ code: |
                     if unknown_interim_date == 'reconsider':
                       step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                       step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
+                      service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png'
                       certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]'
                       step_list.append((cert_of_service_step, "cert_of_service_idx"))
                       step_list.append((file_step, "file_idx"))
@@ -99,6 +107,7 @@ code: |
                     elif unknown_interim_date == 'modify':
                       step_list.append((learn_modify_step, "learn_modify_idx"))
                       step_list.append((fill_modify_step, "fill_modify_idx"))
+                      service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_modify.png'
                       certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                       step_list.append((cert_of_service_step, "cert_of_service_idx"))
                       step_list.append((file_step, "file_idx"))
@@ -108,6 +117,7 @@ code: |
                       step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
                       step_list.append((learn_modify_step, "learn_modify_idx"))
                       step_list.append((fill_modify_step, "fill_modify_idx"))
+                      service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_modify.png'
                       certificate_of_service_image = 'At the bottom of Motion to Reconsider [FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box][BR][BR][BR]At the bottom of Motion to Modify [FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                       step_list.append((cert_of_service_step, "cert_of_service_idx"))
                       step_list.append((file_step, "file_idx"))
@@ -116,6 +126,7 @@ code: |
             else:
               step_list.append((learn_modify_step, "learn_modify_idx"))
               step_list.append((fill_modify_step, "fill_modify_idx"))
+              service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_modify.png'
               certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
               step_list.append((cert_of_service_step, "cert_of_service_idx"))
               step_list.append((file_step, "file_idx"))
@@ -127,6 +138,7 @@ code: |
               if date_difference(starting=interim_order_date, ending=today()).days <= 10:
                 step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                 step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
+                service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png'
                 certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]'
                 step_list.append((cert_of_service_step, "cert_of_service_idx"))
                 step_list.append((file_step, "file_idx"))
@@ -135,6 +147,7 @@ code: |
               if date_difference(starting=interim_order_date, ending=today()).days > 10:
                 step_list.append((learn_modify_step, "learn_modify_idx"))
                 step_list.append((fill_modify_step, "fill_modify_idx"))
+                service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_modify.png'
                 certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                 step_list.append((cert_of_service_step, "cert_of_service_idx"))
                 step_list.append((file_step, "file_idx"))
@@ -151,6 +164,7 @@ code: |
               elif guess_interim_order_date == 'more than 10 days':
                 step_list.append((learn_modify_step, "learn_modify_idx"))
                 step_list.append((fill_modify_step, "fill_modify_idx"))
+                service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_modify.png'
                 certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                 step_list.append((cert_of_service_step, "cert_of_service_idx"))
                 step_list.append((file_step, "file_idx"))
@@ -167,6 +181,7 @@ code: |
                 elif unknown_interim_date == 'modify':
                   step_list.append((learn_modify_step, "learn_modify_idx"))
                   step_list.append((fill_modify_step, "fill_modify_idx"))
+                  service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_modify.png'
                   certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                   step_list.append((cert_of_service_step, "cert_of_service_idx"))
                   step_list.append((file_step, "file_idx"))
@@ -176,6 +191,7 @@ code: |
                   step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
                   step_list.append((learn_modify_step, "learn_modify_idx"))
                   step_list.append((fill_modify_step, "fill_modify_idx"))
+                  service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_modify.png'
                   certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                   step_list.append((cert_of_service_step, "cert_of_service_idx"))
                   step_list.append((file_step, "file_idx"))
@@ -188,15 +204,18 @@ code: |
                 step_list.append((appeal_step, "appeal_idx"))
                 step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                 step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
+                service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png'
                 certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]'
                 step_list.append((cert_of_service_step, "cert_of_service_idx"))
                 step_list.append((file_step, "file_idx"))
                 step_list.append((serve_step, "serve_idx"))
                 step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
               if date_difference(starting=final_order_date, ending=today()).days > 10 and date_difference(starting=final_order_date, ending=today()).days <= 30:                      
+                file_motion_to_set_aside = 'If you decide to file a Motion to Set Aside:'
                 step_list.append((appeal_step, "appeal_idx"))
                 step_list.append((learn_set_aside_step, "learn_set_aside_idx"))   
                 step_list.append((fill_set_aside_step, "fill_set_aside_idx"))
+                service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png'
                 certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]'
                 step_list.append((cert_of_service_step, "cert_of_service_idx"))
                 step_list.append((file_step, "file_idx"))
@@ -205,6 +224,7 @@ code: |
               elif date_difference(starting=final_order_date, ending=today()).days > 30:
                 step_list.append((learn_set_aside_step, "learn_set_aside_idx"))   
                 step_list.append((fill_set_aside_step, "fill_set_aside_idx"))
+                service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png'
                 certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]'
                 step_list.append((cert_of_service_step, "cert_of_service_idx"))
                 step_list.append((file_step, "file_idx"))
@@ -215,15 +235,18 @@ code: |
                 step_list.append((appeal_step, "appeal_idx"))
                 step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                 step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
+                service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png'
                 certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]'
                 step_list.append((cert_of_service_step, "cert_of_service_idx"))
                 step_list.append((file_step, "file_idx"))
                 step_list.append((serve_step, "serve_idx"))
                 step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
-              elif guess_final_order_date == 'between 11 and 30':                 
+              elif guess_final_order_date == 'between 11 and 30':
+                file_motion_to_set_aside = 'If you decide to file a <b>Motion to Set Aside</b>:'
                 step_list.append((appeal_step, "appeal_idx"))
                 step_list.append((learn_set_aside_step, "learn_set_aside_idx")) 
                 step_list.append((fill_set_aside_step, "fill_set_aside_idx"))
+                service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png'
                 certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]'
                 step_list.append((cert_of_service_step, "cert_of_service_idx"))
                 step_list.append((file_step, "file_idx"))
@@ -232,6 +255,7 @@ code: |
               elif guess_final_order_date == 'more than 30':
                 step_list.append((learn_set_aside_step, "learn_set_aside_idx"))
                 step_list.append((fill_set_aside_step, "fill_set_aside_idx"))
+                service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png'
                 certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]'
                 step_list.append((cert_of_service_step, "cert_of_service_idx"))
                 step_list.append((file_step, "file_idx"))
@@ -247,6 +271,7 @@ code: |
                   step_list.append((learn_set_aside_step, "learn_set_aside_idx"))
                   step_list.append((fill_set_aside_step, "fill_set_aside_idx"))
                 if unknown_final_date.any_true('reconsider','set aside'):
+                  service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png'
                   certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]'
                   step_list.append((cert_of_service_step, "cert_of_service_idx"))
                   step_list.append((file_step, "file_idx"))
@@ -259,6 +284,7 @@ code: |
         step_list.append((cssd_to_enforce_step, "cssd_to_enforce_idx"))
         step_list.append((talk_w_other_parent_step, "talk_w_other_parent_idx"))
         step_list.append((court_to_enforce_step, "court_to_enforce_idx"))
+        service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_enforce.png'
         certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_enforce.png, 100%, Certificate of Service box]'
         step_list.append((cert_of_service_step, "cert_of_service_idx"))
         step_list.append((file_step, "file_idx"))
@@ -283,6 +309,7 @@ code: |
         step_list.append((cssd_to_enforce_step, "cssd_to_enforce_idx"))
         step_list.append((talk_w_other_parent_step, "talk_w_other_parent_idx"))
         step_list.append((court_to_enforce_step, "court_to_enforce_idx"))
+        service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_enforce.png'
         certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_enforce.png, 100%, Certificate of Service box]'
         step_list.append((cert_of_service_step, "cert_of_service_idx"))
         step_list.append((file_step, "file_idx"))
