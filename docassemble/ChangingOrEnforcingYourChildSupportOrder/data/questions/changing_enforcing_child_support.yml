@@ -63,7 +63,11 @@ comment: |
 objects:
   #  - users: ALPeopleList.using(ask_number=True,target_number=1)
   - users: ALPeopleList.using(there_are_any=False)
-  - service_cert_image: DAStaticFile.using(alt_text="Certificate of Service box")
+  - service_cert_interim_image: DAStaticFile.using(filename = 'docassemble.AKA2JBranding:certofservice_interim_orders.png', alt_text="Certificate of Service box")
+  - service_cert_reconsider_set_aside_image: DAStaticFile.using(filename = 'docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png', alt_text="Certificate of Service box")
+  - service_cert_modify_image: DAStaticFile.using(filename = 'docassemble.AKA2JBranding:certofservice_modify.png', alt_text="Certificate of Service box")
+  - service_cert_enforce_image: DAStaticFile.using(filename = 'docassemble.AKA2JBranding:certofservice_enforce.png', alt_text="Certificate of Service box")
+
 ---
 # sections:
 #   - review_changing_child_support: Review your answers
