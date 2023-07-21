@@ -260,7 +260,7 @@ fields:
      #### <i class="fa-regular fa-lightbulb"></i> Learn more ####
      To get a copy of your child support order, contact the court or child support agency that issued your order.  Ask them how to get a copy.
      
-     In Alaska, find your [local court contact information](https://courts.alaska.gov/courtdir/index.htm) or [contact Child Support Services Division](https://childsupport.alaska.gov/child-support-services/contact-us).
+     In Alaska, find your [local court contact information](https://courts.alaska.gov/courtdir/index.htm) or [contact Child Support Enforcement Division](https://childsupport.alaska.gov/child-support-services/contact-us).
 ---
 id: who ordered
 question: |
@@ -270,7 +270,7 @@ fields:
     input type: radio
     choices:
       - The court.: court
-      - Child Support Services Division (CSSD).: cssd
+      - Child Support Enforcement Division (CSED).: cssd
       - I do not know who ordered it.: unknown
 ---
 id: find out who ordered it
@@ -278,21 +278,21 @@ question: |
   Find out who issued your child support order
 subquestion: |
   
-  *	Look at the top of your child support order to see if it was ordered by the Alaska Court System or Child Support Services Division.
+  *	Look at the top of your child support order to see if it was ordered by the Alaska Court System or Child Support Enforcement Division.
   * Look for your name in [CourtView](https://records.courts.alaska.gov/eaccess/home.page.2), the Alaska Court System’s list of public court cases. Open up your divorce or custody case.  See if there is an entry for a “child support order".
-  * Contact [Child Support Services Division](https://childsupport.alaska.gov/child-support-services/contact-us) and ask them.
+  * Contact [Child Support Enforcement Division](https://childsupport.alaska.gov/child-support-services/contact-us) and ask them.
 fields:
   - Who issued your child support order?: find_who_ordered
     label above field: True    
     input type: radio
     choices:
       - The court.: court
-      - Child Support Services Division (CSSD).: cssd
+      - Child Support Enforcement Division (CSED).: cssd
       - I still do not know who ordered it.: unknown
 ---
-id: Does CSSD collect?
+id: Does CSED collect?
 question: |
-  Does CSSD collect the child support ordered by the court?
+  Does CSED collect the child support ordered by the court?
 fields:
   - no label: cssd_collect
     input type: radio
@@ -302,9 +302,9 @@ fields:
       - "I do not know": unknown
   - note: |     
      #### <i class="fa-regular fa-lightbulb"></i> Learn more ####
-     If CSSD is collecting child support, the child support would be deducted from one parent's paycheck.  CSSD would pay the child support to the other parent.
+     If CSED is collecting child support, the child support would be deducted from one parent's paycheck.  CSED would pay the child support to the other parent.
      
-     If CSSD is not collecting child support, the parents would have to exchange the child support between themselves.
+     If CSED is not collecting child support, the parents would have to exchange the child support between themselves.
 ---
 id: Why do you want to change the order
 question: |
