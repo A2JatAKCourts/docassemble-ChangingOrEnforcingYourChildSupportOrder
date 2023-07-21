@@ -21,7 +21,7 @@ Scenario: Row #2
       | var | value | trigger |
       | user_need | enforce foreign order |  |  
     And I take a screenshot
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 8 steps"  
+    And I should see the phrase "Your Personal Action Plan for enforcing your child support order in 8 steps"  
     And I should see the phrase "Ask CSED to enforce your order"
     And I should see the phrase "Register your child support order from another state"
     And I should see the phrase "Talk to the other parent"
