@@ -5,9 +5,9 @@ question: |
   # <i class="fa-thin fa-list"></i>Your Personal Action Plan is ready!
 subquestion: |
   % if user_need in ('enforce foreign order', 'enforce AK order'):
-  #### Your Personal Action Plan for enforcing your child support order in ${ len(step_list) } steps.
+  #### Your Personal Action Plan for enforcing your child support order in ${ len(step_list) } steps
   % else:
-  #### Your Personal Action Plan for changing your child support order in ${ len(step_list) } steps.
+  #### Your Personal Action Plan for changing your child support order in ${ len(step_list) } steps
   % endif
   
   % for iteration_index, step_tuple in enumerate( step_list ):
@@ -21,10 +21,17 @@ buttons:
 code: |
   step_list = []
   images_list = []
+  distribution_certificate_list = []
   other_party_in_case  = 'the other parent'
-  certificate_of_service_image = ''
+  distribution_certificate_list.append({'image': distrib_cert_child_support_image, 'text': "Certificate of Distribution at the bottom of a child support order."})
+  # images_list.append({'image': service_cert_interim_image, 'text': "Certificate of Service at the bottom of a Motion for Interim Child Support."})
+  # certificate_of_service_image = ''
   file_motion_to_set_aside = ''
   file_motion_to_enforce = ''
+  interim_motion = 'wait'
+  file_modify_filing_fee = ''
+  # expect_after_motion is in what to expect step for filing motion for interim order w complaint, or answer/response, cannot use variable in docx template, must insert condition in what to expect step.
+  expect_after_motion = ''
   #  if user_need == 'unwanted':
   #    step_list.append((wrong_tf, "wrong_tf_idx"))
   #    step_list.append((wrong_tf2, "wrong_tf2_idx"))
@@ -74,14 +81,17 @@ code: |
                     step_list.append((serve_step, "serve_idx"))
                     step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
                   if date_difference(starting=interim_order_date, ending=today()).days > 10:
-                    step_list.append((learn_modify_step, "learn_modify_idx"))
-                    step_list.append((fill_modify_step, "fill_modify_idx"))
+                    step_list.append((learn_modify_child_support_step, "learn_modify_child_support_idx"))
+                    step_list.append((calculate_child_support_step, "calculate_child_support_idx"))
+                    step_list.append((compare_child_support_step, "compare_child_support_idx"))
+                    step_list.append((dont_wait_modify_child_support_step, "dont_wait_modify_child_support_idx"))                  
                     # service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_modify.png'
                     # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                     images_list.append({'image': service_cert_modify_image, 'text': "Certificate of Service at the bottom of a Motion to Modify."})
-                    step_list.append((cert_of_service_step, "cert_of_service_idx"))
+                    step_list.append((cert_of_service_step, "cert_of_service_idx")) 
                     step_list.append((file_step, "file_idx"))
                     step_list.append((serve_step, "serve_idx"))
+                    step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
                 elif defined('interim_order_period'):
                   if guess_interim_order_date == 'within 10 days':
                     step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
@@ -94,14 +104,17 @@ code: |
                     step_list.append((serve_step, "serve_idx"))
                     step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
                   elif guess_interim_order_date == 'more than 10 days':
-                    step_list.append((learn_modify_step, "learn_modify_idx"))
-                    step_list.append((fill_modify_step, "fill_modify_idx"))
+                    step_list.append((learn_modify_child_support_step, "learn_modify_child_support_idx"))
+                    step_list.append((calculate_child_support_step, "calculate_child_support_idx"))
+                    step_list.append((compare_child_support_step, "compare_child_support_idx"))
+                    step_list.append((dont_wait_modify_child_support_step, "dont_wait_modify_child_support_idx"))
                     # service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_modify.png'
                     # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                     images_list.append({'image': service_cert_modify_image, 'text': "Certificate of Service at the bottom of a Motion to Modify."})
                     step_list.append((cert_of_service_step, "cert_of_service_idx"))
                     step_list.append((file_step, "file_idx"))
                     step_list.append((serve_step, "serve_idx"))
+                    step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
                   else:
                     if unknown_interim_date == 'reconsider':
                       step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
@@ -114,36 +127,46 @@ code: |
                       step_list.append((serve_step, "serve_idx"))
                       step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
                     elif unknown_interim_date == 'modify':
-                      step_list.append((learn_modify_step, "learn_modify_idx"))
-                      step_list.append((fill_modify_step, "fill_modify_idx"))
+                      step_list.append((learn_modify_child_support_step, "learn_modify_child_support_idx"))
+                      step_list.append((calculate_child_support_step, "calculate_child_support_idx"))
+                      step_list.append((compare_child_support_step, "compare_child_support_idx"))
+                      step_list.append((dont_wait_modify_child_support_step, "dont_wait_modify_child_support_idx"))
                       # service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_modify.png'
                       # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                       images_list.append({'image': service_cert_modify_image, 'text': "Certificate of Service at the bottom of a Motion to Modify."})
                       step_list.append((cert_of_service_step, "cert_of_service_idx"))
                       step_list.append((file_step, "file_idx"))
                       step_list.append((serve_step, "serve_idx"))
+                      step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
                     else:
                       step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                       step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
-                      step_list.append((learn_modify_step, "learn_modify_idx"))
-                      step_list.append((fill_modify_step, "fill_modify_idx"))
+                      step_list.append((learn_modify_child_support_step, "learn_modify_child_support_idx"))
+                      step_list.append((calculate_child_support_step, "calculate_child_support_idx"))
+                      step_list.append((compare_child_support_step, "compare_child_support_idx"))
+                      step_list.append((dont_wait_modify_child_support_step, "dont_wait_modify_child_support_idx"))
                       # service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_modify.png'
                       # certificate_of_service_image = 'At the bottom of Motion to Reconsider [FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box][BR][BR][BR]At the bottom of Motion to Modify [FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                       images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of Motion to Reconsider."})
                       images_list.append({'image': service_cert_modify_image, 'text': "Certificate of Service at the bottom of a Motion to Modify."})
-                      step_list.append((cert_of_service_step, "cert_of_service_idx"))
+                      step_list.append((cert_of_service_step, "cert_of_service_idx")) 
                       step_list.append((file_step, "file_idx"))
                       step_list.append((serve_step, "serve_idx"))
                       step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
+                      step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
             else:
-              step_list.append((learn_modify_step, "learn_modify_idx"))
-              step_list.append((fill_modify_step, "fill_modify_idx"))
+              step_list.append((learn_modify_child_support_step, "learn_modify_child_support_idx"))
+              step_list.append((calculate_child_support_step, "calculate_child_support_idx"))
+              step_list.append((compare_child_support_step, "compare_child_support_idx"))
+              step_list.append((dont_wait_modify_child_support_step, "dont_wait_modify_child_support_idx"))
               # service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_modify.png'
               # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
               images_list.append({'image': service_cert_modify_image, 'text': "Certificate of Service at the bottom of a Motion to Modify."})
               step_list.append((cert_of_service_step, "cert_of_service_idx"))
+              file_modify_filing_fee = '<li>Pay the $75 filing fee</li><ul><li>Call the <a href="https://courts.alaska.gov/shc/family">Family Law Self-HelpCenter</a><br>(907)264-0851, or<br>(866)279-0851,<br>or</li><li>Use <strong>Exemption From the Payment of Fees, TF-920</strong>[<a href="https://public.courts.alaska.gov/web/forms/docs/tf-920.pdf">Fill-In PDF</a>]</li></ul>'
               step_list.append((file_step, "file_idx"))
               step_list.append((serve_step, "serve_idx"))
+              step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
         else: # why_change == 'problem':
           if middle_of_case:
             interim_order_date_question
@@ -159,14 +182,17 @@ code: |
                 step_list.append((serve_step, "serve_idx"))
                 step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
               if date_difference(starting=interim_order_date, ending=today()).days > 10:
-                step_list.append((learn_modify_step, "learn_modify_idx"))
-                step_list.append((fill_modify_step, "fill_modify_idx"))
+                step_list.append((learn_modify_child_support_step, "learn_modify_child_support_idx"))
+                step_list.append((calculate_child_support_step, "calculate_child_support_idx"))
+                step_list.append((compare_child_support_step, "compare_child_support_idx"))
+                step_list.append((dont_wait_modify_child_support_step, "dont_wait_modify_child_support_idx"))
                 # service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_modify.png'
                 # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                 images_list.append({'image': service_cert_modify_image, 'text': "Certificate of Service at the bottom of a Motion to Modify."})
                 step_list.append((cert_of_service_step, "cert_of_service_idx"))
                 step_list.append((file_step, "file_idx"))
                 step_list.append((serve_step, "serve_idx"))
+                step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
             elif defined('interim_order_period'):
               if guess_interim_order_date == 'within 10 days':
                 step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
@@ -178,14 +204,17 @@ code: |
                 step_list.append((serve_step, "serve_idx"))
                 step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
               elif guess_interim_order_date == 'more than 10 days':
-                step_list.append((learn_modify_step, "learn_modify_idx"))
-                step_list.append((fill_modify_step, "fill_modify_idx"))
+                step_list.append((learn_modify_child_support_step, "learn_modify_child_support_idx"))
+                step_list.append((calculate_child_support_step, "calculate_child_support_idx"))
+                step_list.append((compare_child_support_step, "compare_child_support_idx"))
+                step_list.append((dont_wait_modify_child_support_step, "dont_wait_modify_child_support_idx"))
                 # service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_modify.png'
                 # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                 images_list.append({'image': service_cert_modify_image, 'text': "Certificate of Service at the bottom of a Motion to Modify."})
                 step_list.append((cert_of_service_step, "cert_of_service_idx"))
                 step_list.append((file_step, "file_idx"))
                 step_list.append((serve_step, "serve_idx"))
+                step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
               else:
                 if unknown_interim_date == 'reconsider':
                   step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
@@ -197,19 +226,24 @@ code: |
                   step_list.append((serve_step, "serve_idx"))
                   step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
                 elif unknown_interim_date == 'modify':
-                  step_list.append((learn_modify_step, "learn_modify_idx"))
-                  step_list.append((fill_modify_step, "fill_modify_idx"))
+                  step_list.append((learn_modify_child_support_step, "learn_modify_child_support_idx"))
+                  step_list.append((calculate_child_support_step, "calculate_child_support_idx"))
+                  step_list.append((compare_child_support_step, "compare_child_support_idx"))
+                  step_list.append((dont_wait_modify_child_support_step, "dont_wait_modify_child_support_idx"))
                   # service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_modify.png'
                   # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                   images_list.append({'image': service_cert_modify_image, 'text': "Certificate of Service at the bottom of a Motion to Modify."})
                   step_list.append((cert_of_service_step, "cert_of_service_idx"))
                   step_list.append((file_step, "file_idx"))
                   step_list.append((serve_step, "serve_idx"))
+                  step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
                 else:
                   step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                   step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
-                  step_list.append((learn_modify_step, "learn_modify_idx"))
-                  step_list.append((fill_modify_step, "fill_modify_idx"))
+                  step_list.append((learn_modify_child_support_step, "learn_modify_child_support_idx"))
+                  step_list.append((calculate_child_support_step, "calculate_child_support_idx"))
+                  step_list.append((compare_child_support_step, "compare_child_support_idx"))
+                  step_list.append((dont_wait_modify_child_support_step, "dont_wait_modify_child_support_idx"))
                   # service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_modify.png'
                   # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                   images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of Motion to Reconsider."})
@@ -218,6 +252,7 @@ code: |
                   step_list.append((file_step, "file_idx"))
                   step_list.append((serve_step, "serve_idx"))
                   step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
+                  step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
           else: # not middle of case
             final_order_date_question
             if defined('final_order_date'):
@@ -233,7 +268,7 @@ code: |
                 step_list.append((serve_step, "serve_idx"))
                 step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
               if date_difference(starting=final_order_date, ending=today()).days > 10 and date_difference(starting=final_order_date, ending=today()).days <= 30:                      
-                file_motion_to_set_aside = 'If you decide to file a Motion to Set Aside:'
+                file_motion_to_set_aside = 'If you decide to file a <b>Motion to Set Aside</b>::'
                 step_list.append((appeal_step, "appeal_idx"))
                 step_list.append((learn_set_aside_step, "learn_set_aside_idx"))   
                 step_list.append((fill_set_aside_step, "fill_set_aside_idx"))
@@ -402,16 +437,16 @@ content: |
 ---
 template: ask_cssd_step
 subject: |
-  Step ${ ask_cssd_idx }: Ask CSSD to change your child support
+  Step ${ ask_cssd_idx }: Ask CSED to change your child support
 content: |
-  <p>A child support order from Alaska Child Support Services Division (CSSD) is called an administrative order.  CSSD can change administrative orders.  This is called "modifying" child support.</p>
-  <p>CSSD can modify your order if: </p>
+  <p>A child support order from Alaska Child Support Enforcement Division (CSED) is called an administrative order.  CSED can change administrative orders.  This is called "modifying" child support.</p>
+  <p>CSED can modify your order if: </p>
   <ul>
     <li>The cost of your child's health insurance premium changes, or </li>
     <li>Your income or the other parent's income changes so that a new child support calculation would be at least 15% more or 15% less than the payment you have now, or </li>
     <li>Your children's schedule changes so that a new child support calculation would be at least 15% more or 15% less than the payment you have now. </li>
   </ul>
-  <a href="https://childsupport.alaska.gov/child-support-services/contact-us">Contact CSSD</a>
+  <a href="https://childsupport.alaska.gov/child-support-services/contact-us">Contact CSED</a>
   <ul>
   <li>Customer Service Call Center:<br> 
   Monday - Thursday, 9:30 am - 4:00 pm</li>
@@ -425,11 +460,11 @@ content: |
   </ul>
    <div class='step-subheading'>Timing</div>
    <ul>
-   <li>If your parenting schedule changes, or your income or the other parent's income changes, it is important to tell CSSD <strong>right away</strong>. </li>
-    <li>CSSD cannot go back and change child support that was due in the past. </li>
-    <li>Until you contact CSSD, the old child support amount applies and the parent who owes child support still owes the old amount, even if income or the schedule has changed. </li>
+   <li>If your parenting schedule changes, or your income or the other parent's income changes, it is important to tell CSED <strong>right away</strong>. </li>
+    <li>CSED cannot go back and change child support that was due in the past. </li>
+    <li>Until you contact CSED, the old child support amount applies and the parent who owes child support still owes the old amount, even if income or the schedule has changed. </li>
   </ul>
-  <div class='step-subheading'>Read more about CSSD </div>
+  <div class='step-subheading'>Read more about CSED </div>
   <ul>
     <li><a href ="https://childsupport.alaska.gov/child-support-services/information/faqs/modifications-faq">Modification FAQs</a></li>
     <li><a href ="https://childsupport.alaska.gov/docs/childsupportserviceslibraries/brochures/04-6204-red-mod-rev-02-2022.pdf">Modification Guidebook Brochure</a></li>
@@ -440,8 +475,8 @@ template: find_out_step
 subject: |
   Step ${ find_out_idx }: Find out who issued your child support order
 content: |
-  <div class='step-subheading'>Contact CSSD</div>
-  [Contact CSSD](https://childsupport.alaska.gov/child-support-services/contact-us) to ask if they issued your child support order.
+  <div class='step-subheading'>Contact CSED</div>
+  [Contact CSED](https://childsupport.alaska.gov/child-support-services/contact-us) to ask if they issued your child support order.
   % if user_need == 'change AK order':
   If they did, they can give you information about changing it.  Changing an order is called “modifying” it.
   % elif user_need == 'enforce AK order':
@@ -458,7 +493,7 @@ content: |
     <li>⌨ Fax: (907) 787-3220 </li>
     <li>Email: dor.cssd.customerservice.anchorage@alaska.gov </li>
   </ul>
-  If CSSD issued your order, see:
+  If CSED issued your order, see:
   <ul>
   % if user_need == 'change AK order':
   <li>
@@ -485,43 +520,83 @@ content: |
   <li>Read <a href="https://courts.alaska.gov/shc/family/shcmodify.htm">Modifying Child Custody or Child Support Order</a>.</li>
   </ul>
   <div class='step-subheading'>Changes</div>
-    *	If your parenting schedule changes, or your income or the other parent's income changes, it is important to tell the court or CSSD right away.  If CSSD issued your order, tell CSSD.  If the court issued your order, tell the court.
-    * CSSD and the court cannot go back and change child support that was due in the past.  They can only change child support starting when you file something asking to change it, and notify the other parent that you are asking for a change.
-    * Until you tell CSSD or the court, the old child support amount applies and the parent who owes child support still owes the old amount, even if income or the schedule has changed.
+    *	If your parenting schedule changes, or your income or the other parent's income changes, it is important to tell the court or CSED right away.  If CSED issued your order, tell CSED.  If the court issued your order, tell the court.
+    * CSED and the court cannot go back and change child support that was due in the past.  They can only change child support starting when you file something asking to change it, and notify the other parent that you are asking for a change.
+    * Until you tell CSED or the court, the old child support amount applies and the parent who owes child support still owes the old amount, even if income or the schedule has changed.
   % endif
 ---
-template: learn_modify_step
+template: learn_modify_child_support_step
 subject: |
-  Step ${ learn_modify_idx }: Learn about Motions to Modify
+  Step ${ learn_modify_child_support_idx }: Learn about motions to modify
 content: |
-  Changing your child support order is called “modifying” child support.  The child support rule, [Alaska Rule of Civil Procedure 90.3](https://courts.alaska.gov/rules/docs/civ.pdf), states you need to prove there has been a “material change in circumstances” to modify child support. The most common changes in circumstances are:
+  Changing your child support order is called “modifying” child support. To ask the judge to change your child support order, file a **Motion to Modify Child Support**. 
+  
+  The child support rule, [Alaska Rule of Civil Procedure 90.3](https://courts.alaska.gov/rules/docs/civ.pdf), states you need to prove there has been a “material change in circumstances” to modify child support. The most common changes in circumstances are:
   
     * Your children's schedule changes and they spend more or fewer overnights with you than they used to, or
     * Your income or the other parent's income changes.
-    
-  <div class='step-subheading'>Calculate your new child support amount</div>
+
+  % if not middle_of_case:
+  The court charges $75 to file this motion. If you cannot afford the fee, you may be able to get the court to waive it. See Step ${ file_idx }, Pay the $75 fee, and file your Motion to Modify 
+  % endif
+---
+template: calculate_child_support_step
+subject: |
+  Step ${ calculate_child_support_idx }: Calculate your new child support amount
+content: |
   Figure out the new child support amount using the new schedule or new income information.  
     
-    * Calculate the percent of overnights your children spend with you and with the other parent. For example, if your child spends 4 nights each week with you and 3 nights each week with their other parent, they spend 209 overnights each year with you and 156 nights each year with the other parent.  This is 57% of overnights with you and 43% of overnights with the other parent.  
-    * Use the percentages to fill out the <strong>Child Support Guidelines Affidavit</strong>, [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-305.pdf">DR-305</a>]. Read [How to Fill out the Child Support Guidelines Affidavit](https://courts.alaska.gov/shc/family/docs/shc-dr305f-sample.pdf) to help you fill out this form.
-    * If your children have a primary custody child support schedule, the <strong>Child Support Guidelines Affidavit</strong> tells you the new child support amount. If you do not have a primary custody child support schedule, use one of these forms:
+    1. Calculate the percent of overnights your children spend with you and with the other parent. For example, if your child spends 4 nights each week with you and 3 nights each week with their other parent, they spend 209 overnights each year with you and 156 nights each year with the other parent.  This is 57% of overnights with you and 43% of overnights with the other parent.
+  
+  <strong>For example</strong>
+  If your child spends 4 nights each week with you and 3 nights each week with their other parent, they spend 209 overnights each year with you and 156 nights each year with the other parent.
+  
+  209 divided by 365 nights in a year is .57, or 57% of overnights with you.
+  
+  156 divided by 365 nights in a year is .43, or 43% of overnights with the other parent
+
+    2. Use the percentages to fill out the <strong>Child Support Guidelines Affidavit</strong>, [<strong><a href="https://public.courts.alaska.gov/web/forms/docs/dr-305.pdf">DR-305</a></strong>]. Read [How to Fill out the Child Support Guidelines Affidavit](https://courts.alaska.gov/shc/family/docs/shc-dr305f-sample.pdf) to help you fill out this form.
+    3. The <strong>Child Support Guidelines Affidavit</strong> tells you the new child support amount for a If your children have a <strong>primary custody child support</strong> schedule. A primary custody child support schedule is when the children spend 256 or more overnights with one parent. If you do not have a primary custody child support schedule, use one of these forms:
     <ul>
-  <li><strong>Shared Custody Support Calculation, [DR-306]</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-306.pdf">Fill-In PDF</a>] for a shared custody schedule, </li>
-  <li><strong>Hybrid Custody Child Support Calculation, [DR-308]</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-308.pdf">PDF</a>] for a hybrid custody child support schedule, or</li>
-  <li><strong>Divided Custody Child Support Calculation, [DR-307]</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-307.pdf">PDF</a>] for a divided custody child support schedule.</li>
+  <li><strong>Shared Custody Support Calculation, [DR-306]</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-306.pdf">Fill-In PDF</a>]<br>
+  Use this if the children spend at least 110 overnights with each parent.</li>
+  <li><strong>Hybrid Custody Child Support Calculation, [DR-308]</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-308.pdf">PDF</a>] Use this if both parents have shared custody of 1 or more children and 1 or both parents have primary custody of 1 or more children.</li>
+  <li><strong>Divided Custody Child Support Calculation, [DR-307]</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-307.pdf">PDF</a>] Use this if both parents have primary physical custody of one or more children and neither parent has shared custody of any children.</li>
   </ul>
-  <div class='step-subheading'>Compare the old and new child support amounts to see if there is a material change in circumstances.</div>
-    * If the new child support amount is 15% more or less than the old amount, there is a presumption that there is a material change in circumstances.
-    * For example, if the old child support amount was $100 per month, there would be a material change if the new amount was
+---
+template: compare_child_support_step
+subject: |
+  Step ${ compare_child_support_idx }: Compare the new calculation with the current amount
+content: |
+  <div class='step-subheading'>Compare your current child support to the new amount to see if there is a "material change in circumstances"</div>
+    If the new child support amount is 15% more or less than the old amount, there is a presumption that there is a material change in circumstances.
+    
+   <strong>For example</strong>
+   
+   If the old child support amount was $100 per month, there would be a material change if the new amount is:
     * $85 or less, or
     * $115 or more.
-  <div class='step-subheading'>Timing</div>
+---
+template: dont_wait_modify_child_support_step
+subject: |
+  Step ${ dont_wait_modify_child_support_idx }: Do not wait to file your motion to modify 
+content: |
+  File your <strong>Motion to Modify Child Support</strong> and give the other parent a copy of your motion as soon as you can after there is a “material change of circumstances.”
+
+  Until you file your motion with the court, <strong>the parent who owes child support still owes the amount in your current order</strong>. 
   
-    * If your parenting schedule changes, or your income or the other parent’s income changes, it is important to tell the court **right away**.
-    * The judge cannot go back and change child support that was due in the past.  They can only change child support starting when you file something asking to change it, and notify the other parent that you are asking for a change.
-    * Until you file a motion in court, the old child support amount applies and the parent who owes child support still owes the old amount, even if income or the schedule has changed.
-    * After you file your motion, but before the judge decides, can be confusing.  If the judge changes child support, they also pick the day the new amount starts.  This is usually the day a parent filed a Motion to Modify and gave it to the other parent.
-  If child support changes, 1 parent may owe the other money for the time between when the motion was filed and when the judge decided.
+  If the judge agrees to change the amount of your child support, the judge will sign a new child support order.  The new order includes the date the amount changed. This date is usually in the past. It will not be earlier than the date you filed your motion and gave a copy to the other parent.
+
+  <strong>For example</strong>
+
+    * The other parent gets a new job making a lot more money on March 1.
+    * You recalculate child support.  The other parent will owe you more child support each month.
+    * You file a motion to modify child support with the court and give the other parent a copy June 21.
+    * The judge agrees to change your child support and grants your motion.
+    * The judge signs a new child support order on September 1.
+    * The court cannot order child support to be changed before you filed your motion and gave a copy to the other parent.
+    * The new order says that the new child support amount starts July 1.
+    * Because you did not file your motion until June, the other parent only has to pay the old amount of child support from March 1 to July 1.
 ---
 template: fill_modify_step
 subject: |
@@ -635,11 +710,11 @@ subject: |
   Step ${ foreign_idx }: Learn about changing your child support order from another state
 content: |
   It can be complicated to ask an Alaska agency or court to change your child support order from another state.
-  <div class='step-subheading'>Contact the Alaska Child Support Services Division (CSSD)</div>
+  <div class='step-subheading'>Contact the Alaska Child Support Services Division (CSED)</div>
   
   They may be able to contact your original agency to help you change the order.
   
-  [Alaska Child Support Services Division (CSSD)](https://childsupport.alaska.gov/child-support-services/contact-us)
+  [Alaska Child Support Enforcement Division (CSED)](https://childsupport.alaska.gov/child-support-services/contact-us)
   
     *	Customer Service Call Center:
       Monday - Thursday, 9:30 am - 4:00 pm
@@ -654,29 +729,29 @@ content: |
 ---
 template: cssd_to_enforce_step
 subject: |
-  Step ${ cssd_to_enforce_idx }: Ask CSSD to enforce your order
+  Step ${ cssd_to_enforce_idx }: Ask CSED to enforce your order
 content: |
   % if user_need =='enforce foreign order':
-  The Alaska Child Support Services Division (CSSD), or the child support agency in your state may be able to help you enforce your child support order.
+  The Alaska Child Support Enforcement Division (CSED), or the child support agency in your state may be able to help you enforce your child support order.
   % endif
   
   % if user_need == 'enforce AK order':
   % if who_really_ordered == 'court':
   % if cssd_collect == 'yes':
-  If Child Support Services Division (CSSD) is collecting your child support, they can enforce your child support order.
+  If Child Support Enforcement Division (CSED) is collecting your child support, they can enforce your child support order.
   % elif cssd_collect == 'no':
-  If you have a court order for child support and want Child Support Services Division (CSSD) to help you collect it, apply for CSSD services.  You will need a “My Alaska” account:
+  If you have a court order for child support and want Child Support Enforcement Division (CSED) to help you collect it, apply for CSED services.  You will need a “My Alaska” account:
   
-    * See the [CSSD Home Page](https://childsupport.alaska.gov).
+    * See the [CSED Home Page](https://childsupport.alaska.gov).
     * Select “Open a Case” or “Online Application for Services.”
   % else: 
-  [Contact CSSD](https://childsupport.alaska.gov/child-support-services/contact-us) to see if you have an account. 
+  [Contact CSED](https://childsupport.alaska.gov/child-support-services/contact-us) to see if you have an account. 
   
-  If you do not have an account, apply for CSSD services.
+  If you do not have an account, apply for CSED services.
   
   You will need a “My Alaska” account.
   
-  See the [CSSD Home Page](https://childsupport.alaska.gov) and select:
+  See the [CSED Home Page](https://childsupport.alaska.gov) and select:
   
     *	“Open a Case” or
     *	“Online Application for Services.”
@@ -684,7 +759,7 @@ content: |
   % endif
   % endif
   
-   <a href="https://childsupport.alaska.gov/child-support-services/contact-us">Contact CSSD</a>
+   <a href="https://childsupport.alaska.gov/child-support-services/contact-us">Contact CSED</a>
   <ul>
     <li>Customer Service Call Center: <br>
     Monday - Thursday, 9:30 am - 4:00 pm
@@ -697,7 +772,7 @@ content: |
     <li>Email: dor.cssd.customerservice.anchorage@alaska.gov </li>
   </ul>
 
-  [Read Child Support Enforcement FAQ](https://childsupport.alaska.gov/child-support-services/information/faqs/child-support-enforcement-services-faq)
+  Read CSED's [Child Support Enforcement FAQ](https://childsupport.alaska.gov/child-support-services/information/faqs/child-support-enforcement-services-faq)
 
   % if user_need =='enforce foreign order':
   [Contact Information for State Child Support Agencies](https://www.acf.hhs.gov/css/parents/find-local-child-support-office).
@@ -806,17 +881,43 @@ content: |
   
   [Collecting money owed to you](https://courts.alaska.gov/shc/family/shcenforce.htm)
 ---
-template: cert_of_service_step
+template: file_step
 subject: |
-  Step ${ cert_of_service_idx }: Fill out the Certificate of Service
+  Step ${ file_idx }: File your motion forms    
 content: |
-  % for image_data in images_list:
-  ${ image_data['image'].show(width='100%') }
-  
-  ${  image_data['text'] }
-  % endfor
-  
-  below is old way to call image
-  ${ service_cert_image.show(width='100%') }
-
+  ${ file_motion_to_set_aside }
+  ${ file_motion_to_enforce }
+  <ol>
+  <li>Make 2 copies of all the documents you are going to give the court.</li>
+  <li>Give the original version of your documents to the Court. This is called "filing" your  documents. You can:
+    <ul>
+      <li>Deliver the documents to the court yourself.</li>
+      <li>Mail the document by first-class mail.</li>
+      <li>Use the Court's <a href="https://courts.alaska.gov/efile/">TrueFile  eFiling system</a> to send the documents to the court electronically.</li>
+    </ul>
+  </li>
+  ${ file_modify_filing_fee }
+  <li>Keep 1 copy for your own records.</li>
+  <li>Give the 2nd copy to ${ other_party_in_case } on the date and way you wrote on your <strong>Certificate of Service</strong>.<br>
+  Read Step ${ serve_idx }: Serve ${ other_party_in_case }.</li>
+  </ol>
+---
+template: expect_after_modify_step
+subject: |
+  Step ${ expect_after_modify_idx }: What to expect after you file a motion to modify
+content: |
+  Same as what to expect after you file - just heading is different.
+---
+#  template: cert_of_service_step
+#  subject: |
+#    Step ${ cert_of_service_idx }: Fill out the Certificate of Service
+#  content: |
+#    % for image_data in images_list:
+#    ${ image_data['image'].show(width='100%') }
+#    
+#    ${  image_data['text'] }
+#    % endfor
+#    
+#    below is old way to call image
+#    ${ service_cert_image.show(width='100%') }
 ---
