@@ -115,7 +115,7 @@ code: |
                     step_list.append((file_step, "file_idx"))
                     step_list.append((serve_step, "serve_idx"))
                     step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
-                  else:
+                  else: 
                     if unknown_interim_date == 'reconsider':
                       step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                       step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
@@ -139,6 +139,7 @@ code: |
                       step_list.append((serve_step, "serve_idx"))
                       step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
                     else:
+                      step_list.append((pick_a_step_step, "pick_a_step_idx"))
                       step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                       step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
                       step_list.append((learn_modify_child_support_step, "learn_modify_child_support_idx"))
@@ -154,7 +155,7 @@ code: |
                       step_list.append((serve_step, "serve_idx"))
                       step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
                       step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
-            else:
+            else: # not middle_of_case 
               step_list.append((learn_modify_child_support_step, "learn_modify_child_support_idx"))
               step_list.append((calculate_child_support_step, "calculate_child_support_idx"))
               step_list.append((compare_child_support_step, "compare_child_support_idx"))
@@ -215,7 +216,7 @@ code: |
                 step_list.append((file_step, "file_idx"))
                 step_list.append((serve_step, "serve_idx"))
                 step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
-              else:
+              else: # guess_interim_order_date == 'unknown'
                 if unknown_interim_date == 'reconsider':
                   step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                   step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
@@ -237,7 +238,8 @@ code: |
                   step_list.append((file_step, "file_idx"))
                   step_list.append((serve_step, "serve_idx"))
                   step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
-                else:
+                else: # unknown_interim_date == 'both'
+                  step_list.append((pick_a_step_step, "pick_a_step_idx"))
                   step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                   step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
                   step_list.append((learn_modify_child_support_step, "learn_modify_child_support_idx"))
@@ -257,6 +259,7 @@ code: |
             final_order_date_question
             if defined('final_order_date'):
               if date_difference(starting=final_order_date, ending=today()).days <= 10:
+                step_list.append((pick_a_step_step, "pick_a_step_idx"))
                 step_list.append((appeal_step, "appeal_idx"))
                 step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                 step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
@@ -268,8 +271,9 @@ code: |
                 step_list.append((serve_step, "serve_idx"))
                 step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
               if date_difference(starting=final_order_date, ending=today()).days > 10 and date_difference(starting=final_order_date, ending=today()).days <= 30:                      
-                file_motion_to_set_aside = 'If you decide to file a <b>Motion to Set Aside</b>::'
+                step_list.append((pick_a_step_step, "pick_a_step_idx"))
                 step_list.append((appeal_step, "appeal_idx"))
+                file_motion_to_set_aside = 'If you decide to file a <b>Motion to Set Aside</b>::'
                 step_list.append((learn_set_aside_step, "learn_set_aside_idx"))   
                 step_list.append((fill_set_aside_step, "fill_set_aside_idx"))
                 # service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png'
@@ -291,6 +295,7 @@ code: |
                 step_list.append((expect_set_aside_step, "expect_set_aside_idx"))
             elif defined('final_order_period'):
               if guess_final_order_date == 'within 10 days':
+                step_list.append((pick_a_step_step, "pick_a_step_idx"))
                 step_list.append((appeal_step, "appeal_idx"))
                 step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                 step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
@@ -302,8 +307,9 @@ code: |
                 step_list.append((serve_step, "serve_idx"))
                 step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
               elif guess_final_order_date == 'between 11 and 30':
-                file_motion_to_set_aside = 'If you decide to file a <b>Motion to Set Aside</b>:'
+                step_list.append((pick_a_step_step, "pick_a_step_idx"))
                 step_list.append((appeal_step, "appeal_idx"))
+                file_motion_to_set_aside = 'If you decide to file a <b>Motion to Set Aside</b>:'
                 step_list.append((learn_set_aside_step, "learn_set_aside_idx")) 
                 step_list.append((fill_set_aside_step, "fill_set_aside_idx"))
                 # service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png'
@@ -324,6 +330,8 @@ code: |
                 step_list.append((serve_step, "serve_idx"))
                 step_list.append((expect_set_aside_step, "expect_set_aside_idx"))
               else:
+                if len(unknown_final_date.true_values()) > 1:
+                  step_list.append((pick_a_step_step, "pick_a_step_idx"))
                 if unknown_final_date['appeal']:                
                   step_list.append((appeal_step, "appeal_idx"))
                 if unknown_final_date['reconsider']:
@@ -420,21 +428,21 @@ content: |
   * [Asking for an Order / filing a motion](https://courts.alaska.gov/shc/family/motions.htm)
   * [Family Law Home](https://courts.alaska.gov/shc/family/index.htm)
 ---
-template: get_help
-subject: |
-  Step ${ get_help_idx }: Get more information or help
-content: |
-  For help with forms or understanding the process, call the [Family Law Self-Help Center](https://courts.alaska.gov/shc/family/selfhelp.htm)
-  <p>
-  (907) 264-0851 or<br>  
-  (866) 279-0851.</p>
-  
-  Many lawyers offer free or flat fee consultations without having to hire them for the whole case. [Find a Lawyer](https://courts.alaska.gov/shc/shclawyer.htm).
-  
-  Depending on your income, you may qualify for [Alaska Free Legal Answers](https://alaska.freelegalanswers.org).
-  
-  Depending on your income and circumstances, you may qualify for a free lawyer from [Alaska Legal Services](https://alsc-law.org/apply-for-services).
----
+#  template: get_help
+#  subject: |
+#    Step ${ get_help_idx }: Get more information or help
+#  content: |
+#    For help with forms or understanding the process, call the [Family Law Self-Help Center](https://courts.alaska.gov/shc/family/selfhelp.htm)
+#    <p>
+#    (907) 264-0851 or<br>  
+#    (866) 279-0851.</p>
+#    
+#    Many lawyers offer free or flat fee consultations without having to hire them for the whole case. [Find a Lawyer](https://courts.alaska.gov/shc/shclawyer.htm).
+#    
+#    Depending on your income, you may qualify for [Alaska Free Legal Answers](https://alaska.freelegalanswers.org).
+#    
+#    Depending on your income and circumstances, you may qualify for a free lawyer from [Alaska Legal Services](https://alsc-law.org/apply-for-services).
+#  ---
 template: ask_cssd_step
 subject: |
   Step ${ ask_cssd_idx }: Ask CSED to change your child support
@@ -739,7 +747,7 @@ content: |
   % if who_really_ordered == 'court':
   % if cssd_collect == 'yes':
   If Child Support Enforcement Division (CSED) is collecting your child support, they can enforce your child support order.
-  % elif cssd_collect == 'no':
+  % elif cssd_collect in('no', 'unknown'):
   If you have a court order for child support and want Child Support Enforcement Division (CSED) to help you collect it, apply for CSED services.  You will need a “My Alaska” account:
   
     * See the [CSED Home Page](https://childsupport.alaska.gov).
