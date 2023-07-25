@@ -15,7 +15,7 @@ Scenario: Row #35 CSED ordered
     And I download "changing_child_support.pdf"
 
 @row67 
-Scenario: Row #35 CSED ordered
+Scenario: Row #67 CSED ordered
     Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
       | var | value | trigger |
@@ -30,13 +30,13 @@ Scenario: Row #35 CSED ordered
     
     
 @row68
-Scenario: Row #35 don't know who ordered
+Scenario: Row #68 don't know who ordered
     Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
       | var | value | trigger |
       | user_need | change AK order |  |
       | who_ordered | unknown |  | 
-      | find_who_ordered | cssd |  | 
+      | find_who_ordered | unknown |  | 
     And I take a screenshot
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 2 steps" 
     And I should see the phrase "Find out who issued your child support order" 
