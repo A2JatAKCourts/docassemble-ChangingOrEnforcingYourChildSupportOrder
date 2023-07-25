@@ -1,3 +1,6 @@
+@change_schedule_income
+Feature: User paths
+
 @row4
 Scenario: Row #4 schedule change
     Given I start the interview at "changing_enforcing_child_support.yml"

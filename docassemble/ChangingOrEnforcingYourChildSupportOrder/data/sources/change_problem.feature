@@ -492,9 +492,6 @@ Scenario: Row #34 reconsider appeal and set aside
   And I should see the phrase "What to expect after you file a Motion to Set Aside"
   And I should see the phrase "Get more information or help"
   And I download "changing_child_support.pdf"
-  
-@change_problem
-Feature: User paths
 
 @row47
 Scenario: Row #47
