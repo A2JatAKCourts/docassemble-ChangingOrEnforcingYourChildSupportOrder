@@ -289,7 +289,6 @@ code: |
               if date_difference(starting=final_order_date, ending=today()).days > 10 and date_difference(starting=final_order_date, ending=today()).days <= 30:                      
                 step_list.append((pick_a_step_step, "pick_a_step_idx"))
                 step_list.append((appeal_step, "appeal_idx"))
-                file_motion_to_set_aside = 'If you decide to file a <b>Motion to Set Aside</b>::'
                 step_list.append((learn_set_aside_step, "learn_set_aside_idx"))   
                 step_list.append((fill_set_aside_step, "fill_set_aside_idx"))
                 # service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png'
@@ -297,6 +296,7 @@ code: |
                 images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of the Motion to Set Aside."})
                 step_list.append((cert_of_service_step, "cert_of_service_idx"))
                 file_step_heading = 'File your Motion to Set Aside'
+                file_motion_to_set_aside = 'If you decide to file a <b>Motion to Set Aside</b>::'
                 step_list.append((file_step, "file_idx"))
                 step_list.append((serve_step, "serve_idx"))
                 step_list.append((expect_set_aside_step, "expect_set_aside_idx"))
@@ -308,6 +308,7 @@ code: |
                 images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of the Motion to Set Aside."})
                 step_list.append((cert_of_service_step, "cert_of_service_idx"))
                 file_step_heading = 'File your Motion to Set Aside'
+                file_motion_to_set_aside = 'If you decide to file a <b>Motion to Set Aside</b>::'
                 step_list.append((file_step, "file_idx"))
                 step_list.append((serve_step, "serve_idx"))
                 step_list.append((expect_set_aside_step, "expect_set_aside_idx"))
@@ -336,6 +337,7 @@ code: |
                 images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of the Motion to Set Aside."})
                 step_list.append((cert_of_service_step, "cert_of_service_idx"))
                 file_step_heading = 'File your Motion to Set Aside'
+                file_motion_to_set_aside = 'If you decide to file a <b>Motion to Set Aside</b>::'
                 step_list.append((file_step, "file_idx"))
                 step_list.append((serve_step, "serve_idx"))
                 step_list.append((expect_set_aside_step, "expect_set_aside_idx"))
@@ -347,6 +349,7 @@ code: |
                 images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of Motion to Reconsider."})
                 step_list.append((cert_of_service_step, "cert_of_service_idx"))
                 file_step_heading = 'File your Motion to Set Aside'
+                file_motion_to_set_aside = 'If you decide to file a <b>Motion to Set Aside</b>::'
                 step_list.append((file_step, "file_idx"))
                 step_list.append((serve_step, "serve_idx"))
                 step_list.append((expect_set_aside_step, "expect_set_aside_idx"))
@@ -365,6 +368,7 @@ code: |
                   step_list.append((fill_set_aside_step, "fill_set_aside_idx"))
                   if unknown_final_date.false_values('reconsider'):
                     file_step_heading = 'File your Motion to Set Aside'
+                    file_motion_to_set_aside = 'If you decide to file a <b>Motion to Set Aside</b>::'
                 if unknown_final_date.any_true('reconsider','set aside'):
                   # service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png'
                   # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]'
