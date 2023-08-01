@@ -14,8 +14,6 @@ subquestion: |
   ${ collapse_template(step_tuple[0], closed_icon="plus", open_icon="minus") }
   % endfor
   
-  Number of motions user wants info about: ${ len(unknown_final_date.true_values()) }
-  
   ${ download_buttons_html(al_user_bundle) }
 buttons:
   - Start over: restart
