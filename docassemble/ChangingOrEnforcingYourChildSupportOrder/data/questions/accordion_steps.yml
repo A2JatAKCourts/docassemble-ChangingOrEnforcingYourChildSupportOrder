@@ -77,6 +77,7 @@ code: |
                     # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]'
                     images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of Motion to Reconsider and Motion to Set Aside."})
                     step_list.append((cert_of_service_step, "cert_of_service_idx"))
+                    file_step_heading = 'File your Motion to Reconsider'
                     step_list.append((file_step, "file_idx"))
                     step_list.append((serve_step, "serve_idx"))
                     step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
@@ -88,7 +89,8 @@ code: |
                     # service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_modify.png'
                     # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                     images_list.append({'image': service_cert_modify_image, 'text': "Certificate of Service at the bottom of a Motion to Modify."})
-                    step_list.append((cert_of_service_step, "cert_of_service_idx")) 
+                    step_list.append((cert_of_service_step, "cert_of_service_idx"))
+                    file_step_heading = 'File your Motion to Modify'
                     step_list.append((file_step, "file_idx"))
                     step_list.append((serve_step, "serve_idx"))
                     step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
@@ -100,6 +102,7 @@ code: |
                     # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]'
                     images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of Motion to Reconsider."})
                     step_list.append((cert_of_service_step, "cert_of_service_idx"))
+                    file_step_heading = 'File your Motion to Reconsider'
                     step_list.append((file_step, "file_idx"))
                     step_list.append((serve_step, "serve_idx"))
                     step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
@@ -112,6 +115,7 @@ code: |
                     # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                     images_list.append({'image': service_cert_modify_image, 'text': "Certificate of Service at the bottom of a Motion to Modify."})
                     step_list.append((cert_of_service_step, "cert_of_service_idx"))
+                    file_step_heading = 'File your Motion to Modify'
                     step_list.append((file_step, "file_idx"))
                     step_list.append((serve_step, "serve_idx"))
                     step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
@@ -123,6 +127,7 @@ code: |
                       # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]'
                       images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of Motion to Reconsider."})
                       step_list.append((cert_of_service_step, "cert_of_service_idx"))
+                      file_step_heading = 'File your Motion to Reconsider'
                       step_list.append((file_step, "file_idx"))
                       step_list.append((serve_step, "serve_idx"))
                       step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
@@ -135,6 +140,7 @@ code: |
                       # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                       images_list.append({'image': service_cert_modify_image, 'text': "Certificate of Service at the bottom of a Motion to Modify."})
                       step_list.append((cert_of_service_step, "cert_of_service_idx"))
+                      file_step_heading = 'File your Motion to Modify'
                       step_list.append((file_step, "file_idx"))
                       step_list.append((serve_step, "serve_idx"))
                       step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
@@ -164,6 +170,7 @@ code: |
               # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
               images_list.append({'image': service_cert_modify_image, 'text': "Certificate of Service at the bottom of a Motion to Modify."})
               step_list.append((cert_of_service_step, "cert_of_service_idx"))
+              file_step_heading = 'File your Motion to Modify'
               file_modify_filing_fee = '<li>Pay the $75 filing fee</li><ul><li>Call the <a href="https://courts.alaska.gov/shc/family">Family Law Self-HelpCenter</a><br>(907)264-0851, or<br>(866)279-0851,<br>or</li><li>Use <strong>Exemption From the Payment of Fees, TF-920</strong>[<a href="https://public.courts.alaska.gov/web/forms/docs/tf-920.pdf">Fill-In PDF</a>]</li></ul>'
               step_list.append((file_step, "file_idx"))
               step_list.append((serve_step, "serve_idx"))
@@ -179,6 +186,7 @@ code: |
                 # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]'
                 images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of Motion to Reconsider."})
                 step_list.append((cert_of_service_step, "cert_of_service_idx"))
+                file_step_heading = 'File your Motion to Reconsider'
                 step_list.append((file_step, "file_idx"))
                 step_list.append((serve_step, "serve_idx"))
                 step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
@@ -191,6 +199,7 @@ code: |
                 # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                 images_list.append({'image': service_cert_modify_image, 'text': "Certificate of Service at the bottom of a Motion to Modify."})
                 step_list.append((cert_of_service_step, "cert_of_service_idx"))
+                file_step_heading = 'File your Motion to Modify'
                 step_list.append((file_step, "file_idx"))
                 step_list.append((serve_step, "serve_idx"))
                 step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
@@ -201,6 +210,7 @@ code: |
                 # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]'
                 images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of Motion to Reconsider."})
                 step_list.append((cert_of_service_step, "cert_of_service_idx"))
+                file_step_heading = 'File your Motion to Reconsider'
                 step_list.append((file_step, "file_idx"))
                 step_list.append((serve_step, "serve_idx"))
                 step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
@@ -213,6 +223,7 @@ code: |
                 # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                 images_list.append({'image': service_cert_modify_image, 'text': "Certificate of Service at the bottom of a Motion to Modify."})
                 step_list.append((cert_of_service_step, "cert_of_service_idx"))
+                file_step_heading = 'File your Motion to Modify'
                 step_list.append((file_step, "file_idx"))
                 step_list.append((serve_step, "serve_idx"))
                 step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
@@ -223,6 +234,7 @@ code: |
                   # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]'
                   images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of Motion to Reconsider."})
                   step_list.append((cert_of_service_step, "cert_of_service_idx"))
+                  file_step_heading = 'File your Motion to Reconsider'
                   step_list.append((file_step, "file_idx"))
                   step_list.append((serve_step, "serve_idx"))
                   step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
@@ -235,6 +247,7 @@ code: |
                   # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                   images_list.append({'image': service_cert_modify_image, 'text': "Certificate of Service at the bottom of a Motion to Modify."})
                   step_list.append((cert_of_service_step, "cert_of_service_idx"))
+                  file_step_heading = 'File your Motion to Modify'
                   step_list.append((file_step, "file_idx"))
                   step_list.append((serve_step, "serve_idx"))
                   step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
@@ -267,6 +280,7 @@ code: |
                 # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]'
                 images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of Motion to Reconsider."})
                 step_list.append((cert_of_service_step, "cert_of_service_idx"))
+                file_step_heading = 'File your Motion to Reconsider'
                 step_list.append((file_step, "file_idx"))
                 step_list.append((serve_step, "serve_idx"))
                 step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
@@ -280,6 +294,7 @@ code: |
                 # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]'
                 images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of the Motion to Set Aside."})
                 step_list.append((cert_of_service_step, "cert_of_service_idx"))
+                file_step_heading = 'File your Motion to Set Aside'
                 step_list.append((file_step, "file_idx"))
                 step_list.append((serve_step, "serve_idx"))
                 step_list.append((expect_set_aside_step, "expect_set_aside_idx"))
@@ -290,6 +305,7 @@ code: |
                 # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]'
                 images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of the Motion to Set Aside."})
                 step_list.append((cert_of_service_step, "cert_of_service_idx"))
+                file_step_heading = 'File your Motion to Set Aside'
                 step_list.append((file_step, "file_idx"))
                 step_list.append((serve_step, "serve_idx"))
                 step_list.append((expect_set_aside_step, "expect_set_aside_idx"))
@@ -303,6 +319,7 @@ code: |
                 # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]'
                 images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of the Motion to Reconsider."})
                 step_list.append((cert_of_service_step, "cert_of_service_idx"))
+                file_step_heading = 'File your Motion to Reconsider'
                 step_list.append((file_step, "file_idx"))
                 step_list.append((serve_step, "serve_idx"))
                 step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
@@ -316,6 +333,7 @@ code: |
                 # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]'
                 images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of the Motion to Set Aside."})
                 step_list.append((cert_of_service_step, "cert_of_service_idx"))
+                file_step_heading = 'File your Motion to Set Aside'
                 step_list.append((file_step, "file_idx"))
                 step_list.append((serve_step, "serve_idx"))
                 step_list.append((expect_set_aside_step, "expect_set_aside_idx"))
@@ -326,6 +344,7 @@ code: |
                 # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]'
                 images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of Motion to Reconsider."})
                 step_list.append((cert_of_service_step, "cert_of_service_idx"))
+                file_step_heading = 'File your Motion to Set Aside'
                 step_list.append((file_step, "file_idx"))
                 step_list.append((serve_step, "serve_idx"))
                 step_list.append((expect_set_aside_step, "expect_set_aside_idx"))
@@ -889,27 +908,27 @@ content: |
   
   [Collecting money owed to you](https://courts.alaska.gov/shc/family/shcenforce.htm)
 ---
-template: file_step
-subject: |
-  Step ${ file_idx }: File your motion forms    
-content: |
-  ${ file_motion_to_set_aside }
-  ${ file_motion_to_enforce }
-  <ol>
-  <li>Make 2 copies of all the documents you are going to give the court.</li>
-  <li>Give the original version of your documents to the Court. This is called "filing" your  documents. You can:
-    <ul>
-      <li>Deliver the documents to the court yourself.</li>
-      <li>Mail the document by first-class mail.</li>
-      <li>Use the Court's <a href="https://courts.alaska.gov/efile/">TrueFile  eFiling system</a> to send the documents to the court electronically.</li>
-    </ul>
-  </li>
-  ${ file_modify_filing_fee }
-  <li>Keep 1 copy for your own records.</li>
-  <li>Give the 2nd copy to ${ other_party_in_case } on the date and way you wrote on your <strong>Certificate of Service</strong>.<br>
-  Read Step ${ serve_idx }: Serve ${ other_party_in_case }.</li>
-  </ol>
----
+#  template: file_step
+#  subject: |
+#    Step ${ file_idx }: File your motion forms    
+#  content: |
+#    ${ file_motion_to_set_aside }
+#    ${ file_motion_to_enforce }
+#    <ol>
+#    <li>Make 2 copies of all the documents you are going to give the court.</li>
+#    <li>Give the original version of your documents to the Court. This is called "filing" your  documents. You can:
+#      <ul>
+#        <li>Deliver the documents to the court yourself.</li>
+#        <li>Mail the document by first-class mail.</li>
+#        <li>Use the Court's <a href="https://courts.alaska.gov/efile/">TrueFile  eFiling system</a> to send the documents to the court electronically.</li>
+#      </ul>
+#    </li>
+#    ${ file_modify_filing_fee }
+#    <li>Keep 1 copy for your own records.</li>
+#    <li>Give the 2nd copy to ${ other_party_in_case } on the date and way you wrote on your <strong>Certificate of Service</strong>.<br>
+#    Read Step ${ serve_idx }: Serve ${ other_party_in_case }.</li>
+#    </ol>
+#  ---
 template: expect_after_modify_step
 subject: |
   Step ${ expect_after_modify_idx }: What to expect after you file a motion to modify
