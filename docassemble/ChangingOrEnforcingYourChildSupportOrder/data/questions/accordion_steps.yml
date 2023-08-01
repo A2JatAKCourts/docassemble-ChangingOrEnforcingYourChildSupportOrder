@@ -14,6 +14,8 @@ subquestion: |
   ${ collapse_template(step_tuple[0], closed_icon="plus", open_icon="minus") }
   % endfor
   
+  Number of motions user wants info about: ${ len(unknown_final_date.true_values()) }
+  
   ${ download_buttons_html(al_user_bundle) }
 buttons:
   - Start over: restart
@@ -356,9 +358,13 @@ code: |
                 if unknown_final_date['reconsider']:
                   step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                   step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
+                  if unknown_final_date.false_values('set aside'):
+                    file_step_heading = 'File your Motion to Reconsider'
                 if unknown_final_date['set aside']:
                   step_list.append((learn_set_aside_step, "learn_set_aside_idx"))
                   step_list.append((fill_set_aside_step, "fill_set_aside_idx"))
+                  if unknown_final_date.false_values('reconsider'):
+                    file_step_heading = 'File your Motion to Set Aside'
                 if unknown_final_date.any_true('reconsider','set aside'):
                   # service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png'
                   # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]'
