@@ -50,6 +50,7 @@ code: |
     # images_list.append((service_cert_image2, "dummy text 1"))
     step_list.append((cert_of_service_step, "cert_of_service_idx"))
     step_list.append((file_step, "file_idx"))
+    file_motion_to_enforce = 'If you decide to ask the court to enforce your child support order:'
     step_list.append((serve_step, "serve_idx"))
   else:
     who_really_ordered = who_ordered
@@ -387,6 +388,7 @@ code: |
         images_list.append({'image': service_cert_enforce_image, 'text': "Certificate of Service at the bottom of a Motion to Enforce."})
         step_list.append((cert_of_service_step, "cert_of_service_idx"))
         step_list.append((file_step, "file_idx"))
+        file_motion_to_enforce = 'If you decide to ask the court to enforce your child support order:'
         step_list.append((serve_step, "serve_idx"))
        # if cssd_collect == 'yes':
        #   step_list.append((cssd_to_enforce_step, "cssd_to_enforce_idx"))
@@ -413,6 +415,7 @@ code: |
         images_list.append({'image': service_cert_enforce_image, 'text': "Certificate of Service at the bottom of a Motion to Enforce."})
         step_list.append((cert_of_service_step, "cert_of_service_idx"))
         step_list.append((file_step, "file_idx"))
+        file_motion_to_enforce = 'If you decide to ask the court to enforce your child support order:'
         step_list.append((serve_step, "serve_idx"))
     else: # who_really_ordered == 'unknown':
       if user_need == 'change AK order':
@@ -426,6 +429,7 @@ code: |
         images_list.append({'image': service_cert_enforce_image, 'text': "Certificate of Service at the bottom of a Motion to Enforce."})
         step_list.append((cert_of_service_step, "cert_of_service_idx"))
         step_list.append((file_step, "file_idx"))
+        file_motion_to_enforce = 'If you decide to ask the court to enforce your child support order:'
         step_list.append((serve_step, "serve_idx"))
 
   step_list.append((get_help, "get_help_idx"))
