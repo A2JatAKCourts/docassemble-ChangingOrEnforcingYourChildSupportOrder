@@ -10,6 +10,7 @@ subquestion: |
   #### Your Personal Action Plan for changing your child support order in ${ len(step_list) } steps
   % endif
   
+  
   % for iteration_index, step_tuple in enumerate( step_list ):
   ${ collapse_template(step_tuple[0], closed_icon="plus", open_icon="minus") }
   % endfor
@@ -29,6 +30,7 @@ code: |
   file_motion_to_set_aside = ''
   file_motion_to_enforce = ''
   interim_motion = 'wait'
+  file_step_heading = 'File your motion forms'
   file_modify_filing_fee = ''
   # expect_after_motion is in what to expect step for filing motion for interim order w complaint, or answer/response, cannot use variable in docx template, must insert condition in what to expect step.
   expect_after_motion = ''
@@ -360,12 +362,12 @@ code: |
                 if unknown_final_date['reconsider']:
                   step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                   step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
-                  if unknown_final_date.false_values('set aside'):
+                  if not unknown_final_date['set aside']:
                     file_step_heading = 'File your Motion to Reconsider'
                 if unknown_final_date['set aside']:
                   step_list.append((learn_set_aside_step, "learn_set_aside_idx"))
                   step_list.append((fill_set_aside_step, "fill_set_aside_idx"))
-                  if unknown_final_date.false_values('reconsider'):
+                  if not unknown_final_date['reconsider']:
                     file_step_heading = 'File your Motion to Set Aside'
                     file_motion_to_set_aside = 'If you decide to file a <b>Motion to Set Aside</b>::'
                 if unknown_final_date.any_true('reconsider','set aside'):
@@ -783,6 +785,7 @@ content: |
   
     * See the [CSED Home Page](https://childsupport.alaska.gov).
     * Select “Open a Case” or “Online Application for Services.”
+  % endif
   % else: 
   [Contact CSED](https://childsupport.alaska.gov/child-support-services/contact-us) to see if you have an account. 
   
@@ -794,7 +797,7 @@ content: |
   
     *	“Open a Case” or
     *	“Online Application for Services.”
-  % endif
+  
   % endif
   % endif
   

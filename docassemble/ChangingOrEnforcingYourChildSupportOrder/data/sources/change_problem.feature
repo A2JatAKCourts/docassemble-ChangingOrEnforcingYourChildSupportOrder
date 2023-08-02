@@ -860,7 +860,7 @@ Scenario: Row #66
   And I download "changing_child_support.pdf"
 
 @row66aside
-Scenario: Row #
+Scenario: Row #66 set aside
   Given I start the interview at "changing_enforcing_child_support.yml"
   And I get to the question id "final screen" with this data:
     | var | value | trigger |
@@ -879,14 +879,14 @@ Scenario: Row #
   And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order" 
   And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"
   And I should see the phrase "Fill out the Certificate of Service" 
-  And I should see the phrase "File your motion forms" 
+  And I should see the phrase "File your Motion to Set Aside" 
   And I should see the phrase "Serve the other parent" 
   And I should see the phrase "What to expect after you file a Motion to Set Aside"
   And I should see the phrase "Get more information or help"
   And I download "changing_child_support.pdf"
 
   @row66AandR
-  Scenario: Row #34 appeal and reconsider
+  Scenario: Row #66 appeal and reconsider
     Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
       | var | value | trigger |
@@ -907,7 +907,7 @@ Scenario: Row #
     And I should see the phrase "Learn about Motions to Reconsider" 
     And I should see the phrase "Fill out the Motion to Reconsider forms"
     And I should see the phrase "Fill out the Certificate of Service" 
-    And I should see the phrase "File your motion forms" 
+    And I should see the phrase "File your Motion to Reconsider" 
     And I should see the phrase "Serve the other parent" 
     And I should see the phrase "What to expect after you file a Motion to Reconsider"
     And I should see the phrase "Get more information or help"
@@ -915,7 +915,7 @@ Scenario: Row #
 
 
 @row66AandSA
-Scenario: Row #34 appeal and set aside
+Scenario: Row #66 appeal and set aside
   Given I start the interview at "changing_enforcing_child_support.yml"
   And I get to the question id "final screen" with this data:
     | var | value | trigger |
@@ -945,7 +945,7 @@ Scenario: Row #34 appeal and set aside
 
 
 @row66RandSA
-Scenario: Row #34 reconsider and set aside
+Scenario: Row #66 reconsider and set aside
   Given I start the interview at "changing_enforcing_child_support.yml"
   And I get to the question id "final screen" with this data:
     | var | value | trigger |
@@ -975,7 +975,7 @@ Scenario: Row #34 reconsider and set aside
   And I download "changing_child_support.pdf"
 
 @row66RAandSA
-Scenario: Row #34 reconsider appeal and set aside
+Scenario: Row #66 reconsider appeal and set aside
   Given I start the interview at "changing_enforcing_child_support.yml"
   And I get to the question id "final screen" with this data:
     | var | value | trigger |
