@@ -936,7 +936,7 @@ Scenario: Row #66 appeal and set aside
   And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order" 
   And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"
   And I should see the phrase "Fill out the Certificate of Service" 
-  And I should see the phrase "File your motion forms" 
+  And I should see the phrase "File your Motion to Set Aside" 
   And I should see the phrase "Serve the other parent" 
   And I should see the phrase "What to expect after you file a Motion to Set Aside"
   And I should see the phrase "Get more information or help"
