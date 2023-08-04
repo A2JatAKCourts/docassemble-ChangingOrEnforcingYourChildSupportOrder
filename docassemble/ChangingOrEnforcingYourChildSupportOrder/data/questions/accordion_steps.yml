@@ -10,6 +10,7 @@ subquestion: |
   #### Your Personal Action Plan for changing your child support order in ${ len(step_list) } steps
   % endif
   
+  ${ file_step_heading }
   
   % for iteration_index, step_tuple in enumerate( step_list ):
   ${ collapse_template(step_tuple[0], closed_icon="plus", open_icon="minus") }
@@ -30,10 +31,10 @@ code: |
   file_motion_to_set_aside = ''
   file_motion_to_enforce = ''
   interim_motion = 'wait'
-  file_step_heading = 'File your motion forms'
   file_modify_filing_fee = ''
   # expect_after_motion is in what to expect step for filing motion for interim order w complaint, or answer/response, cannot use variable in docx template, must insert condition in what to expect step.
   expect_after_motion = ''
+  motion_type = ''
   #  if user_need == 'unwanted':
   #    step_list.append((wrong_tf, "wrong_tf_idx"))
   #    step_list.append((wrong_tf2, "wrong_tf2_idx"))
@@ -51,8 +52,8 @@ code: |
     # Add service_cert_image2 as a new object DAStaticFile
     # images_list.append((service_cert_image2, "dummy text 1"))
     step_list.append((cert_of_service_step, "cert_of_service_idx"))
+    file_step_heading = 'File your motion forms'
     step_list.append((file_step, "file_idx"))
-    file_motion_to_enforce = 'If you decide to ask the court to enforce your child support order:'
     step_list.append((serve_step, "serve_idx"))
   else:
     who_really_ordered = who_ordered
@@ -92,11 +93,13 @@ code: |
                     # service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_modify.png'
                     # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                     images_list.append({'image': service_cert_modify_image, 'text': "Certificate of Service at the bottom of a Motion to Modify."})
-                    step_list.append((cert_of_service_step, "cert_of_service_idx"))
+                    step_list.append((cert_of_service_step, "cert_of_service_idx")) 
                     file_step_heading = 'File your Motion to Modify'
                     step_list.append((file_step, "file_idx"))
                     step_list.append((serve_step, "serve_idx"))
-                    step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
+                    motion_type = 'Motion to Modify'
+                    step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+                    # step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
                 elif defined('interim_order_period'):
                   if guess_interim_order_date == 'within 10 days':
                     step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
@@ -121,7 +124,9 @@ code: |
                     file_step_heading = 'File your Motion to Modify'
                     step_list.append((file_step, "file_idx"))
                     step_list.append((serve_step, "serve_idx"))
-                    step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
+                    motion_type = 'Motion to Modify'
+                    step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+                    # step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
                   else: 
                     if unknown_interim_date == 'reconsider':
                       step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
@@ -146,7 +151,9 @@ code: |
                       file_step_heading = 'File your Motion to Modify'
                       step_list.append((file_step, "file_idx"))
                       step_list.append((serve_step, "serve_idx"))
-                      step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
+                      motion_type = 'Motion to Modify'
+                      step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+                      # step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
                     else:
                       step_list.append((pick_a_step_step, "pick_a_step_idx"))
                       step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
@@ -159,11 +166,14 @@ code: |
                       # certificate_of_service_image = 'At the bottom of Motion to Reconsider [FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box][BR][BR][BR]At the bottom of Motion to Modify [FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                       images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of Motion to Reconsider."})
                       images_list.append({'image': service_cert_modify_image, 'text': "Certificate of Service at the bottom of a Motion to Modify."})
-                      step_list.append((cert_of_service_step, "cert_of_service_idx")) 
+                      step_list.append((cert_of_service_step, "cert_of_service_idx"))
+                      file_step_heading = 'File your motion forms'
                       step_list.append((file_step, "file_idx"))
                       step_list.append((serve_step, "serve_idx"))
                       step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
-                      step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
+                      motion_type = 'Motion to Modify'
+                      step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+                      # step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
             else: # not middle_of_case 
               step_list.append((learn_modify_child_support_step, "learn_modify_child_support_idx"))
               step_list.append((calculate_child_support_step, "calculate_child_support_idx"))
@@ -177,7 +187,9 @@ code: |
               file_modify_filing_fee = '<li>Pay the $75 filing fee</li><ul><li>Call the <a href="https://courts.alaska.gov/shc/family">Family Law Self-HelpCenter</a><br>(907)264-0851, or<br>(866)279-0851,<br>or</li><li>Use <strong>Exemption From the Payment of Fees, TF-920</strong>[<a href="https://public.courts.alaska.gov/web/forms/docs/tf-920.pdf">Fill-In PDF</a>]</li></ul>'
               step_list.append((file_step, "file_idx"))
               step_list.append((serve_step, "serve_idx"))
-              step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
+              motion_type = 'Motion to Modify'
+              step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+              # step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
         else: # why_change == 'problem':
           if middle_of_case:
             interim_order_date_question
@@ -205,7 +217,9 @@ code: |
                 file_step_heading = 'File your Motion to Modify'
                 step_list.append((file_step, "file_idx"))
                 step_list.append((serve_step, "serve_idx"))
-                step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
+                motion_type = 'Motion to Modify'
+                step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+                # step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
             elif defined('interim_order_period'):
               if guess_interim_order_date == 'within 10 days':
                 step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
@@ -229,13 +243,16 @@ code: |
                 file_step_heading = 'File your Motion to Modify'
                 step_list.append((file_step, "file_idx"))
                 step_list.append((serve_step, "serve_idx"))
-                step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
+                motion_type = 'Motion to Modify'
+                step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+                # step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
               else: # guess_interim_order_date == 'unknown'
                 if unknown_interim_date == 'reconsider':
                   step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                   step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
                   # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]'
                   images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of Motion to Reconsider."})
+                  file_step_heading = 'File your Motion to Reconsider'
                   step_list.append((cert_of_service_step, "cert_of_service_idx"))
                   file_step_heading = 'File your Motion to Reconsider'
                   step_list.append((file_step, "file_idx"))
@@ -253,7 +270,9 @@ code: |
                   file_step_heading = 'File your Motion to Modify'
                   step_list.append((file_step, "file_idx"))
                   step_list.append((serve_step, "serve_idx"))
-                  step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
+                  motion_type = 'Motion to Modify'
+                  step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+                  # step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
                 else: # unknown_interim_date == 'both'
                   step_list.append((pick_a_step_step, "pick_a_step_idx"))
                   step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
@@ -267,10 +286,13 @@ code: |
                   images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of Motion to Reconsider."})
                   images_list.append({'image': service_cert_modify_image, 'text': "Certificate of Service at the bottom of a Motion to Modify."})
                   step_list.append((cert_of_service_step, "cert_of_service_idx"))
+                  file_step_heading = 'File your motion forms'
                   step_list.append((file_step, "file_idx"))
                   step_list.append((serve_step, "serve_idx"))
                   step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
-                  step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
+                  motion_type = 'Motion to Modify'
+                  step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+                  # step_list.append((expect_after_modify_step, "expect_after_modify_idx"))
           else: # not middle of case
             final_order_date_question
             if defined('final_order_date'):
@@ -282,14 +304,16 @@ code: |
                 # service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png'
                 # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]'
                 images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of Motion to Reconsider."})
-                step_list.append((cert_of_service_step, "cert_of_service_idx"))
                 file_step_heading = 'File your Motion to Reconsider'
+                step_list.append((cert_of_service_step, "cert_of_service_idx"))
+                file_step_heading = 'File your motion forms'
                 step_list.append((file_step, "file_idx"))
                 step_list.append((serve_step, "serve_idx"))
                 step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
               if date_difference(starting=final_order_date, ending=today()).days > 10 and date_difference(starting=final_order_date, ending=today()).days <= 30:                      
                 step_list.append((pick_a_step_step, "pick_a_step_idx"))
                 step_list.append((appeal_step, "appeal_idx"))
+                file_motion_to_set_aside = 'If you decide to file a <b>Motion to Set Aside</b>::'
                 step_list.append((learn_set_aside_step, "learn_set_aside_idx"))   
                 step_list.append((fill_set_aside_step, "fill_set_aside_idx"))
                 # service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png'
@@ -297,10 +321,11 @@ code: |
                 images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of the Motion to Set Aside."})
                 step_list.append((cert_of_service_step, "cert_of_service_idx"))
                 file_step_heading = 'File your Motion to Set Aside'
-                file_motion_to_set_aside = 'If you decide to file a <b>Motion to Set Aside</b>::'
                 step_list.append((file_step, "file_idx"))
                 step_list.append((serve_step, "serve_idx"))
-                step_list.append((expect_set_aside_step, "expect_set_aside_idx"))
+                motion_type = 'Motion to Set Aside'
+                step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+                # step_list.append((expect_set_aside_step, "expect_set_aside_idx"))
               elif date_difference(starting=final_order_date, ending=today()).days > 30:
                 step_list.append((learn_set_aside_step, "learn_set_aside_idx"))   
                 step_list.append((fill_set_aside_step, "fill_set_aside_idx"))
@@ -309,10 +334,11 @@ code: |
                 images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of the Motion to Set Aside."})
                 step_list.append((cert_of_service_step, "cert_of_service_idx"))
                 file_step_heading = 'File your Motion to Set Aside'
-                file_motion_to_set_aside = 'If you decide to file a <b>Motion to Set Aside</b>::'
                 step_list.append((file_step, "file_idx"))
                 step_list.append((serve_step, "serve_idx"))
-                step_list.append((expect_set_aside_step, "expect_set_aside_idx"))
+                motion_type = 'Motion to Set Aside'
+                step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+                # step_list.append((expect_set_aside_step, "expect_set_aside_idx"))
             elif defined('final_order_period'):
               if guess_final_order_date == 'within 10 days':
                 step_list.append((pick_a_step_step, "pick_a_step_idx"))
@@ -338,10 +364,11 @@ code: |
                 images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of the Motion to Set Aside."})
                 step_list.append((cert_of_service_step, "cert_of_service_idx"))
                 file_step_heading = 'File your Motion to Set Aside'
-                file_motion_to_set_aside = 'If you decide to file a <b>Motion to Set Aside</b>::'
                 step_list.append((file_step, "file_idx"))
                 step_list.append((serve_step, "serve_idx"))
-                step_list.append((expect_set_aside_step, "expect_set_aside_idx"))
+                motion_type = 'Motion to Set Aside'
+                step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+                # step_list.append((expect_set_aside_step, "expect_set_aside_idx"))
               elif guess_final_order_date == 'more than 30':
                 step_list.append((learn_set_aside_step, "learn_set_aside_idx"))
                 step_list.append((fill_set_aside_step, "fill_set_aside_idx"))
@@ -350,10 +377,11 @@ code: |
                 images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of Motion to Reconsider."})
                 step_list.append((cert_of_service_step, "cert_of_service_idx"))
                 file_step_heading = 'File your Motion to Set Aside'
-                file_motion_to_set_aside = 'If you decide to file a <b>Motion to Set Aside</b>::'
                 step_list.append((file_step, "file_idx"))
                 step_list.append((serve_step, "serve_idx"))
-                step_list.append((expect_set_aside_step, "expect_set_aside_idx"))
+                motion_type = 'Motion to Set Aside'
+                step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+                # step_list.append((expect_set_aside_step, "expect_set_aside_idx"))
               else:
                 if len(unknown_final_date.true_values()) > 1:
                   step_list.append((pick_a_step_step, "pick_a_step_idx"))
@@ -362,25 +390,23 @@ code: |
                 if unknown_final_date['reconsider']:
                   step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                   step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
-                  if not unknown_final_date['set aside']:
-                    file_step_heading = 'File your Motion to Reconsider'
                 if unknown_final_date['set aside']:
                   step_list.append((learn_set_aside_step, "learn_set_aside_idx"))
                   step_list.append((fill_set_aside_step, "fill_set_aside_idx"))
-                  if not unknown_final_date['reconsider']:
-                    file_step_heading = 'File your Motion to Set Aside'
-                    file_motion_to_set_aside = 'If you decide to file a <b>Motion to Set Aside</b>::'
                 if unknown_final_date.any_true('reconsider','set aside'):
                   # service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png'
                   # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]'
                   images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of the Motion to Reconsider and the Motion to Set Aside."})
                   step_list.append((cert_of_service_step, "cert_of_service_idx"))
+                  file_step_heading = 'File your motion forms'
                   step_list.append((file_step, "file_idx"))
                   step_list.append((serve_step, "serve_idx"))
                   if unknown_final_date['reconsider']:
                     step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
                   if unknown_final_date['set aside']:
-                    step_list.append((expect_set_aside_step, "expect_set_aside_idx"))
+                    motion_type = 'Motion to Set Aside'
+                    step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+                    # step_list.append((expect_set_aside_step, "expect_set_aside_idx"))
       else: # user_need == 'enforce AK order'
         step_list.append((cssd_to_enforce_step, "cssd_to_enforce_idx"))
         step_list.append((talk_w_other_parent_step, "talk_w_other_parent_idx"))
@@ -389,8 +415,8 @@ code: |
         # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_enforce.png, 100%, Certificate of Service box]'
         images_list.append({'image': service_cert_enforce_image, 'text': "Certificate of Service at the bottom of a Motion to Enforce."})
         step_list.append((cert_of_service_step, "cert_of_service_idx"))
+        file_step_heading = 'File your motion forms'
         step_list.append((file_step, "file_idx"))
-        file_motion_to_enforce = 'If you decide to ask the court to enforce your child support order:'
         step_list.append((serve_step, "serve_idx"))
        # if cssd_collect == 'yes':
        #   step_list.append((cssd_to_enforce_step, "cssd_to_enforce_idx"))
@@ -416,8 +442,8 @@ code: |
         # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_enforce.png, 100%, Certificate of Service box]'
         images_list.append({'image': service_cert_enforce_image, 'text': "Certificate of Service at the bottom of a Motion to Enforce."})
         step_list.append((cert_of_service_step, "cert_of_service_idx"))
+        file_step_heading = 'File your motion forms'
         step_list.append((file_step, "file_idx"))
-        file_motion_to_enforce = 'If you decide to ask the court to enforce your child support order:'
         step_list.append((serve_step, "serve_idx"))
     else: # who_really_ordered == 'unknown':
       if user_need == 'change AK order':
@@ -430,8 +456,8 @@ code: |
         # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_enforce.png, 100%, Certificate of Service box]'
         images_list.append({'image': service_cert_enforce_image, 'text': "Certificate of Service at the bottom of a Motion to Enforce."})
         step_list.append((cert_of_service_step, "cert_of_service_idx"))
+        file_step_heading = 'File your motion forms'
         step_list.append((file_step, "file_idx"))
-        file_motion_to_enforce = 'If you decide to ask the court to enforce your child support order:'
         step_list.append((serve_step, "serve_idx"))
 
   step_list.append((get_help, "get_help_idx"))
@@ -620,7 +646,7 @@ content: |
 ---
 template: dont_wait_modify_child_support_step
 subject: |
-  Step ${ dont_wait_modify_child_support_idx }: Do not wait to file your motion to modify 
+  Step ${ dont_wait_modify_child_support_idx }: Do not wait to file your Motion to Modify 
 content: |
   File your <strong>Motion to Modify Child Support</strong> and give the other parent a copy of your motion as soon as you can after there is a “material change of circumstances.”
 
@@ -735,7 +761,7 @@ content: |
     <li><strong>Joint  Motion to Put Settlement on the Record, SHC-1063</strong> <a href="https://courts.alaska.gov/shc/family/docs/shc-1063.doc">Word</a> | <a href="https://courts.alaska.gov/shc/family/docs/shc-1063n.pdf">PDF</a></li>
   </ul>
   <div class='step-subheading'>Also</div class='step-subheading'>
-  <p>If you cannot get to a notary public or someone who has the power  to take oaths, you can &quot;self-certify&quot;.  Use:</p>
+  <p>If you cannot get to a notary public or someone who has the power  to take oaths, you can &quot;self-certify&quot;.  Use:</p>
   <ul>
     <li><strong>Self-Certification  (No Notary Available), TF-835</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/tf-835.pdf">Fill-In PDF</a>]</li>
   </ul>
@@ -785,7 +811,6 @@ content: |
   
     * See the [CSED Home Page](https://childsupport.alaska.gov).
     * Select “Open a Case” or “Online Application for Services.”
-  % endif
   % else: 
   [Contact CSED](https://childsupport.alaska.gov/child-support-services/contact-us) to see if you have an account. 
   
@@ -797,7 +822,7 @@ content: |
   
     *	“Open a Case” or
     *	“Online Application for Services.”
-  
+  % endif
   % endif
   % endif
   
@@ -943,7 +968,7 @@ content: |
 #    <li>Give the 2nd copy to ${ other_party_in_case } on the date and way you wrote on your <strong>Certificate of Service</strong>.<br>
 #    Read Step ${ serve_idx }: Serve ${ other_party_in_case }.</li>
 #    </ol>
-#  ---
+---
 template: expect_after_modify_step
 subject: |
   Step ${ expect_after_modify_idx }: What to expect after you file a motion to modify
