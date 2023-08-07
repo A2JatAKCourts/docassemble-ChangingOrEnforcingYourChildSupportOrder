@@ -10,7 +10,7 @@ subquestion: |
   #### Your Personal Action Plan for changing your child support order in ${ len(step_list) } steps
   % endif
   
-  ${ file_step_heading }
+  
   
   % for iteration_index, step_tuple in enumerate( step_list ):
   ${ collapse_template(step_tuple[0], closed_icon="plus", open_icon="minus") }
