@@ -306,7 +306,6 @@ code: |
                 images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of Motion to Reconsider."})
                 file_step_heading = 'File your Motion to Reconsider'
                 step_list.append((cert_of_service_step, "cert_of_service_idx"))
-                file_step_heading = 'File your motion forms'
                 step_list.append((file_step, "file_idx"))
                 step_list.append((serve_step, "serve_idx"))
                 step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
@@ -398,7 +397,10 @@ code: |
                   # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box]'
                   images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of the Motion to Reconsider and the Motion to Set Aside."})
                   step_list.append((cert_of_service_step, "cert_of_service_idx"))
-                  file_step_heading = 'File your motion forms'
+                  if not unknown_final_date['set aside']:
+                    file_step_heading = 'File your Motion to Reconsider'
+                  elif not unknown_final_date['reconsider']:
+                    file_step_heading = 'File your Motion to Set Aside'
                   step_list.append((file_step, "file_idx"))
                   step_list.append((serve_step, "serve_idx"))
                   if unknown_final_date['reconsider']:
