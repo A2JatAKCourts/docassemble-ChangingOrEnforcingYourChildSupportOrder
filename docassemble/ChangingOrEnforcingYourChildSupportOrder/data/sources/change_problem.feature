@@ -34,11 +34,12 @@ Scenario: Row #18
       | middle_of_case | True |  |
       | interim_order_date | today - 11 |  |
     And I take a screenshot
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 9 steps" 
+    And I should see the phrase "Your Personal Action Plan for changing your child support order in 10 steps" 
     And I should see the phrase "Learn about motions to modify"
     And I should see the phrase "Calculate your new child support amount"
     And I should see the phrase "Compare the new calculation with the current amount"
     And I should see the phrase "Do not wait to file your Motion to Modify" 
+    And I should see the phrase "Fill out the Motion to Modify forms"
     And I should see the phrase "Fill out the Certificate of Service" 
     And I should see the phrase "File your Motion to Modify" 
     And I should see the phrase "Serve the other parent" 
@@ -80,11 +81,12 @@ Scenario: Row #20
     | interim_order_period | True | |
     | guess_interim_order_date | more than 10 days |  |
   And I take a screenshot
-  And I should see the phrase "Your Personal Action Plan for changing your child support order in 9 steps"
+  And I should see the phrase "Your Personal Action Plan for changing your child support order in 10 steps"
   And I should see the phrase "Learn about motions to modify"
   And I should see the phrase "Calculate your new child support amount"
   And I should see the phrase "Compare the new calculation with the current amount"
-  And I should see the phrase "Do not wait to file your Motion to Modify" 
+  And I should see the phrase "Do not wait to file your Motion to Modify"
+  And I should see the phrase "Fill out the Motion to Modify forms"
   And I should see the phrase "Fill out the Certificate of Service" 
   And I should see the phrase "File your Motion to Modify" 
   And I should see the phrase "Serve the other parent" 
@@ -128,11 +130,12 @@ Scenario: Row #22
     | guess_interim_order_date | unknown |  |
     | unknown_interim_date | modify |  |
   And I take a screenshot
-  And I should see the phrase "Your Personal Action Plan for changing your child support order in 9 steps"  
+  And I should see the phrase "Your Personal Action Plan for changing your child support order in 10 steps"  
   And I should see the phrase "Learn about motions to modify"
   And I should see the phrase "Calculate your new child support amount"
   And I should see the phrase "Compare the new calculation with the current amount"
-  And I should see the phrase "Do not wait to file your Motion to Modify" 
+  And I should see the phrase "Do not wait to file your Motion to Modify"
+  And I should see the phrase "Fill out the Motion to Modify forms"
   And I should see the phrase "Fill out the Certificate of Service" 
   And I should see the phrase "File your Motion to Modify" 
   And I should see the phrase "Serve the other parent" 
@@ -528,11 +531,12 @@ Scenario: Row #48
       | middle_of_case | True |  |
       | interim_order_date | today - 11 |  |
     And I take a screenshot
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 9 steps" 
+    And I should see the phrase "Your Personal Action Plan for changing your child support order in 10 steps" 
     And I should see the phrase "Learn about motions to modify"
     And I should see the phrase "Calculate your new child support amount"
     And I should see the phrase "Compare the new calculation with the current amount"
-    And I should see the phrase "Do not wait to file your Motion to Modify" 
+    And I should see the phrase "Do not wait to file your Motion to Modify"
+    And I should see the phrase "Fill out the Motion to Modify forms"
     And I should see the phrase "Fill out the Certificate of Service" 
     And I should see the phrase "File your Motion to Modify" 
     And I should see the phrase "Serve the other parent" 
@@ -576,11 +580,12 @@ Scenario: Row #50
     | interim_order_period | True | |
     | guess_interim_order_date | more than 10 days |  |
   And I take a screenshot
-  And I should see the phrase "Your Personal Action Plan for changing your child support order in 9 steps"
+  And I should see the phrase "Your Personal Action Plan for changing your child support order in 10 steps"
   And I should see the phrase "Learn about motions to modify"
   And I should see the phrase "Calculate your new child support amount"
   And I should see the phrase "Compare the new calculation with the current amount"
-  And I should see the phrase "Do not wait to file your Motion to Modify" 
+  And I should see the phrase "Do not wait to file your Motion to Modify"
+  And I should see the phrase "Fill out the Motion to Modify forms"
   And I should see the phrase "Fill out the Certificate of Service" 
   And I should see the phrase "File your Motion to Modify" 
   And I should see the phrase "Serve the other parent" 
@@ -626,11 +631,12 @@ Scenario: Row #54
     | guess_interim_order_date | unknown |  |
     | unknown_interim_date | modify |  |
   And I take a screenshot
-  And I should see the phrase "Your Personal Action Plan for changing your child support order in 9 steps"  
+  And I should see the phrase "Your Personal Action Plan for changing your child support order in 10 steps"  
   And I should see the phrase "Learn about motions to modify"
   And I should see the phrase "Calculate your new child support amount"
   And I should see the phrase "Compare the new calculation with the current amount"
-  And I should see the phrase "Do not wait to file your Motion to Modify" 
+  And I should see the phrase "Do not wait to file your Motion to Modify"
+  And I should see the phrase "Fill out the Motion to Modify forms"
   And I should see the phrase "Fill out the Certificate of Service" 
   And I should see the phrase "File your Motion to Modify" 
   And I should see the phrase "Serve the other parent" 
@@ -652,14 +658,15 @@ Scenario: Row #23
     | guess_interim_order_date | unknown |  |
     | unknown_interim_date | both |  |
   And I take a screenshot
-  And I should see the phrase "Your Personal Action Plan for changing your child support order in 13 steps"  
+  And I should see the phrase "Your Personal Action Plan for changing your child support order in 14 steps"  
   And I should see the phrase "Decide the steps you want to take"
   And I should see the phrase "Learn about Motions to Reconsider" 
   And I should see the phrase "Fill out the Motion to Reconsider forms"
   And I should see the phrase "Learn about motions to modify"
   And I should see the phrase "Calculate your new child support amount"
   And I should see the phrase "Compare the new calculation with the current amount"
-  And I should see the phrase "Do not wait to file your Motion to Modify" 
+  And I should see the phrase "Do not wait to file your Motion to Modify"
+  And I should see the phrase "Fill out the Motion to Modify forms"
   And I should see the phrase "Fill out the Certificate of Service" 
   And I should see the phrase "File your motion forms" 
   And I should see the phrase "Serve the other parent" 

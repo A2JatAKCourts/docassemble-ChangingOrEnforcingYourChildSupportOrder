@@ -34,7 +34,7 @@ code: |
   file_modify_filing_fee = ''
   # expect_after_motion is in what to expect step for filing motion for interim order w complaint, or answer/response, cannot use variable in docx template, must insert condition in what to expect step.
   expect_after_motion = ''
-  motion_type = ''
+  motion_type = 'motion'
   #  if user_need == 'unwanted':
   #    step_list.append((wrong_tf, "wrong_tf_idx"))
   #    step_list.append((wrong_tf2, "wrong_tf2_idx"))
@@ -53,6 +53,7 @@ code: |
     # images_list.append((service_cert_image2, "dummy text 1"))
     step_list.append((cert_of_service_step, "cert_of_service_idx"))
     file_step_heading = 'File your motion forms'
+    file_motion_to_enforce = 'If you decide to ask the court to enforce your child support order:'
     step_list.append((file_step, "file_idx"))
     step_list.append((serve_step, "serve_idx"))
   else:
@@ -69,6 +70,7 @@ code: |
           else:
             if parents_agree is None:
               if parents_agree_resources:
+                step_list.append((pick_a_step_step, "pick_a_step_idx"))
                 # step_list.append((parents_agree_resources_step, "parents_agree_resources_idx"))
                 step_list.append((parents_agree_step, "parents_agree_idx"))
             if middle_of_case:
@@ -89,7 +91,8 @@ code: |
                     step_list.append((learn_modify_child_support_step, "learn_modify_child_support_idx"))
                     step_list.append((calculate_child_support_step, "calculate_child_support_idx"))
                     step_list.append((compare_child_support_step, "compare_child_support_idx"))
-                    step_list.append((dont_wait_modify_child_support_step, "dont_wait_modify_child_support_idx"))                  
+                    step_list.append((dont_wait_modify_child_support_step, "dont_wait_modify_child_support_idx"))
+                    step_list.append((fill_modify_step, "fill_modify_idx"))
                     # service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_modify.png'
                     # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                     images_list.append({'image': service_cert_modify_image, 'text': "Certificate of Service at the bottom of a Motion to Modify."})
@@ -117,6 +120,7 @@ code: |
                     step_list.append((calculate_child_support_step, "calculate_child_support_idx"))
                     step_list.append((compare_child_support_step, "compare_child_support_idx"))
                     step_list.append((dont_wait_modify_child_support_step, "dont_wait_modify_child_support_idx"))
+                    step_list.append((fill_modify_step, "fill_modify_idx"))
                     # service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_modify.png'
                     # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                     images_list.append({'image': service_cert_modify_image, 'text': "Certificate of Service at the bottom of a Motion to Modify."})
@@ -144,6 +148,7 @@ code: |
                       step_list.append((calculate_child_support_step, "calculate_child_support_idx"))
                       step_list.append((compare_child_support_step, "compare_child_support_idx"))
                       step_list.append((dont_wait_modify_child_support_step, "dont_wait_modify_child_support_idx"))
+                      step_list.append((fill_modify_step, "fill_modify_idx"))
                       # service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_modify.png'
                       # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                       images_list.append({'image': service_cert_modify_image, 'text': "Certificate of Service at the bottom of a Motion to Modify."})
@@ -162,6 +167,7 @@ code: |
                       step_list.append((calculate_child_support_step, "calculate_child_support_idx"))
                       step_list.append((compare_child_support_step, "compare_child_support_idx"))
                       step_list.append((dont_wait_modify_child_support_step, "dont_wait_modify_child_support_idx"))
+                      step_list.append((fill_modify_step, "fill_modify_idx"))
                       # service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_modify.png'
                       # certificate_of_service_image = 'At the bottom of Motion to Reconsider [FILE docassemble.AKA2JBranding:certofservice_reconsider_set_aside.png, 100%, Certificate of Service box][BR][BR][BR]At the bottom of Motion to Modify [FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                       images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of Motion to Reconsider."})
@@ -179,6 +185,7 @@ code: |
               step_list.append((calculate_child_support_step, "calculate_child_support_idx"))
               step_list.append((compare_child_support_step, "compare_child_support_idx"))
               step_list.append((dont_wait_modify_child_support_step, "dont_wait_modify_child_support_idx"))
+              step_list.append((fill_modify_step, "fill_modify_idx"))
               # service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_modify.png'
               # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
               images_list.append({'image': service_cert_modify_image, 'text': "Certificate of Service at the bottom of a Motion to Modify."})
@@ -210,6 +217,7 @@ code: |
                 step_list.append((calculate_child_support_step, "calculate_child_support_idx"))
                 step_list.append((compare_child_support_step, "compare_child_support_idx"))
                 step_list.append((dont_wait_modify_child_support_step, "dont_wait_modify_child_support_idx"))
+                step_list.append((fill_modify_step, "fill_modify_idx"))
                 # service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_modify.png'
                 # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                 images_list.append({'image': service_cert_modify_image, 'text': "Certificate of Service at the bottom of a Motion to Modify."})
@@ -236,6 +244,7 @@ code: |
                 step_list.append((calculate_child_support_step, "calculate_child_support_idx"))
                 step_list.append((compare_child_support_step, "compare_child_support_idx"))
                 step_list.append((dont_wait_modify_child_support_step, "dont_wait_modify_child_support_idx"))
+                step_list.append((fill_modify_step, "fill_modify_idx"))
                 # service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_modify.png'
                 # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                 images_list.append({'image': service_cert_modify_image, 'text': "Certificate of Service at the bottom of a Motion to Modify."})
@@ -263,6 +272,7 @@ code: |
                   step_list.append((calculate_child_support_step, "calculate_child_support_idx"))
                   step_list.append((compare_child_support_step, "compare_child_support_idx"))
                   step_list.append((dont_wait_modify_child_support_step, "dont_wait_modify_child_support_idx"))
+                  step_list.append((fill_modify_step, "fill_modify_idx"))
                   # service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_modify.png'
                   # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                   images_list.append({'image': service_cert_modify_image, 'text': "Certificate of Service at the bottom of a Motion to Modify."})
@@ -281,6 +291,7 @@ code: |
                   step_list.append((calculate_child_support_step, "calculate_child_support_idx"))
                   step_list.append((compare_child_support_step, "compare_child_support_idx"))
                   step_list.append((dont_wait_modify_child_support_step, "dont_wait_modify_child_support_idx"))
+                  step_list.append((fill_modify_step, "fill_modify_idx"))
                   # service_cert_image.filename = 'docassemble.AKA2JBranding:certofservice_modify.png'
                   # certificate_of_service_image = '[FILE docassemble.AKA2JBranding:certofservice_modify.png, 100%, Certificate of Service box]'
                   images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of Motion to Reconsider."})
@@ -418,6 +429,7 @@ code: |
         images_list.append({'image': service_cert_enforce_image, 'text': "Certificate of Service at the bottom of a Motion to Enforce."})
         step_list.append((cert_of_service_step, "cert_of_service_idx"))
         file_step_heading = 'File your motion forms'
+        file_motion_to_enforce = 'If you decide to ask the court to enforce your child support order:'
         step_list.append((file_step, "file_idx"))
         step_list.append((serve_step, "serve_idx"))
        # if cssd_collect == 'yes':
@@ -445,6 +457,7 @@ code: |
         images_list.append({'image': service_cert_enforce_image, 'text': "Certificate of Service at the bottom of a Motion to Enforce."})
         step_list.append((cert_of_service_step, "cert_of_service_idx"))
         file_step_heading = 'File your motion forms'
+        file_motion_to_enforce = 'If you decide to ask the court to enforce your child support order:'
         step_list.append((file_step, "file_idx"))
         step_list.append((serve_step, "serve_idx"))
     else: # who_really_ordered == 'unknown':
@@ -970,13 +983,13 @@ content: |
 #    <li>Give the 2nd copy to ${ other_party_in_case } on the date and way you wrote on your <strong>Certificate of Service</strong>.<br>
 #    Read Step ${ serve_idx }: Serve ${ other_party_in_case }.</li>
 #    </ol>
----
-template: expect_after_modify_step
-subject: |
-  Step ${ expect_after_modify_idx }: What to expect after you file a motion to modify
-content: |
-  Same as what to expect after you file - just heading is different.
----
+#  ---
+#  template: expect_after_modify_step
+#  subject: |
+#    Step ${ expect_after_modify_idx }: What to expect after you file a motion to modify
+#  content: |
+#    Same as what to expect after you file - just heading is different.
+#  ---
 #  template: cert_of_service_step
 #  subject: |
 #    Step ${ cert_of_service_idx }: Fill out the Certificate of Service

@@ -350,6 +350,8 @@ question: |
   Do you want to know how to tell the court about an agreement?
 subquestion: |
   If you find out the other parent **does** agree the amount of child support should change, do you want information about how to tell the court about your agreement? 
+  
+  ${ parents_agree }
 
 fields:
   - no label: parents_agree_resources
@@ -573,4 +575,4 @@ attachments:
     filename: changing_or_enforcing_child_support_action_plan
     variable name: changing_child_support_attachment[i]
     skip undefined: True
-    docx template file: changing_child_support_action_plan.docx
+    docx template file: changing_child_support_action_plan.docx	
