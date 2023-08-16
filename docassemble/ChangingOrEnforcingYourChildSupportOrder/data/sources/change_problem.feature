@@ -646,7 +646,7 @@ Scenario: Row #54
   And I download "changing_child_support.pdf"
 
 @row55
-Scenario: Row #23
+Scenario: Row #55
   Given I start the interview at "changing_enforcing_child_support.yml"
   And I get to the question id "final screen" with this data:
     | var | value | trigger |
