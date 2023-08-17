@@ -472,6 +472,7 @@ code: |
         images_list.append({'image': service_cert_enforce_image, 'text': "Certificate of Service at the bottom of a Motion to Enforce."})
         step_list.append((cert_of_service_step, "cert_of_service_idx"))
         file_step_heading = 'File your motion forms'
+        file_motion_to_enforce = 'If you decide to ask the court to enforce your child support order:'
         step_list.append((file_step, "file_idx"))
         step_list.append((serve_step, "serve_idx"))
 
