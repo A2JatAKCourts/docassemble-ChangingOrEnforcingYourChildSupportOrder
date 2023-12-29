@@ -25,6 +25,7 @@ code: |
   images_list = []
   distribution_certificate_list = []
   other_party_in_case  = 'the other parent'
+  case_type = 'child support'
   distribution_certificate_list.append({'image': distrib_cert_child_support_image, 'text': "Certificate of Distribution at the bottom of a child support order."})
   # images_list.append({'image': service_cert_interim_image, 'text': "Certificate of Service at the bottom of a Motion for Interim Child Support."})
   # certificate_of_service_image = ''
