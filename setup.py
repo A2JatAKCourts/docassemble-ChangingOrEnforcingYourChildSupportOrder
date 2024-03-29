@@ -44,7 +44,7 @@ def find_package_data(where='.', package='', exclude=standard_exclude, exclude_d
     return out
 
 setup(name='docassemble.ChangingOrEnforcingYourChildSupportOrder',
-      version='2023.08.17',
+      version='2024.03.29',
       description=('A docassemble extension.'),
       long_description='# docassemble.ChangingOrEnforcingYourChildSupportOrder\r\n\r\nA docassemble extension.\r\n\r\n## Author\r\n\r\nCaroline Robinson, CRobinson@akcourts.gov\r\n\r\n',
       long_description_content_type='text/markdown',

@@ -24,6 +24,7 @@ code: |
   step_list = []
   images_list = []
   distribution_certificate_list = []
+  reply_certificate_list = []
   other_party_in_case  = 'the other parent'
   case_type = 'child support'
   distribution_certificate_list.append({'image': distrib_cert_child_support_image, 'text': "Certificate of Distribution at the bottom of a child support order."})
@@ -35,6 +36,7 @@ code: |
   file_modify_filing_fee = ''
   # expect_after_motion is in what to expect step for filing motion for interim order w complaint, or answer/response, cannot use variable in docx template, must insert condition in what to expect step.
   expect_after_motion = ''
+  reply_certificate_list.append({'image': service_cert_reply_image, 'text': "Certificate of Service at the bottom of the Reply form."})
   motion_type = 'motion'
   #  if user_need == 'unwanted':
   #    step_list.append((wrong_tf, "wrong_tf_idx"))
