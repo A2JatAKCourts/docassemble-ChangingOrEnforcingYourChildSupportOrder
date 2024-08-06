@@ -626,9 +626,11 @@ content: |
   The court charges $75 to file this motion. If you cannot afford the fee, you may be able to get the court to waive it. See Step ${ file_motion_idx }, Pay the $75 fee, and file your Motion to Modify 
   % endif
 ---
-template: calculate_child_support_step
+comment: |
+  Use template in Branding package. [Update accordion_steps to use AKA2J branding where available and also update docx to correspond #51](https://github.com/A2JatAKCourts/docassemble-ChangingChildSupportIssues/issues/51)
+template: calculate_child_support_step_old
 subject: |
-  Step ${ calculate_child_support_idx }: Calculate your new child support amount
+  Step ${ calculate_child_support_old_idx }: Calculate your new child support amount
 content: |
   Figure out the new child support amount using the new schedule or new income information.  
     
