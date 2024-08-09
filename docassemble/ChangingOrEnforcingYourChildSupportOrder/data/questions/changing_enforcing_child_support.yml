@@ -218,7 +218,7 @@ code: |
   #        confirmation_and_download
   #    else: # find_who_ordered in('cssd', 'unknown')
   get_steps
-  confirmation_and_download
+  #confirmation_and_download
   interview_order_changing_child_support = True
 ---
 ###################### Main order ######################
@@ -239,7 +239,22 @@ code: |
           "reached_interview_end": True,
       },
   )
-  confirmation_and_download
+  if trigger_assembly.ready():
+    confirmation_and_download
+  else:
+    waiting_screen
+  #confirmation_and_download
+---
+comment: |
+  The final steps screen and the download document could be
+  different screens, giving a normal user more time to download
+  the document. ALKiln may have problems with a waiting screen
+  either way. ALKiln may need to add a new Step for this.
+event: waiting_screen
+question: |
+  You're almost there!
+subquestion: |
+  Please wait while we create your final steps...
 ---
 comment: |
   This question is used to introduce your interview. Please customize

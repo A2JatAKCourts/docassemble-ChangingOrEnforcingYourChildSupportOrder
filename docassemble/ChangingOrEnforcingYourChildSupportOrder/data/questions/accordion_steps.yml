@@ -969,6 +969,18 @@ content: |
   
   [Collecting money owed to you](https://courts.alaska.gov/shc/family/shcenforce.htm)
 ---
+code: |
+  trigger_assembly = background_action('assembly_task', 'refresh')
+---
+event: assembly_task
+code: |
+  background_response_action('assembly_done', document=al_user_bundle)
+---
+event: assembly_done
+code: |
+  the_document = action_argument('document')
+  background_response()
+---
 #  template: file_step
 #  subject: |
 #    Step ${ file_idx }: File your motion forms    
