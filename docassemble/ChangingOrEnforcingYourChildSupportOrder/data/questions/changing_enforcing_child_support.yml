@@ -352,8 +352,6 @@ question: |
   Do you want to know how to tell the court about an agreement?
 subquestion: |
   If you find out the other parent **does** agree the amount of child support should change, do you want information about how to tell the court about your agreement? 
-  
-  ${ parents_agree }
 
 fields:
   - no label: parents_agree_resources
@@ -568,7 +566,7 @@ objects:
 # Each attachment defines a key in an ALDocument. We use `i` as the placeholder here so the same template is 
 # used for "preview" and "final" keys, and logic in the template checks the value of 
 # `i` to show or hide the user's signature
-attachments:
+attachment:
   #  - name: Post-interview-Instructions
   #    filename: changing_child_support_next_steps
   #    docx template file: changing_child_support_next_steps.docx
@@ -578,3 +576,14 @@ attachments:
     variable name: changing_child_support_attachment[i]
     skip undefined: True
     docx template file: changing_child_support_action_plan.docx	
+    # docx template file: dummy.docx
+---
+attachment:
+  - name: Changing or Enforcing Child Support
+    filename: changing_or_enforcing_child_support_action_plan
+    update references: True
+    variable name: docx_changing_or_enforcing_child_support_action_plan_attachment
+    skip undefined: True
+    docx template file: changing_child_support_action_plan.docx	
+    # docx template file: dummy.docx	
+    
