@@ -375,7 +375,8 @@ fields:
   - "The date of your order": interim_order_date
     datatype: date    
     max: ${ today() }
-    disable if: interim_order_period
+    required: false
+    # disable if: interim_order_period
     help: |
       This is the date in the box at the bottom of your order.
   - I do not have the exact date.: interim_order_period
@@ -436,7 +437,7 @@ fields:
     datatype: date
     max: ${ today() }
     required: False
-    disable if: final_order_period
+    # disable if: final_order_period
     help: |
       This is the date in the box at the bottom of your order.
   - I do not have the exact date.: final_order_period
