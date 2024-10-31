@@ -109,7 +109,7 @@ code: |
                 step_list.append((parents_agree_step, "parents_agree_idx"))
             if middle_of_case:
               if interim_order_date_within_10_days:
-                value_checker_screen
+                # value_checker_screen
                 step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                 step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
                 images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of Motion to Reconsider and Motion to Set Aside."})
@@ -119,7 +119,7 @@ code: |
                 step_list.append((serve_motion_step, "serve_motion_idx"))
                 step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
               if interim_order_date_more_than_10_days:
-                value_checker_screen
+                # value_checker_screen
                 step_list.append((learn_modify_child_support_step, "learn_modify_child_support_idx"))
                 step_list.append((calculate_child_support_step, "calculate_child_support_idx"))
                 step_list.append((compare_child_support_step, "compare_child_support_idx"))
