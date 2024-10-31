@@ -7,6 +7,7 @@ include:
   - docassemble.AKA2JBranding:aka2j_templates.yml  
   - docassemble.AKA2JBranding:aka2j_mod_cust_div_templates.yml
   - accordion_steps.yml
+  # - accordion_steps-fixing-date.yml
   # - bundling_forms_for_downloading.yml
 ---
 images:
@@ -218,6 +219,8 @@ code: |
   #        confirmation_and_download
   #    else: # find_who_ordered in('cssd', 'unknown')
   get_steps
+  # if not al_user_bundle.generate_downloads_task.ready() or not al_user_bundle.generate_downloads_with_docx_task.ready(): 
+  #  al_download_waiting_screen
   confirmation_and_download
   interview_order_changing_child_support = True
 ---
@@ -375,7 +378,7 @@ fields:
   - "The date of your order": interim_order_date
     datatype: date    
     max: ${ today() }
-    required: false
+    required: False
     # disable if: interim_order_period
     help: |
       This is the date in the box at the bottom of your order.
@@ -405,6 +408,20 @@ terms:
       You can find the date the court sent your child support order to you in the box at the bottom of your child support order.
 continue button field: interim_order_date_question
 ---
+code: |
+  interim_order_date_question
+  if (interim_order_date != '' and date_difference(starting=interim_order_date, ending=today()).days <= 10 ) or (defined('interim_order_period') and guess_interim_order_date == 'within 10 days'):
+    interim_order_date_within_10_days = True
+    interim_order_date_more_than_10_days = False
+    
+  if (interim_order_date != '' and date_difference(starting=interim_order_date, ending=today()).days > 10 ) or (defined('interim_order_period') and guess_interim_order_date == 'more than 10 days'):
+    interim_order_date_within_10_days = False
+    interim_order_date_more_than_10_days = True
+  
+  if (defined('interim_order_period') and guess_interim_order_date == 'unknown'):
+    interim_order_date_within_10_days = False
+    interim_order_date_more_than_10_days = False
+---
 id: get information about choices user does not know interim order date
 question: |
   What do you want information about?
@@ -424,6 +441,14 @@ fields:
 terms:
   after you get a child support order: |
     You can find the date the court sent your child support order to you in the box at the bottom of your child support order.
+---
+id: value checker screen
+question: |
+  What do you get for this variable now?
+subquestion: |
+  value of interim_order_date_within_10_days: ${interim_order_date_within_10_days}
+continue button field: value_checker_screen 
+
 ---
 id: final order date question
 question: |
@@ -469,6 +494,25 @@ fields:
 #    the court sent your child support order to you: |
 #      You can find the date the court sent your child support order to you in the box at the bottom of the order.  
 continue button field: final_order_date_question
+---
+code: |
+  final_order_date_question
+  if (final_order_date != '' and date_difference(starting=final_order_date, ending=today()).days <= 10 ) or (defined('final_order_period') and guess_final_order_date == 'within 10 days'):
+    final_order_date_within_10_days = True
+    final_order_date_within_30_days = False    
+    final_order_date_more_30_days = False
+  if (final_order_date != '' and 10 < date_difference(starting=final_order_date, ending=today()).days <= 30 ) or (defined('final_order_period') and guess_final_order_date == 'between 11 and 30'):
+    final_order_date_within_10_days = False
+    final_order_date_within_30_days = True   
+    final_order_date_more_30_days = False
+  if (final_order_date != '' and date_difference(starting=final_order_date, ending=today()).days > 30 ) or (defined('final_order_period') and guess_final_order_date == 'more than 30'):
+    final_order_date_within_10_days = False
+    final_order_date_within_30_days = False   
+    final_order_date_more_30_days = True
+  if (defined('final_order_period') and guess_final_order_date == 'unknown'):
+    final_order_date_within_10_days = False
+    final_order_date_within_30_days = False
+    final_order_date_more_30_days = False
 ---
 id: get information about choices if user does not know final order date
 question: |
@@ -576,8 +620,8 @@ attachment:
     filename: changing_or_enforcing_child_support_action_plan
     variable name: changing_child_support_attachment[i]
     skip undefined: True
-    docx template file: changing_child_support_action_plan.docx	
-    # docx template file: dummy.docx
+    # docx template file: changing_child_support_action_plan.docx	
+    docx template file: dummy.docx
 ---
 attachment:
   - name: Changing or Enforcing Child Support
@@ -585,6 +629,6 @@ attachment:
     update references: True
     variable name: docx_changing_or_enforcing_child_support_action_plan_attachment
     skip undefined: True
-    docx template file: changing_child_support_action_plan.docx	
-    # docx template file: dummy.docx	
+    # docx template file: changing_child_support_action_plan.docx	
+    docx template file: dummy.docx	
     
