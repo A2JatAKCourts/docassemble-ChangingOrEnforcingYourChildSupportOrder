@@ -88,15 +88,15 @@ code: |
       if user_need == 'change AK order':
         if why_change == 'schedule':
           step_list.append((ask_court_step, "ask_court_idx"))
-        elif why_change == 'income':
+        if why_change == 'income':
           if parents_agree:
             step_list.append((parents_agree_step, "parents_agree_idx"))
           else:
             if parents_agree is None and parents_agree_resources:
               step_list.append((pick_a_step_step, "pick_a_step_idx"))
               step_list.append((parents_agree_step, "parents_agree_idx"))
-  
-        if why_change in('income', 'problem'):
+         
+        if (why_change == 'income' and not parents_agree) or why_change =='problem':
           if middle_of_case:
             if interim_order_date_within_10_days:
               step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
@@ -166,73 +166,86 @@ code: |
                 step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
                 motion_type = 'Motion to Modify'
                 step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
-
+        
+        if why_change == 'income' and not parents_agree and not middle_of_case:       
+          step_list.append((learn_modify_child_support_step, "learn_modify_child_support_idx"))
+          step_list.append((calculate_child_support_step, "calculate_child_support_idx"))
+          step_list.append((compare_child_support_step, "compare_child_support_idx"))
+          step_list.append((dont_wait_modify_child_support_step, "dont_wait_modify_child_support_idx"))
+          step_list.append((fill_modify_step, "fill_modify_idx"))
+          images_list.append({'image': service_cert_modify_image, 'text': "Certificate of Service at the bottom of a Motion to Modify."})
+          step_list.append((cert_of_service_step, "cert_of_service_idx")) 
+          file_step_heading = 'Pay the $75 fee, and file your Motion to Modify'
+          step_list.append((file_motion_step, "file_motion_idx"))
+          step_list.append((serve_motion_step, "serve_motion_idx"))
+          motion_type = 'Motion to Modify'
+          step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
   
-          else: # not middle_of_case 
-            if final_order_date_within_10_days:
+        if why_change == 'problem' and not middle_of_case: 
+          if final_order_date_within_10_days:
+            step_list.append((pick_a_step_step, "pick_a_step_idx"))
+            step_list.append((appeal_step, "appeal_idx"))
+            step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
+            step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
+            images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of Motion to Reconsider."})
+            file_step_heading = 'File your Motion to Reconsider'
+            step_list.append((cert_of_service_step, "cert_of_service_idx"))
+            step_list.append((file_motion_step, "file_motion_idx"))
+            step_list.append((serve_motion_step, "serve_motion_idx"))
+            step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
+
+          if final_order_date_within_30_days:               
+            step_list.append((pick_a_step_step, "pick_a_step_idx"))
+            step_list.append((appeal_step, "appeal_idx"))
+            file_motion_to_set_aside = 'If you decide to file a <b>Motion to Set Aside</b>::'
+            step_list.append((learn_set_aside_step, "learn_set_aside_idx"))   
+            step_list.append((fill_set_aside_step, "fill_set_aside_idx"))
+            images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of the Motion to Set Aside."})
+            step_list.append((cert_of_service_step, "cert_of_service_idx"))
+            file_step_heading = 'File your Motion to Set Aside'
+            step_list.append((file_motion_step, "file_motion_idx"))
+            step_list.append((serve_motion_step, "serve_motion_idx"))
+            motion_type = 'Motion to Set Aside'
+            step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+              
+
+          if final_order_date_more_30_days:
+            step_list.append((learn_set_aside_step, "learn_set_aside_idx"))   
+            step_list.append((fill_set_aside_step, "fill_set_aside_idx"))
+            images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of the Motion to Set Aside."})
+            step_list.append((cert_of_service_step, "cert_of_service_idx"))
+            file_step_heading = 'File your Motion to Set Aside'
+            step_list.append((file_motion_step, "file_motion_idx"))
+            step_list.append((serve_motion_step, "serve_motion_idx"))
+            motion_type = 'Motion to Set Aside'
+            step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+            # step_list.append((expect_set_aside_step, "expect_set_aside_idx"))
+
+          if not final_order_date_within_10_days and not final_order_date_within_30_days and not final_order_date_more_30_days:
+            if len(unknown_final_date.true_values()) > 1:
               step_list.append((pick_a_step_step, "pick_a_step_idx"))
+            if unknown_final_date['appeal']:                
               step_list.append((appeal_step, "appeal_idx"))
+            if unknown_final_date['reconsider']:
               step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
               step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
-              images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of Motion to Reconsider."})
-              file_step_heading = 'File your Motion to Reconsider'
-              step_list.append((cert_of_service_step, "cert_of_service_idx"))
-              step_list.append((file_motion_step, "file_motion_idx"))
-              step_list.append((serve_motion_step, "serve_motion_idx"))
-              step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
-  
-            if final_order_date_within_30_days:               
-              step_list.append((pick_a_step_step, "pick_a_step_idx"))
-              step_list.append((appeal_step, "appeal_idx"))
-              file_motion_to_set_aside = 'If you decide to file a <b>Motion to Set Aside</b>::'
-              step_list.append((learn_set_aside_step, "learn_set_aside_idx"))   
+            if unknown_final_date['set aside']:
+              step_list.append((learn_set_aside_step, "learn_set_aside_idx"))
               step_list.append((fill_set_aside_step, "fill_set_aside_idx"))
-              images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of the Motion to Set Aside."})
+            if unknown_final_date.any_true('reconsider','set aside'):
+              images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of the Motion to Reconsider and the Motion to Set Aside."})
               step_list.append((cert_of_service_step, "cert_of_service_idx"))
-              file_step_heading = 'File your Motion to Set Aside'
+              if not unknown_final_date['set aside']:
+                file_step_heading = 'File your Motion to Reconsider'
+              elif not unknown_final_date['reconsider']:
+                file_step_heading = 'File your Motion to Set Aside'
               step_list.append((file_motion_step, "file_motion_idx"))
               step_list.append((serve_motion_step, "serve_motion_idx"))
-              motion_type = 'Motion to Set Aside'
-              step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
-                
-  
-            if final_order_date_more_30_days:
-              step_list.append((learn_set_aside_step, "learn_set_aside_idx"))   
-              step_list.append((fill_set_aside_step, "fill_set_aside_idx"))
-              images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of the Motion to Set Aside."})
-              step_list.append((cert_of_service_step, "cert_of_service_idx"))
-              file_step_heading = 'File your Motion to Set Aside'
-              step_list.append((file_motion_step, "file_motion_idx"))
-              step_list.append((serve_motion_step, "serve_motion_idx"))
-              motion_type = 'Motion to Set Aside'
-              step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
-              # step_list.append((expect_set_aside_step, "expect_set_aside_idx"))
-  
-            if not final_order_date_within_10_days and not final_order_date_within_30_days and not final_order_date_more_30_days:
-              if len(unknown_final_date.true_values()) > 1:
-                step_list.append((pick_a_step_step, "pick_a_step_idx"))
-              if unknown_final_date['appeal']:                
-                step_list.append((appeal_step, "appeal_idx"))
               if unknown_final_date['reconsider']:
-                step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
-                step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
+                step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
               if unknown_final_date['set aside']:
-                step_list.append((learn_set_aside_step, "learn_set_aside_idx"))
-                step_list.append((fill_set_aside_step, "fill_set_aside_idx"))
-              if unknown_final_date.any_true('reconsider','set aside'):
-                images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of the Motion to Reconsider and the Motion to Set Aside."})
-                step_list.append((cert_of_service_step, "cert_of_service_idx"))
-                if not unknown_final_date['set aside']:
-                  file_step_heading = 'File your Motion to Reconsider'
-                elif not unknown_final_date['reconsider']:
-                  file_step_heading = 'File your Motion to Set Aside'
-                step_list.append((file_motion_step, "file_motion_idx"))
-                step_list.append((serve_motion_step, "serve_motion_idx"))
-                if unknown_final_date['reconsider']:
-                  step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
-                if unknown_final_date['set aside']:
-                  motion_type = 'Motion to Set Aside'
-                  step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
+                motion_type = 'Motion to Set Aside'
+                step_list.append((expect_after_motion_step, "expect_after_motion_idx"))
                  
   
       else: # user_need == 'enforce AK order'
@@ -421,7 +434,7 @@ content: |
     * Your income or the other parent's income changes.
 
   % if not middle_of_case:
-  The court charges $75 to file this motion. If you cannot afford the fee, you may be able to get the court to waive it. See Step ${ file_motion_idx }, Pay the $75 fee, and file your Motion to Modify 
+  The court charges $75 to file this motion. If you cannot afford the fee, you may be able to get the court to waive it. See Step ${ file_motion_idx }, Pay the $75 fee, and file your Motion to Modify. 
   % endif
 ---
 comment: |
