@@ -45,7 +45,7 @@ subquestion: |
   ${ al_user_bundle.send_button_html(show_editable_checkbox=False) }
   
   % if "docassembledev" in interview_url():
-  [get the docx file](${ docx_changing_or_enforcing_child_support_action_plan_attachment.docx.url_for() })
+  [get the docx file](${ docx_changing_child_support_attachment.docx.url_for() })
   % endif 
    
 buttons:

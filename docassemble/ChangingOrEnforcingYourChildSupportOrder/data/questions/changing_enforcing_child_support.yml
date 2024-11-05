@@ -623,9 +623,9 @@ attachment:
 ---
 attachment:
   - name: Changing or Enforcing Child Support
-    filename: changing_or_enforcing_child_support_action_plan
+    filename: changing_child_support
     update references: True
-    variable name: docx_changing_or_enforcing_child_support_action_plan_attachment
+    variable name: docx_changing_child_support_attachment
     skip undefined: True
     docx template file: changing_child_support_action_plan.docx	
     # docx template file: dummy.docx	
