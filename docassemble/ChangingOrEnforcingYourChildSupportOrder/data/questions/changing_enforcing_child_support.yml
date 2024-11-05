@@ -618,8 +618,8 @@ attachment:
     filename: changing_or_enforcing_child_support_action_plan
     variable name: changing_child_support_attachment[i]
     skip undefined: True
-    # docx template file: changing_child_support_action_plan.docx	
-    docx template file: dummy.docx
+    docx template file: changing_child_support_action_plan.docx	
+    # docx template file: dummy.docx
 ---
 attachment:
   - name: Changing or Enforcing Child Support
@@ -627,6 +627,6 @@ attachment:
     update references: True
     variable name: docx_changing_or_enforcing_child_support_action_plan_attachment
     skip undefined: True
-    # docx template file: changing_child_support_action_plan.docx	
-    docx template file: dummy.docx	
+    docx template file: changing_child_support_action_plan.docx	
+    # docx template file: dummy.docx	
     
