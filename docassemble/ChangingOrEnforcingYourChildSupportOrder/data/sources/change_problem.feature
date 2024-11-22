@@ -11,7 +11,9 @@ Scenario: Row #17
     | who_ordered        | court           |         | 
     | why_change         | problem         |         | 
     | middle_of_case     | True            |         | 
-    | interim_order_date | today - 2       |         | 
+    | interim_order_date | today - 2       |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about Motions to Reconsider"
     And I should see the phrase "Fill out the Motion to Reconsider forms"
@@ -34,7 +36,8 @@ Scenario: Row #18
     | why_change         | problem         |         | 
     | middle_of_case     | True            |         | 
     | interim_order_date | today - 11      |         | 
-
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 10 steps"
     And I should see the phrase "Learn about motions to modify"
     And I should see the phrase "Calculate your new child support amount"
@@ -60,7 +63,9 @@ Scenario: Row #19
     | why_change               | problem         |         | 
     | middle_of_case           | True            |         | 
     | interim_order_period     | True            |         | 
-    | guess_interim_order_date | within 10 days  |         | 
+    | guess_interim_order_date | within 10 days  |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about Motions to Reconsider"
     And I should see the phrase "Fill out the Motion to Reconsider forms"
@@ -83,7 +88,9 @@ Scenario: Row #20
     | why_change               | problem           |         | 
     | middle_of_case           | True              |         | 
     | interim_order_period     | True              |         | 
-    | guess_interim_order_date | more than 10 days |         | 
+    | guess_interim_order_date | more than 10 days |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 10 steps"
     And I should see the phrase "Learn about motions to modify"
     And I should see the phrase "Calculate your new child support amount"
@@ -110,7 +117,9 @@ Scenario: Row #21
     | middle_of_case           | True            |         | 
     | interim_order_period     | True            |         | 
     | guess_interim_order_date | unknown         |         | 
-    | unknown_interim_date     | reconsider      |         | 
+    | unknown_interim_date     | reconsider      |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about Motions to Reconsider"
     And I should see the phrase "Fill out the Motion to Reconsider forms"
@@ -134,7 +143,9 @@ Scenario: Row #22
     | middle_of_case           | True            |         | 
     | interim_order_period     | True            |         | 
     | guess_interim_order_date | unknown         |         | 
-    | unknown_interim_date     | modify          |         | 
+    | unknown_interim_date     | modify          |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 10 steps"
     And I should see the phrase "Learn about motions to modify"
     And I should see the phrase "Calculate your new child support amount"
@@ -161,7 +172,9 @@ Scenario: Row #23
     | middle_of_case           | True            |         | 
     | interim_order_period     | True            |         | 
     | guess_interim_order_date | unknown         |         | 
-    | unknown_interim_date     | both            |         | 
+    | unknown_interim_date     | both            |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 14 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Learn about Motions to Reconsider"
@@ -190,7 +203,9 @@ Scenario: Row #25
     | who_ordered      | court           |         | 
     | why_change       | problem         |         | 
     | middle_of_case   | False           |         | 
-    | final_order_date | today - 2       |         | 
+    | final_order_date | today - 2       |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 9 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Decide if you want to file an appeal"
@@ -214,7 +229,9 @@ Scenario: Row #26
     | who_ordered      | court           |         | 
     | why_change       | problem         |         | 
     | middle_of_case   | False           |         | 
-    | final_order_date | today - 11      |         | 
+    | final_order_date | today - 11      |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 9 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Decide if you want to file an appeal"
@@ -238,7 +255,9 @@ Scenario: Row #27
     | who_ordered      | court           |         | 
     | why_change       | problem         |         | 
     | middle_of_case   | False           |         | 
-    | final_order_date | today - 31      |         | 
+    | final_order_date | today - 31      |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
     And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"
@@ -261,7 +280,9 @@ Scenario: Row #28
     | why_change             | problem         |         | 
     | middle_of_case         | False           |         | 
     | final_order_period     | True            |         | 
-    | guess_final_order_date | within 10 days  |         | 
+    | guess_final_order_date | within 10 days  |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 9 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Decide if you want to file an appeal"
@@ -286,7 +307,9 @@ Scenario: Row #29
     | why_change             | problem           |         | 
     | middle_of_case         | False             |         | 
     | final_order_period     | True              |         | 
-    | guess_final_order_date | between 11 and 30 |         | 
+    | guess_final_order_date | between 11 and 30 |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 9 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Decide if you want to file an appeal"
@@ -311,7 +334,9 @@ Scenario: Row #30
     | why_change             | problem         |         | 
     | middle_of_case         | False           |         | 
     | final_order_period     | True            |         | 
-    | guess_final_order_date | more than 30    |         | 
+    | guess_final_order_date | more than 30    |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
     And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"
@@ -337,7 +362,9 @@ Scenario: Row #31
     | guess_final_order_date           | unknown         |         | 
     | unknown_final_date['reconsider'] | True            |         | 
     | unknown_final_date['appeal']     | False           |         | 
-    | unknown_final_date['set aside']  | False           |         | 
+    | unknown_final_date['set aside']  | False           |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about Motions to Reconsider"
     And I should see the phrase "Fill out the Motion to Reconsider forms"
@@ -363,7 +390,9 @@ Scenario: Row #32
     | guess_final_order_date           | unknown         |         | 
     | unknown_final_date['appeal']     | True            |         | 
     | unknown_final_date['reconsider'] | False           |         | 
-    | unknown_final_date['set aside']  | False           |         | 
+    | unknown_final_date['set aside']  | False           |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 2 steps"
     And I should see the phrase "Decide if you want to file an appeal"
     And I should see the phrase "Get more information or help"
@@ -384,7 +413,9 @@ Scenario: Row #33
     | guess_final_order_date           | unknown         |         | 
     | unknown_final_date['appeal']     | False           |         | 
     | unknown_final_date['reconsider'] | False           |         | 
-    | unknown_final_date['set aside']  | True            |         | 
+    | unknown_final_date['set aside']  | True            |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
     And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"
@@ -410,7 +441,9 @@ Scenario: Row #34 appeal and reconsider
     | guess_final_order_date           | unknown         |         | 
     | unknown_final_date['appeal']     | True            |         | 
     | unknown_final_date['reconsider'] | True            |         | 
-    | unknown_final_date['set aside']  | False           |         | 
+    | unknown_final_date['set aside']  | False           |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 9 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Decide if you want to file an appeal"
@@ -438,7 +471,9 @@ Scenario: Row #34 appeal and set aside
     | guess_final_order_date           | unknown         |         | 
     | unknown_final_date['reconsider'] | False           |         | 
     | unknown_final_date['appeal']     | True            |         | 
-    | unknown_final_date['set aside']  | True            |         | 
+    | unknown_final_date['set aside']  | True            |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 9 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Decide if you want to file an appeal"
@@ -466,7 +501,9 @@ Scenario: Row #34 reconsider and set aside
     | guess_final_order_date           | unknown         |         | 
     | unknown_final_date['reconsider'] | True            |         | 
     | unknown_final_date['appeal']     | False           |         | 
-    | unknown_final_date['set aside']  | True            |         | 
+    | unknown_final_date['set aside']  | True            |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 11 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Learn about Motions to Reconsider"
@@ -496,7 +533,9 @@ Scenario: Row #34 reconsider appeal and set aside
     | guess_final_order_date           | unknown         |         | 
     | unknown_final_date['reconsider'] | True            |         | 
     | unknown_final_date['appeal']     | True            |         | 
-    | unknown_final_date['set aside']  | True            |         | 
+    | unknown_final_date['set aside']  | True            |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 12 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Decide if you want to file an appeal"
@@ -524,7 +563,9 @@ Scenario: Row #47
     | find_who_ordered   | court           |         | 
     | why_change         | problem         |         | 
     | middle_of_case     | True            |         | 
-    | interim_order_date | today - 2       |         | 
+    | interim_order_date | today - 2       |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about Motions to Reconsider"
     And I should see the phrase "Fill out the Motion to Reconsider forms"
@@ -547,7 +588,9 @@ Scenario: Row #48
     | find_who_ordered   | court           |         | 
     | why_change         | problem         |         | 
     | middle_of_case     | True            |         | 
-    | interim_order_date | today - 11      |         | 
+    | interim_order_date | today - 11      |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 10 steps"
     And I should see the phrase "Learn about motions to modify"
     And I should see the phrase "Calculate your new child support amount"
@@ -574,7 +617,9 @@ Scenario: Row #49
     | why_change               | problem         |         | 
     | middle_of_case           | True            |         | 
     | interim_order_period     | True            |         | 
-    | guess_interim_order_date | within 10 days  |         | 
+    | guess_interim_order_date | within 10 days  |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about Motions to Reconsider"
     And I should see the phrase "Fill out the Motion to Reconsider forms"
@@ -598,7 +643,9 @@ Scenario: Row #50
     | why_change               | problem           |         | 
     | middle_of_case           | True              |         | 
     | interim_order_period     | True              |         | 
-    | guess_interim_order_date | more than 10 days |         | 
+    | guess_interim_order_date | more than 10 days |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 10 steps"
     And I should see the phrase "Learn about motions to modify"
     And I should see the phrase "Calculate your new child support amount"
@@ -626,7 +673,9 @@ Scenario: Row #53
     | middle_of_case           | True            |         | 
     | interim_order_period     | True            |         | 
     | guess_interim_order_date | unknown         |         | 
-    | unknown_interim_date     | reconsider      |         | 
+    | unknown_interim_date     | reconsider      |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about Motions to Reconsider"
     And I should see the phrase "Fill out the Motion to Reconsider forms"
@@ -651,7 +700,9 @@ Scenario: Row #54
     | middle_of_case           | True            |         | 
     | interim_order_period     | True            |         | 
     | guess_interim_order_date | unknown         |         | 
-    | unknown_interim_date     | modify          |         | 
+    | unknown_interim_date     | modify          |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 10 steps"
     And I should see the phrase "Learn about motions to modify"
     And I should see the phrase "Calculate your new child support amount"
@@ -679,7 +730,9 @@ Scenario: Row #55
     | middle_of_case           | True            |         | 
     | interim_order_period     | True            |         | 
     | guess_interim_order_date | unknown         |         | 
-    | unknown_interim_date     | both            |         | 
+    | unknown_interim_date     | both            |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 14 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Learn about Motions to Reconsider"
@@ -709,7 +762,9 @@ Scenario: Row #58
     | find_who_ordered | court           |         | 
     | why_change       | problem         |         | 
     | middle_of_case   | False           |         | 
-    | final_order_date | today - 2       |         | 
+    | final_order_date | today - 2       |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 9 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Decide if you want to file an appeal"
@@ -734,7 +789,9 @@ Scenario: Row #59
     | find_who_ordered | court           |         | 
     | why_change       | problem         |         | 
     | middle_of_case   | False           |         | 
-    | final_order_date | today - 11      |         | 
+    | final_order_date | today - 11      |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 9 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Decide if you want to file an appeal"
@@ -759,7 +816,9 @@ Scenario: Row #60
     | find_who_ordered | court           |         | 
     | why_change       | problem         |         | 
     | middle_of_case   | False           |         | 
-    | final_order_date | today - 31      |         | 
+    | final_order_date | today - 31      |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
     And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"
@@ -783,7 +842,9 @@ Scenario: Row #62
     | why_change             | problem         |         | 
     | middle_of_case         | False           |         | 
     | final_order_period     | True            |         | 
-    | guess_final_order_date | within 10 days  |         | 
+    | guess_final_order_date | within 10 days  |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 9 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Decide if you want to file an appeal"
@@ -809,7 +870,9 @@ Scenario: Row #63
     | why_change             | problem           |         | 
     | middle_of_case         | False             |         | 
     | final_order_period     | True              |         | 
-    | guess_final_order_date | between 11 and 30 |         | 
+    | guess_final_order_date | between 11 and 30 |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 9 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Decide if you want to file an appeal"
@@ -835,7 +898,9 @@ Scenario: Row #64
     | why_change             | problem         |         | 
     | middle_of_case         | False           |         | 
     | final_order_period     | True            |         | 
-    | guess_final_order_date | more than 30    |         | 
+    | guess_final_order_date | more than 30    |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
     And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"
@@ -862,7 +927,9 @@ Scenario: Row #65
     | guess_final_order_date           | unknown         |         | 
     | unknown_final_date['reconsider'] | True            |         | 
     | unknown_final_date['appeal']     | False           |         | 
-    | unknown_final_date['set aside']  | False           |         | 
+    | unknown_final_date['set aside']  | False           |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about Motions to Reconsider"
     And I should see the phrase "Fill out the Motion to Reconsider forms"
@@ -889,7 +956,9 @@ Scenario: Row #66
     | guess_final_order_date           | unknown         |         | 
     | unknown_final_date['appeal']     | True            |         | 
     | unknown_final_date['reconsider'] | False           |         | 
-    | unknown_final_date['set aside']  | False           |         | 
+    | unknown_final_date['set aside']  | False           |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 2 steps"
     And I should see the phrase "Decide if you want to file an appeal"
     And I should see the phrase "Get more information or help"
@@ -911,7 +980,9 @@ Scenario: Row #66 set aside
     | guess_final_order_date           | unknown         |         | 
     | unknown_final_date['appeal']     | False           |         | 
     | unknown_final_date['reconsider'] | False           |         | 
-    | unknown_final_date['set aside']  | True            |         | 
+    | unknown_final_date['set aside']  | True            |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
     And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"
@@ -938,7 +1009,9 @@ Scenario: Row #66 appeal and reconsider
     | guess_final_order_date           | unknown         |         | 
     | unknown_final_date['appeal']     | True            |         | 
     | unknown_final_date['reconsider'] | True            |         | 
-    | unknown_final_date['set aside']  | False           |         | 
+    | unknown_final_date['set aside']  | False           |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 9 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Decide if you want to file an appeal"
@@ -967,7 +1040,9 @@ Scenario: Row #66 appeal and set aside
     | guess_final_order_date           | unknown         |         | 
     | unknown_final_date['reconsider'] | False           |         | 
     | unknown_final_date['appeal']     | True            |         | 
-    | unknown_final_date['set aside']  | True            |         | 
+    | unknown_final_date['set aside']  | True            |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 9 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Decide if you want to file an appeal"
@@ -996,7 +1071,9 @@ Scenario: Row #66 reconsider and set aside
     | guess_final_order_date           | unknown         |         | 
     | unknown_final_date['reconsider'] | True            |         | 
     | unknown_final_date['appeal']     | False           |         | 
-    | unknown_final_date['set aside']  | True            |         | 
+    | unknown_final_date['set aside']  | True            |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 11 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Learn about Motions to Reconsider"
@@ -1027,7 +1104,9 @@ Scenario: Row #66 reconsider appeal and set aside
     | guess_final_order_date           | unknown         |         | 
     | unknown_final_date['reconsider'] | True            |         | 
     | unknown_final_date['appeal']     | True            |         | 
-    | unknown_final_date['set aside']  | True            |         | 
+    | unknown_final_date['set aside']  | True            |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 12 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Decide if you want to file an appeal"

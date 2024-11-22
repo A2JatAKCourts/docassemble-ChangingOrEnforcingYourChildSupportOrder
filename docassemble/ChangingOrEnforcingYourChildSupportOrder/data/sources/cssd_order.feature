@@ -8,6 +8,8 @@ Scenario: Row #35 CSED ordered
     | var         | value           | trigger | 
     | user_need   | change AK order |         | 
     | who_ordered | cssd            |         | 
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 2 steps"
     And I should see the phrase "Ask CSED to change your child support"
     And I should see the phrase "Get more information or help"
@@ -22,7 +24,9 @@ Scenario: Row #67 CSED ordered
     | var              | value           | trigger | 
     | user_need        | change AK order |         | 
     | who_ordered      | unknown         |         | 
-    | find_who_ordered | cssd            |         | 
+    | find_who_ordered | cssd            |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 2 steps"
     And I should see the phrase "Ask CSED to change your child support"
     And I should see the phrase "Get more information or help"
@@ -37,7 +41,9 @@ Scenario: Row #68 don't know who ordered
     | var              | value           | trigger | 
     | user_need        | change AK order |         | 
     | who_ordered      | unknown         |         | 
-    | find_who_ordered | unknown         |         | 
+    | find_who_ordered | unknown         |         |
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds 
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 2 steps"
     And I should see the phrase "Find out who issued your child support order"
     And I should see the phrase "Get more information or help"

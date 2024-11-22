@@ -9,6 +9,8 @@ Scenario: Row #69
     | user_need    | enforce AK order |         | 
     | who_ordered  | court            |         | 
     | cssd_collect | yes              |         | 
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for enforcing your child support order in 7 steps"
     And I should see the phrase "Ask CSED to enforce your order"
     And I should see the phrase "Talk to the other parent"
@@ -29,6 +31,8 @@ Scenario: Row #70
     | user_need    | enforce AK order |         | 
     | who_ordered  | court            |         | 
     | cssd_collect | no               |         | 
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for enforcing your child support order in 7 steps"
     And I should see the phrase "Ask CSED to enforce your order"
     And I should see the phrase "Talk to the other parent"
@@ -49,6 +53,8 @@ Scenario: Row #71
     | user_need    | enforce AK order |         | 
     | who_ordered  | court            |         | 
     | cssd_collect | unknown          |         | 
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for enforcing your child support order in 7 steps"
     And I should see the phrase "Ask CSED to enforce your order"
     And I should see the phrase "Talk to the other parent"
@@ -68,6 +74,8 @@ Scenario: Row #72
     | var         | value            | trigger | 
     | user_need   | enforce AK order |         | 
     | who_ordered | cssd             |         | 
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for enforcing your child support order in 7 steps"
     And I should see the phrase "Ask CSED to enforce your order"
     And I should see the phrase "Talk to the other parent"
@@ -89,6 +97,8 @@ Scenario: Row #73
     | who_ordered      | unknown          |         | 
     | find_who_ordered | court            |         | 
     | cssd_collect     | yes              |         | 
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for enforcing your child support order in 7 steps"
     And I should see the phrase "Ask CSED to enforce your order"
     And I should see the phrase "Talk to the other parent"
@@ -110,6 +120,8 @@ Scenario: Row #74
     | who_ordered      | unknown          |         | 
     | find_who_ordered | court            |         | 
     | cssd_collect     | no               |         | 
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for enforcing your child support order in 7 steps"
     And I should see the phrase "Ask CSED to enforce your order"
     And I should see the phrase "Talk to the other parent"
@@ -131,6 +143,8 @@ Scenario: Row #75
     | who_ordered      | unknown          |         | 
     | find_who_ordered | court            |         | 
     | cssd_collect     | unknown          |         | 
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for enforcing your child support order in 7 steps"
     And I should see the phrase "Ask CSED to enforce your order"
     And I should see the phrase "Talk to the other parent"
@@ -151,6 +165,8 @@ Scenario: Row #76
     | user_need        | enforce AK order |         | 
     | who_ordered      | unknown          |         | 
     | find_who_ordered | cssd             |         | 
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for enforcing your child support order in 7 steps"
     And I should see the phrase "Ask CSED to enforce your order"
     And I should see the phrase "Talk to the other parent"
@@ -171,6 +187,8 @@ Scenario: Row #77
     | user_need        | enforce AK order |         | 
     | who_ordered      | unknown          |         | 
     | find_who_ordered | unknown          |         | 
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for enforcing your child support order in 8 steps"
     And I should see the phrase "Find out who issued your child support order"
     And I should see the phrase "Ask CSED to enforce your order"

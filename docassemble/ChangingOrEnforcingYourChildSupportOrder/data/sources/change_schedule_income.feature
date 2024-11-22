@@ -9,6 +9,8 @@ Scenario: Row #4 schedule change
     | user_need   | change AK order |         | 
     | who_ordered | court           |         | 
     | why_change  | schedule        |         | 
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 2 steps"
     And I should see the phrase "Ask the court to change your Parenting Plan and your child support order"
     And I should see the phrase "Get more information or help"
@@ -25,6 +27,8 @@ Scenario: Row #36 schedule change
     | who_ordered      | unknown         |         | 
     | find_who_ordered | court           |         | 
     | why_change       | schedule        |         | 
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 2 steps"
     And I should see the phrase "Ask the court to change your Parenting Plan and your child support order"
     And I should see the phrase "Get more information or help"
@@ -41,6 +45,8 @@ Scenario: Row #5
     | who_ordered   | court           |         | 
     | why_change    | income          |         | 
     | parents_agree | True            |         | 
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 2 steps"
     And I should see the phrase "Tell the court about your agreement"
     And I should see the phrase "Get more information or help"
@@ -58,6 +64,8 @@ Scenario: Row #37
     | find_who_ordered | court           |         | 
     | why_change       | income          |         | 
     | parents_agree    | True            |         | 
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 2 steps"
     And I should see the phrase "Tell the court about your agreement"
     And I should see the phrase "Get more information or help"
@@ -76,6 +84,8 @@ Scenario: Row #7
     | parents_agree      | False           |         | 
     | middle_of_case     | True            |         | 
     | interim_order_date | today - 2       |         | 
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about Motions to Reconsider"
     And I should see the phrase "Fill out the Motion to Reconsider forms"
@@ -100,6 +110,8 @@ Scenario: Row #38
     | parents_agree      | False           |         | 
     | middle_of_case     | True            |         | 
     | interim_order_date | today - 2       |         | 
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about Motions to Reconsider"
     And I should see the phrase "Fill out the Motion to Reconsider forms"
@@ -123,6 +135,8 @@ Scenario: Row #8
     | parents_agree      | False           |         | 
     | middle_of_case     | True            |         | 
     | interim_order_date | today - 11      |         | 
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 10 steps"
     And I should see the phrase "Learn about motions to modify"
     And I should see the phrase "Calculate your new child support amount"
@@ -150,6 +164,8 @@ Scenario: Row #39
     | parents_agree      | False           |         | 
     | middle_of_case     | True            |         | 
     | interim_order_date | today - 11      |         | 
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 10 steps"
     And I should see the phrase "Learn about motions to modify"
     And I should see the phrase "Calculate your new child support amount"
@@ -177,6 +193,8 @@ Scenario: Row #9
     | middle_of_case           | True            |         | 
     | interim_order_period     | True            |         | 
     | guess_interim_order_date | within 10 days  |         | 
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about Motions to Reconsider"
     And I should see the phrase "Fill out the Motion to Reconsider forms"
@@ -202,6 +220,8 @@ Scenario: Row #40
     | middle_of_case           | True            |         | 
     | interim_order_period     | True            |         | 
     | guess_interim_order_date | within 10 days  |         | 
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about Motions to Reconsider"
     And I should see the phrase "Fill out the Motion to Reconsider forms"
@@ -226,6 +246,8 @@ Scenario: Row #10
     | middle_of_case           | True              |         | 
     | interim_order_period     | True              |         | 
     | guess_interim_order_date | more than 10 days |         | 
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 10 steps"
     And I should see the phrase "Learn about motions to modify"
     And I should see the phrase "Calculate your new child support amount"
@@ -254,6 +276,8 @@ Scenario: Row #41
     | middle_of_case           | True              |         | 
     | interim_order_period     | True              |         | 
     | guess_interim_order_date | more than 10 days |         | 
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 10 steps"
     And I should see the phrase "Learn about motions to modify"
     And I should see the phrase "Calculate your new child support amount"
@@ -282,6 +306,8 @@ Scenario: Row #12
     | interim_order_period     | True            |         | 
     | guess_interim_order_date | unknown         |         | 
     | unknown_interim_date     | reconsider      |         | 
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about Motions to Reconsider"
     And I should see the phrase "Fill out the Motion to Reconsider forms"
@@ -308,6 +334,8 @@ Scenario: Row #42
     | interim_order_period     | True            |         | 
     | guess_interim_order_date | unknown         |         | 
     | unknown_interim_date     | reconsider      |         | 
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about Motions to Reconsider"
     And I should see the phrase "Fill out the Motion to Reconsider forms"
@@ -333,6 +361,8 @@ Scenario: Row #13
     | interim_order_period     | True            |         | 
     | guess_interim_order_date | unknown         |         | 
     | unknown_interim_date     | modify          |         | 
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 10 steps"
     And I should see the phrase "Learn about motions to modify"
     And I should see the phrase "Calculate your new child support amount"
@@ -362,6 +392,8 @@ Scenario: Row #43
     | interim_order_period     | True            |         | 
     | guess_interim_order_date | unknown         |         | 
     | unknown_interim_date     | modify          |         | 
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 10 steps"
     And I should see the phrase "Learn about motions to modify"
     And I should see the phrase "Calculate your new child support amount"
@@ -390,6 +422,8 @@ Scenario: Row #14
     | interim_order_period     | True            |         | 
     | guess_interim_order_date | unknown         |         | 
     | unknown_interim_date     | both            |         | 
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 14 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Learn about Motions to Reconsider"
@@ -423,6 +457,8 @@ Scenario: Row #44
     | interim_order_period     | True            |         | 
     | guess_interim_order_date | unknown         |         | 
     | unknown_interim_date     | both            |         | 
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 14 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Learn about Motions to Reconsider"
@@ -452,6 +488,8 @@ Scenario: Row #15
     | why_change     | income          |         | 
     | parents_agree  | False           |         | 
     | middle_of_case | False           |         | 
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 10 steps"
     And I should see the phrase "Learn about motions to modify"
     And I should see the phrase "Calculate your new child support amount"
@@ -478,6 +516,8 @@ Scenario: Row #45
     | why_change       | income          |         | 
     | parents_agree    | False           |         | 
     | middle_of_case   | False           |         | 
+    And the maximum seconds for each Step is 51
+    And I wait 50 seconds
     And I should see the phrase "Your Personal Action Plan for changing your child support order in 10 steps"
     And I should see the phrase "Learn about motions to modify"
     And I should see the phrase "Calculate your new child support amount"
