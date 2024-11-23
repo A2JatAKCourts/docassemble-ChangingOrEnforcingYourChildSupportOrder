@@ -4,8 +4,7 @@ Feature: User paths
 @row17
 Scenario: Row #17
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
-# And I get to the question id "waiting screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                | value           | trigger | 
     | user_need          | change AK order |         | 
     | who_ordered        | court           |         | 
@@ -29,7 +28,7 @@ Scenario: Row #17
 @row18
 Scenario: Row #18
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                | value           | trigger | 
     | user_need          | change AK order |         | 
     | who_ordered        | court           |         | 
@@ -56,7 +55,7 @@ Scenario: Row #18
 @row19
 Scenario: Row #19
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                      | value           | trigger | 
     | user_need                | change AK order |         | 
     | who_ordered              | court           |         | 
@@ -81,7 +80,7 @@ Scenario: Row #19
 @row20
 Scenario: Row #20
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                      | value             | trigger | 
     | user_need                | change AK order   |         | 
     | who_ordered              | court             |         | 
@@ -109,7 +108,7 @@ Scenario: Row #20
 @row21
 Scenario: Row #21
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                      | value           | trigger | 
     | user_need                | change AK order |         | 
     | who_ordered              | court           |         | 
@@ -135,7 +134,7 @@ Scenario: Row #21
 @row22
 Scenario: Row #22
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                      | value           | trigger | 
     | user_need                | change AK order |         | 
     | who_ordered              | court           |         | 
@@ -164,7 +163,7 @@ Scenario: Row #22
 @row23
 Scenario: Row #23
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                      | value           | trigger | 
     | user_need                | change AK order |         | 
     | who_ordered              | court           |         | 
@@ -197,7 +196,7 @@ Scenario: Row #23
 @row25
 Scenario: Row #25
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var              | value           | trigger | 
     | user_need        | change AK order |         | 
     | who_ordered      | court           |         | 
@@ -223,7 +222,7 @@ Scenario: Row #25
 @row26
 Scenario: Row #26
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var              | value           | trigger | 
     | user_need        | change AK order |         | 
     | who_ordered      | court           |         | 
@@ -249,7 +248,7 @@ Scenario: Row #26
 @row27
 Scenario: Row #27
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var              | value           | trigger | 
     | user_need        | change AK order |         | 
     | who_ordered      | court           |         | 
@@ -273,7 +272,7 @@ Scenario: Row #27
 @row28
 Scenario: Row #28
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                    | value           | trigger | 
     | user_need              | change AK order |         | 
     | who_ordered            | court           |         | 
@@ -300,7 +299,7 @@ Scenario: Row #28
 @row29
 Scenario: Row #29
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                    | value             | trigger | 
     | user_need              | change AK order   |         | 
     | who_ordered            | court             |         | 
@@ -327,7 +326,7 @@ Scenario: Row #29
 @row30
 Scenario: Row #30
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                    | value           | trigger | 
     | user_need              | change AK order |         | 
     | who_ordered            | court           |         | 
@@ -352,7 +351,7 @@ Scenario: Row #30
 @row31
 Scenario: Row #31
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                              | value           | trigger | 
     | user_need                        | change AK order |         | 
     | who_ordered                      | court           |         | 
@@ -380,7 +379,7 @@ Scenario: Row #31
 @row32
 Scenario: Row #32
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                              | value           | trigger | 
     | user_need                        | change AK order |         | 
     | who_ordered                      | court           |         | 
@@ -403,7 +402,7 @@ Scenario: Row #32
 @row33
 Scenario: Row #33
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                              | value           | trigger | 
     | user_need                        | change AK order |         | 
     | who_ordered                      | court           |         | 
@@ -431,7 +430,7 @@ Scenario: Row #33
 @row34AandR
 Scenario: Row #34 appeal and reconsider
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                              | value           | trigger | 
     | user_need                        | change AK order |         | 
     | who_ordered                      | court           |         | 
@@ -461,7 +460,7 @@ Scenario: Row #34 appeal and reconsider
 @row34AandSA
 Scenario: Row #34 appeal and set aside
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                              | value           | trigger | 
     | user_need                        | change AK order |         | 
     | who_ordered                      | court           |         | 
@@ -491,7 +490,7 @@ Scenario: Row #34 appeal and set aside
 @row34RandSA
 Scenario: Row #34 reconsider and set aside
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                              | value           | trigger | 
     | user_need                        | change AK order |         | 
     | who_ordered                      | court           |         | 
@@ -523,7 +522,7 @@ Scenario: Row #34 reconsider and set aside
 @row34RAandSA
 Scenario: Row #34 reconsider appeal and set aside
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                              | value           | trigger | 
     | user_need                        | change AK order |         | 
     | who_ordered                      | court           |         | 
@@ -556,7 +555,7 @@ Scenario: Row #34 reconsider appeal and set aside
 @row47
 Scenario: Row #47
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                | value           | trigger | 
     | user_need          | change AK order |         | 
     | who_ordered        | unknown         |         | 
@@ -581,7 +580,7 @@ Scenario: Row #47
 @row48
 Scenario: Row #48
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                | value           | trigger | 
     | user_need          | change AK order |         | 
     | who_ordered        | unknown         |         | 
@@ -609,7 +608,7 @@ Scenario: Row #48
 @row49
 Scenario: Row #49
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                      | value           | trigger | 
     | user_need                | change AK order |         | 
     | who_ordered              | unknown         |         | 
@@ -635,7 +634,7 @@ Scenario: Row #49
 @row50
 Scenario: Row #50
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                      | value             | trigger | 
     | user_need                | change AK order   |         | 
     | who_ordered              | unknown           |         | 
@@ -664,7 +663,7 @@ Scenario: Row #50
 @row53
 Scenario: Row #53
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                      | value           | trigger | 
     | user_need                | change AK order |         | 
     | who_ordered              | unknown         |         | 
@@ -691,7 +690,7 @@ Scenario: Row #53
 @row54
 Scenario: Row #54
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                      | value           | trigger | 
     | user_need                | change AK order |         | 
     | who_ordered              | unknown         |         | 
@@ -721,7 +720,7 @@ Scenario: Row #54
 @row55
 Scenario: Row #55
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                      | value           | trigger | 
     | user_need                | change AK order |         | 
     | who_ordered              | unknown         |         | 
@@ -755,7 +754,7 @@ Scenario: Row #55
 @row58
 Scenario: Row #58
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var              | value           | trigger | 
     | user_need        | change AK order |         | 
     | who_ordered      | unknown         |         | 
@@ -782,7 +781,7 @@ Scenario: Row #58
 @row59
 Scenario: Row #59
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var              | value           | trigger | 
     | user_need        | change AK order |         | 
     | who_ordered      | unknown         |         | 
@@ -809,7 +808,7 @@ Scenario: Row #59
 @row60
 Scenario: Row #60
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var              | value           | trigger | 
     | user_need        | change AK order |         | 
     | who_ordered      | unknown         |         | 
@@ -834,7 +833,7 @@ Scenario: Row #60
 @row62
 Scenario: Row #62
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                    | value           | trigger | 
     | user_need              | change AK order |         | 
     | who_ordered            | unknown         |         | 
@@ -862,7 +861,7 @@ Scenario: Row #62
 @row63
 Scenario: Row #63
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                    | value             | trigger | 
     | user_need              | change AK order   |         | 
     | who_ordered            | unknown           |         | 
@@ -890,7 +889,7 @@ Scenario: Row #63
 @row64
 Scenario: Row #64
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                    | value           | trigger | 
     | user_need              | change AK order |         | 
     | who_ordered            | unknown         |         | 
@@ -916,7 +915,7 @@ Scenario: Row #64
 @row65
 Scenario: Row #65
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                              | value           | trigger | 
     | user_need                        | change AK order |         | 
     | who_ordered                      | unknown         |         | 
@@ -945,7 +944,7 @@ Scenario: Row #65
 @row66
 Scenario: Row #66
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                              | value           | trigger | 
     | user_need                        | change AK order |         | 
     | who_ordered                      | unknown         |         | 
@@ -969,7 +968,7 @@ Scenario: Row #66
 @row66aside
 Scenario: Row #66 set aside
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                              | value           | trigger | 
     | user_need                        | change AK order |         | 
     | who_ordered                      | unknown         |         | 
@@ -998,7 +997,7 @@ Scenario: Row #66 set aside
 @row66AandR
 Scenario: Row #66 appeal and reconsider
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                              | value           | trigger | 
     | user_need                        | change AK order |         | 
     | who_ordered                      | unknown         |         | 
@@ -1029,7 +1028,7 @@ Scenario: Row #66 appeal and reconsider
 @row66AandSA
 Scenario: Row #66 appeal and set aside
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                              | value           | trigger | 
     | user_need                        | change AK order |         | 
     | who_ordered                      | unknown         |         | 
@@ -1060,7 +1059,7 @@ Scenario: Row #66 appeal and set aside
 @row66RandSA
 Scenario: Row #66 reconsider and set aside
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                              | value           | trigger | 
     | user_need                        | change AK order |         | 
     | who_ordered                      | unknown         |         | 
@@ -1093,7 +1092,7 @@ Scenario: Row #66 reconsider and set aside
 @row66RAandSA
 Scenario: Row #66 reconsider appeal and set aside
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var                              | value           | trigger | 
     | user_need                        | change AK order |         | 
     | who_ordered                      | unknown         |         | 

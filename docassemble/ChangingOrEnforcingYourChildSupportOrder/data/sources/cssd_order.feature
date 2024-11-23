@@ -4,7 +4,7 @@ Feature: User paths
 @row35
 Scenario: Row #35 CSED ordered
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var         | value           | trigger | 
     | user_need   | change AK order |         | 
     | who_ordered | cssd            |         | 
@@ -20,7 +20,7 @@ Scenario: Row #35 CSED ordered
 @row67
 Scenario: Row #67 CSED ordered
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var              | value           | trigger | 
     | user_need        | change AK order |         | 
     | who_ordered      | unknown         |         | 
@@ -37,7 +37,7 @@ Scenario: Row #67 CSED ordered
 @row68
 Scenario: Row #68 don't know who ordered
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var              | value           | trigger | 
     | user_need        | change AK order |         | 
     | who_ordered      | unknown         |         | 

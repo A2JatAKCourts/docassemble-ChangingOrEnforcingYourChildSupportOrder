@@ -4,7 +4,7 @@ Feature: User paths
 @row1
 Scenario: Row #1 
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var       | value                | trigger | 
     | user_need | change foreign order |         |
     And the maximum seconds for each Step is 51
@@ -19,7 +19,7 @@ Scenario: Row #1
 @row2
 Scenario: Row #2
   Given I start the interview at "changing_enforcing_child_support.yml"
-    And I get to the question id "final screen" with this data:
+    And I get to the question id "waiting screen" with this data:
     | var       | value                 | trigger | 
     | user_need | enforce foreign order |         | 
     And the maximum seconds for each Step is 51
