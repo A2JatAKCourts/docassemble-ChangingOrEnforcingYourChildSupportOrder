@@ -297,41 +297,6 @@ code: |
 
   get_steps = True
 ---
-template: wrong_tf
-subject: |
-  Step ${ wrong_tf_idx }: Try another Guided Assistant
-content: | 
-  * [Asking for Child Support](https://docassemble.akcourts.gov/start/AskingForChildSupport)
-  * [Start a Case to End Your Marriage or Legally Separate](https://docassembledev.akcourts.gov/start/Divorce)
-  * [Respond in a Case to End Your Marriage or Legally Separate](https://docassemble.akcourts.gov/start/RespondToDivorce)
-  * [Ask the Court for a Child Custody or Parenting Plan Order](https://docassemble.akcourts.gov/start/AskingForChildCustody)
-  * [Respond in Your Child Custody or Parenting Plan Case](https://docassemble.akcourts.gov/start/RespondToCustody)
-  * [Enforcing Your Child Custody or Parenting Plan Order in Alaska](https://docassemble.akcourts.gov/start/EnforcingChildCustody)
-  * [Changing Your Child Custody or Parenting Plan Order](https://docassemble.akcourts.gov/start/ChangingChildCustody)
---- 
-template: wrong_tf2
-subject: | 
-  Step ${ wrong_tf2_idx }: Look at the court's self-help web pages
-content: | 
-  * [Forms and Information about Child Support](https://courts.alaska.gov/shc/family/support.htm)
-  * [Asking for an Order / filing a motion](https://courts.alaska.gov/shc/family/motions.htm)
-  * [Family Law Home](https://courts.alaska.gov/shc/family/index.htm)
----
-#  template: get_help
-#  subject: |
-#    Step ${ get_help_idx }: Get more information or help
-#  content: |
-#    For help with forms or understanding the process, call the [Family Law Self-Help Center](https://courts.alaska.gov/shc/family/selfhelp.htm)
-#    <p>
-#    (907) 264-0851 or<br>  
-#    (866) 279-0851.</p>
-#    
-#    Many lawyers offer free or flat fee consultations without having to hire them for the whole case. [Find a Lawyer](https://courts.alaska.gov/shc/shclawyer.htm).
-#    
-#    Depending on your income, you may qualify for [Alaska Free Legal Answers](https://alaska.freelegalanswers.org).
-#    
-#    Depending on your income and circumstances, you may qualify for a free lawyer from [Alaska Legal Services](https://alsc-law.org/apply-for-services).
-#  ---
 template: ask_cssd_step
 subject: |
   Step ${ ask_cssd_idx }: Ask CSED to change your child support
@@ -434,32 +399,6 @@ content: |
   The court charges $75 to file this motion. If you cannot afford the fee, you may be able to get the court to waive it. See Step ${ file_motion_idx }, Pay the $75 fee, and file your Motion to Modify. 
   % endif
 ---
-comment: |
-  Use template in Branding package. [Update accordion_steps to use AKA2J branding where available and also update docx to correspond #51](https://github.com/A2JatAKCourts/docassemble-ChangingChildSupportIssues/issues/51)
-template: calculate_child_support_step_old
-subject: |
-  Step ${ calculate_child_support_old_idx }: Calculate your new child support amount
-content: |
-  Figure out the new child support amount using the new schedule or new income information.  
-    
-    1. Calculate the percent of overnights your children spend with you and with the other parent. For example, if your child spends 4 nights each week with you and 3 nights each week with their other parent, they spend 209 overnights each year with you and 156 nights each year with the other parent.  This is 57% of overnights with you and 43% of overnights with the other parent.
-  
-  <strong>For example</strong>
-  If your child spends 4 nights each week with you and 3 nights each week with their other parent, they spend 209 overnights each year with you and 156 nights each year with the other parent.
-  
-  209 divided by 365 nights in a year is .57, or 57% of overnights with you.
-  
-  156 divided by 365 nights in a year is .43, or 43% of overnights with the other parent
-
-    2. Use the percentages to fill out the <strong>Child Support Guidelines Affidavit</strong>, [<strong><a href="https://public.courts.alaska.gov/web/forms/docs/dr-305.pdf">DR-305</a></strong>]. Read [How to Fill out the Child Support Guidelines Affidavit](https://courts.alaska.gov/shc/family/docs/shc-dr305f-sample.pdf) to help you fill out this form.
-    3. The <strong>Child Support Guidelines Affidavit</strong> tells you the new child support amount for a If your children have a <strong>primary custody child support</strong> schedule. A primary custody child support schedule is when the children spend 256 or more overnights with one parent. If you do not have a primary custody child support schedule, use one of these forms:
-    <ul>
-  <li><strong>Shared Custody Support Calculation, [DR-306]</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-306.pdf">Fill-In PDF</a>]<br>
-  Use this if the children spend at least 110 overnights with each parent.</li>
-  <li><strong>Hybrid Custody Child Support Calculation, [DR-308]</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-308.pdf">PDF</a>] Use this if both parents have shared custody of 1 or more children and 1 or both parents have primary custody of 1 or more children.</li>
-  <li><strong>Divided Custody Child Support Calculation, [DR-307]</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-307.pdf">PDF</a>] Use this if both parents have primary physical custody of one or more children and neither parent has shared custody of any children.</li>
-  </ul>
----
 template: compare_child_support_step
 subject: |
   Step ${ compare_child_support_idx }: Compare the new calculation with the current amount
@@ -528,25 +467,6 @@ content: |
   <div class='step-subheading'>Read</div>
     * <strong>Instructions for Uncontested Modifications, SHC-1505</strong> [Word](https://courts.alaska.gov/shc/family/docs/shc-1505.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1505n.pdf)
     * [How to Fill out the Child Support Guidelines Affidavit](https://courts.alaska.gov/shc/family/docs/shc-dr305f-sample.pdf)
----
-template: parents_agree_resources_step
-subject: |
-  Step ${ parents_agree_resources_idx }: Find out if you can agree with the other parent
-content: |
-  If you want a change to your child support order, you can ask the other parent to see if they agree.
-  
-  If both of you want to reach an agreement you can try:
-  
-    *	Talking to each other.
-    *	Mediation. 
-    *	Collaborative Law.
-  
-  <div class='step-subheading'>Talking to each other</div>
-  Some parents want to work out an agreement before the judge decides for you. You may be able to talk to each other in person, on-line, or maybe a friend or family member can help.
-  <div class='step-subheading'>Mediation</div>
-  
-  <div class='step-subheading'>Collaborative Law</div>
-
 ---
 template: parents_agree_step
 subject: |
@@ -776,44 +696,4 @@ content: |
   [Enforcing Your Order](https://courts.alaska.gov/shc/family/shcenforce.htm)
   
   [Collecting money owed to you](https://courts.alaska.gov/shc/family/shcenforce.htm)
----
-#  template: file_step
-#  subject: |
-#    Step ${ file_idx }: File your motion forms    
-#  content: |
-#    ${ file_motion_to_set_aside }
-#    ${ file_motion_to_enforce }
-#    <ol>
-#    <li>Make 2 copies of all the documents you are going to give the court.</li>
-#    <li>Give the original version of your documents to the Court. This is called "filing" your  documents. You can:
-#      <ul>
-#        <li>Deliver the documents to the court yourself.</li>
-#        <li>Mail the document by first-class mail.</li>
-#        <li>Use the Court's <a href="https://courts.alaska.gov/efile/">TrueFile  eFiling system</a> to send the documents to the court electronically.</li>
-#      </ul>
-#    </li>
-#    ${ file_modify_filing_fee }
-#    <li>Keep 1 copy for your own records.</li>
-#    <li>Give the 2nd copy to ${ other_party_in_case } on the date and way you wrote on your <strong>Certificate of Service</strong>.<br>
-#    Read Step ${ serve_motion_idx }: Serve ${ other_party_in_case }.</li>
-#    </ol>
-#  ---
-#  template: expect_after_modify_step
-#  subject: |
-#    Step ${ expect_after_modify_idx }: What to expect after you file a motion to modify
-#  content: |
-#    Same as what to expect after you file - just heading is different.
-#  ---
-#  template: cert_of_service_step
-#  subject: |
-#    Step ${ cert_of_service_idx }: Fill out the Certificate of Service
-#  content: |
-#    % for image_data in images_list:
-#    ${ image_data['image'].show(width='100%') }
-#    
-#    ${  image_data['text'] }
-#    % endfor
-#    
-#    below is old way to call image
-#    ${ service_cert_image.show(width='100%') }
 ---
