@@ -60,7 +60,7 @@ code: |
   al_form_type = "other" 
 ---
 comment: |
-  For Guided Assistants avoid asking for personal information - like user name and role
+  For Court Guide Action Plans avoid asking for personal information - like user name and role
 objects:
   #  - users: ALPeopleList.using(ask_number=True,target_number=1)
   - users: ALPeopleList.using(there_are_any=False)
@@ -248,7 +248,7 @@ id: changing child support guided assistant
 question: |
   Changing Child Support Orders
 subquestion: |
-  This Guided Assistant asks you questions and uses your answers to build a Personal Action Plan - a list of steps to help you with changing or enforcing child support in Alaska. 
+  This Court Guide Action Plan asks you questions and uses your answers to build a Personal Action Plan - a list of steps to help you with changing or enforcing child support in Alaska. 
 fields:  
   - "What do you want to do?": user_need
     label above field: True
@@ -334,7 +334,7 @@ question: |
 subquestion: |     
   When your parenting schedule changes and you want to change child support to match the new schedule, you need to change **both** your parenting plan order and your child support order.
   
-  Use a different Guided Assistant Interview - [Changing a Custody Order](https://www.legalnav.org/guided_assistant/changing-a-custody-order/?location=alaska) - to get your Personal Action Plan for changing child support and your parenting plan order.
+  Use a different Court Guide Action Plan - [Changing a Custody Order](https://docassemble.akcourts.gov/start/ChangingChildCustody) - to get your Personal Action Plan for changing child support and your parenting plan order.
 continue button field: schedule_change
 ---
 id: Do parents agree?

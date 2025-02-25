@@ -13,7 +13,7 @@ subject: |
   #### Your Personal Action Plan for changing your child support order in ${ len(step_list) } steps
   % endif
 content: |
-  Thank you for using Alaska Court System Access to Justice Guided Assistant
+  Thank you for using this Court Guide Action Plan.
 
   Your Action Plan is attached.
 ---
@@ -402,18 +402,15 @@ content: |
   % endif
   <li><a href="https://childsupport.alaska.gov/child-support-services">Home page</a></li>
   </ul>
-  <div class='step-subheading'>Contact your local court</div>
-  <p>Contact <a href="https://courts.alaska.gov/courtdir/index.htm">your local court</a> or look on <a href="https://records.courts.alaska.gov/eaccess/home.page.2">CourtView</a> to see if the court issued your child support order.</p>  
-  % if  user_need == 'enforce AK order':
+  <div class='step-subheading'>Contact the court</div>
+  <p>Contact <a href="https://courts.alaska.gov/courtdir/index.htm">your local court</a> or look on <a href="https://records.courts.alaska.gov/eaccess/home.page.2">CourtView</a> to see if the court issued your child support order.</p>
   If the court issued your order:
   <ul>
-  <li>Come back and take this Guided Assistant interview again, or</li>
+  <li>Come back and build your <a href = "https://docassemble.akcourts.gov/start/ChangingEnforcingChildSupport/">Court Guide Action Plan</a> again, or</li>
+  % if  user_need == 'enforce AK order':
   <li>Read <a href="https://courts.alaska.gov/shc/family/shcenforce.htm">Enforcing Your Order</a>.</li>
   </ul>
   % elif user_need == 'change AK order':
-  If the court issued your order:
-  <ul>
-  <li>Come back and take this Guided Assistant interview again, or</li>
   <li>Read <a href="https://courts.alaska.gov/shc/family/shcmodify.htm">Modifying Child Custody or Child Support Order</a>.</li>
   </ul>
   <div class='step-subheading'>Changes</div>
@@ -518,7 +515,7 @@ subject: |
 content: |
   If you need to change child support because you have a new schedule that is different than the schedule in your custody order, file a <strong>Motion to Modify Custody and Child Support</strong>.
   
-    * Use the Guided Assistant Interview [Changing Your Custody or Parenting Plan Order](https://docassemble.akcourts.gov/start/ChangingChildCustody) for a Personal Action Plan about changing both child support and your schedule.
+    * Use the Court Guide Action Plan: [Changing Your Custody or Parenting Plan Order](https://docassemble.akcourts.gov/start/ChangingChildCustody) for a Personal Action Plan about changing both child support and your schedule.
     * Read [Modifying Child Custody or Child Support Order](https://courts.alaska.gov/shc/family/shcmodify.htm).
     
   <div class='step-subheading'>The most common reasons to change child support</div> 
