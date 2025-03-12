@@ -8,14 +8,18 @@ generic object: ALDocumentBundle
 template: x.send_email_template
 subject: |
   % if user_need in ('enforce foreign order', 'enforce AK order'):
-  #### Your Personal Action Plan for enforcing your child support order in ${ len(step_list) } steps
+  #### Your Action Plan for enforcing your child support order in ${ len(step_list) } steps
   % else:
-  #### Your Personal Action Plan for changing your child support order in ${ len(step_list) } steps
+  #### Your Action Plan for changing your child support order in ${ len(step_list) } steps
   % endif
 content: |
-  Thank you for using this Court Guide Action Plan.
+  Thank you for using the Alaska Court System’s Court Guide Action Plan.
 
   Your Action Plan is attached.
+
+  Get [more information and a list of all the Court Guide Action Plans](https://ak-courts.info/plans).
+  
+  [ak-courts.info/plans]((https://ak-courts.info/plans).
 ---
 id: final screen
 decoration: pen-to-square
@@ -454,7 +458,7 @@ subject: |
 content: |
   If you need to change child support because you have a new schedule that is different than the schedule in your custody order, file a <strong>Motion to Modify Custody and Child Support</strong>.
   
-    * Use the Court Guide Action Plan: [Changing Your Custody or Parenting Plan Order](https://docassemble.akcourts.gov/start/ChangingChildCustody) for a Personal Action Plan about changing both child support and your schedule.
+    * Use the Court Guide Action Plan: [Changing Your Custody or Parenting Plan Order](https://docassemble.akcourts.gov/start/ChangingChildCustody) to get an Action Plan for changing both child support and your schedule.
     * Read [Modifying Child Custody or Child Support Order](https://courts.alaska.gov/shc/family/shcmodify.htm).
     
   <div class='step-subheading'>The most common reasons to change child support</div> 
