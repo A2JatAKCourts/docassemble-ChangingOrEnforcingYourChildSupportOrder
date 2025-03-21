@@ -2,7 +2,8 @@
 Feature: User paths
 
 @row4
-Scenario: Row #4 schedule change
+Scenario: Row #4
+  # schedule change
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
     | var         | value           | trigger | 
@@ -17,7 +18,8 @@ Scenario: Row #4 schedule change
     And I download "changing_child_support.docx"
 
 @row36
-Scenario: Row #36 schedule change
+Scenario: Row #36
+  # schedule change
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
     | var              | value           | trigger | 

@@ -398,7 +398,8 @@ Scenario: Row #33
     And I download "changing_child_support.docx"
 
 @row34AandR
-Scenario: Row #34 appeal and reconsider
+Scenario: Row #34
+  # appeal and reconsider
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
     | var                              | value           | trigger | 
@@ -426,7 +427,8 @@ Scenario: Row #34 appeal and reconsider
     And I download "changing_child_support.docx"
 
 @row34AandSA
-Scenario: Row #34 appeal and set aside
+Scenario: Row #34a
+  # appeal and set aside
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
     | var                              | value           | trigger | 
@@ -454,7 +456,8 @@ Scenario: Row #34 appeal and set aside
     And I download "changing_child_support.docx"
 
 @row34RandSA
-Scenario: Row #34 reconsider and set aside
+Scenario: Row #34b
+  # reconsider and set aside
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
     | var                              | value           | trigger | 
@@ -484,7 +487,8 @@ Scenario: Row #34 reconsider and set aside
     And I download "changing_child_support.docx"
 
 @row34RAandSA
-Scenario: Row #34 reconsider appeal and set aside
+Scenario: Row #34c
+  # reconsider appeal and set aside
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
     | var                              | value           | trigger | 
@@ -898,7 +902,8 @@ Scenario: Row #66
     And I download "changing_child_support.docx"
 
 @row66aside
-Scenario: Row #66 set aside
+Scenario: Row #66a
+  # set aside
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
     | var                              | value           | trigger | 
@@ -925,7 +930,8 @@ Scenario: Row #66 set aside
     And I download "changing_child_support.docx"
 
 @row66AandR
-Scenario: Row #66 appeal and reconsider
+Scenario: Row #66b
+  # appeal and reconsider
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
     | var                              | value           | trigger | 
@@ -954,7 +960,8 @@ Scenario: Row #66 appeal and reconsider
     And I download "changing_child_support.docx"
 
 @row66AandSA
-Scenario: Row #66 appeal and set aside
+Scenario: Row #66c
+  # appeal and set aside
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
     | var                              | value           | trigger | 
@@ -983,7 +990,8 @@ Scenario: Row #66 appeal and set aside
     And I download "changing_child_support.docx"
 
 @row66RandSA
-Scenario: Row #66 reconsider and set aside
+Scenario: Row #66d
+  # reconsider and set aside
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
     | var                              | value           | trigger | 
@@ -1014,7 +1022,8 @@ Scenario: Row #66 reconsider and set aside
     And I download "changing_child_support.docx"
 
 @row66RAandSA
-Scenario: Row #66 reconsider appeal and set aside
+Scenario: Row #66e
+  # reconsider appeal and set aside
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
     | var                              | value           | trigger | 
