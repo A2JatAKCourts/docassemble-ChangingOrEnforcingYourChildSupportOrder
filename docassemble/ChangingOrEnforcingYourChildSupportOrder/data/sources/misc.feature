@@ -8,7 +8,7 @@ Scenario: Row #35 CSED ordered
     | user_need   | change AK order |         | 
     | who_ordered | cssd            |         | 
     And I take a screenshot
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 2 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 2 steps"
     And I should see the phrase "Ask CSED to change your child support"
     And I should see the phrase "Get more information or help"
     And I take a screenshot

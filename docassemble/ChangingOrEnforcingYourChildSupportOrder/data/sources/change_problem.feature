@@ -12,7 +12,7 @@ Scenario: Row #17
     | why_change         | problem         |         | 
     | middle_of_case     | True            |         | 
     | interim_order_date | today - 2       |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about Motions to Reconsider"
     And I should see the phrase "Fill out the Motion to Reconsider forms"
     And I should see the phrase "Fill out the Certificate of Service"
@@ -33,9 +33,9 @@ Scenario: Row #18
     | who_ordered        | court           |         | 
     | why_change         | problem         |         | 
     | middle_of_case     | True            |         | 
-    | interim_order_date | today - 11      |         | 
+    | interim_order_date | today - 12      |         | 
 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 10 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 10 steps"
     And I should see the phrase "Learn about motions to modify"
     And I should see the phrase "Calculate your new child support amount"
     And I should see the phrase "Compare the new calculation with the current amount"
@@ -61,7 +61,7 @@ Scenario: Row #19
     | middle_of_case           | True            |         | 
     | interim_order_period     | True            |         | 
     | guess_interim_order_date | within 10 days  |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about Motions to Reconsider"
     And I should see the phrase "Fill out the Motion to Reconsider forms"
     And I should see the phrase "Fill out the Certificate of Service"
@@ -84,7 +84,7 @@ Scenario: Row #20
     | middle_of_case           | True              |         | 
     | interim_order_period     | True              |         | 
     | guess_interim_order_date | more than 10 days |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 10 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 10 steps"
     And I should see the phrase "Learn about motions to modify"
     And I should see the phrase "Calculate your new child support amount"
     And I should see the phrase "Compare the new calculation with the current amount"
@@ -111,7 +111,7 @@ Scenario: Row #21
     | interim_order_period     | True            |         | 
     | guess_interim_order_date | unknown         |         | 
     | unknown_interim_date     | reconsider      |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about Motions to Reconsider"
     And I should see the phrase "Fill out the Motion to Reconsider forms"
     And I should see the phrase "Fill out the Certificate of Service"
@@ -135,7 +135,7 @@ Scenario: Row #22
     | interim_order_period     | True            |         | 
     | guess_interim_order_date | unknown         |         | 
     | unknown_interim_date     | modify          |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 10 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 10 steps"
     And I should see the phrase "Learn about motions to modify"
     And I should see the phrase "Calculate your new child support amount"
     And I should see the phrase "Compare the new calculation with the current amount"
@@ -162,7 +162,7 @@ Scenario: Row #23
     | interim_order_period     | True            |         | 
     | guess_interim_order_date | unknown         |         | 
     | unknown_interim_date     | both            |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 14 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 14 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Learn about Motions to Reconsider"
     And I should see the phrase "Fill out the Motion to Reconsider forms"
@@ -191,7 +191,7 @@ Scenario: Row #25
     | why_change       | problem         |         | 
     | middle_of_case   | False           |         | 
     | final_order_date | today - 2       |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 9 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 9 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Decide if you want to file an appeal"
     And I should see the phrase "Learn about Motions to Reconsider"
@@ -214,8 +214,8 @@ Scenario: Row #26
     | who_ordered      | court           |         | 
     | why_change       | problem         |         | 
     | middle_of_case   | False           |         | 
-    | final_order_date | today - 11      |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 9 steps"
+    | final_order_date | today - 12      |         | 
+    And I should see the phrase "Your Action Plan for changing your child support order in 9 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Decide if you want to file an appeal"
     And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
@@ -238,8 +238,8 @@ Scenario: Row #27
     | who_ordered      | court           |         | 
     | why_change       | problem         |         | 
     | middle_of_case   | False           |         | 
-    | final_order_date | today - 31      |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
+    | final_order_date | today - 32      |         | 
+    And I should see the phrase "Your Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
     And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"
     And I should see the phrase "Fill out the Certificate of Service"
@@ -262,7 +262,7 @@ Scenario: Row #28
     | middle_of_case         | False           |         | 
     | final_order_period     | True            |         | 
     | guess_final_order_date | within 10 days  |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 9 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 9 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Decide if you want to file an appeal"
     And I should see the phrase "Learn about Motions to Reconsider"
@@ -287,7 +287,7 @@ Scenario: Row #29
     | middle_of_case         | False             |         | 
     | final_order_period     | True              |         | 
     | guess_final_order_date | between 11 and 30 |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 9 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 9 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Decide if you want to file an appeal"
     And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
@@ -312,7 +312,7 @@ Scenario: Row #30
     | middle_of_case         | False           |         | 
     | final_order_period     | True            |         | 
     | guess_final_order_date | more than 30    |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
     And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"
     And I should see the phrase "Fill out the Certificate of Service"
@@ -338,7 +338,7 @@ Scenario: Row #31
     | unknown_final_date['reconsider'] | True            |         | 
     | unknown_final_date['appeal']     | False           |         | 
     | unknown_final_date['set aside']  | False           |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about Motions to Reconsider"
     And I should see the phrase "Fill out the Motion to Reconsider forms"
     And I should see the phrase "Fill out the Certificate of Service"
@@ -364,7 +364,7 @@ Scenario: Row #32
     | unknown_final_date['appeal']     | True            |         | 
     | unknown_final_date['reconsider'] | False           |         | 
     | unknown_final_date['set aside']  | False           |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 2 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 2 steps"
     And I should see the phrase "Decide if you want to file an appeal"
     And I should see the phrase "Get more information or help"
     And I take a screenshot
@@ -385,7 +385,7 @@ Scenario: Row #33
     | unknown_final_date['appeal']     | False           |         | 
     | unknown_final_date['reconsider'] | False           |         | 
     | unknown_final_date['set aside']  | True            |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
     And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"
     And I should see the phrase "Fill out the Certificate of Service"
@@ -398,7 +398,8 @@ Scenario: Row #33
     And I download "changing_child_support.docx"
 
 @row34AandR
-Scenario: Row #34 appeal and reconsider
+Scenario: Row #34
+  # appeal and reconsider
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
     | var                              | value           | trigger | 
@@ -411,7 +412,7 @@ Scenario: Row #34 appeal and reconsider
     | unknown_final_date['appeal']     | True            |         | 
     | unknown_final_date['reconsider'] | True            |         | 
     | unknown_final_date['set aside']  | False           |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 9 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 9 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Decide if you want to file an appeal"
     And I should see the phrase "Learn about Motions to Reconsider"
@@ -426,7 +427,8 @@ Scenario: Row #34 appeal and reconsider
     And I download "changing_child_support.docx"
 
 @row34AandSA
-Scenario: Row #34 appeal and set aside
+Scenario: Row #34a
+  # appeal and set aside
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
     | var                              | value           | trigger | 
@@ -439,7 +441,7 @@ Scenario: Row #34 appeal and set aside
     | unknown_final_date['reconsider'] | False           |         | 
     | unknown_final_date['appeal']     | True            |         | 
     | unknown_final_date['set aside']  | True            |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 9 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 9 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Decide if you want to file an appeal"
     And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
@@ -454,7 +456,8 @@ Scenario: Row #34 appeal and set aside
     And I download "changing_child_support.docx"
 
 @row34RandSA
-Scenario: Row #34 reconsider and set aside
+Scenario: Row #34b
+  # reconsider and set aside
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
     | var                              | value           | trigger | 
@@ -467,7 +470,7 @@ Scenario: Row #34 reconsider and set aside
     | unknown_final_date['reconsider'] | True            |         | 
     | unknown_final_date['appeal']     | False           |         | 
     | unknown_final_date['set aside']  | True            |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 11 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 11 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Learn about Motions to Reconsider"
     And I should see the phrase "Fill out the Motion to Reconsider forms"
@@ -484,7 +487,8 @@ Scenario: Row #34 reconsider and set aside
     And I download "changing_child_support.docx"
 
 @row34RAandSA
-Scenario: Row #34 reconsider appeal and set aside
+Scenario: Row #34c
+  # reconsider appeal and set aside
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
     | var                              | value           | trigger | 
@@ -497,7 +501,7 @@ Scenario: Row #34 reconsider appeal and set aside
     | unknown_final_date['reconsider'] | True            |         | 
     | unknown_final_date['appeal']     | True            |         | 
     | unknown_final_date['set aside']  | True            |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 12 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 12 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Decide if you want to file an appeal"
     And I should see the phrase "Learn about Motions to Reconsider"
@@ -525,7 +529,7 @@ Scenario: Row #47
     | why_change         | problem         |         | 
     | middle_of_case     | True            |         | 
     | interim_order_date | today - 2       |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about Motions to Reconsider"
     And I should see the phrase "Fill out the Motion to Reconsider forms"
     And I should see the phrase "Fill out the Certificate of Service"
@@ -547,8 +551,8 @@ Scenario: Row #48
     | find_who_ordered   | court           |         | 
     | why_change         | problem         |         | 
     | middle_of_case     | True            |         | 
-    | interim_order_date | today - 11      |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 10 steps"
+    | interim_order_date | today - 12      |         | 
+    And I should see the phrase "Your Action Plan for changing your child support order in 10 steps"
     And I should see the phrase "Learn about motions to modify"
     And I should see the phrase "Calculate your new child support amount"
     And I should see the phrase "Compare the new calculation with the current amount"
@@ -575,7 +579,7 @@ Scenario: Row #49
     | middle_of_case           | True            |         | 
     | interim_order_period     | True            |         | 
     | guess_interim_order_date | within 10 days  |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about Motions to Reconsider"
     And I should see the phrase "Fill out the Motion to Reconsider forms"
     And I should see the phrase "Fill out the Certificate of Service"
@@ -599,7 +603,7 @@ Scenario: Row #50
     | middle_of_case           | True              |         | 
     | interim_order_period     | True              |         | 
     | guess_interim_order_date | more than 10 days |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 10 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 10 steps"
     And I should see the phrase "Learn about motions to modify"
     And I should see the phrase "Calculate your new child support amount"
     And I should see the phrase "Compare the new calculation with the current amount"
@@ -627,7 +631,7 @@ Scenario: Row #53
     | interim_order_period     | True            |         | 
     | guess_interim_order_date | unknown         |         | 
     | unknown_interim_date     | reconsider      |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about Motions to Reconsider"
     And I should see the phrase "Fill out the Motion to Reconsider forms"
     And I should see the phrase "Fill out the Certificate of Service"
@@ -652,7 +656,7 @@ Scenario: Row #54
     | interim_order_period     | True            |         | 
     | guess_interim_order_date | unknown         |         | 
     | unknown_interim_date     | modify          |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 10 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 10 steps"
     And I should see the phrase "Learn about motions to modify"
     And I should see the phrase "Calculate your new child support amount"
     And I should see the phrase "Compare the new calculation with the current amount"
@@ -680,7 +684,7 @@ Scenario: Row #55
     | interim_order_period     | True            |         | 
     | guess_interim_order_date | unknown         |         | 
     | unknown_interim_date     | both            |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 14 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 14 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Learn about Motions to Reconsider"
     And I should see the phrase "Fill out the Motion to Reconsider forms"
@@ -710,7 +714,7 @@ Scenario: Row #58
     | why_change       | problem         |         | 
     | middle_of_case   | False           |         | 
     | final_order_date | today - 2       |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 9 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 9 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Decide if you want to file an appeal"
     And I should see the phrase "Learn about Motions to Reconsider"
@@ -734,8 +738,8 @@ Scenario: Row #59
     | find_who_ordered | court           |         | 
     | why_change       | problem         |         | 
     | middle_of_case   | False           |         | 
-    | final_order_date | today - 11      |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 9 steps"
+    | final_order_date | today - 12      |         | 
+    And I should see the phrase "Your Action Plan for changing your child support order in 9 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Decide if you want to file an appeal"
     And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
@@ -759,8 +763,8 @@ Scenario: Row #60
     | find_who_ordered | court           |         | 
     | why_change       | problem         |         | 
     | middle_of_case   | False           |         | 
-    | final_order_date | today - 31      |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
+    | final_order_date | today - 32      |         | 
+    And I should see the phrase "Your Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
     And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"
     And I should see the phrase "Fill out the Certificate of Service"
@@ -784,7 +788,7 @@ Scenario: Row #62
     | middle_of_case         | False           |         | 
     | final_order_period     | True            |         | 
     | guess_final_order_date | within 10 days  |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 9 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 9 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Decide if you want to file an appeal"
     And I should see the phrase "Learn about Motions to Reconsider"
@@ -810,7 +814,7 @@ Scenario: Row #63
     | middle_of_case         | False             |         | 
     | final_order_period     | True              |         | 
     | guess_final_order_date | between 11 and 30 |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 9 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 9 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Decide if you want to file an appeal"
     And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
@@ -836,7 +840,7 @@ Scenario: Row #64
     | middle_of_case         | False           |         | 
     | final_order_period     | True            |         | 
     | guess_final_order_date | more than 30    |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
     And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"
     And I should see the phrase "Fill out the Certificate of Service"
@@ -863,7 +867,7 @@ Scenario: Row #65
     | unknown_final_date['reconsider'] | True            |         | 
     | unknown_final_date['appeal']     | False           |         | 
     | unknown_final_date['set aside']  | False           |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about Motions to Reconsider"
     And I should see the phrase "Fill out the Motion to Reconsider forms"
     And I should see the phrase "Fill out the Certificate of Service"
@@ -890,7 +894,7 @@ Scenario: Row #66
     | unknown_final_date['appeal']     | True            |         | 
     | unknown_final_date['reconsider'] | False           |         | 
     | unknown_final_date['set aside']  | False           |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 2 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 2 steps"
     And I should see the phrase "Decide if you want to file an appeal"
     And I should see the phrase "Get more information or help"
     And I take a screenshot
@@ -898,7 +902,8 @@ Scenario: Row #66
     And I download "changing_child_support.docx"
 
 @row66aside
-Scenario: Row #66 set aside
+Scenario: Row #66a
+  # set aside
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
     | var                              | value           | trigger | 
@@ -912,7 +917,7 @@ Scenario: Row #66 set aside
     | unknown_final_date['appeal']     | False           |         | 
     | unknown_final_date['reconsider'] | False           |         | 
     | unknown_final_date['set aside']  | True            |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 7 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
     And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"
     And I should see the phrase "Fill out the Certificate of Service"
@@ -925,7 +930,8 @@ Scenario: Row #66 set aside
     And I download "changing_child_support.docx"
 
 @row66AandR
-Scenario: Row #66 appeal and reconsider
+Scenario: Row #66b
+  # appeal and reconsider
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
     | var                              | value           | trigger | 
@@ -939,7 +945,7 @@ Scenario: Row #66 appeal and reconsider
     | unknown_final_date['appeal']     | True            |         | 
     | unknown_final_date['reconsider'] | True            |         | 
     | unknown_final_date['set aside']  | False           |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 9 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 9 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Decide if you want to file an appeal"
     And I should see the phrase "Learn about Motions to Reconsider"
@@ -954,7 +960,8 @@ Scenario: Row #66 appeal and reconsider
     And I download "changing_child_support.docx"
 
 @row66AandSA
-Scenario: Row #66 appeal and set aside
+Scenario: Row #66c
+  # appeal and set aside
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
     | var                              | value           | trigger | 
@@ -968,7 +975,7 @@ Scenario: Row #66 appeal and set aside
     | unknown_final_date['reconsider'] | False           |         | 
     | unknown_final_date['appeal']     | True            |         | 
     | unknown_final_date['set aside']  | True            |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 9 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 9 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Decide if you want to file an appeal"
     And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
@@ -983,7 +990,8 @@ Scenario: Row #66 appeal and set aside
     And I download "changing_child_support.docx"
 
 @row66RandSA
-Scenario: Row #66 reconsider and set aside
+Scenario: Row #66d
+  # reconsider and set aside
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
     | var                              | value           | trigger | 
@@ -997,7 +1005,7 @@ Scenario: Row #66 reconsider and set aside
     | unknown_final_date['reconsider'] | True            |         | 
     | unknown_final_date['appeal']     | False           |         | 
     | unknown_final_date['set aside']  | True            |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 11 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 11 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Learn about Motions to Reconsider"
     And I should see the phrase "Fill out the Motion to Reconsider forms"
@@ -1014,7 +1022,8 @@ Scenario: Row #66 reconsider and set aside
     And I download "changing_child_support.docx"
 
 @row66RAandSA
-Scenario: Row #66 reconsider appeal and set aside
+Scenario: Row #66e
+  # reconsider appeal and set aside
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
     | var                              | value           | trigger | 
@@ -1028,7 +1037,7 @@ Scenario: Row #66 reconsider appeal and set aside
     | unknown_final_date['reconsider'] | True            |         | 
     | unknown_final_date['appeal']     | True            |         | 
     | unknown_final_date['set aside']  | True            |         | 
-    And I should see the phrase "Your Personal Action Plan for changing your child support order in 12 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 12 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Decide if you want to file an appeal"
     And I should see the phrase "Learn about Motions to Reconsider"

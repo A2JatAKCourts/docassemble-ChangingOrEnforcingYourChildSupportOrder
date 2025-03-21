@@ -9,7 +9,7 @@ Scenario: Row #69
     | user_need    | enforce AK order |         | 
     | who_ordered  | court            |         | 
     | cssd_collect | yes              |         | 
-    And I should see the phrase "Your Personal Action Plan for enforcing your child support order in 7 steps"
+    And I should see the phrase "Your Action Plan for enforcing your child support order in 7 steps"
     And I should see the phrase "Ask CSED to enforce your order"
     And I should see the phrase "Talk to the other parent"
     And I should see the phrase "Ask the court to enforce your order"
@@ -29,7 +29,7 @@ Scenario: Row #70
     | user_need    | enforce AK order |         | 
     | who_ordered  | court            |         | 
     | cssd_collect | no               |         | 
-    And I should see the phrase "Your Personal Action Plan for enforcing your child support order in 7 steps"
+    And I should see the phrase "Your Action Plan for enforcing your child support order in 7 steps"
     And I should see the phrase "Ask CSED to enforce your order"
     And I should see the phrase "Talk to the other parent"
     And I should see the phrase "Ask the court to enforce your order"
@@ -49,7 +49,7 @@ Scenario: Row #71
     | user_need    | enforce AK order |         | 
     | who_ordered  | court            |         | 
     | cssd_collect | unknown          |         | 
-    And I should see the phrase "Your Personal Action Plan for enforcing your child support order in 7 steps"
+    And I should see the phrase "Your Action Plan for enforcing your child support order in 7 steps"
     And I should see the phrase "Ask CSED to enforce your order"
     And I should see the phrase "Talk to the other parent"
     And I should see the phrase "Ask the court to enforce your order"
@@ -68,7 +68,7 @@ Scenario: Row #72
     | var         | value            | trigger | 
     | user_need   | enforce AK order |         | 
     | who_ordered | cssd             |         | 
-    And I should see the phrase "Your Personal Action Plan for enforcing your child support order in 7 steps"
+    And I should see the phrase "Your Action Plan for enforcing your child support order in 7 steps"
     And I should see the phrase "Ask CSED to enforce your order"
     And I should see the phrase "Talk to the other parent"
     And I should see the phrase "Ask the court to enforce your order"
@@ -89,7 +89,7 @@ Scenario: Row #73
     | who_ordered      | unknown          |         | 
     | find_who_ordered | court            |         | 
     | cssd_collect     | yes              |         | 
-    And I should see the phrase "Your Personal Action Plan for enforcing your child support order in 7 steps"
+    And I should see the phrase "Your Action Plan for enforcing your child support order in 7 steps"
     And I should see the phrase "Ask CSED to enforce your order"
     And I should see the phrase "Talk to the other parent"
     And I should see the phrase "Ask the court to enforce your order"
@@ -110,7 +110,7 @@ Scenario: Row #74
     | who_ordered      | unknown          |         | 
     | find_who_ordered | court            |         | 
     | cssd_collect     | no               |         | 
-    And I should see the phrase "Your Personal Action Plan for enforcing your child support order in 7 steps"
+    And I should see the phrase "Your Action Plan for enforcing your child support order in 7 steps"
     And I should see the phrase "Ask CSED to enforce your order"
     And I should see the phrase "Talk to the other parent"
     And I should see the phrase "Ask the court to enforce your order"
@@ -131,7 +131,7 @@ Scenario: Row #75
     | who_ordered      | unknown          |         | 
     | find_who_ordered | court            |         | 
     | cssd_collect     | unknown          |         | 
-    And I should see the phrase "Your Personal Action Plan for enforcing your child support order in 7 steps"
+    And I should see the phrase "Your Action Plan for enforcing your child support order in 7 steps"
     And I should see the phrase "Ask CSED to enforce your order"
     And I should see the phrase "Talk to the other parent"
     And I should see the phrase "Ask the court to enforce your order"
@@ -151,7 +151,7 @@ Scenario: Row #76
     | user_need        | enforce AK order |         | 
     | who_ordered      | unknown          |         | 
     | find_who_ordered | cssd             |         | 
-    And I should see the phrase "Your Personal Action Plan for enforcing your child support order in 7 steps"
+    And I should see the phrase "Your Action Plan for enforcing your child support order in 7 steps"
     And I should see the phrase "Ask CSED to enforce your order"
     And I should see the phrase "Talk to the other parent"
     And I should see the phrase "Ask the court to enforce your order"
@@ -171,7 +171,7 @@ Scenario: Row #77
     | user_need        | enforce AK order |         | 
     | who_ordered      | unknown          |         | 
     | find_who_ordered | unknown          |         | 
-    And I should see the phrase "Your Personal Action Plan for enforcing your child support order in 8 steps"
+    And I should see the phrase "Your Action Plan for enforcing your child support order in 8 steps"
     And I should see the phrase "Find out who issued your child support order"
     And I should see the phrase "Ask CSED to enforce your order"
     And I should see the phrase "Talk to the other parent"
