@@ -33,7 +33,7 @@ Scenario: Row #18
     | who_ordered        | court           |         | 
     | why_change         | problem         |         | 
     | middle_of_case     | True            |         | 
-    | interim_order_date | today - 11      |         | 
+    | interim_order_date | today - 12      |         | 
 
     And I should see the phrase "Your Action Plan for changing your child support order in 10 steps"
     And I should see the phrase "Learn about motions to modify"
@@ -214,7 +214,7 @@ Scenario: Row #26
     | who_ordered      | court           |         | 
     | why_change       | problem         |         | 
     | middle_of_case   | False           |         | 
-    | final_order_date | today - 11      |         | 
+    | final_order_date | today - 12      |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 9 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Decide if you want to file an appeal"
@@ -238,7 +238,7 @@ Scenario: Row #27
     | who_ordered      | court           |         | 
     | why_change       | problem         |         | 
     | middle_of_case   | False           |         | 
-    | final_order_date | today - 31      |         | 
+    | final_order_date | today - 32      |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
     And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"
@@ -547,7 +547,7 @@ Scenario: Row #48
     | find_who_ordered   | court           |         | 
     | why_change         | problem         |         | 
     | middle_of_case     | True            |         | 
-    | interim_order_date | today - 11      |         | 
+    | interim_order_date | today - 12      |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 10 steps"
     And I should see the phrase "Learn about motions to modify"
     And I should see the phrase "Calculate your new child support amount"
@@ -734,7 +734,7 @@ Scenario: Row #59
     | find_who_ordered | court           |         | 
     | why_change       | problem         |         | 
     | middle_of_case   | False           |         | 
-    | final_order_date | today - 11      |         | 
+    | final_order_date | today - 12      |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 9 steps"
     And I should see the phrase "Decide the steps you want to take"
     And I should see the phrase "Decide if you want to file an appeal"
@@ -759,7 +759,7 @@ Scenario: Row #60
     | find_who_ordered | court           |         | 
     | why_change       | problem         |         | 
     | middle_of_case   | False           |         | 
-    | final_order_date | today - 31      |         | 
+    | final_order_date | today - 32      |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 7 steps"
     And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
     And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"

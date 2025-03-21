@@ -28,9 +28,9 @@ question: |
   # <i class="fa-thin fa-list"></i>Your Personal Action Plan is ready!
 subquestion: |
   % if user_need in ('enforce foreign order', 'enforce AK order'):
-  #### Your Personal Action Plan for enforcing your child support order in ${ len(step_list) } steps
+  #### Your Action Plan for enforcing your child support order in ${ len(step_list) } steps
   % else:
-  #### Your Personal Action Plan for changing your child support order in ${ len(step_list) } steps
+  #### Your Action Plan for changing your child support order in ${ len(step_list) } steps
   % endif
  
   % if get_config("debug", False):
@@ -54,6 +54,18 @@ subquestion: |
    
 buttons:
   - Start over: restart
+script: |
+  <script>
+  let expander = $("#akc_expand_all")
+  expander.on("click", function () {
+   Array.from(document.querySelectorAll('.al_collapse_template .collapse')).forEach((elem) => { elem.className += " show" })
+  })
+  
+  let collapser = $("#akc_collapse_all")
+  collapser.on("click", function () {
+      Array.from(document.querySelectorAll('.al_collapse_template .collapse')).forEach((elem) => { elem.className = elem.className.replace(" show", "" ) })
+  })
+  </script>
 ---
 code: |
   step_list = []

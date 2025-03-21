@@ -122,7 +122,7 @@ Scenario: Row #8
     | why_change         | income          |         | 
     | parents_agree      | False           |         | 
     | middle_of_case     | True            |         | 
-    | interim_order_date | today - 11      |         | 
+    | interim_order_date | today - 12      |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 10 steps"
     And I should see the phrase "Learn about motions to modify"
     And I should see the phrase "Calculate your new child support amount"
@@ -149,7 +149,7 @@ Scenario: Row #39
     | why_change         | income          |         | 
     | parents_agree      | False           |         | 
     | middle_of_case     | True            |         | 
-    | interim_order_date | today - 11      |         | 
+    | interim_order_date | today - 12     |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 10 steps"
     And I should see the phrase "Learn about motions to modify"
     And I should see the phrase "Calculate your new child support amount"
