@@ -489,7 +489,7 @@ content: |
     * Your income or the other parent's income changes.
 
   % if not middle_of_case:
-  The court charges $75 to file this motion. If you cannot afford the fee, you may be able to get the court to waive it. See Step ${ file_motion_idx }, Pay the $75 fee, and file your Motion to Modify. 
+  The court charges $75 to file this motion. If you cannot afford the fee, you may be able to get the court to waive it. See ${ truefiling_file_and_serve_step.subject }. 
   % endif
 ---
 template: compare_child_support_step

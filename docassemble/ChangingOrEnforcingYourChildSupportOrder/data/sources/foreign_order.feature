@@ -1,6 +1,6 @@
 @foreignorders
 Feature: User paths
-# 2026-07-26
+# 2026-07-27
 
 @row1
 Scenario: Row #1 
@@ -37,7 +37,7 @@ Scenario: Row #2
     And I should see the phrase "Step 3: Talk to the other parent"
     And I should see the phrase "Step 4: Ask the court to enforce your order"
     And I should see the phrase "Step 5: Sign if you use paper forms or do not use TrueFiling"
-    And I should see the phrase "Step 6: File your motion forms"
+    And I should see the phrase "Step 6: File your documents"
     And I should see the phrase "Step 7: Serve the other parent"
     And I should see the phrase "Step 8: Get more information or help"  
     And I take a screenshot
