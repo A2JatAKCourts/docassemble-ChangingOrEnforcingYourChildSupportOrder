@@ -1,22 +1,27 @@
 @enforceAKorder
 Feature: User paths
+# 2026-07-26
 
 @row69
 Scenario: Row #69
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
-    | var          | value            | trigger | 
-    | user_need    | enforce AK order |         | 
-    | who_ordered  | court            |         | 
-    | cssd_collect | yes              |         | 
-    And I should see the phrase "Your Action Plan for enforcing your child support order in 7 steps"
-    And I should see the phrase "Ask CSED to enforce your order"
-    And I should see the phrase "Talk to the other parent"
-    And I should see the phrase "Ask the court to enforce your order"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your motion forms"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "Get more information or help"
+    | var                     | value            | trigger | 
+    | user_need               | enforce AK order |         | 
+    | who_ordered             | court            |         | 
+    | cssd_collect            | yes              |         | 
+    | filling_manner          | electronically   |         | 
+    | filing_method           | efiling          |         | 
+    | other_party_exempt      | yes              |         | 
+    | other_party_enter_email | True             |         | 
+    | ak_patience_assembling  | True             |         | 
+    And I should see the phrase "Your Action Plan for enforcing your child support order in 6 steps"
+    And I should see the phrase "Step 1: Ask CSED to enforce your order"
+    And I should see the phrase "Step 2: Talk to the other parent"
+    And I should see the phrase "Step 3: Ask the court to enforce your order"
+    And I should see the phrase "Step 4: File your motion forms"
+    And I should see the phrase "Step 5: Serve the other parent"
+    And I should see the phrase "Step 6: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -25,18 +30,22 @@ Scenario: Row #69
 Scenario: Row #70
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
-    | var          | value            | trigger | 
-    | user_need    | enforce AK order |         | 
-    | who_ordered  | court            |         | 
-    | cssd_collect | no               |         | 
+    | var                    | value             | trigger | 
+    | user_need              | enforce AK order  |         | 
+    | who_ordered            | court             |         | 
+    | cssd_collect           | no                |         | 
+    | filling_manner         | electronically    |         | 
+    | filing_method          | mail or in person |         | 
+    | other_party_exempt     | no                |         | 
+    | ak_patience_assembling | True              |         | 
     And I should see the phrase "Your Action Plan for enforcing your child support order in 7 steps"
-    And I should see the phrase "Ask CSED to enforce your order"
-    And I should see the phrase "Talk to the other parent"
-    And I should see the phrase "Ask the court to enforce your order"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your motion forms"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Ask CSED to enforce your order"
+    And I should see the phrase "Step 2: Talk to the other parent"
+    And I should see the phrase "Step 3: Ask the court to enforce your order"
+    And I should see the phrase "Step 4: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 5: File your motion forms"
+    And I should see the phrase "Step 6: Serve the other parent"
+    And I should see the phrase "Step 7: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -45,18 +54,22 @@ Scenario: Row #70
 Scenario: Row #71
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
-    | var          | value            | trigger | 
-    | user_need    | enforce AK order |         | 
-    | who_ordered  | court            |         | 
-    | cssd_collect | unknown          |         | 
+    | var                    | value            | trigger | 
+    | user_need              | enforce AK order |         | 
+    | who_ordered            | court            |         | 
+    | cssd_collect           | unknown          |         | 
+    | filling_manner         | electronically   |         | 
+    | filing_method          | dunno            |         | 
+    | other_party_exempt     | none             |         | 
+    | ak_patience_assembling | True             |         | 
     And I should see the phrase "Your Action Plan for enforcing your child support order in 7 steps"
-    And I should see the phrase "Ask CSED to enforce your order"
-    And I should see the phrase "Talk to the other parent"
-    And I should see the phrase "Ask the court to enforce your order"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your motion forms"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Ask CSED to enforce your order"
+    And I should see the phrase "Step 2: Talk to the other parent"
+    And I should see the phrase "Step 3: Ask the court to enforce your order"
+    And I should see the phrase "Step 4: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 5: File your motion forms"
+    And I should see the phrase "Step 6: Serve the other parent"
+    And I should see the phrase "Step 7: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -65,17 +78,22 @@ Scenario: Row #71
 Scenario: Row #72
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
-    | var         | value            | trigger | 
-    | user_need   | enforce AK order |         | 
-    | who_ordered | cssd             |         | 
+    | var                     | value            | trigger | 
+    | user_need               | enforce AK order |         | 
+    | who_ordered             | cssd             |         | 
+    | filling_manner          | paper            |         | 
+    | filing_method           | efiling          |         | 
+    | other_party_exempt      | yes              |         | 
+    | other_party_enter_email | False            |         | 
+    | ak_patience_assembling  | True             |         | 
     And I should see the phrase "Your Action Plan for enforcing your child support order in 7 steps"
-    And I should see the phrase "Ask CSED to enforce your order"
-    And I should see the phrase "Talk to the other parent"
-    And I should see the phrase "Ask the court to enforce your order"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your motion forms"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Ask CSED to enforce your order"
+    And I should see the phrase "Step 2: Talk to the other parent"
+    And I should see the phrase "Step 3: Ask the court to enforce your order"
+    And I should see the phrase "Step 4: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 5: File your motion forms"
+    And I should see the phrase "Step 6: Serve the other parent"
+    And I should see the phrase "Step 7: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -84,19 +102,23 @@ Scenario: Row #72
 Scenario: Row #73
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
-    | var              | value            | trigger | 
-    | user_need        | enforce AK order |         | 
-    | who_ordered      | unknown          |         | 
-    | find_who_ordered | court            |         | 
-    | cssd_collect     | yes              |         | 
+    | var                    | value             | trigger | 
+    | user_need              | enforce AK order  |         | 
+    | who_ordered            | unknown           |         | 
+    | find_who_ordered       | court             |         | 
+    | cssd_collect           | yes               |         | 
+    | filling_manner         | paper             |         | 
+    | filing_method          | mail or in person |         | 
+    | other_party_exempt     | no                |         | 
+    | ak_patience_assembling | True              |         | 
     And I should see the phrase "Your Action Plan for enforcing your child support order in 7 steps"
-    And I should see the phrase "Ask CSED to enforce your order"
-    And I should see the phrase "Talk to the other parent"
-    And I should see the phrase "Ask the court to enforce your order"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your motion forms"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Ask CSED to enforce your order"
+    And I should see the phrase "Step 2: Talk to the other parent"
+    And I should see the phrase "Step 3: Ask the court to enforce your order"
+    And I should see the phrase "Step 4: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 5: File your motion forms"
+    And I should see the phrase "Step 6: Serve the other parent"
+    And I should see the phrase "Step 7: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -105,19 +127,23 @@ Scenario: Row #73
 Scenario: Row #74
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
-    | var              | value            | trigger | 
-    | user_need        | enforce AK order |         | 
-    | who_ordered      | unknown          |         | 
-    | find_who_ordered | court            |         | 
-    | cssd_collect     | no               |         | 
+    | var                    | value            | trigger | 
+    | user_need              | enforce AK order |         | 
+    | who_ordered            | unknown          |         | 
+    | find_who_ordered       | court            |         | 
+    | cssd_collect           | no               |         | 
+    | filling_manner         | paper            |         | 
+    | filing_method          | dunno            |         | 
+    | other_party_exempt     | none             |         | 
+    | ak_patience_assembling | True             |         | 
     And I should see the phrase "Your Action Plan for enforcing your child support order in 7 steps"
-    And I should see the phrase "Ask CSED to enforce your order"
-    And I should see the phrase "Talk to the other parent"
-    And I should see the phrase "Ask the court to enforce your order"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your motion forms"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Ask CSED to enforce your order"
+    And I should see the phrase "Step 2: Talk to the other parent"
+    And I should see the phrase "Step 3: Ask the court to enforce your order"
+    And I should see the phrase "Step 4: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 5: File your motion forms"
+    And I should see the phrase "Step 6: Serve the other parent"
+    And I should see the phrase "Step 7: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -126,19 +152,24 @@ Scenario: Row #74
 Scenario: Row #75
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
-    | var              | value            | trigger | 
-    | user_need        | enforce AK order |         | 
-    | who_ordered      | unknown          |         | 
-    | find_who_ordered | court            |         | 
-    | cssd_collect     | unknown          |         | 
+    | var                     | value            | trigger | 
+    | user_need               | enforce AK order |         | 
+    | who_ordered             | unknown          |         | 
+    | find_who_ordered        | court            |         | 
+    | cssd_collect            | unknown          |         | 
+    | filling_manner          | dunno            |         | 
+    | filing_method           | efiling          |         | 
+    | other_party_exempt      | yes              |         | 
+    | other_party_enter_email | None             |         | 
+    | ak_patience_assembling  | True             |         | 
     And I should see the phrase "Your Action Plan for enforcing your child support order in 7 steps"
-    And I should see the phrase "Ask CSED to enforce your order"
-    And I should see the phrase "Talk to the other parent"
-    And I should see the phrase "Ask the court to enforce your order"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your motion forms"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Ask CSED to enforce your order"
+    And I should see the phrase "Step 2: Talk to the other parent"
+    And I should see the phrase "Step 3: Ask the court to enforce your order"
+    And I should see the phrase "Step 4: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 5: File your motion forms"
+    And I should see the phrase "Step 6: Serve the other parent"
+    And I should see the phrase "Step 7: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -147,18 +178,22 @@ Scenario: Row #75
 Scenario: Row #76
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
-    | var              | value            | trigger | 
-    | user_need        | enforce AK order |         | 
-    | who_ordered      | unknown          |         | 
-    | find_who_ordered | cssd             |         | 
+    | var                    | value             | trigger | 
+    | user_need              | enforce AK order  |         | 
+    | who_ordered            | unknown           |         | 
+    | find_who_ordered       | cssd              |         | 
+    | filling_manner         | dunno             |         | 
+    | filing_method          | mail or in person |         | 
+    | other_party_exempt     | no                |         | 
+    | ak_patience_assembling | True              |         | 
     And I should see the phrase "Your Action Plan for enforcing your child support order in 7 steps"
-    And I should see the phrase "Ask CSED to enforce your order"
-    And I should see the phrase "Talk to the other parent"
-    And I should see the phrase "Ask the court to enforce your order"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your motion forms"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Ask CSED to enforce your order"
+    And I should see the phrase "Step 2: Talk to the other parent"
+    And I should see the phrase "Step 3: Ask the court to enforce your order"
+    And I should see the phrase "Step 4: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 5: File your motion forms"
+    And I should see the phrase "Step 6: Serve the other parent"
+    And I should see the phrase "Step 7: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -167,19 +202,23 @@ Scenario: Row #76
 Scenario: Row #77
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
-    | var              | value            | trigger | 
-    | user_need        | enforce AK order |         | 
-    | who_ordered      | unknown          |         | 
-    | find_who_ordered | unknown          |         | 
+    | var                    | value            | trigger | 
+    | user_need              | enforce AK order |         | 
+    | who_ordered            | unknown          |         | 
+    | find_who_ordered       | unknown          |         | 
+    | filling_manner         | dunno            |         | 
+    | filing_method          | dunno            |         | 
+    | other_party_exempt     | none             |         | 
+    | ak_patience_assembling | True             |         | 
     And I should see the phrase "Your Action Plan for enforcing your child support order in 8 steps"
-    And I should see the phrase "Find out who issued your child support order"
-    And I should see the phrase "Ask CSED to enforce your order"
-    And I should see the phrase "Talk to the other parent"
-    And I should see the phrase "Ask the court to enforce your order"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your motion forms"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Find out who issued your child support order"
+    And I should see the phrase "Step 2: Ask CSED to enforce your order"
+    And I should see the phrase "Step 3: Talk to the other parent"
+    And I should see the phrase "Step 4: Ask the court to enforce your order"
+    And I should see the phrase "Step 5: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 6: File your motion forms"
+    And I should see the phrase "Step 7: Serve the other parent"
+    And I should see the phrase "Step 8: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"

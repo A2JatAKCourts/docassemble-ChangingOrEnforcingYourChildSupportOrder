@@ -1,25 +1,30 @@
 @change_problem
 Feature: User paths
+# 2026-07-26
 
 @row17
 Scenario: Row #17
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
 # And I get to the question id "waiting screen" with this data:
-    | var                | value           | trigger | 
-    | user_need          | change AK order |         | 
-    | who_ordered        | court           |         | 
-    | why_change         | problem         |         | 
-    | middle_of_case     | True            |         | 
-    | interim_order_date | today - 2       |         | 
-    And I should see the phrase "Your Action Plan for changing your child support order in 7 steps"
-    And I should see the phrase "Learn about Motions to Reconsider"
-    And I should see the phrase "Fill out the Motion to Reconsider forms"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Reconsider"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Reconsider"
-    And I should see the phrase "Get more information or help"
+    | var                     | value           | trigger | 
+    | user_need               | change AK order |         | 
+    | who_ordered             | court           |         | 
+    | why_change              | problem         |         | 
+    | middle_of_case          | True            |         | 
+    | interim_order_date      | today - 2       |         | 
+    | filling_manner          | electronically  |         | 
+    | filing_method           | efiling         |         | 
+    | other_party_exempt      | yes             |         | 
+    | other_party_enter_email | True            |         | 
+    | ak_patience_assembling  | True            |         | 
+    And I should see the phrase "Your Action Plan for changing your child support order in 6 steps"
+    And I should see the phrase "Step 1: Learn about Motions for Reconsideration"
+    And I should see the phrase "Step 2: Fill out the Motion for Reconsideration forms"
+    And I should see the phrase "Step 3: File your Motion for Reconsideration"
+    And I should see the phrase "Step 4: Serve the other parent"
+    And I should see the phrase "Step 5: What to expect after you file a Motion for Reconsideration"
+    And I should see the phrase "Step 6: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -28,24 +33,28 @@ Scenario: Row #17
 Scenario: Row #18
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
-    | var                | value           | trigger | 
-    | user_need          | change AK order |         | 
-    | who_ordered        | court           |         | 
-    | why_change         | problem         |         | 
-    | middle_of_case     | True            |         | 
-    | interim_order_date | today - 12      |         | 
+    | var                    | value             | trigger | 
+    | user_need              | change AK order   |         | 
+    | who_ordered            | court             |         | 
+    | why_change             | problem           |         | 
+    | middle_of_case         | True              |         | 
+    | interim_order_date     | today - 12        |         | 
+    | filling_manner         | electronically    |         | 
+    | filing_method          | mail or in person |         | 
+    | other_party_exempt     | no                |         | 
+    | ak_patience_assembling | True              |         | 
 
     And I should see the phrase "Your Action Plan for changing your child support order in 10 steps"
-    And I should see the phrase "Learn about motions to modify"
-    And I should see the phrase "Calculate your new child support amount"
-    And I should see the phrase "Compare the new calculation with the current amount"
-    And I should see the phrase "Do not wait to file your Motion to Modify"
-    And I should see the phrase "Fill out the Motion to Modify forms"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Modify"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Modify"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about motions to modify"
+    And I should see the phrase "Step 2: Calculate your new child support amount"
+    And I should see the phrase "Step 3: Compare the new calculation with the current amount"
+    And I should see the phrase "Step 4: Do not wait to file your Motion to Modify"
+    And I should see the phrase "Step 5: Fill out the Motion to Modify forms"
+    And I should see the phrase "Step 6: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 7: File your Motion to Modify"
+    And I should see the phrase "Step 8: Serve the other parent"
+    And I should see the phrase "Step 9: What to expect after you file a Motion to Modify"
+    And I should see the phrase "Step 10: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -61,14 +70,18 @@ Scenario: Row #19
     | middle_of_case           | True            |         | 
     | interim_order_period     | True            |         | 
     | guess_interim_order_date | within 10 days  |         | 
+    | filling_manner           | electronically  |         | 
+    | filing_method            | dunno           |         | 
+    | other_party_exempt       | none            |         | 
+    | ak_patience_assembling   | True            |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 7 steps"
-    And I should see the phrase "Learn about Motions to Reconsider"
-    And I should see the phrase "Fill out the Motion to Reconsider forms"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Reconsider"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Reconsider"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about Motions for Reconsideration"
+    And I should see the phrase "Step 2: Fill out the Motion for Reconsideration forms"
+    And I should see the phrase "Step 3: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 4: File your Motion for Reconsideration"
+    And I should see the phrase "Step 5: Serve the other parent"
+    And I should see the phrase "Step 6: What to expect after you file a Motion for Reconsideration"
+    And I should see the phrase "Step 7: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -84,17 +97,22 @@ Scenario: Row #20
     | middle_of_case           | True              |         | 
     | interim_order_period     | True              |         | 
     | guess_interim_order_date | more than 10 days |         | 
+    | filling_manner           | paper             |         | 
+    | filing_method            | efiling           |         | 
+    | other_party_exempt       | yes               |         | 
+    | other_party_enter_email  | False             |         | 
+    | ak_patience_assembling   | True              |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 10 steps"
-    And I should see the phrase "Learn about motions to modify"
-    And I should see the phrase "Calculate your new child support amount"
-    And I should see the phrase "Compare the new calculation with the current amount"
-    And I should see the phrase "Do not wait to file your Motion to Modify"
-    And I should see the phrase "Fill out the Motion to Modify forms"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Modify"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Modify"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about motions to modify"
+    And I should see the phrase "Step 2: Calculate your new child support amount"
+    And I should see the phrase "Step 3: Compare the new calculation with the current amount"
+    And I should see the phrase "Step 4: Do not wait to file your Motion to Modify"
+    And I should see the phrase "Step 5: Fill out the Motion to Modify forms"
+    And I should see the phrase "Step 6: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 7: File your Motion to Modify"
+    And I should see the phrase "Step 8: Serve the other parent"
+    And I should see the phrase "Step 9: What to expect after you file a Motion to Modify"
+    And I should see the phrase "Step 10: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -103,22 +121,26 @@ Scenario: Row #20
 Scenario: Row #21
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
-    | var                      | value           | trigger | 
-    | user_need                | change AK order |         | 
-    | who_ordered              | court           |         | 
-    | why_change               | problem         |         | 
-    | middle_of_case           | True            |         | 
-    | interim_order_period     | True            |         | 
-    | guess_interim_order_date | unknown         |         | 
-    | unknown_interim_date     | reconsider      |         | 
+    | var                      | value             | trigger | 
+    | user_need                | change AK order   |         | 
+    | who_ordered              | court             |         | 
+    | why_change               | problem           |         | 
+    | middle_of_case           | True              |         | 
+    | interim_order_period     | True              |         | 
+    | guess_interim_order_date | unknown           |         | 
+    | unknown_interim_date     | reconsider        |         | 
+    | filling_manner           | paper             |         | 
+    | filing_method            | mail or in person |         | 
+    | other_party_exempt       | no                |         | 
+    | ak_patience_assembling   | True              |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 7 steps"
-    And I should see the phrase "Learn about Motions to Reconsider"
-    And I should see the phrase "Fill out the Motion to Reconsider forms"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Reconsider"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Reconsider"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about Motions for Reconsideration"
+    And I should see the phrase "Step 2: Fill out the Motion for Reconsideration forms"
+    And I should see the phrase "Step 3: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 4: File your Motion for Reconsideration"
+    And I should see the phrase "Step 5: Serve the other parent"
+    And I should see the phrase "Step 6: What to expect after you file a Motion for Reconsideration"
+    And I should see the phrase "Step 7: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -135,17 +157,21 @@ Scenario: Row #22
     | interim_order_period     | True            |         | 
     | guess_interim_order_date | unknown         |         | 
     | unknown_interim_date     | modify          |         | 
+    | filling_manner           | paper           |         | 
+    | filing_method            | dunno           |         | 
+    | other_party_exempt       | none            |         | 
+    | ak_patience_assembling   | True            |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 10 steps"
-    And I should see the phrase "Learn about motions to modify"
-    And I should see the phrase "Calculate your new child support amount"
-    And I should see the phrase "Compare the new calculation with the current amount"
-    And I should see the phrase "Do not wait to file your Motion to Modify"
-    And I should see the phrase "Fill out the Motion to Modify forms"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Modify"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Modify"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about motions to modify"
+    And I should see the phrase "Step 2: Calculate your new child support amount"
+    And I should see the phrase "Step 3: Compare the new calculation with the current amount"
+    And I should see the phrase "Step 4: Do not wait to file your Motion to Modify"
+    And I should see the phrase "Step 5: Fill out the Motion to Modify forms"
+    And I should see the phrase "Step 6: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 7: File your Motion to Modify"
+    And I should see the phrase "Step 8: Serve the other parent"
+    And I should see the phrase "Step 9: What to expect after you file a Motion to Modify"
+    And I should see the phrase "Step 10: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -162,21 +188,26 @@ Scenario: Row #23
     | interim_order_period     | True            |         | 
     | guess_interim_order_date | unknown         |         | 
     | unknown_interim_date     | both            |         | 
+    | filling_manner           | dunno           |         | 
+    | filing_method            | efiling         |         | 
+    | other_party_exempt       | yes             |         | 
+    | other_party_enter_email  | None            |         | 
+    | ak_patience_assembling   | True            |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 14 steps"
-    And I should see the phrase "Decide the steps you want to take"
-    And I should see the phrase "Learn about Motions to Reconsider"
-    And I should see the phrase "Fill out the Motion to Reconsider forms"
-    And I should see the phrase "Learn about motions to modify"
-    And I should see the phrase "Calculate your new child support amount"
-    And I should see the phrase "Compare the new calculation with the current amount"
-    And I should see the phrase "Do not wait to file your Motion to Modify"
-    And I should see the phrase "Fill out the Motion to Modify forms"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your motion forms"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Reconsider"
-    And I should see the phrase "What to expect after you file a Motion to Modify"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Decide the steps you want to take"
+    And I should see the phrase "Step 2: Learn about Motions for Reconsideration"
+    And I should see the phrase "Step 3: Fill out the Motion for Reconsideration forms"
+    And I should see the phrase "Step 4: Learn about motions to modify"
+    And I should see the phrase "Step 5: Calculate your new child support amount"
+    And I should see the phrase "Step 6: Compare the new calculation with the current amount"
+    And I should see the phrase "Step 7: Do not wait to file your Motion to Modify"
+    And I should see the phrase "Step 8: Fill out the Motion to Modify forms"
+    And I should see the phrase "Step 9: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 10: File your motion forms"
+    And I should see the phrase "Step 11: Serve the other parent"
+    And I should see the phrase "Step 12: What to expect after you file a Motion for Reconsideration"
+    And I should see the phrase "Step 13: What to expect after you file a Motion to Modify"
+    And I should see the phrase "Step 14: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -185,22 +216,26 @@ Scenario: Row #23
 Scenario: Row #25
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
-    | var              | value           | trigger | 
-    | user_need        | change AK order |         | 
-    | who_ordered      | court           |         | 
-    | why_change       | problem         |         | 
-    | middle_of_case   | False           |         | 
-    | final_order_date | today - 2       |         | 
+    | var                    | value             | trigger | 
+    | user_need              | change AK order   |         | 
+    | who_ordered            | court             |         | 
+    | why_change             | problem           |         | 
+    | middle_of_case         | False             |         | 
+    | final_order_date       | today - 2         |         | 
+    | filling_manner         | dunno             |         | 
+    | filing_method          | mail or in person |         | 
+    | other_party_exempt     | no                |         | 
+    | ak_patience_assembling | True              |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 9 steps"
-    And I should see the phrase "Decide the steps you want to take"
-    And I should see the phrase "Decide if you want to file an appeal"
-    And I should see the phrase "Learn about Motions to Reconsider"
-    And I should see the phrase "Fill out the Motion to Reconsider forms"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Reconsider"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Reconsider"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Decide the steps you want to take"
+    And I should see the phrase "Step 2: Decide if you want to file an appeal"
+    And I should see the phrase "Step 3: Learn about Motions for Reconsideration"
+    And I should see the phrase "Step 4: Fill out the Motion for Reconsideration forms"
+    And I should see the phrase "Step 5: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 6: File your Motion for Reconsideration"
+    And I should see the phrase "Step 7: Serve the other parent"
+    And I should see the phrase "Step 8: What to expect after you file a Motion for Reconsideration"
+    And I should see the phrase "Step 9: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -209,22 +244,26 @@ Scenario: Row #25
 Scenario: Row #26
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
-    | var              | value           | trigger | 
-    | user_need        | change AK order |         | 
-    | who_ordered      | court           |         | 
-    | why_change       | problem         |         | 
-    | middle_of_case   | False           |         | 
-    | final_order_date | today - 12      |         | 
+    | var                    | value           | trigger | 
+    | user_need              | change AK order |         | 
+    | who_ordered            | court           |         | 
+    | why_change             | problem         |         | 
+    | middle_of_case         | False           |         | 
+    | final_order_date       | today - 12      |         | 
+    | filling_manner         | dunno           |         | 
+    | filing_method          | dunno           |         | 
+    | other_party_exempt     | none            |         | 
+    | ak_patience_assembling | True            |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 9 steps"
-    And I should see the phrase "Decide the steps you want to take"
-    And I should see the phrase "Decide if you want to file an appeal"
-    And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
-    And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Set Aside"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Set Aside"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Decide the steps you want to take"
+    And I should see the phrase "Step 2: Decide if you want to file an appeal"
+    And I should see the phrase "Step 3: Learn about the Motion to Set Aside Judgment or Order"
+    And I should see the phrase "Step 4: Fill out forms if you want to file a Motion to Set Aside"
+    And I should see the phrase "Step 5: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 6: File your Motion to Set Aside"
+    And I should see the phrase "Step 7: Serve the other parent"
+    And I should see the phrase "Step 8: What to expect after you file a Motion to Set Aside"
+    And I should see the phrase "Step 9: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -233,20 +272,24 @@ Scenario: Row #26
 Scenario: Row #27
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
-    | var              | value           | trigger | 
-    | user_need        | change AK order |         | 
-    | who_ordered      | court           |         | 
-    | why_change       | problem         |         | 
-    | middle_of_case   | False           |         | 
-    | final_order_date | today - 32      |         | 
-    And I should see the phrase "Your Action Plan for changing your child support order in 7 steps"
-    And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
-    And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Set Aside"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Set Aside"
-    And I should see the phrase "Get more information or help"
+    | var                     | value           | trigger | 
+    | user_need               | change AK order |         | 
+    | who_ordered             | court           |         | 
+    | why_change              | problem         |         | 
+    | middle_of_case          | False           |         | 
+    | final_order_date        | today - 32      |         | 
+    | filling_manner          | electronically  |         | 
+    | filing_method           | efiling         |         | 
+    | other_party_exempt      | yes             |         | 
+    | other_party_enter_email | True            |         | 
+    | ak_patience_assembling  | True            |         | 
+    And I should see the phrase "Your Action Plan for changing your child support order in 6 steps"
+    And I should see the phrase "Step 1: Learn about the Motion to Set Aside Judgment or Order"
+    And I should see the phrase "Step 2: Fill out forms if you want to file a Motion to Set Aside"
+    And I should see the phrase "Step 3: File your Motion to Set Aside"
+    And I should see the phrase "Step 4: Serve the other parent"
+    And I should see the phrase "Step 5: What to expect after you file a Motion to Set Aside"
+    And I should see the phrase "Step 6: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -255,23 +298,27 @@ Scenario: Row #27
 Scenario: Row #28
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
-    | var                    | value           | trigger | 
-    | user_need              | change AK order |         | 
-    | who_ordered            | court           |         | 
-    | why_change             | problem         |         | 
-    | middle_of_case         | False           |         | 
-    | final_order_period     | True            |         | 
-    | guess_final_order_date | within 10 days  |         | 
+    | var                    | value             | trigger | 
+    | user_need              | change AK order   |         | 
+    | who_ordered            | court             |         | 
+    | why_change             | problem           |         | 
+    | middle_of_case         | False             |         | 
+    | final_order_period     | True              |         | 
+    | guess_final_order_date | within 10 days    |         | 
+    | filling_manner         | electronically    |         | 
+    | filing_method          | mail or in person |         | 
+    | other_party_exempt     | no                |         | 
+    | ak_patience_assembling | True              |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 9 steps"
-    And I should see the phrase "Decide the steps you want to take"
-    And I should see the phrase "Decide if you want to file an appeal"
-    And I should see the phrase "Learn about Motions to Reconsider"
-    And I should see the phrase "Fill out the Motion to Reconsider forms"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Reconsider"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Reconsider"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Decide the steps you want to take"
+    And I should see the phrase "Step 2: Decide if you want to file an appeal"
+    And I should see the phrase "Step 3: Learn about Motions for Reconsideration"
+    And I should see the phrase "Step 4: Fill out the Motion for Reconsideration forms"
+    And I should see the phrase "Step 5: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 6: File your Motion for Reconsideration"
+    And I should see the phrase "Step 7: Serve the other parent"
+    And I should see the phrase "Step 8: What to expect after you file a Motion for Reconsideration"
+    And I should see the phrase "Step 9: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -287,16 +334,20 @@ Scenario: Row #29
     | middle_of_case         | False             |         | 
     | final_order_period     | True              |         | 
     | guess_final_order_date | between 11 and 30 |         | 
+    | filling_manner         | electronically    |         | 
+    | filing_method          | dunno             |         | 
+    | other_party_exempt     | none              |         | 
+    | ak_patience_assembling | True              |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 9 steps"
-    And I should see the phrase "Decide the steps you want to take"
-    And I should see the phrase "Decide if you want to file an appeal"
-    And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
-    And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Set Aside"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Set Aside"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Decide the steps you want to take"
+    And I should see the phrase "Step 2: Decide if you want to file an appeal"
+    And I should see the phrase "Step 3: Learn about the Motion to Set Aside Judgment or Order"
+    And I should see the phrase "Step 4: Fill out forms if you want to file a Motion to Set Aside"
+    And I should see the phrase "Step 5: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 6: File your Motion to Set Aside"
+    And I should see the phrase "Step 7: Serve the other parent"
+    And I should see the phrase "Step 8: What to expect after you file a Motion to Set Aside"
+    And I should see the phrase "Step 9: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -305,21 +356,26 @@ Scenario: Row #29
 Scenario: Row #30
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
-    | var                    | value           | trigger | 
-    | user_need              | change AK order |         | 
-    | who_ordered            | court           |         | 
-    | why_change             | problem         |         | 
-    | middle_of_case         | False           |         | 
-    | final_order_period     | True            |         | 
-    | guess_final_order_date | more than 30    |         | 
+    | var                     | value           | trigger | 
+    | user_need               | change AK order |         | 
+    | who_ordered             | court           |         | 
+    | why_change              | problem         |         | 
+    | middle_of_case          | False           |         | 
+    | final_order_period      | True            |         | 
+    | guess_final_order_date  | more than 30    |         | 
+    | filling_manner          | paper           |         | 
+    | filing_method           | efiling         |         | 
+    | other_party_exempt      | yes             |         | 
+    | other_party_enter_email | False           |         | 
+    | ak_patience_assembling  | True            |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 7 steps"
-    And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
-    And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Set Aside"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Set Aside"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about the Motion to Set Aside Judgment or Order"
+    And I should see the phrase "Step 2: Fill out forms if you want to file a Motion to Set Aside"
+    And I should see the phrase "Step 3: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 4: File your Motion to Set Aside"
+    And I should see the phrase "Step 5: Serve the other parent"
+    And I should see the phrase "Step 6: What to expect after you file a Motion to Set Aside"
+    And I should see the phrase "Step 7: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -328,24 +384,28 @@ Scenario: Row #30
 Scenario: Row #31
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
-    | var                              | value           | trigger | 
-    | user_need                        | change AK order |         | 
-    | who_ordered                      | court           |         | 
-    | why_change                       | problem         |         | 
-    | middle_of_case                   | False           |         | 
-    | final_order_period               | True            |         | 
-    | guess_final_order_date           | unknown         |         | 
-    | unknown_final_date['reconsider'] | True            |         | 
-    | unknown_final_date['appeal']     | False           |         | 
-    | unknown_final_date['set aside']  | False           |         | 
+    | var                              | value             | trigger | 
+    | user_need                        | change AK order   |         | 
+    | who_ordered                      | court             |         | 
+    | why_change                       | problem           |         | 
+    | middle_of_case                   | False             |         | 
+    | final_order_period               | True              |         | 
+    | guess_final_order_date           | unknown           |         | 
+    | unknown_final_date['reconsider'] | True              |         | 
+    | unknown_final_date['appeal']     | False             |         | 
+    | unknown_final_date['set aside']  | False             |         | 
+    | filling_manner                   | paper             |         | 
+    | filing_method                    | mail or in person |         | 
+    | other_party_exempt               | no                |         | 
+    | ak_patience_assembling           | True              |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 7 steps"
-    And I should see the phrase "Learn about Motions to Reconsider"
-    And I should see the phrase "Fill out the Motion to Reconsider forms"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Reconsider"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Reconsider"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about Motions for Reconsideration"
+    And I should see the phrase "Step 2: Fill out the Motion for Reconsideration forms"
+    And I should see the phrase "Step 3: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 4: File your Motion for Reconsideration"
+    And I should see the phrase "Step 5: Serve the other parent"
+    And I should see the phrase "Step 6: What to expect after you file a Motion for Reconsideration"
+    And I should see the phrase "Step 7: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -364,9 +424,13 @@ Scenario: Row #32
     | unknown_final_date['appeal']     | True            |         | 
     | unknown_final_date['reconsider'] | False           |         | 
     | unknown_final_date['set aside']  | False           |         | 
+    | filling_manner                   | paper           |         | 
+    | filing_method                    | dunno           |         | 
+    | other_party_exempt               | none            |         | 
+    | ak_patience_assembling           | True            |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 2 steps"
-    And I should see the phrase "Decide if you want to file an appeal"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Decide if you want to file an appeal"
+    And I should see the phrase "Step 2: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -385,14 +449,19 @@ Scenario: Row #33
     | unknown_final_date['appeal']     | False           |         | 
     | unknown_final_date['reconsider'] | False           |         | 
     | unknown_final_date['set aside']  | True            |         | 
+    | filling_manner                   | dunno           |         | 
+    | filing_method                    | efiling         |         | 
+    | other_party_exempt               | yes             |         | 
+    | other_party_enter_email          | None            |         | 
+    | ak_patience_assembling           | True            |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 7 steps"
-    And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
-    And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Set Aside"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Set Aside"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about the Motion to Set Aside Judgment or Order"
+    And I should see the phrase "Step 2: Fill out forms if you want to file a Motion to Set Aside"
+    And I should see the phrase "Step 3: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 4: File your Motion to Set Aside"
+    And I should see the phrase "Step 5: Serve the other parent"
+    And I should see the phrase "Step 6: What to expect after you file a Motion to Set Aside"
+    And I should see the phrase "Step 7: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -402,26 +471,30 @@ Scenario: Row #34
   # appeal and reconsider
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
-    | var                              | value           | trigger | 
-    | user_need                        | change AK order |         | 
-    | who_ordered                      | court           |         | 
-    | why_change                       | problem         |         | 
-    | middle_of_case                   | False           |         | 
-    | final_order_period               | True            |         | 
-    | guess_final_order_date           | unknown         |         | 
-    | unknown_final_date['appeal']     | True            |         | 
-    | unknown_final_date['reconsider'] | True            |         | 
-    | unknown_final_date['set aside']  | False           |         | 
+    | var                              | value             | trigger | 
+    | user_need                        | change AK order   |         | 
+    | who_ordered                      | court             |         | 
+    | why_change                       | problem           |         | 
+    | middle_of_case                   | False             |         | 
+    | final_order_period               | True              |         | 
+    | guess_final_order_date           | unknown           |         | 
+    | unknown_final_date['appeal']     | True              |         | 
+    | unknown_final_date['reconsider'] | True              |         | 
+    | unknown_final_date['set aside']  | False             |         | 
+    | filling_manner                   | dunno             |         | 
+    | filing_method                    | mail or in person |         | 
+    | other_party_exempt               | no                |         | 
+    | ak_patience_assembling           | True              |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 9 steps"
-    And I should see the phrase "Decide the steps you want to take"
-    And I should see the phrase "Decide if you want to file an appeal"
-    And I should see the phrase "Learn about Motions to Reconsider"
-    And I should see the phrase "Fill out the Motion to Reconsider forms"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Reconsider"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Reconsider"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Decide the steps you want to take"
+    And I should see the phrase "Step 2: Decide if you want to file an appeal"
+    And I should see the phrase "Step 3: Learn about Motions for Reconsideration"
+    And I should see the phrase "Step 4: Fill out the Motion for Reconsideration forms"
+    And I should see the phrase "Step 5: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 6: File your Motion for Reconsideration"
+    And I should see the phrase "Step 7: Serve the other parent"
+    And I should see the phrase "Step 8: What to expect after you file a Motion for Reconsideration"
+    And I should see the phrase "Step 9: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -441,16 +514,20 @@ Scenario: Row #34a
     | unknown_final_date['reconsider'] | False           |         | 
     | unknown_final_date['appeal']     | True            |         | 
     | unknown_final_date['set aside']  | True            |         | 
+    | filling_manner                   | dunno           |         | 
+    | filing_method                    | dunno           |         | 
+    | other_party_exempt               | none            |         | 
+    | ak_patience_assembling           | True            |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 9 steps"
-    And I should see the phrase "Decide the steps you want to take"
-    And I should see the phrase "Decide if you want to file an appeal"
-    And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
-    And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Set Aside"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Set Aside"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Decide the steps you want to take"
+    And I should see the phrase "Step 2: Decide if you want to file an appeal"
+    And I should see the phrase "Step 3: Learn about the Motion to Set Aside Judgment or Order"
+    And I should see the phrase "Step 4: Fill out forms if you want to file a Motion to Set Aside"
+    And I should see the phrase "Step 5: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 6: File your Motion to Set Aside"
+    And I should see the phrase "Step 7: Serve the other parent"
+    And I should see the phrase "Step 8: What to expect after you file a Motion to Set Aside"
+    And I should see the phrase "Step 9: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -470,18 +547,22 @@ Scenario: Row #34b
     | unknown_final_date['reconsider'] | True            |         | 
     | unknown_final_date['appeal']     | False           |         | 
     | unknown_final_date['set aside']  | True            |         | 
-    And I should see the phrase "Your Action Plan for changing your child support order in 11 steps"
-    And I should see the phrase "Decide the steps you want to take"
-    And I should see the phrase "Learn about Motions to Reconsider"
-    And I should see the phrase "Fill out the Motion to Reconsider forms"
-    And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
-    And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your motion forms"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Reconsider"
-    And I should see the phrase "What to expect after you file a Motion to Set Aside"
-    And I should see the phrase "Get more information or help"
+    | filling_manner                   | electronically  |         | 
+    | filing_method                    | efiling         |         | 
+    | other_party_exempt               | yes             |         | 
+    | other_party_enter_email          | True            |         | 
+    | ak_patience_assembling           | True            |         | 
+    And I should see the phrase "Your Action Plan for changing your child support order in 10 steps"
+    And I should see the phrase "Step 1: Decide the steps you want to take"
+    And I should see the phrase "Step 2: Learn about Motions for Reconsideration"
+    And I should see the phrase "Step 3: Fill out the Motion for Reconsideration forms"
+    And I should see the phrase "Step 4: Learn about the Motion to Set Aside Judgment or Order"
+    And I should see the phrase "Step 5: Fill out forms if you want to file a Motion to Set Aside"
+    And I should see the phrase "Step 6: File your motion forms"
+    And I should see the phrase "Step 7: Serve the other parent"
+    And I should see the phrase "Step 8: What to expect after you file a Motion for Reconsideration"
+    And I should see the phrase "Step 9: What to expect after you file a Motion to Set Aside"
+    And I should see the phrase "Step 10: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -491,29 +572,33 @@ Scenario: Row #34c
   # reconsider appeal and set aside
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
-    | var                              | value           | trigger | 
-    | user_need                        | change AK order |         | 
-    | who_ordered                      | court           |         | 
-    | why_change                       | problem         |         | 
-    | middle_of_case                   | False           |         | 
-    | final_order_period               | True            |         | 
-    | guess_final_order_date           | unknown         |         | 
-    | unknown_final_date['reconsider'] | True            |         | 
-    | unknown_final_date['appeal']     | True            |         | 
-    | unknown_final_date['set aside']  | True            |         | 
+    | var                              | value             | trigger | 
+    | user_need                        | change AK order   |         | 
+    | who_ordered                      | court             |         | 
+    | why_change                       | problem           |         | 
+    | middle_of_case                   | False             |         | 
+    | final_order_period               | True              |         | 
+    | guess_final_order_date           | unknown           |         | 
+    | unknown_final_date['reconsider'] | True              |         | 
+    | unknown_final_date['appeal']     | True              |         | 
+    | unknown_final_date['set aside']  | True              |         | 
+    | filling_manner                   | electronically    |         | 
+    | filing_method                    | mail or in person |         | 
+    | other_party_exempt               | no                |         | 
+    | ak_patience_assembling           | True              |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 12 steps"
-    And I should see the phrase "Decide the steps you want to take"
-    And I should see the phrase "Decide if you want to file an appeal"
-    And I should see the phrase "Learn about Motions to Reconsider"
-    And I should see the phrase "Fill out the Motion to Reconsider forms"
-    And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
-    And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your motion forms"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Reconsider"
-    And I should see the phrase "What to expect after you file a Motion to Set Aside"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Decide the steps you want to take"
+    And I should see the phrase "Step 2: Decide if you want to file an appeal"
+    And I should see the phrase "Step 3: Learn about Motions for Reconsideration"
+    And I should see the phrase "Step 4: Fill out the Motion for Reconsideration forms"
+    And I should see the phrase "Step 5: Learn about the Motion to Set Aside Judgment or Order"
+    And I should see the phrase "Step 6: Fill out forms if you want to file a Motion to Set Aside"
+    And I should see the phrase "Step 7: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 8: File your motion forms"
+    And I should see the phrase "Step 9: Serve the other parent"
+    And I should see the phrase "Step 10: What to expect after you file a Motion for Reconsideration"
+    And I should see the phrase "Step 11: What to expect after you file a Motion to Set Aside"
+    And I should see the phrase "Step 12: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -522,21 +607,25 @@ Scenario: Row #34c
 Scenario: Row #47
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
-    | var                | value           | trigger | 
-    | user_need          | change AK order |         | 
-    | who_ordered        | unknown         |         | 
-    | find_who_ordered   | court           |         | 
-    | why_change         | problem         |         | 
-    | middle_of_case     | True            |         | 
-    | interim_order_date | today - 2       |         | 
+    | var                    | value           | trigger | 
+    | user_need              | change AK order |         | 
+    | who_ordered            | unknown         |         | 
+    | find_who_ordered       | court           |         | 
+    | why_change             | problem         |         | 
+    | middle_of_case         | True            |         | 
+    | interim_order_date     | today - 2       |         | 
+    | filling_manner         | electronically  |         | 
+    | filing_method          | dunno           |         | 
+    | other_party_exempt     | none            |         | 
+    | ak_patience_assembling | True            |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 7 steps"
-    And I should see the phrase "Learn about Motions to Reconsider"
-    And I should see the phrase "Fill out the Motion to Reconsider forms"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Reconsider"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Reconsider"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about Motions for Reconsideration"
+    And I should see the phrase "Step 2: Fill out the Motion for Reconsideration forms"
+    And I should see the phrase "Step 3: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 4: File your Motion for Reconsideration"
+    And I should see the phrase "Step 5: Serve the other parent"
+    And I should see the phrase "Step 6: What to expect after you file a Motion for Reconsideration"
+    And I should see the phrase "Step 7: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -545,24 +634,29 @@ Scenario: Row #47
 Scenario: Row #48
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
-    | var                | value           | trigger | 
-    | user_need          | change AK order |         | 
-    | who_ordered        | unknown         |         | 
-    | find_who_ordered   | court           |         | 
-    | why_change         | problem         |         | 
-    | middle_of_case     | True            |         | 
-    | interim_order_date | today - 12      |         | 
+    | var                     | value           | trigger | 
+    | user_need               | change AK order |         | 
+    | who_ordered             | unknown         |         | 
+    | find_who_ordered        | court           |         | 
+    | why_change              | problem         |         | 
+    | middle_of_case          | True            |         | 
+    | interim_order_date      | today - 12      |         | 
+    | filling_manner          | paper           |         | 
+    | filing_method           | efiling         |         | 
+    | other_party_exempt      | yes             |         | 
+    | other_party_enter_email | False           |         | 
+    | ak_patience_assembling  | True            |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 10 steps"
-    And I should see the phrase "Learn about motions to modify"
-    And I should see the phrase "Calculate your new child support amount"
-    And I should see the phrase "Compare the new calculation with the current amount"
-    And I should see the phrase "Do not wait to file your Motion to Modify"
-    And I should see the phrase "Fill out the Motion to Modify forms"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Modify"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Modify"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about motions to modify"
+    And I should see the phrase "Step 2: Calculate your new child support amount"
+    And I should see the phrase "Step 3: Compare the new calculation with the current amount"
+    And I should see the phrase "Step 4: Do not wait to file your Motion to Modify"
+    And I should see the phrase "Step 5: Fill out the Motion to Modify forms"
+    And I should see the phrase "Step 6: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 7: File your Motion to Modify"
+    And I should see the phrase "Step 8: Serve the other parent"
+    And I should see the phrase "Step 9: What to expect after you file a Motion to Modify"
+    And I should see the phrase "Step 10: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -571,22 +665,26 @@ Scenario: Row #48
 Scenario: Row #49
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
-    | var                      | value           | trigger | 
-    | user_need                | change AK order |         | 
-    | who_ordered              | unknown         |         | 
-    | find_who_ordered         | court           |         | 
-    | why_change               | problem         |         | 
-    | middle_of_case           | True            |         | 
-    | interim_order_period     | True            |         | 
-    | guess_interim_order_date | within 10 days  |         | 
+    | var                      | value             | trigger | 
+    | user_need                | change AK order   |         | 
+    | who_ordered              | unknown           |         | 
+    | find_who_ordered         | court             |         | 
+    | why_change               | problem           |         | 
+    | middle_of_case           | True              |         | 
+    | interim_order_period     | True              |         | 
+    | guess_interim_order_date | within 10 days    |         | 
+    | filling_manner           | paper             |         | 
+    | filing_method            | mail or in person |         | 
+    | other_party_exempt       | no                |         | 
+    | ak_patience_assembling   | True              |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 7 steps"
-    And I should see the phrase "Learn about Motions to Reconsider"
-    And I should see the phrase "Fill out the Motion to Reconsider forms"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Reconsider"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Reconsider"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about Motions for Reconsideration"
+    And I should see the phrase "Step 2: Fill out the Motion for Reconsideration forms"
+    And I should see the phrase "Step 3: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 4: File your Motion for Reconsideration"
+    And I should see the phrase "Step 5: Serve the other parent"
+    And I should see the phrase "Step 6: What to expect after you file a Motion for Reconsideration"
+    And I should see the phrase "Step 7: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -603,17 +701,21 @@ Scenario: Row #50
     | middle_of_case           | True              |         | 
     | interim_order_period     | True              |         | 
     | guess_interim_order_date | more than 10 days |         | 
+    | filling_manner           | paper             |         | 
+    | filing_method            | dunno             |         | 
+    | other_party_exempt       | none              |         | 
+    | ak_patience_assembling   | True              |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 10 steps"
-    And I should see the phrase "Learn about motions to modify"
-    And I should see the phrase "Calculate your new child support amount"
-    And I should see the phrase "Compare the new calculation with the current amount"
-    And I should see the phrase "Do not wait to file your Motion to Modify"
-    And I should see the phrase "Fill out the Motion to Modify forms"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Modify"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Modify"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about motions to modify"
+    And I should see the phrase "Step 2: Calculate your new child support amount"
+    And I should see the phrase "Step 3: Compare the new calculation with the current amount"
+    And I should see the phrase "Step 4: Do not wait to file your Motion to Modify"
+    And I should see the phrase "Step 5: Fill out the Motion to Modify forms"
+    And I should see the phrase "Step 6: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 7: File your Motion to Modify"
+    And I should see the phrase "Step 8: Serve the other parent"
+    And I should see the phrase "Step 9: What to expect after you file a Motion to Modify"
+    And I should see the phrase "Step 10: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -631,14 +733,19 @@ Scenario: Row #53
     | interim_order_period     | True            |         | 
     | guess_interim_order_date | unknown         |         | 
     | unknown_interim_date     | reconsider      |         | 
+    | filling_manner           | dunno           |         | 
+    | filing_method            | efiling         |         | 
+    | other_party_exempt       | yes             |         | 
+    | other_party_enter_email  | None            |         | 
+    | ak_patience_assembling   | True            |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 7 steps"
-    And I should see the phrase "Learn about Motions to Reconsider"
-    And I should see the phrase "Fill out the Motion to Reconsider forms"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Reconsider"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Reconsider"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about Motions for Reconsideration"
+    And I should see the phrase "Step 2: Fill out the Motion for Reconsideration forms"
+    And I should see the phrase "Step 3: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 4: File your Motion for Reconsideration"
+    And I should see the phrase "Step 5: Serve the other parent"
+    And I should see the phrase "Step 6: What to expect after you file a Motion for Reconsideration"
+    And I should see the phrase "Step 7: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -647,26 +754,30 @@ Scenario: Row #53
 Scenario: Row #54
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
-    | var                      | value           | trigger | 
-    | user_need                | change AK order |         | 
-    | who_ordered              | unknown         |         | 
-    | find_who_ordered         | court           |         | 
-    | why_change               | problem         |         | 
-    | middle_of_case           | True            |         | 
-    | interim_order_period     | True            |         | 
-    | guess_interim_order_date | unknown         |         | 
-    | unknown_interim_date     | modify          |         | 
+    | var                      | value             | trigger | 
+    | user_need                | change AK order   |         | 
+    | who_ordered              | unknown           |         | 
+    | find_who_ordered         | court             |         | 
+    | why_change               | problem           |         | 
+    | middle_of_case           | True              |         | 
+    | interim_order_period     | True              |         | 
+    | guess_interim_order_date | unknown           |         | 
+    | unknown_interim_date     | modify            |         | 
+    | filling_manner           | dunno             |         | 
+    | filing_method            | mail or in person |         | 
+    | other_party_exempt       | no                |         | 
+    | ak_patience_assembling   | True              |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 10 steps"
-    And I should see the phrase "Learn about motions to modify"
-    And I should see the phrase "Calculate your new child support amount"
-    And I should see the phrase "Compare the new calculation with the current amount"
-    And I should see the phrase "Do not wait to file your Motion to Modify"
-    And I should see the phrase "Fill out the Motion to Modify forms"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Modify"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Modify"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about motions to modify"
+    And I should see the phrase "Step 2: Calculate your new child support amount"
+    And I should see the phrase "Step 3: Compare the new calculation with the current amount"
+    And I should see the phrase "Step 4: Do not wait to file your Motion to Modify"
+    And I should see the phrase "Step 5: Fill out the Motion to Modify forms"
+    And I should see the phrase "Step 6: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 7: File your Motion to Modify"
+    And I should see the phrase "Step 8: Serve the other parent"
+    And I should see the phrase "Step 9: What to expect after you file a Motion to Modify"
+    And I should see the phrase "Step 10: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -684,21 +795,25 @@ Scenario: Row #55
     | interim_order_period     | True            |         | 
     | guess_interim_order_date | unknown         |         | 
     | unknown_interim_date     | both            |         | 
+    | filling_manner           | dunno           |         | 
+    | filing_method            | dunno           |         | 
+    | other_party_exempt       | none            |         | 
+    | ak_patience_assembling   | True            |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 14 steps"
-    And I should see the phrase "Decide the steps you want to take"
-    And I should see the phrase "Learn about Motions to Reconsider"
-    And I should see the phrase "Fill out the Motion to Reconsider forms"
-    And I should see the phrase "Learn about motions to modify"
-    And I should see the phrase "Calculate your new child support amount"
-    And I should see the phrase "Compare the new calculation with the current amount"
-    And I should see the phrase "Do not wait to file your Motion to Modify"
-    And I should see the phrase "Fill out the Motion to Modify forms"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your motion forms"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Reconsider"
-    And I should see the phrase "What to expect after you file a Motion to Modify"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Decide the steps you want to take"
+    And I should see the phrase "Step 2: Learn about Motions for Reconsideration"
+    And I should see the phrase "Step 3: Fill out the Motion for Reconsideration forms"
+    And I should see the phrase "Step 4: Learn about motions to modify"
+    And I should see the phrase "Step 5: Calculate your new child support amount"
+    And I should see the phrase "Step 6: Compare the new calculation with the current amount"
+    And I should see the phrase "Step 7: Do not wait to file your Motion to Modify"
+    And I should see the phrase "Step 8: Fill out the Motion to Modify forms"
+    And I should see the phrase "Step 9: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 10: File your motion forms"
+    And I should see the phrase "Step 11: Serve the other parent"
+    And I should see the phrase "Step 12: What to expect after you file a Motion for Reconsideration"
+    And I should see the phrase "Step 13: What to expect after you file a Motion to Modify"
+    And I should see the phrase "Step 14: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -707,23 +822,27 @@ Scenario: Row #55
 Scenario: Row #58
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
-    | var              | value           | trigger | 
-    | user_need        | change AK order |         | 
-    | who_ordered      | unknown         |         | 
-    | find_who_ordered | court           |         | 
-    | why_change       | problem         |         | 
-    | middle_of_case   | False           |         | 
-    | final_order_date | today - 2       |         | 
-    And I should see the phrase "Your Action Plan for changing your child support order in 9 steps"
-    And I should see the phrase "Decide the steps you want to take"
-    And I should see the phrase "Decide if you want to file an appeal"
-    And I should see the phrase "Learn about Motions to Reconsider"
-    And I should see the phrase "Fill out the Motion to Reconsider forms"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Reconsider"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Reconsider"
-    And I should see the phrase "Get more information or help"
+    | var                     | value           | trigger | 
+    | user_need               | change AK order |         | 
+    | who_ordered             | unknown         |         | 
+    | find_who_ordered        | court           |         | 
+    | why_change              | problem         |         | 
+    | middle_of_case          | False           |         | 
+    | final_order_date        | today - 2       |         | 
+    | filling_manner          | electronically  |         | 
+    | filing_method           | efiling         |         | 
+    | other_party_exempt      | yes             |         | 
+    | other_party_enter_email | True            |         | 
+    | ak_patience_assembling  | True            |         | 
+    And I should see the phrase "Your Action Plan for changing your child support order in 8 steps"
+    And I should see the phrase "Step 1: Decide the steps you want to take"
+    And I should see the phrase "Step 2: Decide if you want to file an appeal"
+    And I should see the phrase "Step 3: Learn about Motions for Reconsideration"
+    And I should see the phrase "Step 4: Fill out the Motion for Reconsideration forms"
+    And I should see the phrase "Step 5: File your Motion for Reconsideration"
+    And I should see the phrase "Step 6: Serve the other parent"
+    And I should see the phrase "Step 7: What to expect after you file a Motion for Reconsideration"
+    And I should see the phrase "Step 8: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -732,23 +851,27 @@ Scenario: Row #58
 Scenario: Row #59
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
-    | var              | value           | trigger | 
-    | user_need        | change AK order |         | 
-    | who_ordered      | unknown         |         | 
-    | find_who_ordered | court           |         | 
-    | why_change       | problem         |         | 
-    | middle_of_case   | False           |         | 
-    | final_order_date | today - 12      |         | 
+    | var                    | value             | trigger | 
+    | user_need              | change AK order   |         | 
+    | who_ordered            | unknown           |         | 
+    | find_who_ordered       | court             |         | 
+    | why_change             | problem           |         | 
+    | middle_of_case         | False             |         | 
+    | final_order_date       | today - 12        |         | 
+    | filling_manner         | electronically    |         | 
+    | filing_method          | mail or in person |         | 
+    | other_party_exempt     | no                |         | 
+    | ak_patience_assembling | True              |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 9 steps"
-    And I should see the phrase "Decide the steps you want to take"
-    And I should see the phrase "Decide if you want to file an appeal"
-    And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
-    And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Set Aside"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Set Aside"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Decide the steps you want to take"
+    And I should see the phrase "Step 2: Decide if you want to file an appeal"
+    And I should see the phrase "Step 3: Learn about the Motion to Set Aside Judgment or Order"
+    And I should see the phrase "Step 4: Fill out forms if you want to file a Motion to Set Aside"
+    And I should see the phrase "Step 5: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 6: File your Motion to Set Aside"
+    And I should see the phrase "Step 7: Serve the other parent"
+    And I should see the phrase "Step 8: What to expect after you file a Motion to Set Aside"
+    And I should see the phrase "Step 9: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -757,21 +880,25 @@ Scenario: Row #59
 Scenario: Row #60
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
-    | var              | value           | trigger | 
-    | user_need        | change AK order |         | 
-    | who_ordered      | unknown         |         | 
-    | find_who_ordered | court           |         | 
-    | why_change       | problem         |         | 
-    | middle_of_case   | False           |         | 
-    | final_order_date | today - 32      |         | 
+    | var                    | value           | trigger | 
+    | user_need              | change AK order |         | 
+    | who_ordered            | unknown         |         | 
+    | find_who_ordered       | court           |         | 
+    | why_change             | problem         |         | 
+    | middle_of_case         | False           |         | 
+    | final_order_date       | today - 32      |         | 
+    | filling_manner         | electronically  |         | 
+    | filing_method          | dunno           |         | 
+    | other_party_exempt     | none            |         | 
+    | ak_patience_assembling | True            |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 7 steps"
-    And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
-    And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Set Aside"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Set Aside"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about the Motion to Set Aside Judgment or Order"
+    And I should see the phrase "Step 2: Fill out forms if you want to file a Motion to Set Aside"
+    And I should see the phrase "Step 3: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 4: File your Motion to Set Aside"
+    And I should see the phrase "Step 5: Serve the other parent"
+    And I should see the phrase "Step 6: What to expect after you file a Motion to Set Aside"
+    And I should see the phrase "Step 7: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -780,24 +907,29 @@ Scenario: Row #60
 Scenario: Row #62
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
-    | var                    | value           | trigger | 
-    | user_need              | change AK order |         | 
-    | who_ordered            | unknown         |         | 
-    | find_who_ordered       | court           |         | 
-    | why_change             | problem         |         | 
-    | middle_of_case         | False           |         | 
-    | final_order_period     | True            |         | 
-    | guess_final_order_date | within 10 days  |         | 
+    | var                     | value           | trigger | 
+    | user_need               | change AK order |         | 
+    | who_ordered             | unknown         |         | 
+    | find_who_ordered        | court           |         | 
+    | why_change              | problem         |         | 
+    | middle_of_case          | False           |         | 
+    | final_order_period      | True            |         | 
+    | guess_final_order_date  | within 10 days  |         | 
+    | filling_manner          | paper           |         | 
+    | filing_method           | efiling         |         | 
+    | other_party_exempt      | yes             |         | 
+    | other_party_enter_email | False           |         | 
+    | ak_patience_assembling  | True            |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 9 steps"
-    And I should see the phrase "Decide the steps you want to take"
-    And I should see the phrase "Decide if you want to file an appeal"
-    And I should see the phrase "Learn about Motions to Reconsider"
-    And I should see the phrase "Fill out the Motion to Reconsider forms"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Reconsider"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Reconsider"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Decide the steps you want to take"
+    And I should see the phrase "Step 2: Decide if you want to file an appeal"
+    And I should see the phrase "Step 3: Learn about Motions for Reconsideration"
+    And I should see the phrase "Step 4: Fill out the Motion for Reconsideration forms"
+    And I should see the phrase "Step 5: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 6: File your Motion for Reconsideration"
+    And I should see the phrase "Step 7: Serve the other parent"
+    And I should see the phrase "Step 8: What to expect after you file a Motion for Reconsideration"
+    And I should see the phrase "Step 9: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -814,16 +946,20 @@ Scenario: Row #63
     | middle_of_case         | False             |         | 
     | final_order_period     | True              |         | 
     | guess_final_order_date | between 11 and 30 |         | 
+    | filling_manner         | paper             |         | 
+    | filing_method          | mail or in person |         | 
+    | other_party_exempt     | no                |         | 
+    | ak_patience_assembling | True              |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 9 steps"
-    And I should see the phrase "Decide the steps you want to take"
-    And I should see the phrase "Decide if you want to file an appeal"
-    And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
-    And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Set Aside"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Set Aside"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Decide the steps you want to take"
+    And I should see the phrase "Step 2: Decide if you want to file an appeal"
+    And I should see the phrase "Step 3: Learn about the Motion to Set Aside Judgment or Order"
+    And I should see the phrase "Step 4: Fill out forms if you want to file a Motion to Set Aside"
+    And I should see the phrase "Step 5: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 6: File your Motion to Set Aside"
+    And I should see the phrase "Step 7: Serve the other parent"
+    And I should see the phrase "Step 8: What to expect after you file a Motion to Set Aside"
+    And I should see the phrase "Step 9: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -840,14 +976,18 @@ Scenario: Row #64
     | middle_of_case         | False           |         | 
     | final_order_period     | True            |         | 
     | guess_final_order_date | more than 30    |         | 
+    | filling_manner         | paper           |         | 
+    | filing_method          | dunno           |         | 
+    | other_party_exempt     | none            |         | 
+    | ak_patience_assembling | True            |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 7 steps"
-    And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
-    And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Set Aside"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Set Aside"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about the Motion to Set Aside Judgment or Order"
+    And I should see the phrase "Step 2: Fill out forms if you want to file a Motion to Set Aside"
+    And I should see the phrase "Step 3: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 4: File your Motion to Set Aside"
+    And I should see the phrase "Step 5: Serve the other parent"
+    And I should see the phrase "Step 6: What to expect after you file a Motion to Set Aside"
+    And I should see the phrase "Step 7: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -867,14 +1007,19 @@ Scenario: Row #65
     | unknown_final_date['reconsider'] | True            |         | 
     | unknown_final_date['appeal']     | False           |         | 
     | unknown_final_date['set aside']  | False           |         | 
+    | filling_manner                   | dunno           |         | 
+    | filing_method                    | efiling         |         | 
+    | other_party_exempt               | yes             |         | 
+    | other_party_enter_email          | None            |         | 
+    | ak_patience_assembling           | True            |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 7 steps"
-    And I should see the phrase "Learn about Motions to Reconsider"
-    And I should see the phrase "Fill out the Motion to Reconsider forms"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Reconsider"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Reconsider"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about Motions for Reconsideration"
+    And I should see the phrase "Step 2: Fill out the Motion for Reconsideration forms"
+    And I should see the phrase "Step 3: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 4: File your Motion for Reconsideration"
+    And I should see the phrase "Step 5: Serve the other parent"
+    And I should see the phrase "Step 6: What to expect after you file a Motion for Reconsideration"
+    And I should see the phrase "Step 7: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -883,20 +1028,24 @@ Scenario: Row #65
 Scenario: Row #66
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
-    | var                              | value           | trigger | 
-    | user_need                        | change AK order |         | 
-    | who_ordered                      | unknown         |         | 
-    | find_who_ordered                 | court           |         | 
-    | why_change                       | problem         |         | 
-    | middle_of_case                   | False           |         | 
-    | final_order_period               | True            |         | 
-    | guess_final_order_date           | unknown         |         | 
-    | unknown_final_date['appeal']     | True            |         | 
-    | unknown_final_date['reconsider'] | False           |         | 
-    | unknown_final_date['set aside']  | False           |         | 
+    | var                              | value             | trigger | 
+    | user_need                        | change AK order   |         | 
+    | who_ordered                      | unknown           |         | 
+    | find_who_ordered                 | court             |         | 
+    | why_change                       | problem           |         | 
+    | middle_of_case                   | False             |         | 
+    | final_order_period               | True              |         | 
+    | guess_final_order_date           | unknown           |         | 
+    | unknown_final_date['appeal']     | True              |         | 
+    | unknown_final_date['reconsider'] | False             |         | 
+    | unknown_final_date['set aside']  | False             |         | 
+    | filling_manner                   | dunno             |         | 
+    | filing_method                    | mail or in person |         | 
+    | other_party_exempt               | no                |         | 
+    | ak_patience_assembling           | True              |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 2 steps"
-    And I should see the phrase "Decide if you want to file an appeal"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Decide if you want to file an appeal"
+    And I should see the phrase "Step 2: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -917,14 +1066,18 @@ Scenario: Row #66a
     | unknown_final_date['appeal']     | False           |         | 
     | unknown_final_date['reconsider'] | False           |         | 
     | unknown_final_date['set aside']  | True            |         | 
+    | filling_manner                   | dunno           |         | 
+    | filing_method                    | dunno           |         | 
+    | other_party_exempt               | none            |         | 
+    | ak_patience_assembling           | True            |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 7 steps"
-    And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
-    And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Set Aside"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Set Aside"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Learn about the Motion to Set Aside Judgment or Order"
+    And I should see the phrase "Step 2: Fill out forms if you want to file a Motion to Set Aside"
+    And I should see the phrase "Step 3: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 4: File your Motion to Set Aside"
+    And I should see the phrase "Step 5: Serve the other parent"
+    And I should see the phrase "Step 6: What to expect after you file a Motion to Set Aside"
+    And I should see the phrase "Step 7: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -945,16 +1098,20 @@ Scenario: Row #66b
     | unknown_final_date['appeal']     | True            |         | 
     | unknown_final_date['reconsider'] | True            |         | 
     | unknown_final_date['set aside']  | False           |         | 
-    And I should see the phrase "Your Action Plan for changing your child support order in 9 steps"
-    And I should see the phrase "Decide the steps you want to take"
-    And I should see the phrase "Decide if you want to file an appeal"
-    And I should see the phrase "Learn about Motions to Reconsider"
-    And I should see the phrase "Fill out the Motion to Reconsider forms"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Reconsider"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Reconsider"
-    And I should see the phrase "Get more information or help"
+    | filling_manner                   | electronically  |         | 
+    | filing_method                    | efiling         |         | 
+    | other_party_exempt               | yes             |         | 
+    | other_party_enter_email          | True            |         | 
+    | ak_patience_assembling           | True            |         | 
+    And I should see the phrase "Your Action Plan for changing your child support order in 8 steps"
+    And I should see the phrase "Step 1: Decide the steps you want to take"
+    And I should see the phrase "Step 2: Decide if you want to file an appeal"
+    And I should see the phrase "Step 3: Learn about Motions for Reconsideration"
+    And I should see the phrase "Step 4: Fill out the Motion for Reconsideration forms"
+    And I should see the phrase "Step 5: File your Motion for Reconsideration"
+    And I should see the phrase "Step 6: Serve the other parent"
+    And I should see the phrase "Step 7: What to expect after you file a Motion for Reconsideration"
+    And I should see the phrase "Step 8: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -964,27 +1121,31 @@ Scenario: Row #66c
   # appeal and set aside
   Given I start the interview at "changing_enforcing_child_support.yml"
     And I get to the question id "final screen" with this data:
-    | var                              | value           | trigger | 
-    | user_need                        | change AK order |         | 
-    | who_ordered                      | unknown         |         | 
-    | find_who_ordered                 | court           |         | 
-    | why_change                       | problem         |         | 
-    | middle_of_case                   | False           |         | 
-    | final_order_period               | True            |         | 
-    | guess_final_order_date           | unknown         |         | 
-    | unknown_final_date['reconsider'] | False           |         | 
-    | unknown_final_date['appeal']     | True            |         | 
-    | unknown_final_date['set aside']  | True            |         | 
+    | var                              | value             | trigger | 
+    | user_need                        | change AK order   |         | 
+    | who_ordered                      | unknown           |         | 
+    | find_who_ordered                 | court             |         | 
+    | why_change                       | problem           |         | 
+    | middle_of_case                   | False             |         | 
+    | final_order_period               | True              |         | 
+    | guess_final_order_date           | unknown           |         | 
+    | unknown_final_date['reconsider'] | False             |         | 
+    | unknown_final_date['appeal']     | True              |         | 
+    | unknown_final_date['set aside']  | True              |         | 
+    | filling_manner                   | electronically    |         | 
+    | filing_method                    | mail or in person |         | 
+    | other_party_exempt               | no                |         | 
+    | ak_patience_assembling           | True              |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 9 steps"
-    And I should see the phrase "Decide the steps you want to take"
-    And I should see the phrase "Decide if you want to file an appeal"
-    And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
-    And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your Motion to Set Aside"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Set Aside"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Decide the steps you want to take"
+    And I should see the phrase "Step 2: Decide if you want to file an appeal"
+    And I should see the phrase "Step 3: Learn about the Motion to Set Aside Judgment or Order"
+    And I should see the phrase "Step 4: Fill out forms if you want to file a Motion to Set Aside"
+    And I should see the phrase "Step 5: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 6: File your Motion to Set Aside"
+    And I should see the phrase "Step 7: Serve the other parent"
+    And I should see the phrase "Step 8: What to expect after you file a Motion to Set Aside"
+    And I should see the phrase "Step 9: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -1005,18 +1166,22 @@ Scenario: Row #66d
     | unknown_final_date['reconsider'] | True            |         | 
     | unknown_final_date['appeal']     | False           |         | 
     | unknown_final_date['set aside']  | True            |         | 
+    | filling_manner                   | electronically  |         | 
+    | filing_method                    | dunno           |         | 
+    | other_party_exempt               | none            |         | 
+    | ak_patience_assembling           | True            |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 11 steps"
-    And I should see the phrase "Decide the steps you want to take"
-    And I should see the phrase "Learn about Motions to Reconsider"
-    And I should see the phrase "Fill out the Motion to Reconsider forms"
-    And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
-    And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your motion forms"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Reconsider"
-    And I should see the phrase "What to expect after you file a Motion to Set Aside"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Decide the steps you want to take"
+    And I should see the phrase "Step 2: Learn about Motions for Reconsideration"
+    And I should see the phrase "Step 3: Fill out the Motion for Reconsideration forms"
+    And I should see the phrase "Step 4: Learn about the Motion to Set Aside Judgment or Order"
+    And I should see the phrase "Step 5: Fill out forms if you want to file a Motion to Set Aside"
+    And I should see the phrase "Step 6: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 7: File your motion forms"
+    And I should see the phrase "Step 8: Serve the other parent"
+    And I should see the phrase "Step 9: What to expect after you file a Motion for Reconsideration"
+    And I should see the phrase "Step 10: What to expect after you file a Motion to Set Aside"
+    And I should see the phrase "Step 11: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -1037,19 +1202,24 @@ Scenario: Row #66e
     | unknown_final_date['reconsider'] | True            |         | 
     | unknown_final_date['appeal']     | True            |         | 
     | unknown_final_date['set aside']  | True            |         | 
+    | filling_manner                   | paper           |         | 
+    | filing_method                    | efiling         |         | 
+    | other_party_exempt               | yes             |         | 
+    | other_party_enter_email          | False           |         | 
+    | ak_patience_assembling           | True            |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 12 steps"
-    And I should see the phrase "Decide the steps you want to take"
-    And I should see the phrase "Decide if you want to file an appeal"
-    And I should see the phrase "Learn about Motions to Reconsider"
-    And I should see the phrase "Fill out the Motion to Reconsider forms"
-    And I should see the phrase "Learn about the Motion to Set Aside Judgment or Order"
-    And I should see the phrase "Fill out forms if you want to file a Motion to Set Aside"
-    And I should see the phrase "Fill out the Certificate of Service"
-    And I should see the phrase "File your motion forms"
-    And I should see the phrase "Serve the other parent"
-    And I should see the phrase "What to expect after you file a Motion to Reconsider"
-    And I should see the phrase "What to expect after you file a Motion to Set Aside"
-    And I should see the phrase "Get more information or help"
+    And I should see the phrase "Step 1: Decide the steps you want to take"
+    And I should see the phrase "Step 2: Decide if you want to file an appeal"
+    And I should see the phrase "Step 3: Learn about Motions for Reconsideration"
+    And I should see the phrase "Step 4: Fill out the Motion for Reconsideration forms"
+    And I should see the phrase "Step 5: Learn about the Motion to Set Aside Judgment or Order"
+    And I should see the phrase "Step 6: Fill out forms if you want to file a Motion to Set Aside"
+    And I should see the phrase "Step 7: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 8: File your motion forms"
+    And I should see the phrase "Step 9: Serve the other parent"
+    And I should see the phrase "Step 10: What to expect after you file a Motion for Reconsideration"
+    And I should see the phrase "Step 11: What to expect after you file a Motion to Set Aside"
+    And I should see the phrase "Step 12: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
