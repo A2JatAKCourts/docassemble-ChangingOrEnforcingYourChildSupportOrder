@@ -1,4 +1,5 @@
 comment: |
+  2026-07-26 adding TrueFiling steps
   2024-06-25 Need to add What to expect step for enforcing both ak and foreign orders - ask JS when she returns if asking court to enforce should get a What to expect step- add to github issues
 ---
 include:
@@ -6,6 +7,7 @@ include:
   - docassemble.AKA2JBranding:custom_organization.yml
   - docassemble.AKA2JBranding:aka2j_templates.yml  
   - docassemble.AKA2JBranding:aka2j_mod_cust_div_templates.yml
+  - docassemble.AKA2JBranding:truefiling.yml
   - accordion_steps.yml
 ---
 images:
