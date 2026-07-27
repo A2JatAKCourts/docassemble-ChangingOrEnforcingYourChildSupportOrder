@@ -164,7 +164,7 @@ Scenario: Row #8
     And I should see the phrase "Step 6: Sign if you use paper forms or do not use TrueFiling"
     And I should see the phrase "Step 7: File your Motion to Modify"
     And I should see the phrase "Step 8: Serve the other parent"
-    And I should see the phrase "Step 9: What to expect after you file a Motion to Modify"
+    And I should see the phrase "Step 9: What to expect after you file your Motion to Modify"
     And I should see the phrase "Step 10: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
@@ -195,7 +195,7 @@ Scenario: Row #39
     And I should see the phrase "Step 6: Sign if you use paper forms or do not use TrueFiling"
     And I should see the phrase "Step 7: File your Motion to Modify"
     And I should see the phrase "Step 8: Serve the other parent"
-    And I should see the phrase "Step 9: What to expect after you file a Motion to Modify"
+    And I should see the phrase "Step 9: What to expect after you file your Motion to Modify"
     And I should see the phrase "Step 10: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
@@ -284,7 +284,7 @@ Scenario: Row #10
     And I should see the phrase "Step 6: Sign if you use paper forms or do not use TrueFiling"
     And I should see the phrase "Step 7: File your Motion to Modify"
     And I should see the phrase "Step 8: Serve the other parent"
-    And I should see the phrase "Step 9: What to expect after you file a Motion to Modify"
+    And I should see the phrase "Step 9: What to expect after you file your Motion to Modify"
     And I should see the phrase "Step 10: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
@@ -317,7 +317,7 @@ Scenario: Row #41
     And I should see the phrase "Step 6: Sign if you use paper forms or do not use TrueFiling"
     And I should see the phrase "Step 7: File your Motion to Modify"
     And I should see the phrase "Step 8: Serve the other parent"
-    And I should see the phrase "Step 9: What to expect after you file a Motion to Modify"
+    And I should see the phrase "Step 9: What to expect after you file your Motion to Modify"
     And I should see the phrase "Step 10: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
@@ -408,7 +408,7 @@ Scenario: Row #13
     And I should see the phrase "Step 5: Fill out the Motion to Modify forms"
     And I should see the phrase "Step 6: File your Motion to Modify"
     And I should see the phrase "Step 7: Serve the other parent"
-    And I should see the phrase "Step 8: What to expect after you file a Motion to Modify"
+    And I should see the phrase "Step 8: What to expect after you file your Motion to Modify"
     And I should see the phrase "Step 9: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
@@ -441,7 +441,7 @@ Scenario: Row #43
     And I should see the phrase "Step 6: Sign if you use paper forms or do not use TrueFiling"
     And I should see the phrase "Step 7: File your Motion to Modify"
     And I should see the phrase "Step 8: Serve the other parent"
-    And I should see the phrase "Step 9: What to expect after you file a Motion to Modify"
+    And I should see the phrase "Step 9: What to expect after you file your Motion to Modify"
     And I should see the phrase "Step 10: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
@@ -477,7 +477,7 @@ Scenario: Row #14
     And I should see the phrase "Step 10: File your motion forms"
     And I should see the phrase "Step 11: Serve the other parent"
     And I should see the phrase "Step 12: What to expect after you file a Motion for Reconsideration"
-    And I should see the phrase "Step 13: What to expect after you file a Motion to Modify"
+    And I should see the phrase "Step 13: What to expect after you file your Motion to Modify"
     And I should see the phrase "Step 14: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
@@ -515,7 +515,7 @@ Scenario: Row #44
     And I should see the phrase "Step 10: File your motion forms"
     And I should see the phrase "Step 11: Serve the other parent"
     And I should see the phrase "Step 12: What to expect after you file a Motion for Reconsideration"
-    And I should see the phrase "Step 13: What to expect after you file a Motion to Modify"
+    And I should see the phrase "Step 13: What to expect after you file your Motion to Modify"
     And I should see the phrase "Step 14: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
@@ -544,7 +544,7 @@ Scenario: Row #15
     And I should see the phrase "Step 6: Sign if you use paper forms or do not use TrueFiling"
     And I should see the phrase "Step 7: Pay the $75 fee, and file your Motion to Modify"
     And I should see the phrase "Step 8: Serve the other parent"
-    And I should see the phrase "Step 9: What to expect after you file a Motion to Modify"
+    And I should see the phrase "Step 9: What to expect after you file your Motion to Modify"
     And I should see the phrase "Step 10: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
@@ -574,7 +574,7 @@ Scenario: Row #45
     And I should see the phrase "Step 6: Sign if you use paper forms or do not use TrueFiling"
     And I should see the phrase "Step 7: Pay the $75 fee, and file your Motion to Modify"
     And I should see the phrase "Step 8: Serve the other parent"
-    And I should see the phrase "Step 9: What to expect after you file a Motion to Modify"
+    And I should see the phrase "Step 9: What to expect after you file your Motion to Modify"
     And I should see the phrase "Step 10: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
