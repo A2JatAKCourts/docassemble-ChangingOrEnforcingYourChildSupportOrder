@@ -312,7 +312,7 @@ code: |
                 file_step_heading = 'File your Motion for Reconsideration'
               elif not unknown_final_date['reconsider']:
                 file_step_heading = 'File your Motion to Set Aside'
-              elif unknown_final_date.all_true('reconsider', 'set aside', exclusive = True):
+              elif unknown_final_date.all_true('reconsider', 'set aside'):
                 file_step_heading = 'File your motion forms'
               # step_list.append((file_motion_step, "file_motion_idx"))
               step_list.append((truefiling_file_and_serve_step, "truefiling_file_and_serve_idx"))
