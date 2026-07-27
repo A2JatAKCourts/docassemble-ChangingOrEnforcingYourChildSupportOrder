@@ -126,12 +126,12 @@ code: |
             if interim_order_date_within_10_days:
               step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
               step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
-              images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of Motion to Reconsider and Motion to Set Aside."})
+              # images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of Motion to Reconsider and Motion to Set Aside."})
               if filling_manner in('paper', 'dunno') or filing_method in('mail or in person', 'dunno'):
                 step_list.append((sign_step, "sign_idx"))
               other_party_exempt
               # step_list.append((cert_of_service_step, "cert_of_service_idx"))
-              file_step_heading = 'File your Motion to Reconsider'
+              file_step_heading = 'File your Motion for Reconsideration'
               # step_list.append((file_motion_step, "file_motion_idx"))
               step_list.append((truefiling_file_and_serve_step, "truefiling_file_and_serve_idx"))
               # step_list.append((serve_motion_step, "serve_motion_idx"))
@@ -161,13 +161,13 @@ code: |
               if unknown_interim_date == 'reconsider':
                 step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                 step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
-                images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of Motion to Reconsider."})
-                file_step_heading = 'File your Motion to Reconsider'
+                # images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of Motion to Reconsider."})
+                file_step_heading = 'File your Motion for Reconsideration'
                 if filling_manner in('paper', 'dunno') or filing_method in('mail or in person', 'dunno'):
                   step_list.append((sign_step, "sign_idx"))
                 other_party_exempt
                 # step_list.append((cert_of_service_step, "cert_of_service_idx"))
-                file_step_heading = 'File your Motion to Reconsider'
+                file_step_heading = 'File your Motion for Reconsideration'
                 # step_list.append((file_motion_step, "file_motion_idx"))
                 step_list.append((truefiling_file_and_serve_step, "truefiling_file_and_serve_idx"))
                 # step_list.append((serve_motion_step, "serve_motion_idx"))
@@ -202,7 +202,7 @@ code: |
                 step_list.append((compare_child_support_step, "compare_child_support_idx"))
                 step_list.append((dont_wait_modify_child_support_step, "dont_wait_modify_child_support_idx"))
                 step_list.append((fill_modify_step, "fill_modify_idx"))
-                images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of Motion to Reconsider."})
+                # images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of Motion to Reconsider."})
                 images_list.append({'image': service_cert_modify_image, 'text': "Certificate of Service at the bottom of a Motion to Modify."})
                 if filling_manner in('paper', 'dunno') or filing_method in('mail or in person', 'dunno'):
                   step_list.append((sign_step, "sign_idx"))
@@ -242,8 +242,8 @@ code: |
             step_list.append((appeal_step, "appeal_idx"))
             step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
             step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
-            images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of Motion to Reconsider."})
-            file_step_heading = 'File your Motion to Reconsider'
+            # images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of Motion to Reconsider."})
+            file_step_heading = 'File your Motion for Reconsideration'
             if filling_manner in('paper', 'dunno') or filing_method in('mail or in person', 'dunno'):
               step_list.append((sign_step, "sign_idx"))
             other_party_exempt
@@ -303,15 +303,17 @@ code: |
               step_list.append((learn_set_aside_step, "learn_set_aside_idx"))
               step_list.append((fill_set_aside_step, "fill_set_aside_idx"))
             if unknown_final_date.any_true('reconsider','set aside'):
-              images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of the Motion to Reconsider and the Motion to Set Aside."})
+              # images_list.append({'image': service_cert_reconsider_set_aside_image, 'text': "Certificate of Service at the bottom of the Motion to Reconsider and the Motion to Set Aside."})
               if filling_manner in('paper', 'dunno') or filing_method in('mail or in person', 'dunno'):
                 step_list.append((sign_step, "sign_idx"))
               other_party_exempt
               # step_list.append((cert_of_service_step, "cert_of_service_idx"))
               if not unknown_final_date['set aside']:
-                file_step_heading = 'File your Motion to Reconsider'
+                file_step_heading = 'File your Motion for Reconsideration'
               elif not unknown_final_date['reconsider']:
                 file_step_heading = 'File your Motion to Set Aside'
+              elif unknown_final_date.all_true('reconsider', 'set aside', exclusive = True):
+                file_step_heading = 'File your motion forms'
               # step_list.append((file_motion_step, "file_motion_idx"))
               step_list.append((truefiling_file_and_serve_step, "truefiling_file_and_serve_idx"))
               # step_list.append((serve_motion_step, "serve_motion_idx"))
