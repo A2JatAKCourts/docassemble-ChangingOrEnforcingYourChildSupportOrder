@@ -6,14 +6,14 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "docassemble.ChangingOrEnforcingYourChildSupportOrder"
-version = "2026.08.11"
+version = "2026.08.12"
 description = "A docassemble extension."
 readme = "README.md"
 authors = [
     { name = "Caroline Robinson", email = "CRobinson@akcourts.gov" },
 ]
 dependencies = [
-    "docassemble.AKA2JBranding @ git+https://github.com/A2JatAKCourts/docassemble-AKA2JBranding.git@SyncingUpdates",
+    "docassemble.AKA2JBranding @ git+https://github.com/A2JatAKCourts/docassemble-AKA2JBranding.git@main",
     "docassemble.AssemblyLine>=4.5.0",
 ]
 license = "MIT"
