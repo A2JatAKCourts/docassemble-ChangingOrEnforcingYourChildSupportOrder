@@ -120,13 +120,19 @@ code: |
           step_list.append((ask_court_step, "ask_court_idx"))
         if why_change == 'income':
           if parents_agree:
+            other_party_exempt = 'yes'
+            other_party_enter_email = False
             step_list.append((tell_the_court_step, "tell_the_court_idx"))
+            if filling_manner in('paper', 'dunno') or filing_method in('mail or in person', 'dunno'):
+              step_list.append((sign_step, "sign_idx"))
+            file_step_heading = 'File your motion forms'
+            step_list.append((truefiling_file_and_serve_step, "truefiling_file_and_serve_idx"))
           else:
             if parents_agree is None and parents_agree_resources:
               step_list.append((pick_a_step_step, "pick_a_step_idx"))
               step_list.append((tell_the_court_step, "tell_the_court_idx"))
          
-        if (why_change == 'income' and not parents_agree) or why_change =='problem':
+        if (why_change == 'income' and parents_agree is not True) or why_change =='problem':
           if middle_of_case:
             if interim_order_date_within_10_days:
               step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
