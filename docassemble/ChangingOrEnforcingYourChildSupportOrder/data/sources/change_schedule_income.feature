@@ -1,6 +1,6 @@
 @change_schedule_income
 Feature: User paths
-# 2026-08-13
+# 2026-08-14
 
 @row4
 Scenario: Row #4
@@ -17,7 +17,7 @@ Scenario: Row #4
     | ak_patience_assembling | True              |         | 
     And I should see the phrase "Your Action Plan for changing your child support order in 2 steps"
     And I should see the phrase "Step 1: Ask the court to change your Parenting Plan and your child support order"
-    And I should see the phrase "Step 2: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 2: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
