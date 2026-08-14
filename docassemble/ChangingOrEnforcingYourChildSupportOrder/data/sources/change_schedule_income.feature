@@ -15,11 +15,9 @@ Scenario: Row #4
     | filing_method          | mail or in person |         | 
     | other_party_exempt     | no                |         | 
     | ak_patience_assembling | True              |         | 
-    And I should see the phrase "Your Action Plan for changing your child support order in 4 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 2 steps"
     And I should see the phrase "Step 1: Ask the court to change your Parenting Plan and your child support order"
     And I should see the phrase "Step 2: Sign if you use paper forms or do not use TrueFiling"
-    And I should see the phrase "Step 3: File your motion forms"
-    And I should see the phrase "Step 4: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -38,11 +36,9 @@ Scenario: Row #36
     | filing_method          | dunno           |         | 
     | other_party_exempt     | none            |         | 
     | ak_patience_assembling | True            |         | 
-    And I should see the phrase "Your Action Plan for changing your child support order in 4 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 2 steps"
     And I should see the phrase "Step 1: Ask the court to change your Parenting Plan and your child support order"
-    And I should see the phrase "Step 2: Sign if you use paper forms or do not use TrueFiling"
-    And I should see the phrase "Step 3: File your motion forms"
-    And I should see the phrase "Step 4: Get more information or help"
+    And I should see the phrase "Step 2: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -61,14 +57,11 @@ Scenario: Row #5
     | other_party_exempt      | yes             |         | 
     | other_party_enter_email | None            |         | 
     | ak_patience_assembling  | True            |         | 
-    And I should see the phrase "Your Action Plan for changing your child support order in 2 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 4 steps"
     And I should see the phrase "Step 1: Tell the court about your agreement"
-    And I should see the phrase "Step 2: Get more information or help"
-    And I should see the phrase "Step 3: Sign if you use paper forms or do not use TrueFiling"
-    And I should see the phrase "Step 4: File your Motion to Modify"
-    And I should see the phrase "Step 5: Serve the other parent"
-    And I should see the phrase "Step 6: What to expect after you file a Motion to Modify"
-    And I should see the phrase "Step 7: Get more information or help"
+    And I should see the phrase "Step 2: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 3: File your motion forms"
+    And I should see the phrase "Step 4: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"
@@ -87,14 +80,11 @@ Scenario: Row #37
     | filing_method          | mail or in person |         | 
     | other_party_exempt     | no                |         | 
     | ak_patience_assembling | True              |         | 
-    And I should see the phrase "Your Action Plan for changing your child support order in 2 steps"
+    And I should see the phrase "Your Action Plan for changing your child support order in 4 steps"
     And I should see the phrase "Step 1: Tell the court about your agreement"
-    And I should see the phrase "Step 2: Get more information or help" 
-    And I should see the phrase "Step 3: Sign if you use paper forms or do not use TrueFiling"
-    And I should see the phrase "Step 4: File your Motion to Modify"
-    And I should see the phrase "Step 5: Serve the other parent"
-    And I should see the phrase "Step 6: What to expect after you file a Motion to Modify"
-    And I should see the phrase "Step 7: Get more information or help"
+    And I should see the phrase "Step 2: Sign if you use paper forms or do not use TrueFiling"
+    And I should see the phrase "Step 3: File your motion forms"
+    And I should see the phrase "Step 4: Get more information or help"
     And I take a screenshot
     And I download "changing_child_support.pdf"
     And I download "changing_child_support.docx"

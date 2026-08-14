@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "docassemble.ChangingOrEnforcingYourChildSupportOrder"
-version = "2026.08.13"
+version = "2026.08.14"
 description = "A docassemble extension."
 readme = "README.md"
 authors = [
