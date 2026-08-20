@@ -1,4 +1,5 @@
 comment: |
+  2026-08-19 actually replaced learn_modify_child_support_step in interview order with modify_step - I had updated modify_step in branding package but not in interview order here. Also added definition of file_modify_filing_fee.
   2026-08-11 fixed typo in court_to_enforce_step and added explicit cssd_collect to interview order
   2026-08-10 replace reference to register_step w register_order_step
   updated 2026-07-26 to add TrueFiling steps
@@ -150,7 +151,7 @@ code: |
               step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
   
             if interim_order_date_more_than_10_days:
-              step_list.append((learn_modify_child_support_step, "learn_modify_child_support_idx"))
+              step_list.append((modify_step, "modify_idx"))
               step_list.append((calculate_child_support_step, "calculate_child_support_idx"))
               step_list.append((compare_child_support_step, "compare_child_support_idx"))
               step_list.append((dont_wait_modify_child_support_step, "dont_wait_modify_child_support_idx"))
@@ -186,7 +187,7 @@ code: |
                 step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
   
               elif unknown_interim_date == 'modify':
-                step_list.append((learn_modify_child_support_step, "learn_modify_child_support_idx"))
+                step_list.append((modify_step, "modify_idx"))
                 step_list.append((calculate_child_support_step, "calculate_child_support_idx"))
                 step_list.append((compare_child_support_step, "compare_child_support_idx"))
                 step_list.append((dont_wait_modify_child_support_step, "dont_wait_modify_child_support_idx"))
@@ -208,7 +209,7 @@ code: |
                 step_list.append((pick_a_step_step, "pick_a_step_idx"))
                 step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                 step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
-                step_list.append((learn_modify_child_support_step, "learn_modify_child_support_idx"))
+                step_list.append((modify_step, "modify_idx"))
                 step_list.append((calculate_child_support_step, "calculate_child_support_idx"))
                 step_list.append((compare_child_support_step, "compare_child_support_idx"))
                 step_list.append((dont_wait_modify_child_support_step, "dont_wait_modify_child_support_idx"))
@@ -229,7 +230,7 @@ code: |
                 step_list.append((expect_after_motion_or_answer_step, "expect_after_motion_or_answer_idx"))
         
         if why_change == 'income' and not parents_agree and not middle_of_case:       
-          step_list.append((learn_modify_child_support_step, "learn_modify_child_support_idx"))
+          step_list.append((modify_step, "modify_idx"))
           step_list.append((calculate_child_support_step, "calculate_child_support_idx"))
           step_list.append((compare_child_support_step, "compare_child_support_idx"))
           step_list.append((dont_wait_modify_child_support_step, "dont_wait_modify_child_support_idx"))
@@ -240,6 +241,7 @@ code: |
           other_party_exempt
           # step_list.append((cert_of_service_step, "cert_of_service_idx"))
           file_step_heading = 'Pay the $75 fee, and file your Motion to Modify'
+          file_modify_filing_fee = 'Pay the $75 fee to file your Motion to Modify.'
           # step_list.append((file_motion_step, "file_motion_idx"))
           step_list.append((truefiling_file_and_serve_step, "truefiling_file_and_serve_idx"))
           # step_list.append((serve_motion_step, "serve_motion_idx"))
