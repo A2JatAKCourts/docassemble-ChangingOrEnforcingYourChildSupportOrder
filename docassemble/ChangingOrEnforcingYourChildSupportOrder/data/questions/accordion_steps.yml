@@ -1,5 +1,9 @@
 comment: |
+  2026-08-19 actually replaced learn_modify_child_support_step in interview order with modify_step - I had updated modify_step in branding package but not in interview order here. Also added definition of file_modify_filing_fee.
+  2026-08-11 fixed typo in court_to_enforce_step and added explicit cssd_collect to interview order
+  2026-08-10 replace reference to register_step w register_order_step
   updated 2026-07-26 to add TrueFiling steps
+  2026-07-27 replaced interview parents_agree_step with branding package tell_the_court_step and updated branding package tell_the_court_step to include info specific to changing child support only.
 ---
 generic object: ALDocumentBundle
 template: x.get_email_copy
@@ -21,7 +25,7 @@ content: |
 
   Get [more information and a list of all the Court Guide Action Plans](https://ak-courts.info/plans).
   
-  [ak-courts.info/plans]((https://ak-courts.info/plans).
+  [ak-courts.info/plans](https://ak-courts.info/plans).
 ---
 id: final screen
 decoration: pen-to-square
@@ -89,7 +93,7 @@ code: |
     step_list.append((foreign_step, "foreign_idx"))
   elif user_need == 'enforce foreign order':
     step_list.append((cssd_to_enforce_step, "cssd_to_enforce_idx"))    
-    step_list.append((register_step, "register_idx"))    
+    step_list.append((register_order_step, "register_order_idx"))    
     step_list.append((talk_w_other_parent_step, "talk_w_other_parent_idx"))
     step_list.append((court_to_enforce_step, "court_to_enforce_idx"))
     # images_list.append({'image': service_cert_enforce_image, 'text': "Certificate of Service at the bottom of a Motion to Enforce."})
@@ -110,18 +114,26 @@ code: |
     if who_ordered == 'unknown':
       who_really_ordered = find_who_ordered
     if who_really_ordered == 'court':
+      if user_need == 'enforce AK order':
+        cssd_collect
       if user_need == 'change AK order':
         if why_change == 'schedule':
           step_list.append((ask_court_step, "ask_court_idx"))
         if why_change == 'income':
           if parents_agree:
-            step_list.append((parents_agree_step, "parents_agree_idx"))
+            other_party_exempt = 'yes'
+            other_party_enter_email = False
+            step_list.append((tell_the_court_step, "tell_the_court_idx"))
+            if filling_manner in('paper', 'dunno') or filing_method in('mail or in person', 'dunno'):
+              step_list.append((sign_step, "sign_idx"))
+            file_step_heading = 'File your motion forms'
+            step_list.append((truefiling_file_and_serve_step, "truefiling_file_and_serve_idx"))
           else:
             if parents_agree is None and parents_agree_resources:
               step_list.append((pick_a_step_step, "pick_a_step_idx"))
-              step_list.append((parents_agree_step, "parents_agree_idx"))
+              step_list.append((tell_the_court_step, "tell_the_court_idx"))
          
-        if (why_change == 'income' and not parents_agree) or why_change =='problem':
+        if (why_change == 'income' and parents_agree is not True) or why_change =='problem':
           if middle_of_case:
             if interim_order_date_within_10_days:
               step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
@@ -139,7 +151,7 @@ code: |
               step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
   
             if interim_order_date_more_than_10_days:
-              step_list.append((learn_modify_child_support_step, "learn_modify_child_support_idx"))
+              step_list.append((modify_step, "modify_idx"))
               step_list.append((calculate_child_support_step, "calculate_child_support_idx"))
               step_list.append((compare_child_support_step, "compare_child_support_idx"))
               step_list.append((dont_wait_modify_child_support_step, "dont_wait_modify_child_support_idx"))
@@ -175,7 +187,7 @@ code: |
                 step_list.append((expect_reconsider_step, "expect_reconsider_idx"))
   
               elif unknown_interim_date == 'modify':
-                step_list.append((learn_modify_child_support_step, "learn_modify_child_support_idx"))
+                step_list.append((modify_step, "modify_idx"))
                 step_list.append((calculate_child_support_step, "calculate_child_support_idx"))
                 step_list.append((compare_child_support_step, "compare_child_support_idx"))
                 step_list.append((dont_wait_modify_child_support_step, "dont_wait_modify_child_support_idx"))
@@ -197,7 +209,7 @@ code: |
                 step_list.append((pick_a_step_step, "pick_a_step_idx"))
                 step_list.append((learn_reconsider_step, "learn_reconsider_idx"))
                 step_list.append((fill_reconsider_step, "fill_reconsider_idx"))
-                step_list.append((learn_modify_child_support_step, "learn_modify_child_support_idx"))
+                step_list.append((modify_step, "modify_idx"))
                 step_list.append((calculate_child_support_step, "calculate_child_support_idx"))
                 step_list.append((compare_child_support_step, "compare_child_support_idx"))
                 step_list.append((dont_wait_modify_child_support_step, "dont_wait_modify_child_support_idx"))
@@ -218,7 +230,7 @@ code: |
                 step_list.append((expect_after_motion_or_answer_step, "expect_after_motion_or_answer_idx"))
         
         if why_change == 'income' and not parents_agree and not middle_of_case:       
-          step_list.append((learn_modify_child_support_step, "learn_modify_child_support_idx"))
+          step_list.append((modify_step, "modify_idx"))
           step_list.append((calculate_child_support_step, "calculate_child_support_idx"))
           step_list.append((compare_child_support_step, "compare_child_support_idx"))
           step_list.append((dont_wait_modify_child_support_step, "dont_wait_modify_child_support_idx"))
@@ -229,6 +241,7 @@ code: |
           other_party_exempt
           # step_list.append((cert_of_service_step, "cert_of_service_idx"))
           file_step_heading = 'Pay the $75 fee, and file your Motion to Modify'
+          file_modify_filing_fee = 'Pay the $75 fee to file your Motion to Modify.'
           # step_list.append((file_motion_step, "file_motion_idx"))
           step_list.append((truefiling_file_and_serve_step, "truefiling_file_and_serve_idx"))
           # step_list.append((serve_motion_step, "serve_motion_idx"))
@@ -390,42 +403,21 @@ code: |
 
   get_steps = True
 ---
-template: ask_cssd_step
-subject: |
-  Step ${ ask_cssd_idx }: Ask CSED to change your child support
-content: |
-  <p>A child support order from Alaska Child Support Enforcement Division (CSED) is called an administrative order.  CSED can change administrative orders.  This is called "modifying" child support.</p>
-  <p>CSED can modify your order if: </p>
-  <ul>
-    <li>The cost of your child's health insurance premium changes, or </li>
-    <li>Your income or the other parent's income changes so that a new child support calculation would be at least 15% more or 15% less than the payment you have now, or </li>
-    <li>Your children's schedule changes so that a new child support calculation would be at least 15% more or 15% less than the payment you have now. </li>
-  </ul>
-  <a href="https://childsupport.alaska.gov/child-support-services/contact-us">Contact CSED</a>
-  <ul>
-  <li>Customer Service Call Center:<br> 
-  Monday - Thursday, 10:00 am - 3:00 pm</li>
-    <ul>
-    <li>✆ Phone: (907) 269-6900, </li>
-    <li>Toll Free (In-state): 800-478-3300 </li>
-    </ul>
-  </li>
-  <li>⌨ Fax: (907) 787-3220 </li>
-  <li>Email: dor.cssd.customerservice.anchorage@alaska.gov </li>
-  </ul>
-   <div class='step-subheading'>Timing</div>
-   <ul>
-   <li>If your parenting schedule changes, or your income or the other parent's income changes, it is important to tell CSED <strong>right away</strong>. </li>
-    <li>CSED cannot go back and change child support that was due in the past. </li>
-    <li>Until you contact CSED, the old child support amount applies and the parent who owes child support still owes the old amount, even if income or the schedule has changed. </li>
-  </ul>
-  <div class='step-subheading'>Read more about CSED </div>
-  <ul>
-    <li><a href ="https://childsupport.alaska.gov/child-support-services/information/faqs/modifications-faq">Modification FAQs</a></li>
-    <li><a href ="https://childsupport.alaska.gov/docs/childsupportserviceslibraries/brochures/04-6204-red-mod-rev-02-2022.pdf">Modification Guidebook Brochure</a></li>
-    <li><a href ="https://childsupport.alaska.gov/child-support-services">Home page</a></li>
-  </ul>
 ---
+comment: |
+  2026-07-27 added bitlys and courtguide url to replace old court server docassemble url, sync w docx
+  2023-07-11 delete extra info about filing asap email from Jeannie
+template: ask_court_step
+subject: |
+  Step ${ ask_court_idx }: Ask the court to change your Parenting Plan and your child support order  
+content: |
+  If you need to change child support because you have a new schedule that is different than the schedule in your custody order, file a <strong>Motion to Modify Custody and Child Support</strong>.
+  
+    * Use the Court Guide Action Plan: [Changing Your Custody or Parenting Plan Order](https://courtguide.akcourts.gov/start/ChangingChildCustody) to get an Action Plan for changing both child support and your schedule.
+    * Read [Modifying Child Custody or Child Support Order](https://ak-courts.info/mtm).
+---
+comment: |
+  2026-08-10 updated modification guidebook url, bitlys and synced w docx
 template: find_out_step
 subject: |
   Step ${ find_out_idx }: Find out who issued your child support order
@@ -446,14 +438,14 @@ content: |
       </ul>
     </li>
     <li>⌨ Fax: (907) 787-3220 </li>
-    <li>Email: dor.cssd.customerservice.anchorage@alaska.gov </li>
+    <li>Email: <a href="mailto:dor.cssd.customerservice.anchorage@alaska.gov">dor.cssd.customerservice.anchorage@alaska.gov</a></li>
   </ul>
   If CSED issued your order, see:
   <ul>
   % if user_need == 'change AK order':
   <li>
   <a href="https://childsupport.alaska.gov/child-support-services/information/faqs/modifications-faq">Modification FAQs</a></li>
-  <li><a href="https://childsupport.alaska.gov/docs/childsupportserviceslibraries/brochures/04-6204-red-mod-rev-02-2022.pdf">Modification Guidebook Brochure</a></li>
+  <li><a href="https://childsupport.alaska.gov/docs/childsupportserviceslibraries/brochures/04-6204-a-modification-guidebook-09-2025.pdf">Modification Guidebook Brochure</a></li>
   % elif  user_need == 'enforce AK order':
   <li>
   <a href="https://childsupport.alaska.gov/child-support-services/information/faqs/child-support-enforcement-services-faq">Child Support Enforcement FAQ</a></li>
@@ -461,15 +453,15 @@ content: |
   <li><a href="https://childsupport.alaska.gov/child-support-services">Home page</a></li>
   </ul>
   <div class='step-subheading'>Contact the court</div>
-  <p>Contact <a href="https://courts.alaska.gov/courtdir/index.htm">your local court</a> or look on <a href="https://records.courts.alaska.gov/eaccess/home.page.2">CourtView</a> to see if the court issued your child support order.</p>
+  <p>Contact <a href="https://ak-courts.info/dir">your local court</a> or look on <a href="https://ak-courts.info/courtview">CourtView</a> to see if the court issued your child support order.</p>
   If the court issued your order:
   <ul>
-  <li>Come back and build your <a href = "https://docassemble.akcourts.gov/start/ChangingEnforcingChildSupport/">Court Guide Action Plan</a> again, or</li>
+  <li>Come back and build your <a href = "https://courtguide.akcourts.gov/start/ChangingEnforcingChildSupport/">Court Guide Action Plan</a> again, or</li>
   % if  user_need == 'enforce AK order':
-  <li>Read <a href="https://courts.alaska.gov/shc/family/shcenforce.htm">Enforcing Your Order</a>.</li>
+  <li>Read <a href="https://ak-courts.info/enforce">Enforcing Your Order</a>.</li>
   </ul>
   % elif user_need == 'change AK order':
-  <li>Read <a href="https://courts.alaska.gov/shc/family/shcmodify.htm">Modifying Child Custody or Child Support Order</a>.</li>
+  <li>Read <a href="https://ak-courts.info/mtm">Modifying Child Custody or Child Support Order</a>.</li>
   </ul>
   <div class='step-subheading'>Changes</div>
     *	If your parenting schedule changes, or your income or the other parent's income changes, it is important to tell the court or CSED right away.  If CSED issued your order, tell CSED.  If the court issued your order, tell the court.
@@ -477,143 +469,64 @@ content: |
     * Until you tell CSED or the court, the old child support amount applies and the parent who owes child support still owes the old amount, even if income or the schedule has changed.
   % endif
 ---
-template: learn_modify_child_support_step
-subject: |
-  Step ${ learn_modify_child_support_idx }: Learn about motions to modify
-content: |
-  Changing your child support order is called “modifying” child support. To ask the judge to change your child support order, file a **Motion to Modify Child Support**. 
-  
-  The child support rule, [Alaska Rule of Civil Procedure 90.3](https://courts.alaska.gov/rules/docs/civ.pdf), states you need to prove there has been a “material change in circumstances” to modify child support. The most common changes in circumstances are:
-  
-    * Your children's schedule changes and they spend more or fewer overnights with you than they used to, or
-    * Your income or the other parent's income changes.
-
-  % if not middle_of_case:
-  The court charges $75 to file this motion. If you cannot afford the fee, you may be able to get the court to waive it. See ${ truefiling_file_and_serve_step.subject }. 
-  % endif
 ---
+comment: |
+  2026-08-10 updated link to csed's modification guidebook, synced w docx
+template: ask_cssd_step
+subject: |
+  Step ${ ask_cssd_idx }: Ask CSED to change your child support
+content: |
+  A child support order from Alaska Child Support Enforcement Division (CSED) is called an administrative order.  CSED can change administrative orders.  This is called "modifying" child support.
+
+  CSED can modify your order if:
+  
+    * The cost of your child's health insurance premium changes, or
+    * Your income or the other parent's income changes so that a new child support calculation would be at least 15% more or 15% less than the payment you have now, or
+    * Your children's schedule changes so that a new child support calculation would be at least 15% more or 15% less than the payment you have now.
+ 
+  [Contact CSED](https://childsupport.alaska.gov/child-support-services/contact-us)
+  <ul>
+  <li>Customer Service Call Center:<br> 
+  Monday - Thursday, 10:00 am - 3:00 pm
+    <ul>
+    <li>✆ Phone: (907) 269-6900, </li>
+    <li>Toll Free (In-state): 800-478-3300 </li>
+    </ul>
+  </li>
+  <li>⌨ Fax: (907) 787-3220 </li>
+  <li>Email: <a href="mailto:dor.cssd.customerservice.anchorage@alaska.gov">dor.cssd.customerservice.anchorage@alaska.gov</a></li>
+  </ul>
+  <div class='step-subheading'>Timing</div>
+  If your parenting schedule changes, or your income or the other parent's income changes, it is important to tell CSED **right away**.   
+    * CSED cannot go back and change child support that was due in the past.   
+    * Until you contact CSED, the old child support amount applies and the parent who owes child support still owes the old amount, even if income or the schedule has changed.
+  
+  <div class='step-subheading'>Read more about CSED </div>
+     
+    * [Modification FAQs](https://childsupport.alaska.gov/child-support-services/information/faqs/modifications-faq)   
+    * [Modification Guidebook Brochure](https://childsupport.alaska.gov/docs/childsupportserviceslibraries/brochures/04-6204-a-modification-guidebook-09-2025.pdf)
+---
+comment: |
+  2026-08-11 fixed typo missing closing </ul> tag
+  2026-08-10 synced w docx
 template: compare_child_support_step
 subject: |
   Step ${ compare_child_support_idx }: Compare the new calculation with the current amount
 content: |
-  <div class='step-subheading'>Compare your current child support to the new amount to see if there is a "material change in circumstances"</div>
-    If the new child support amount is 15% more or less than the old amount, there is a presumption that there is a material change in circumstances.
-    
-   <strong>For example</strong>
-   
-   If the old child support amount was $100 per month, there would be a material change if the new amount is:
-    * $85 or less, or
-    * $115 or more.
----
-template: dont_wait_modify_child_support_step
-subject: |
-  Step ${ dont_wait_modify_child_support_idx }: Do not wait to file your Motion to Modify 
-content: |
-  File your <strong>Motion to Modify Child Support</strong> and give the other parent a copy of your motion as soon as you can after there is a “material change of circumstances.”
+  <div class='step-subheading'>Compare your current child support to the new amount to see if there is a "material change in circumstances."</div>
+    If the new child support amount is 15% more or less than the old amount, the court presumes there is a "material change in circumstances."
 
-  Until you file your motion with the court, <strong>the parent who owes child support still owes the amount in your current order</strong>. 
-  
-  If the judge agrees to change the amount of your child support, the judge will sign a new child support order.  The new order includes the date the amount changed. This date is usually in the past. It will not be earlier than the date you filed your motion and gave a copy to the other parent.
-
-  <strong>For example</strong>
-
-    * The other parent gets a new job making a lot more money on March 1.
-    * You recalculate child support.  The other parent will owe you more child support each month.
-    * You file a motion to modify child support with the court and give the other parent a copy June 21.
-    * The judge agrees to change your child support and grants your motion.
-    * The judge signs a new child support order on September 1.
-    * The court cannot order child support to be changed before you filed your motion and gave a copy to the other parent.
-    * The new order says that the new child support amount starts July 1.
-    * Because you did not file your motion until June, the other parent only has to pay the old amount of child support from March 1 to July 1.
+  <div class = "example">
+  <p class = "heading">For example</p>
+  If our current child support amount is $100 per month, there would be a material change if the new amount is:
+  <ul>
+  <li>$85 or less, or</li>
+  <li>$115 or more.</li>
+  <ul>
+  </div>
 ---
-template: fill_modify_step
-subject: |
-  Step ${ fill_modify_idx }: Fill out the Motion to Modify forms 
-content: |
-  <div class='step-subheading'>Use</div>
-    *	<strong>Motion to Modify Custody, Visitation & Support Packet</strong>, [SHC-PAC12](https://courts.alaska.gov/shc/family/shcforms.htm#shc-pac12)
-  <div class='step-subheading'>Procedure</div>
-  <ul>
-  <li>
-  There is a $75 filing fee for a motion to modify.</li>
-  <li>The other parent has 10 days to file a response (13 if you mail it).</li>
-  <li>You have 5 days to file a reply.</li>
-  <li>Read <a href="https://courts.alaska.gov/shc/family/after-judgment.htm">Options after you get a judge's decision.</a></li>
-  </ul>
----
-template: ask_court_step
-subject: |
-  Step ${ ask_court_idx }: Ask the court to change your Parenting Plan and your child support order  
-content: |
-  If you need to change child support because you have a new schedule that is different than the schedule in your custody order, file a <strong>Motion to Modify Custody and Child Support</strong>.
-  
-    * Use the Court Guide Action Plan: [Changing Your Custody or Parenting Plan Order](https://docassemble.akcourts.gov/start/ChangingChildCustody) to get an Action Plan for changing both child support and your schedule.
-    * Read [Modifying Child Custody or Child Support Order](https://courts.alaska.gov/shc/family/shcmodify.htm).
-    
-  <div class='step-subheading'>The most common reasons to change child support</div> 
-  
-    * Your children's schedule changes and they spend more or fewer overnights with you than they used to, or
-    * Your income or the other parent's income changes.
-    If you and the other parent agree to change child support, give your written agreement to the court. Giving the agreement to the court is called “filing” it.
-  <div class='step-subheading'>It is important to file your agreement right away</div>
-  Until you file it with the court, the old child support amount applies and the parent who owes child support still owes the old amount.  
-  <div class='step-subheading'>Read</div>
-    * <strong>Instructions for Uncontested Modifications, SHC-1505</strong> [Word](https://courts.alaska.gov/shc/family/docs/shc-1505.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1505n.pdf)
-    * [How to Fill out the Child Support Guidelines Affidavit](https://courts.alaska.gov/shc/family/docs/shc-dr305f-sample.pdf)
----
-template: parents_agree_step
-subject: |
-  Step ${ parents_agree_idx }: 
-  % if parents_agree:
-  Tell the court about your agreement
-  % elif parents_agree is None:
-  If you reach an agreement, tell the court about your agreement
-  % endif %
-content: |
-  <p>Only the judge can change the amount of child support in your  order.</p>
-  <p>But you can use a <strong>Joint  Motion to Modify Child Support</strong> to tell the judge about your agreement if you both agree that:</p>
-  <ul>
-    <li>your financial situation has changed,</li>
-    <li>the amounts you use to calculate child support  have changed, <strong>and</strong></li>
-    <li>after you use the child support formula, you get  a different amount from the amount in your current order. </li>
-  </ul>
-  <p>If both parents agree the amount should change, file your joint  motion <strong>right away</strong>. Until you file  your motion with the court, <strong>the parent  who owes child support still owes the amount in your current order</strong>.</p>
-  <p>If the judge agrees to change the amount of your child support,  the judge will sign a new order. The new order includes the date the amount  changed. This date is usually in the past. It will not be earlier than the date  you filed your motion.</p>
-  <p><strong>For example</strong></p>
-  <ul>
-    <li>You agree about a new child support amount on  March 1, but you do not file anything with the court until June 21.</li>
-    <li>The judge agrees to change your child support  and signs a new child support order on September 1.</li>
-    <li>The new order says the new child support amount starts  July 1. </li>
-    <li>The parent who owed child support under the old  order, still owes the old child support amount from March 1 to July 1.</li>
-  </ul>
-  <div class='step-subheading'>Read</div class='step-subheading'>
-  <p><a href="https://courts.alaska.gov/shc/family/docs/shc-dr305f-sample.pdf"><strong>How to fill out the Child Support  Guidelines Affidavit</strong></a></p>
-  <div class='step-subheading'>Use these forms to tell the judge about your agreement</div class='step-subheading'>
-  <ul>
-    <li><strong>Joint  Motion, SHC-1310</strong> <a href="https://courts.alaska.gov/shc/family/docs/shc-1310.doc">Word</a> | <a href="https://courts.alaska.gov/shc/family/docs/shc-1310n.pdf">PDF</a><br>
-      Put "Joint Motion to Modify" in the JOINT  MOTION FOR box.</li>
-    <li><strong>Joint  Affidavit, SHC-1320</strong> <a href="https://courts.alaska.gov/shc/family/docs/shc-1320.doc">Word</a> | <a href="https://courts.alaska.gov/shc/family/docs/shc-1320n.pdf">PDF</a><br>
-      Wait to sign the form until you can sign in front of a notary public or  someone who has the power to take oaths, like a court clerk or a postal  employee. You can do this for free at the court. Bring a photo ID.</li>
-    <li><strong>Order for  Modification of Child Support, DR-301</strong>, [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-301.pdf">Fill-In PDF</a>]<br>
-      Do <strong>not</strong> sign this form. Only the  judge signs it.</li>
-    <li><strong>Child  Support Guidelines Affidavit, DR-305</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-305.pdf">Fill-In PDF</a>]<br>
-      You need 2 of these. Each parent fills out their own affidavit. Wait to sign  the form until you can sign in front of a notary public or someone who has the  power to take oaths, like a court clerk or a postal employee. You can do this  for free at the court. Bring a photo ID.</li>
-    <li><strong>Child  Custody Jurisdiction Affidavit, DR-150</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-150.pdf">Fill-In PDF</a>]<br>
-      You need 2 of these. Each parent files their own affidavit. Wait to sign the  form until you can sign in front of a notary public or someone who has the  power to take oaths, like a court clerk or a postal employee. You can do this  for free at the court. Bring a photo ID. </li>
-    <li><strong>Joint  Motion to Put Settlement on the Record, SHC-1063</strong> <a href="https://courts.alaska.gov/shc/family/docs/shc-1063.doc">Word</a> | <a href="https://courts.alaska.gov/shc/family/docs/shc-1063n.pdf">PDF</a></li>
-  </ul>
-  <div class='step-subheading'>Also</div class='step-subheading'>
-  <p>If you cannot get to a notary public or someone who has the power  to take oaths, you can &quot;self-certify&quot;.  Use:</p>
-  <ul>
-    <li><strong>Self-Certification  (No Notary Available), TF-835</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/tf-835.pdf">Fill-In PDF</a>]</li>
-  </ul>
-  <p>If your Parenting Plan is <strong>not</strong> a primary custody plan, when children spend at least 256 nights  a year with the same parent, use one of these forms:</p>
-  <ul>
-    <li><strong>Shared  Custody Support Calculation, DR-306</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-306.pdf">Fill-In PDF</a>] for a shared  custody schedule,</li>
-    <li><strong>Hybrid  Custody Child Support Calculation, DR-308</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-308.pdf">Fill-In PDF</a>] for a hybrid custody child  support schedule, or</li>
-    <li><strong>Divided  Custody Child Support Calculation, DR-307</strong> [<a href="https://public.courts.alaska.gov/web/forms/docs/dr-307.pdf">Fill-In PDF</a>] for a divided custody child support schedule.</li>
-  </ul> 
----
+comment: |
+  2026-08-10 synced w docx 
 template: foreign_step
 subject: |
   Step ${ foreign_idx }: Learn about changing your child support order from another state
@@ -630,12 +543,14 @@ content: |
         *	✆ Phone: (907) 269-6900, 
         *	Toll Free (In-state): 800-478-3300
     *	⌨ Fax: (907) 787-3220
-    *	Email: dor.cssd.customerservice.anchorage@alaska.gov
+    *	Email: [dor.cssd.customerservice.anchorage@alaska.gov](mailto:dor.cssd.customerservice.anchorage@alaska.gov)
   <div class='step-subheading'>Contact the child support agency in the state where you got the order</div>
   [Contact Information for State Child Support Agencies](https://www.acf.hhs.gov/css/parents/find-local-child-support-office).
  
-  If you still need more help, you may want to [contact a lawyer](https://courts.alaska.gov/shc/shclawyer.htm).
+  If you still need more help, you may want to [contact a lawyer](https://ak-courts.info/findlawyer).
 ---
+comment: |
+  2026-08-10 no longer use a MyAlaska account for CSED synced w content.docx
 template: cssd_to_enforce_step
 subject: |
   Step ${ cssd_to_enforce_idx }: Ask CSED to enforce your order
@@ -643,32 +558,21 @@ content: |
   % if user_need =='enforce foreign order':
   The Alaska Child Support Enforcement Division (CSED), or the child support agency in your state may be able to help you enforce your child support order.
   % endif
-  
   % if user_need == 'enforce AK order':
   % if who_really_ordered == 'court':
   % if cssd_collect == 'yes':
   If Child Support Enforcement Division (CSED) is collecting your child support, they can enforce your child support order.
   % elif cssd_collect in('no', 'unknown'):
-  If you have a court order for child support and want Child Support Enforcement Division (CSED) to help you collect it, apply for CSED services.  You will need a “My Alaska” account:
-  
-    * See the [CSED Home Page](https://childsupport.alaska.gov).
-    * Select “Open a Case” or “Online Application for Services.”
+  If you have a court order for child support and want Child Support Enforcement Division (CSED) to help you collect it, [apply for CSED services](https://acsess.childsupport.alaska.gov/clientportal/_/#2).
+  % endif
   % else: 
   [Contact CSED](https://childsupport.alaska.gov/child-support-services/contact-us) to see if you have an account. 
   
-  If you do not have an account, apply for CSED services.
-  
-  You will need a “My Alaska” account.
-  
-  See the [CSED Home Page](https://childsupport.alaska.gov) and select:
-  
-    *	“Open a Case” or
-    *	“Online Application for Services.”
+  If you do not have an account, [apply for CSED services](https://acsess.childsupport.alaska.gov/clientportal/_/#2).
   % endif
-  % endif
-  % endif
-  
-   <a href="https://childsupport.alaska.gov/child-support-services/contact-us">Contact CSED</a>
+  % endif  
+   
+  [Contact CSED](https://childsupport.alaska.gov/child-support-services/contact-us)
   <ul>
     <li>Customer Service Call Center: <br>
     Monday - Thursday, 10:00 am - 3:00 pm
@@ -678,7 +582,7 @@ content: |
       </ul>
     </li>
     <li>⌨ Fax: (907) 787-3220 </li>
-    <li>Email: dor.cssd.customerservice.anchorage@alaska.gov </li>
+    <li>Email: <a href="mailto:dor.cssd.customerservice.anchorage@alaska.gov">dor.cssd.customerservice.anchorage@alaska.gov</a></li>
   </ul>
 
   Read CSED's [Child Support Enforcement FAQ](https://childsupport.alaska.gov/child-support-services/information/faqs/child-support-enforcement-services-faq)
@@ -687,6 +591,8 @@ content: |
   [Contact Information for State Child Support Agencies](https://www.acf.hhs.gov/css/parents/find-local-child-support-office).
   % endif
 ---
+comment: |
+  2026-08-10 synced w content.docx
 template: talk_w_other_parent_step
 subject: |
   Step ${ talk_w_other_parent_idx }: Talk to the other parent
@@ -701,62 +607,10 @@ content: |
     * Hopefully they will follow the order and you will not need to go back to court.
     * If the other parent still does not cooperate, let the court know by filing a motion. A motion is a form you file with the court asking the judge to order the other side to do something.
     * If you file a motion, attach a copy of what you wrote to the other parent and anything they responded.
----
-template: register_step
-subject: |
-  Step ${ register_idx }: Register your child support order from another state
-content: |
-  
-  * A child support order from another state is called a “foreign order.”
-  
-  * If you want the Alaska courts or Alaska police to enforce your foreign child support order, register your foreign order in an Alaska court.
-  
-  * There is no filing fee to register a foreign child support order.
-  
-  1. Give the following to an Alaska court. This is called “filing” your documents.
-   
-      *	1 certified or exemplified copy of the original order.
-      *	1 photocopy of the certified or exemplified original order. And
-      *	These forms:
-      
-          * <strong>Instructions - Registration of Support Order Issued by Another State, DR-341</strong> [Fill-In PDF](https://public.courts.alaska.gov/web/forms/docs/dr-341.pdf)
-          * <strong>Petition to Register a Support Order from Another State, DR-342</strong> [Fill-In PDF](https://public.courts.alaska.gov/web/forms/docs/dr-342.pdf)
-          * <strong>Confidential Information Sheet - Support Order from Another State, [DR-343</strong> [Fill-In PDF](https://public.courts.alaska.gov/web/forms/docs/dr-343.pdf)
-          * <strong>Notice of Registration of Another State's Support Order, DR-344</strong> [Fill-In PDF](https://public.courts.alaska.gov/web/forms/docs/dr-344.pdf)
-          Completed except for the date and clerk's signature
-          * <strong>Request for Hearing About Registered Child Support Order, DR-345</strong> [Fill-In PDF](https://public.courts.alaska.gov/web/forms/docs/dr-345.pdf)
-          Only fill in the Petitioner's and Respondent's names in the caption at the top left and leave the rest blank
-          * <strong>Confirmation of Registered Support Order, DR-347</strong> [Fill-In PDF](https://public.courts.alaska.gov/web/forms/docs/dr-347.pdf)          
-          Only fill in the Petitioner's and Respondent's names in the top left. Leave the rest blank
-          * <strong>Case description form</strong>, [CIV-125S](https://public.courts.alaska.gov/web/forms/docs/civ-125s.pdf)
-          
-          
-    1.  Tell the court how you want it to deliver the documents to the opposing party by:
-    
-      * 1st class US mail, which is free.
-      * Certified mail, which you have to pay for. Or
-      * A process server, which you have to arrange and pay for.
-
-    * **1st class US mail**: Give the clerk at the court:
-    
-      * the packet of forms to register a foreign order
-      * envelope(s) addressed to the opposing party
-      * a copy of all documents you are filling PLUS a Request for Hearing form for the opposing party
-      
-    * **Certified mail**: Give the clerk at the court:
-    
-      * the packet of forms to register a foreign order
-      * envelope(s) addressed to the opposing party
-      * a copy of all documents you are filling PLUS a Request for Hearing form for the opposing party
-      * the filled-out mailing forms for certified mail, restricted delivery, return receipt requested from the Post Office for each of the parties listed in the certificate of distribution on the Notice of Registration Order. On the green card, fill out your return address so you get the green card back later.
-      * enough postage for the court to serve by certified mail, restricted delivery, return receipt requested.
-      * Before coming to court, it is your responsibility to go to the Post Office and get the forms for certified mail, restricted delivery, return receipt requested, and figure out how much it will cost to mail the forms by this method and put the stamps on the envelope. If you don't provide the correct stamped envelope, your paperwork may be rejected.
-      
-    * **Process server**: Give the clerk:
-    
-      * the packet of forms to register a foreign order
-      * service instructions for the specific process server you want the court to use. Read the instructions about Personal Service By Process Server in [CIV-106](https://public.courts.alaska.gov/web/forms/docs/civ-106.pdf) 
----
+--- 
+comment: |
+  2026-08-11 fixed typo in closing div tag
+  2026-08-10 synced w content.docx
 template: court_to_enforce_step
 subject: |
   Step ${ court_to_enforce_idx }: Ask the court to enforce your order
@@ -767,26 +621,162 @@ content: |
   <div class='step-subheading'>Option 1</div> 
   File a **Motion & Affidavit to Enforce Order** and ask the court to order the other parent to pay. Attach your written request and any response you got back. The court may hold a hearing and issue another order specifically telling the other side to pay by a specific date.
   
-    **Motion & Affidavit to Enforce Order, SHC-1540** [Word](https://courts.alaska.gov/shc/family/docs/shc-1540.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1540n.pdf)
-    
-    **Order on Motion, SHC-1302** [Word](https://courts.alaska.gov/shc/family/docs/shc-1302.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1302n.pdf)
-    
-    **Notice of Motion, SHC-1630** [Word](https://courts.alaska.gov/shc/family/docs/shc-1630.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1630n.pdf) 
+    **Motion & Affidavit to Enforce Order, DR-975**[[Fill in PDF](https://ak-courts.info/dr975)]
     
   <div class='step-subheading'>Option 2</div>
   File a **Motion & Affidavit to Reduce to Judgment**, asking the court to issue a judgment for the amount owed to you. Once you have a judgment, you can try to collect the amount by executing on the other parent's Permanent Fund Dividend, bank account, wages, etc.
   
-    **Motion & Affidavit to Reduce to Judgment, SHC-1530** [Word](https://courts.alaska.gov/shc/family/docs/shc-1530.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1530n.pdf)
-  
-    **Order Reducing to Judgment, SHC-1535** [Word](https://courts.alaska.gov/shc/family/docs/shc-1535.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1535n.pdf)
+    **Motion & Affidavit to Reduce to Judgment, DR-970** [[Fill in PDF](https://ak-courts.info/dr970)]
     
     **Worksheet to Figure Out Judgment Amount, SHC-1536** [Word](https://courts.alaska.gov/shc/family/docs/shc-1536.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1536n.pdf)
+
+  <div class='step-subheading'>For both options</div>
+
+  You must also file a **Notice of Motion, CIV-650** [[Fill in PDF](https://ak-courts.info/civ650)] if the court issued the final order in your case and:
+
+  * ${ other_party_in_case } was not represented by a lawyer, **or**
+  * you are filing more than 1 year later.
   
-    **Notice of Motion, SHC-1630** [Word](https://courts.alaska.gov/shc/family/docs/shc-1630.doc) | [PDF](https://courts.alaska.gov/shc/family/docs/shc-1630n.pdf)
-    
+  ${ signing_paragraph }
+  
   <div class='step-subheading'>Read more about</div>
   
-  [Enforcing Your Order](https://courts.alaska.gov/shc/family/shcenforce.htm)
+  [Enforcing Your Order](https://ak-courts.info/enforce)
   
-  [Collecting money owed to you](https://courts.alaska.gov/shc/family/shcenforce.htm)
+  [Collecting money owed to you](https://courts.alaska.gov/shc/family/collectionsfaq.htm)
+---
+
+####################### no longer used #########################
+template: truefiling_file_and_serve_step
+subject: |
+  Step ${ truefiling_file_and_serve_idx }:
+  % if user_need in('answer custody', 'answer divorce') and type_of_response.any_true():
+  % if type_of_response.all_true('improper service', exclusive = True) or (type_of_response['improper service'] and not proper_service and ((user_need == 'answer custody' and type_of_response['wrong state'] and jurisdiction) or (user_need == 'answer divorce' and type_of_response['wrong state']) or (type_of_response['case in 2 states'] and stage_of_other_case == 'ended with no order'))) or ((type_of_response['default'] and stage_of_default in ('application filed', 'hearing scheduled') and proper_service) and ((user_need == 'answer custody' and type_of_response['wrong state'] and jurisdiction) or (user_need == 'answer divorce' and type_of_response['wrong state']) or (type_of_response['case in 2 states'] and stage_of_other_case == 'ended with no order'))) or (type_of_response.all_true('default', exclusive=True) and stage_of_default in ('application filed', 'hearing scheduled') and proper_service):
+  If you decide to move forward, file
+  % elif type_of_response['default'] and stage_of_default == 'judgment entered':
+  If you are asking to set aside the default, file
+  % else:
+  File
+  % endif
+  your documents with the court and serve ${ other_party_in_case }
+  % elif user_need in('custody', 'divorce') or (user_need in('answer custody', 'answer divorce') and type_of_response.all_false()):
+  File the original with your local court
+  % elif user_need in('child support', 'change AK order', 'change foreign order','change divorce order', 'change custody order', 'change foreign custody order', 'enforce AK order'):
+  % if defined('file_step_heading'):
+  ${ file_step_heading }
+  % else:
+  File
+  % endif
+  % elif user_need in('respond to motion in custody', 'respond to motion in divorce'):
+  % if type_of_response == 'reconsider':
+  If the judge asks you to respond to the Motion for Reconsideration, file your response
+  % else:
+  File and serve your response within 10 or 13 days
+  % endif
+  % else:
+  File your documents
+  % endif
+content: |
+  After you finish filling out your forms:
+
+    * You need to send them to the court. This is called “filing.” 
+  % if (user_need in('answer custody', 'answer divorce') and type_of_response.all_false()) or (user_need in('change custody order', 'change divorce order') and parents_agree) or (user_need == 'change AK order' and why_change == 'income' and parents_agree):
+    * Because both of you sign the forms and you each have a copy, you do not have to "serve" ${ other_party_in_case }.
+  % else:
+    * You also need to give ${ other_party_in_case } a copy of everything you file with the court. This is called “service.” Read ${ truefiling_serve_step.subject }.
+    * Keep a copy for your records.
+  % endif
+
+  % if user_need in('answer custody', 'answer divorce') and type_of_response.any_true():  
+  **Timing**: You have **20 days** after you receive the Complaint, to file your documents with the court and give a copy to ${ other_party_in_case }.
+  % elif user_need in('respond to motion in custody', 'respond to motion in divorce'):
+  **Timing**: If ${ other_party_in_case } mailed a copy of the motion to you, you have **13 days** to file and give a copy to ${ other_party_in_case }. Use the date of the postmark on the envelope.
+
+  If they served you another way, you have **10 days** to file and give a copy to ${ other_party_in_case }.
+  % endif
+
+  % if user_need == 'divorce' and ((legal_separation_or_divorce == 'divorce' and ((minor_children and agree_or_settle_kids == 'yes') or (not minor_children and agree_or_settle in('no prop debt or pregnancy','agree','do not know')))) or (legal_separation_or_divorce == 'legal separation' and agree_or_settle_kids == 'yes')):
+  % if user_need == 'divorce' and (legal_separation_or_divorce == 'divorce' and ((minor_children and agree_or_settle_kids == 'do not know') or (not minor_children and agree_or_settle == 'do not know'))):
+   If
+   % else:
+   Because
+   % endif
+   both of you sign the forms and you each have a copy, you do not have to "serve" ${ other_party_in_case } by mailing documents or using a process server.
+  % endif
+
+  <div class = "step-subheading">Filing</div>
+  
+  The court has a system called TrueFiling that you need to use unless you are exempt. You are exempt if one of these applies:
+  
+    * You are in a jail or correctional facility.
+    * You have a disability under the Americans with Disabilities Act (ADA).
+    * You do not have safe access to a computer, internet, or email.
+    * You cannot get the help you need to use TrueFiling.
+    * You have a language barrier or are Limited English Proficient.
+
+  You do not need to prove you are exempt.
+  
+  **If you are exempt and you choose not to use TrueFiling:**
+  
+    * Mark it on your form, or 
+    * Fill out **TF-820 Notice of Change to Use of Email or TrueFiling** [[Fill in PDF](https://ak-courts.info/tf820)]. 
+    * Take all your forms to the court, or mail them by first-class mail.
+  % if user_need in('custody', 'divorce'):
+     Use the [Court Directory](https://ak-courts.info/edir) to find court addresses.
+  % endif
+  
+  **If you are not exempt:**
+  
+    * [Create an account](https://ak-courts.info/tflogin) and file your documents.
+    * Read about [TrueFiling](https://ak-courts.info/truefile).
+
+  % if user_need in('custody', 'divorce', 'change foreign custody order') or (user_need == 'change custody order' and middle_of_case == 'no' and why_change in('review', 'schedule')) or (user_need == 'change divorce order' and middle_of_case == 'no' and ((type_of_final_order['custody order'] and why_change in('review', 'schedule')) or (type_of_final_order['spousal support'] and why_change_divorce_order == 'changed circumstances'))) or ((user_need == 'change AK order' and why_change == 'income' and parents_agree is not True) and middle_of_case == 'no'):
+  % if user_need in('custody', 'divorce'):
+  Pay the $250 filing fee to start your case.
+  % elif user_need in('change AK order', 'change divorce order', 'change custody order', 'change foreign custody order'):
+  ${ file_modify_filing_fee }
+  % endif
+
+  If you cannot afford the filing fee, you can ask the court to waive it:
+
+    * Call the Family Law Self-Help Center<br>
+      (907)264-0851, or<br>
+      (866)279-0851.
+
+  Or,
+
+    * Use **Exemption From the Payment of Fees, TF-920** [[Fill in PDF](https://ak-courts.info/tf920)].
+  
+  <div class = "example">
+  <p class = "heading">Note</p>
+  Check with your local court to make sure you understand the procedure to follow after the court decides whether or not to grant your exemption.
+  </div>
+
+  % endif
+  % if user_need in('custody', 'divorce'):
+  After you pay the filing fee, or the court says you can file for free, the court clerk will give you 2 copies of:
+
+    * a **Summons** and
+    * a "**Standing Order**". The **Standing Order** has important information about your case. Usually, the clerk will give you this order when you file.
+
+    One copy is for you, the other copy is for ${ other_party_in_case }.
+
+    % if (user_need == 'custody' and which_forms != 'contested' and (jurisdiction or add_jurisdiction_info_to_plan != 'stop')) \
+        or (user_need == 'divorce' \
+            and (((other_case and ((ongoing == 'yes' and other_state_case == 'continue') \
+                                  or (ongoing == 'no' and (residency_and_jurisdiction or continue_despite_no_residency == 'continue')))) \
+                  or (not other_case and (residency_and_jurisdiction or continue_despite_no_residency == 'continue')))) \
+            and ((legal_separation_or_divorce == 'divorce' \
+                  and ((not minor_children and not married_more_than_2 and not pregnant and property_division.all_true() and no_prop_or_debt_agree) \
+                      or (minor_children and agree_or_settle_kids in ('yes', 'do not know')) \
+                      or (not minor_children and not married_more_than_2 and not pregnant and property_division.any_false() and agree_or_settle in ('agree', 'do not know')) \
+                      or (not minor_children and not married_more_than_2 and pregnant and agree_or_settle in ('agree', 'do not know')) \
+                      or (not minor_children and married_more_than_2 and agree_or_settle in ('agree', 'do not know')))) \
+              or (legal_separation_or_divorce == 'legal separation' and agree_or_settle_kids == 'yes'))):
+  <div class = "example">
+  <p class = "heading">Note</p>
+  If you file an uncontested complaint, you may not get a **Summons**.
+  </div>
+    % endif
+  % endif
 ---
